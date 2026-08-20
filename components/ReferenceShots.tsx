@@ -1,5 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 import engawaHako from "@/public/reference/engawa-hako.jpg";
+import roomRender from "@/public/reference/room-render.jpg";
 
 /**
  * Reference photos the design is based on.
@@ -10,6 +11,11 @@ import engawaHako from "@/public/reference/engawa-hako.jpg";
  * above, and add an entry here.
  */
 const shots: { image: StaticImageData; alt: string; caption: string }[] = [
+  {
+    image: roomRender,
+    alt: "ภาพเรนเดอร์อาคารทรงญี่ปุ่น หลังคาเมทัลชีทสีเข้ม ระเบียงไม้ยกพื้น เสารับชายคา ประตูบานเลื่อน",
+    caption: "แนวทางรวม — หลังคาเมทัลชีทลาดเดียว ชายคายื่นคลุมระเบียง ผนังฉาบเรียบ",
+  },
   {
     image: engawaHako,
     alt: "บ้านสำเร็จรูป HAKO ระเบียงไม้เอ็นกาวะยกพื้น ชายคายื่นคลุม เสาไม้รับชายคา",
