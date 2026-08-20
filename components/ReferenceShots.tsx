@@ -161,11 +161,8 @@ export function ReferenceShots() {
                 ‹
               </button>
 
-              <p className="min-w-0 flex-1 text-center text-xs leading-5 text-ink">
-                {current.caption}
-                <span className="tnum ml-2 text-muted">
-                  {openAt! + 1}/{allShots.length}
-                </span>
+              <p className="tnum min-w-0 flex-1 text-center text-xs text-muted">
+                {openAt! + 1}/{allShots.length}
               </p>
 
               <button
@@ -205,32 +202,25 @@ function Thumb({
   priority?: boolean;
 }) {
   return (
-    <figure>
-      <button
-        type="button"
-        onClick={onOpen}
-        aria-label={`ดูรูปใหญ่ — ${shot.caption}`}
-        className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface"
-      >
-        <div className="aspect-3/2">
-          <Image
-            src={shot.image}
-            alt={shot.alt}
-            className="size-full object-cover transition duration-300 group-hover:scale-[1.03]"
-            sizes={
-              small
-                ? "(min-width: 640px) 25vw, 50vw"
-                : "(min-width: 640px) 50vw, 100vw"
-            }
-            priority={priority}
-          />
-        </div>
-      </button>
-      <figcaption
-        className={`mt-1.5 leading-5 text-muted ${small ? "text-[11px]" : "text-xs"}`}
-      >
-        {shot.caption}
-      </figcaption>
-    </figure>
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`ดูรูปใหญ่ — ${shot.caption}`}
+      className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface"
+    >
+      <div className="aspect-3/2">
+        <Image
+          src={shot.image}
+          alt={shot.alt}
+          className="size-full object-cover transition duration-300 group-hover:scale-[1.03]"
+          sizes={
+            small
+              ? "(min-width: 640px) 25vw, 50vw"
+              : "(min-width: 640px) 50vw, 100vw"
+          }
+          priority={priority}
+        />
+      </div>
+    </button>
   );
 }
