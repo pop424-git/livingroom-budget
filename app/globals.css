@@ -5,6 +5,8 @@
   --color-surface: #fffdf9;
   --color-line: #e5dfd3;
   --color-line-soft: #f0ebe1;
+  /* Category header band — darker than the card it sits on. */
+  --color-band: #e8e0d1;
   --color-ink: #3a3630;
   --color-muted: #8b8478;
   --color-wood: #b98e5e;
