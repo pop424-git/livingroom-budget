@@ -1,0 +1,99 @@
+# สรุปยอดห้องนั่งเล่น
+
+เว็บสรุปค่าใช้จ่ายงานสร้างห้องนั่งเล่น 4×8 ม. พร้อมระเบียงเอ็นกาวะ
+เพิ่ม/ลบ/แก้รายการได้ แบ่งเป็นหมวด มียอดรวมต่อหมวดและยอดรวมทั้งหมด
+
+Next.js 16 (App Router) · Tailwind CSS 4 · Neon Postgres · deploy บน Vercel
+
+## ฟีเจอร์
+
+- **หมวด** — เพิ่ม ลบ เปลี่ยนชื่อ เลื่อนลำดับได้ทั้งหมด ไม่มีหมวดไหน hardcode
+- **รายการ** — ชื่อ + รายละเอียด + ราคา (ใส่เป็นช่วง `min–max` หรือค่าเดียวก็ได้)
+- **สถานะ** — กดวงกลมซ้ายสลับ ยังไม่จ่าย / จ่ายแล้ว ยอดหัวเว็บแยกสองก้อนให้
+- **นับรวม / ไม่นับ** — ตัดรายการหรือทั้งหมวดออกจากยอดโดยไม่ต้องลบ
+  (เช่น โซลาร์เซลล์ที่ยังไม่ทำ) กดกลับมานับเมื่อไหร่ยอดเด้งเข้ารวมทันที
+- ไม่มี login ใครมีลิงก์ก็แก้ได้
+
+## ตั้งค่าครั้งแรก
+
+### 1. ต่อ Neon
+
+1. เปิดโปรเจคใน [Vercel Dashboard](https://vercel.com/dashboard) → แท็บ **Storage** → **Create Database** → เลือก **Neon**
+2. กด **Connect** เข้ากับโปรเจค — Vercel จะใส่ `DATABASE_URL` ให้อัตโนมัติ
+3. คัดลอกค่า `DATABASE_URL` มาไว้เครื่องตัวเองด้วย:
+
+```bash
+cp .env.local.example .env.local
+```
+
+แล้วแก้ค่าในไฟล์ให้เป็น connection string จริง
+
+### 2. สร้างตาราง + ใส่ข้อมูลตั้งต้น
+
+```bash
+npm install
+npm run db:setup
+```
+
+จะสร้างตาราง `categories` / `items` แล้วใส่ 13 หมวดพร้อมรายการย่อยและราคาที่มีอยู่แล้ว
+รันซ้ำได้ ถ้ามีข้อมูลอยู่แล้วจะไม่เขียนทับ
+
+ล้างของเดิมทิ้งแล้วใส่ใหม่:
+
+```bash
+npm run db:setup -- --force
+```
+
+⚠️ `--force` ลบรายการทั้งหมดที่แก้ไว้ในเว็บ กู้คืนไม่ได้
+
+### 3. รันดู
+
+```bash
+npm run dev
+```
+
+เปิด http://localhost:3000
+
+## Deploy
+
+```bash
+npx vercel
+```
+
+หรือ push เข้า GitHub แล้วกด Import ใน Vercel — ต้องแน่ใจว่า `DATABASE_URL`
+อยู่ใน Environment Variables ของโปรเจคทั้ง Production และ Preview
+
+## โครงสร้าง
+
+```
+app/
+  page.tsx        หน้าเดียวจบ — ดึงข้อมูลแล้วส่งให้ component
+  actions.ts      Server Actions ทั้งหมด (CRUD + toggle + เลื่อนลำดับ)
+  layout.tsx      ฟอนต์ Noto Sans Thai + metadata
+  globals.css     Tailwind + สีโทน muji
+lib/
+  db.ts           Neon client (ต่อตอน query แรก ไม่ใช่ตอน import)
+  queries.ts      อ่านข้อมูล
+  types.ts        type + การรวมยอด + format ตัวเลข
+components/
+  SummaryBar.tsx  แถบยอดรวมติดบน
+  CategoryCard.tsx
+  ItemRow.tsx
+  AddCategoryForm.tsx
+  ui.tsx          ปุ่ม submit / ปุ่มยืนยันก่อนลบ / class ที่ใช้ซ้ำ
+db/
+  schema.sql      ตาราง
+  setup.ts        สร้างตาราง + seed
+```
+
+## ข้อมูลอ้างอิง
+
+ตัวเลขและสเปคที่ seed ไว้มาจาก [NOTES-from-chats.md](NOTES-from-chats.md)
+ทั้งหมดเป็น**ช่วงประเมิน ไม่ใช่ใบเสนอราคาจริง** — หมวดที่ยังไม่มีราคาใส่ไว้เป็น 0
+รอกรอกหลังได้ราคาจากผู้รับเหมา
+
+## ข้อควรรู้
+
+เว็บนี้ไม่มีระบบล็อกอิน ใครที่มี URL แก้และลบข้อมูลได้ทั้งหมด
+Vercel URL เดาได้ไม่ยากถ้ารู้ชื่อโปรเจค — ถ้าอยากกันเบื้องต้น
+บอกได้ จะเพิ่ม passcode ช่องเดียวให้
