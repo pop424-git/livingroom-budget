@@ -7,9 +7,19 @@ import interiorDining from "@/public/reference/interior-dining.jpg";
 import interiorOverview from "@/public/reference/interior-overview.jpg";
 import interiorSofa from "@/public/reference/interior-sofa.jpg";
 import interiorTvWall from "@/public/reference/interior-tv-wall.jpg";
+import planDimensions from "@/public/reference/plan-dimensions.png";
 import roomRender from "@/public/reference/room-render.jpg";
+import sectionKitchen from "@/public/reference/section-kitchen.png";
+import sectionLiving from "@/public/reference/section-living.png";
+import viewFront from "@/public/reference/view-front.png";
 
-type Shot = { image: StaticImageData; alt: string; caption: string };
+type Shot = {
+  image: StaticImageData;
+  alt: string;
+  caption: string;
+  /** Plans and elevations lose their edges under object-cover. */
+  contain?: boolean;
+};
 
 /**
  * Reference photos the design is based on.
@@ -32,6 +42,35 @@ const exterior: Shot[] = [
   },
 ];
 
+/** The current design: plan and views drawn to the 4×8 m layout. */
+const design: Shot[] = [
+  {
+    image: planDimensions,
+    alt: "ผังพื้นพร้อมระยะ ห้องนั่งเล่น 27.44 ตร.ม. ห้องน้ำ 2.47 ตร.ม. กว้างภายใน 380 ซม. ยาว 797.5 ซม.",
+    caption: "ผังพื้นพร้อมระยะ",
+    contain: true,
+  },
+  {
+    image: viewFront,
+    alt: "มุมมองจากด้านหน้า เห็นหลังคาจั่วยื่นคลุม ภายในห้อง และระเบียงไม้ด้านซ้าย",
+    caption: "มุมมองด้านหน้า",
+    contain: true,
+  },
+  {
+    image: sectionLiving,
+    alt: "รูปตัดตามยาว เห็นโซฟา ทีวี ตู้ลอย โต๊ะกินข้าว ประตูกระจกบานเลื่อน และห้องน้ำ",
+    caption: "รูปตัด ฝั่งโซฟา–ห้องน้ำ",
+    contain: true,
+  },
+  {
+    image: sectionKitchen,
+    alt: "รูปตัดตามยาวอีกด้าน เห็นครัว ตู้เย็น โต๊ะกินข้าว โซฟา และระเบียงไม้ยกพื้น",
+    caption: "รูปตัด ฝั่งครัว–ระเบียง",
+    contain: true,
+  },
+];
+
+/** Earlier interior studies, drawn before the engawa was added. */
 const interior: Shot[] = [
   {
     image: interiorOverview,
@@ -56,7 +95,7 @@ const interior: Shot[] = [
 ];
 
 /** One flat list so the lightbox can page through every shot in order. */
-const allShots = [...exterior, ...interior];
+const allShots = [...exterior, ...design, ...interior];
 
 export function ReferenceShots() {
   const [openAt, setOpenAt] = useState<number | null>(null);
@@ -107,11 +146,22 @@ export function ReferenceShots() {
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {interior.map((shot, index) => (
+          {design.map((shot, index) => (
             <Thumb
               key={shot.image.src}
               shot={shot}
               onOpen={() => open(exterior.length + index)}
+              small
+            />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {interior.map((shot, index) => (
+            <Thumb
+              key={shot.image.src}
+              shot={shot}
+              onOpen={() => open(exterior.length + design.length + index)}
               small
             />
           ))}
@@ -212,7 +262,9 @@ function Thumb({
         <Image
           src={shot.image}
           alt={shot.alt}
-          className="size-full object-cover transition duration-300 group-hover:scale-[1.03]"
+          className={`size-full transition duration-300 group-hover:scale-[1.03] ${
+            shot.contain ? "object-contain" : "object-cover"
+          }`}
           sizes={
             small
               ? "(min-width: 640px) 25vw, 50vw"
