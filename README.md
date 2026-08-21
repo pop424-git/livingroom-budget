@@ -83,7 +83,19 @@ components/
   ui.tsx          ปุ่ม submit / ปุ่มยืนยันก่อนลบ / class ที่ใช้ซ้ำ
 db/
   schema.sql      ตาราง
-  setup.ts        สร้างตาราง + seed
+  seed-data.ts    หมวด/รายการตั้งต้นทั้งหมด — แหล่งข้อมูลเดียว
+  setup.ts        สร้างตาราง + seed (ใช้ seed-data.ts)
+  migrate-solar.ts  แก้หมวดโซลาร์บน DB ที่มีข้อมูลอยู่แล้ว
+```
+
+## แก้ข้อมูลบน DB ที่ใช้งานอยู่
+
+`db:setup -- --force` ลบทุกอย่างทิ้ง ใช้กับ DB ที่กรอกราคาไปแล้วไม่ได้
+ถ้าต้องแก้เฉพาะบางหมวด เขียน migration แยกแบบ `db/migrate-solar.ts` —
+แก้เฉพาะที่ตั้งใจ ไม่แตะหมวดอื่น และรันซ้ำได้ไม่พัง
+
+```bash
+npm run db:migrate-solar
 ```
 
 ## ข้อมูลอ้างอิง

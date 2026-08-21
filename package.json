@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "db:setup": "node --env-file=.env.local db/setup.ts"
+    "db:setup": "node --env-file=.env.local db/setup.ts",
+    "db:migrate-solar": "node --env-file=.env.local db/migrate-solar.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
