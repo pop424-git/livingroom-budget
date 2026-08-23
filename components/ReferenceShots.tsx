@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
+import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
@@ -51,8 +52,18 @@ const interior: Shot[] = [
   },
 ];
 
+/** Engawa reference, shown last and full width: it is the one shot about the
+    veranda itself rather than the room. */
+const engawa: Shot[] = [
+  {
+    image: engawaVeranda,
+    alt: "ภาพเรนเดอร์ระเบียงเอ็นกาวะไม้ยกพื้น เสาไม้รับชายคายื่นคลุมยาว ประตูบานเลื่อนกระจกกรอบไม้ ม้านั่งไม้ยาว และสวนหินด้านหน้า",
+    caption: "ระเบียงเอ็นกาวะ — พื้นไม้ยกพื้น เสารับชายคายื่น ม้านั่งไม้ยาว",
+  },
+];
+
 /** One flat list so the lightbox can page through every shot in order. */
-const allShots = [...overview, ...interior];
+const allShots = [...overview, ...interior, ...engawa];
 
 export function ReferenceShots() {
   const [openAt, setOpenAt] = useState<number | null>(null);
@@ -112,6 +123,17 @@ export function ReferenceShots() {
               shot={shot}
               onOpen={() => open(overview.length + index)}
               // The renders are panoramic; a 3:2 crop would cut off both ends.
+              aspect="aspect-2/1"
+            />
+          ))}
+        </div>
+
+        <div className="grid gap-3">
+          {engawa.map((shot, index) => (
+            <Thumb
+              key={shot.image.src}
+              shot={shot}
+              onOpen={() => open(overview.length + interior.length + index)}
               aspect="aspect-2/1"
             />
           ))}
