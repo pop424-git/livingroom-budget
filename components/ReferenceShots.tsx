@@ -2,100 +2,57 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
-import engawaHako from "@/public/reference/engawa-hako.jpg";
-import interiorDining from "@/public/reference/interior-dining.jpg";
-import interiorOverview from "@/public/reference/interior-overview.jpg";
-import interiorSofa from "@/public/reference/interior-sofa.jpg";
-import interiorTvWall from "@/public/reference/interior-tv-wall.jpg";
+import exteriorFront from "@/public/reference/exterior-front.jpg";
+import interiorEngawa from "@/public/reference/interior-engawa.jpg";
+import interiorLiving from "@/public/reference/interior-living.jpg";
 import planDimensions from "@/public/reference/plan-dimensions.png";
-import roomRender from "@/public/reference/room-render.jpg";
-import sectionKitchen from "@/public/reference/section-kitchen.png";
-import sectionLiving from "@/public/reference/section-living.png";
-import viewFront from "@/public/reference/view-front.png";
 
 type Shot = {
   image: StaticImageData;
   alt: string;
   caption: string;
-  /** Plans and elevations lose their edges under object-cover. */
+  /** Plans lose their edges under object-cover. */
   contain?: boolean;
 };
 
 /**
- * Reference photos the design is based on.
+ * Reference shots the design is based on.
  *
  * Images are imported rather than referenced by path so Next can size and
  * optimise them, and so a missing file breaks the build instead of shipping a
  * broken image. To add one: drop the file in public/reference/, import it
  * above, and add an entry to the right list.
  */
-const exterior: Shot[] = [
+const overview: Shot[] = [
   {
-    image: roomRender,
-    alt: "ภาพเรนเดอร์อาคารทรงญี่ปุ่น หลังคาเมทัลชีทสีเข้ม ระเบียงไม้ยกพื้น เสารับชายคา ประตูบานเลื่อน",
-    caption: "แนวทางรวม — หลังคาเมทัลชีทลาดเดียว ชายคายื่นคลุมระเบียง ผนังฉาบเรียบ",
+    image: exteriorFront,
+    alt: "บ้านผนังขาว หลังคาจั่วชายคายื่นคลุม ประตูบานเลื่อนกระจกเปิดเต็มหน้า เห็นภายในห้องนั่งเล่น มีระเบียงไม้และบันไดไม้ด้านหน้า",
+    caption: "แนวทางรวม — หลังคาจั่วชายคายื่น ประตูเปิดเต็มหน้า ระเบียงไม้ยกพื้น",
   },
-  {
-    image: engawaHako,
-    alt: "บ้านสำเร็จรูป HAKO ระเบียงไม้เอ็นกาวะยกพื้น ชายคายื่นคลุม เสาไม้รับชายคา",
-    caption: "ระเบียงเอ็นกาวะ — ยกพื้น 45 ซม. นั่งห้อยขาได้ เสาไม้รับชายคาที่ขอบ",
-  },
-];
-
-/** The current design: plan and views drawn to the 4×8 m layout. */
-const design: Shot[] = [
   {
     image: planDimensions,
-    alt: "ผังพื้นพร้อมระยะ ห้องนั่งเล่น 27.44 ตร.ม. ห้องน้ำ 2.47 ตร.ม. กว้างภายใน 380 ซม. ยาว 797.5 ซม.",
-    caption: "ผังพื้นพร้อมระยะ",
-    contain: true,
-  },
-  {
-    image: viewFront,
-    alt: "มุมมองจากด้านหน้า เห็นหลังคาจั่วยื่นคลุม ภายในห้อง และระเบียงไม้ด้านซ้าย",
-    caption: "มุมมองด้านหน้า",
-    contain: true,
-  },
-  {
-    image: sectionLiving,
-    alt: "รูปตัดตามยาว เห็นโซฟา ทีวี ตู้ลอย โต๊ะกินข้าว ประตูกระจกบานเลื่อน และห้องน้ำ",
-    caption: "รูปตัด ฝั่งโซฟา–ห้องน้ำ",
-    contain: true,
-  },
-  {
-    image: sectionKitchen,
-    alt: "รูปตัดตามยาวอีกด้าน เห็นครัว ตู้เย็น โต๊ะกินข้าว โซฟา และระเบียงไม้ยกพื้น",
-    caption: "รูปตัด ฝั่งครัว–ระเบียง",
+    alt: "ผังพื้นพร้อมระยะ ห้องนั่งเล่น 32 ตร.ม. ห้องน้ำ 3 ตร.ม. กว้าง 400 ซม. ยาว 800 ซม. ระเบียงกว้าง 150 ซม. สองฝั่ง",
+    caption: "ผังพื้นพร้อมระยะ — ห้อง 4×8 ม. ห้องน้ำ 3 ตร.ม. ระเบียง 1.5 ม.",
     contain: true,
   },
 ];
 
-/** Earlier interior studies, drawn before the engawa was added. */
+/** Interior renders: the same room seen from each end. */
 const interior: Shot[] = [
   {
-    image: interiorOverview,
-    alt: "ภาพภายในห้อง มุมกว้าง เห็นโซฟา โต๊ะกินข้าว และผนังไม้ระแนง",
-    caption: "มุมรวม โซฟา–โต๊ะกินข้าว",
+    image: interiorLiving,
+    alt: "ภาพเรนเดอร์ภายใน เห็นโซฟา ทีวีบนตู้ลอย มู่ลี่ไม้ โต๊ะกินข้าวใต้โคมห้อย ประตูกระจกบานเลื่อน และห้องน้ำด้านขวา",
+    caption: "ภายใน — โซฟา ผนังทีวี โต๊ะกินข้าว ห้องน้ำ",
   },
   {
-    image: interiorTvWall,
-    alt: "ผนังทีวีพร้อมตู้ลอย หน้าต่างมู่ลี่ไม้ แอร์ติดผนัง และประตูกระจกออกระเบียง",
-    caption: "ผนังทีวี ตู้ลอย มู่ลี่ไม้",
-  },
-  {
-    image: interiorDining,
-    alt: "มองจากโต๊ะกินข้าวไปทางโซฟาและผนังทีวี เห็นแอร์ติดผนังเหนือหน้าต่าง",
-    caption: "มองจากโต๊ะกินข้าว",
-  },
-  {
-    image: interiorSofa,
-    alt: "โซนโซฟาและโต๊ะกินข้าว เห็นแอร์ติดผนังและหน้าต่างมู่ลี่ไม้",
-    caption: "โซนโซฟา จุดติดแอร์",
+    image: interiorEngawa,
+    alt: "ภาพเรนเดอร์มองจากระเบียงเข้าไปในห้อง เห็นครัว ตู้เย็น โต๊ะกินข้าว โซฟา และพื้นไม้ยกระดับจากพื้นปูน",
+    caption: "มองจากระเบียง — ครัว โต๊ะกินข้าว พื้นยกระดับ",
   },
 ];
 
 /** One flat list so the lightbox can page through every shot in order. */
-const allShots = [...exterior, ...design, ...interior];
+const allShots = [...overview, ...interior];
 
 export function ReferenceShots() {
   const [openAt, setOpenAt] = useState<number | null>(null);
@@ -133,36 +90,29 @@ export function ReferenceShots() {
 
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-3">
         <div className="grid gap-3 sm:grid-cols-2">
-          {exterior.map((shot, index) => (
+          {overview.map((shot, index) => (
             <Thumb
               key={shot.image.src}
               shot={shot}
               onOpen={() => open(index)}
+              // 4:3 is the photo's own ratio, and it leaves the near-square
+              // plan more room than a 3:2 box would.
+              aspect="aspect-4/3"
               priority
             />
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {design.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(exterior.length + index)}
-              small
-            />
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2">
           {interior.map((shot, index) => (
             <Thumb
               key={shot.image.src}
               shot={shot}
-              onOpen={() => open(exterior.length + design.length + index)}
-              small
+              onOpen={() => open(overview.length + index)}
+              // The renders are panoramic; a 3:2 crop would cut off both ends.
+              aspect="aspect-2/1"
             />
           ))}
         </div>
@@ -243,12 +193,12 @@ export function ReferenceShots() {
 function Thumb({
   shot,
   onOpen,
-  small = false,
+  aspect,
   priority = false,
 }: {
   shot: Shot;
   onOpen: () => void;
-  small?: boolean;
+  aspect: string;
   priority?: boolean;
 }) {
   return (
@@ -258,18 +208,14 @@ function Thumb({
       aria-label={`ดูรูปใหญ่ — ${shot.caption}`}
       className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface"
     >
-      <div className="aspect-3/2">
+      <div className={aspect}>
         <Image
           src={shot.image}
           alt={shot.alt}
           className={`size-full transition duration-300 group-hover:scale-[1.03] ${
             shot.contain ? "object-contain" : "object-cover"
           }`}
-          sizes={
-            small
-              ? "(min-width: 640px) 25vw, 50vw"
-              : "(min-width: 640px) 50vw, 100vw"
-          }
+          sizes="(min-width: 640px) 50vw, 100vw"
           priority={priority}
         />
       </div>
