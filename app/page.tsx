@@ -1,6 +1,5 @@
 import { AddCategoryForm } from "@/components/AddCategoryForm";
 import { CategoryCard } from "@/components/CategoryCard";
-import { ReferenceShots } from "@/components/ReferenceShots";
 import { SummaryBar } from "@/components/SummaryBar";
 import { getCategories } from "@/lib/queries";
 
@@ -14,10 +13,6 @@ export default async function Page() {
       <SummaryBar categories={categories} />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="pt-8">
-          <ReferenceShots />
-        </div>
-
         <header className="py-8">
           <h1 className="text-xl font-medium text-ink">สรุปยอดห้องนั่งเล่น</h1>
           <p className="mt-1 text-sm leading-6 text-muted">
