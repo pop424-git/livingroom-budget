@@ -7,9 +7,11 @@
  * be refreshed without touching items or prices. Matches categories by name
  * and skips any it cannot find. Safe to re-run.
  *
- * It does overwrite notes edited through the site, so put the wording in
- * seed-data.ts first if you want to keep it. Item names, prices and statuses
- * are never touched.
+ * It overwrites notes edited through the site, so put the wording in
+ * seed-data.ts first if you want to keep it. Categories the seed leaves
+ * without a note are skipped entirely rather than blanked — a note typed into
+ * the site is the only copy there is. Item names, prices and statuses are
+ * never touched.
  */
 import { neon } from "@neondatabase/serverless";
 import { seed } from "./seed-data.ts";
@@ -29,8 +31,15 @@ async function main() {
   let changed = 0;
   let missing = 0;
 
+  let blank = 0;
+
   for (const category of seed) {
-    const note = category.note ?? "";
+    // No note in the seed is not the same as "clear the note".
+    if (!category.note) {
+      blank += 1;
+      continue;
+    }
+    const note = category.note;
     const rows = await sql`
       update categories set note = ${note}
       where name = ${category.name} and note is distinct from ${note}
@@ -51,7 +60,8 @@ async function main() {
   }
 
   console.log(
-    `done — ${changed} note(s) updated, ${missing} categor(ies) not in the database`
+    `done — ${changed} note(s) updated, ${blank} left alone (no note in seed), ` +
+      `${missing} categor(ies) not in the database`
   );
 }
 
