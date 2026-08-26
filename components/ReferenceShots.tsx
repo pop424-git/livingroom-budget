@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
+import ceilingExposed from "@/public/reference/ceiling-exposed.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
@@ -62,8 +63,17 @@ const engawa: Shot[] = [
   },
 ];
 
+/** A built example of the exposed ceiling, rather than a render of it. */
+const materials: Shot[] = [
+  {
+    image: ceilingExposed,
+    alt: "ภาพถ่ายภายในคาเฟ่ หลังคาจั่วโชว์โครงเหล็กสีดำ บุฉนวนฟอยล์สีเข้มใต้แผ่นเมทัลชีท ไม่ทำฝ้า มีไฟรางและโคมห้อย ผนังขาว ประตูกระจกบานใหญ่",
+    caption: "ตัวอย่างจริง — เพดานโชว์โครง ฟอยล์เข้มใต้เมทัลชีท ไม่ทำฝ้า",
+  },
+];
+
 /** One flat list so the lightbox can page through every shot in order. */
-const allShots = [...overview, ...interior, ...engawa];
+const allShots = [...overview, ...interior, ...engawa, ...materials];
 
 export function ReferenceShots() {
   const [openAt, setOpenAt] = useState<number | null>(null);
@@ -135,6 +145,23 @@ export function ReferenceShots() {
               shot={shot}
               onOpen={() => open(overview.length + interior.length + index)}
               aspect="aspect-2/1"
+            />
+          ))}
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          {materials.map((shot, index) => (
+            <Thumb
+              key={shot.image.src}
+              shot={shot}
+              onOpen={() =>
+                open(
+                  overview.length + interior.length + engawa.length + index
+                )
+              }
+              // A portrait photo among landscape renders — half width keeps it
+              // from towering over the rest.
+              aspect="aspect-3/4"
             />
           ))}
         </div>
