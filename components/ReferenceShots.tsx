@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 import ceilingExposed from "@/public/reference/ceiling-exposed.jpg";
+import exteriorBuilt from "@/public/reference/exterior-built.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
@@ -63,8 +64,13 @@ const engawa: Shot[] = [
   },
 ];
 
-/** A built example of the exposed ceiling, rather than a render of it. */
+/** Built examples — photographs of the finishes, not renders of them. */
 const materials: Shot[] = [
+  {
+    image: exteriorBuilt,
+    alt: "ภาพถ่ายบ้านหลังเล็กจริง หลังคาจั่วชายคายื่นรอบด้าน ผนังฉาบขาว หน้าต่างบานเลื่อน และปีกกันสาดโครงเหล็กด้านข้าง",
+    caption: "ตัวอย่างจริง — หลังคาจั่ว ชายคายื่น ผนังฉาบขาว",
+  },
   {
     image: ceilingExposed,
     alt: "ภาพถ่ายภายในคาเฟ่ หลังคาจั่วโชว์โครงเหล็กสีดำ บุฉนวนฟอยล์สีเข้มใต้แผ่นเมทัลชีท ไม่ทำฝ้า มีไฟรางและโคมห้อย ผนังขาว ประตูกระจกบานใหญ่",
@@ -159,9 +165,8 @@ export function ReferenceShots() {
                   overview.length + interior.length + engawa.length + index
                 )
               }
-              // A portrait photo among landscape renders — half width keeps it
-              // from towering over the rest.
-              aspect="aspect-3/4"
+              // Both photos sit near 5:4, so a 4:3 box crops barely anything.
+              aspect="aspect-4/3"
             />
           ))}
         </div>
