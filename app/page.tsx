@@ -22,7 +22,7 @@ export default async function Page() {
           <h1 className="text-xl font-medium text-ink">สรุปยอดห้องนั่งเล่น</h1>
           <p className="mt-1 text-sm leading-6 text-muted">
             ห้อง 4×8 ม. ยกพื้น 45 ซม. ระเบียงไม้เอ็นกาวะลึก 2 ม.
-            ชายคายื่น 2.4 ม.
+            หลังคาจั่วไม่สมมาตร ฝ้า 2.40 ม. ชายคายื่น 2.50 ม.
           </p>
           <p className="mt-2 text-xs leading-5 text-muted">
             ราคาส่วนใหญ่เป็นช่วงประเมิน ยังไม่ใช่ใบเสนอราคาจริง ·
