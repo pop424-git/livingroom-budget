@@ -11,7 +11,8 @@
     "db:sync-notes": "node --env-file=.env.local db/sync-notes.ts",
     "db:migrate-veranda": "node --env-file=.env.local db/migrate-veranda-2m.ts",
     "db:migrate-plan": "node --env-file=.env.local db/migrate-plan-400x800.ts",
-    "db:migrate-section": "node --env-file=.env.local db/migrate-section.ts"
+    "db:migrate-section": "node --env-file=.env.local db/migrate-section.ts",
+    "db:migrate-lightwall": "node --env-file=.env.local db/migrate-lightwall.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
