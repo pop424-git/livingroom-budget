@@ -19,7 +19,12 @@ function parseOptionalAmount(raw: FormDataEntryValue | null): number | null {
 }
 
 function parseText(raw: FormDataEntryValue | null, limit = 500): string {
-  return String(raw ?? "").trim().slice(0, limit);
+  // Browsers submit textarea newlines as CRLF; store them as plain \n so the
+  // text reads the same wherever it ends up.
+  return String(raw ?? "")
+    .replace(/\r\n?/g, "\n")
+    .trim()
+    .slice(0, limit);
 }
 
 function parseId(raw: FormDataEntryValue | null): number {

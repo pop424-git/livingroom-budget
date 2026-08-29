@@ -59,10 +59,10 @@ async function main() {
       itemOrder += 1;
       await sql`
         insert into items (category_id, name, detail, amount_min, amount_max,
-                           is_included, sort_order)
+                           is_included, is_paid, sort_order)
         values (${categoryId}, ${item.name}, ${item.detail ?? ""},
                 ${item.min ?? 0}, ${item.max ?? null},
-                ${item.included ?? true}, ${itemOrder})`;
+                ${item.included ?? true}, ${item.paid ?? false}, ${itemOrder})`;
     }
   }
 
