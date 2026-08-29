@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
-import ceilingExposed from "@/public/reference/ceiling-exposed.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
@@ -65,17 +64,12 @@ const engawa: Shot[] = [
   },
 ];
 
-/** The building seen whole: the render, and a photo of the ceiling finish. */
+/** The building seen whole. */
 const materials: Shot[] = [
   {
     image: exteriorFront,
     alt: "ภาพเรนเดอร์ตัวอาคาร หลังคาจั่วไม่สมมาตรชายคายื่นคลุม เสาไม้รับชายคา ประตูบานเลื่อนเปิดเต็มหน้า ระเบียงไม้ยกพื้น และไฟซ่อนใต้ชายคา",
     caption: "ตัวอาคาร — จั่วชายคายื่น เสาไม้รับ ประตูเปิดเต็มหน้า",
-  },
-  {
-    image: ceilingExposed,
-    alt: "ภาพถ่ายภายในคาเฟ่ หลังคาจั่วโชว์โครงเหล็กสีดำ บุฉนวนฟอยล์สีเข้มใต้แผ่นเมทัลชีท ไม่ทำฝ้า มีไฟรางและโคมห้อย ผนังขาว ประตูกระจกบานใหญ่",
-    caption: "ตัวอย่างจริง — เพดานโชว์โครง ฟอยล์เข้มใต้เมทัลชีท ไม่ทำฝ้า",
   },
 ];
 
@@ -156,7 +150,7 @@ export function ReferenceShots() {
           ))}
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3">
           {materials.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -166,8 +160,9 @@ export function ReferenceShots() {
                   overview.length + interior.length + engawa.length + index
                 )
               }
-              // Both photos sit near 5:4, so a 4:3 box crops barely anything.
-              aspect="aspect-4/3"
+              // Alone on its row now, so it runs full width; 3:2 trims the
+              // empty sky and gravel without touching the building.
+              aspect="aspect-3/2"
             />
           ))}
         </div>
