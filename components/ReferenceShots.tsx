@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 import ceilingExposed from "@/public/reference/ceiling-exposed.jpg";
-import exteriorBuilt from "@/public/reference/exterior-built.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
 import planDimensions from "@/public/reference/plan-dimensions.png";
+import sectionDimensions from "@/public/reference/section-dimensions.jpg";
 
 type Shot = {
   image: StaticImageData;
@@ -29,14 +29,15 @@ type Shot = {
 const overview: Shot[] = [
   {
     image: planDimensions,
-    alt: "ผังพื้นพร้อมระยะ ห้องนั่งเล่น 32 ตร.ม. ห้องน้ำ 3 ตร.ม. กว้าง 400 ซม. ยาว 800 ซม. ระเบียงกว้าง 150 ซม. สองฝั่ง",
-    caption: "ผังพื้นพร้อมระยะ — ห้อง 4×8 ม. ห้องน้ำ 3 ตร.ม. ระเบียง 1.5 ม.",
+    alt: "ผังพื้นพร้อมระยะ ห้องนั่งเล่น 32 ตร.ม. ห้องน้ำ 3 ตร.ม. อาคาร 400 × 800 ซม. ระเบียงลึก 200 ซม.",
+    caption: "ผังพื้น — ห้อง 4×8 ม. ห้องน้ำ 3 ตร.ม. ระเบียง 2 ม.",
     contain: true,
   },
   {
-    image: exteriorFront,
-    alt: "บ้านผนังขาว หลังคาจั่วชายคายื่นคลุม ประตูบานเลื่อนกระจกเปิดเต็มหน้า เห็นภายในห้องนั่งเล่น มีระเบียงไม้และบันไดไม้ด้านหน้า",
-    caption: "แนวทางรวม — หลังคาจั่วชายคายื่น ประตูเปิดเต็มหน้า ระเบียงไม้ยกพื้น",
+    image: sectionDimensions,
+    alt: "รูปตัดขวางพร้อมระยะ จั่วไม่สมมาตร ชันฝั่งเดค 38.7° ฝั่งหลัง 21.8° สันสูง 4.00 ม. จากพื้น ท้องชายคา 2.00 ม. เท่ากันสองฝั่ง ฝ้าห้อง 2.40 ม. พื้นยก 0.45 ม. เดคลึก 2.00 ม. ชายคาเลยขอบเดค 0.50 ม.",
+    caption: "รูปตัด — จั่วไม่สมมาตร 38.7°/21.8° สัน 4.00 ม. ฝ้า 2.40 ม.",
+    contain: true,
   },
 ];
 
@@ -64,12 +65,12 @@ const engawa: Shot[] = [
   },
 ];
 
-/** Built examples — photographs of the finishes, not renders of them. */
+/** The building seen whole: the render, and a photo of the ceiling finish. */
 const materials: Shot[] = [
   {
-    image: exteriorBuilt,
-    alt: "ภาพถ่ายบ้านหลังเล็กจริง หลังคาจั่วชายคายื่นรอบด้าน ผนังฉาบขาว หน้าต่างบานเลื่อน และปีกกันสาดโครงเหล็กด้านข้าง",
-    caption: "ตัวอย่างจริง — หลังคาจั่ว ชายคายื่น ผนังฉาบขาว",
+    image: exteriorFront,
+    alt: "ภาพเรนเดอร์ตัวอาคาร หลังคาจั่วไม่สมมาตรชายคายื่นคลุม เสาไม้รับชายคา ประตูบานเลื่อนเปิดเต็มหน้า ระเบียงไม้ยกพื้น และไฟซ่อนใต้ชายคา",
+    caption: "ตัวอาคาร — จั่วชายคายื่น เสาไม้รับ ประตูเปิดเต็มหน้า",
   },
   {
     image: ceilingExposed,
@@ -124,8 +125,8 @@ export function ReferenceShots() {
               key={shot.image.src}
               shot={shot}
               onOpen={() => open(index)}
-              // 4:3 is the photo's own ratio, and it leaves the near-square
-              // plan more room than a 3:2 box would.
+              // Both are drawings shown whole, so the box only has to be
+              // roomy enough for a near-square page.
               aspect="aspect-4/3"
               priority
             />
