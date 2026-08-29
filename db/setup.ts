@@ -5,7 +5,7 @@
  *   npm run db:setup -- --force wipe both tables first, then seed
  *
  * --force deletes every price entered through the site. To change one category
- * on a live database, write a migration instead (see db/migrate-solar.ts).
+ * on a live database, write a migration instead (see db/migrate-section.ts).
  */
 import { neon } from "@neondatabase/serverless";
 import { readFileSync } from "node:fs";

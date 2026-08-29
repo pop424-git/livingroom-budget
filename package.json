@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "db:setup": "node --env-file=.env.local db/setup.ts",
-    "db:migrate-solar": "node --env-file=.env.local db/migrate-solar.ts",
     "db:sync-notes": "node --env-file=.env.local db/sync-notes.ts",
     "db:migrate-veranda": "node --env-file=.env.local db/migrate-veranda-2m.ts",
     "db:migrate-plan": "node --env-file=.env.local db/migrate-plan-400x800.ts",
