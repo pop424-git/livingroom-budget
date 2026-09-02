@@ -140,7 +140,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
         </div>
       </div>
 
-      <div className="row-tools flex items-center justify-end gap-0.5 transition">
+      <div className="flex items-center justify-end gap-0.5">
         <form action={moveItem}>
           <input type="hidden" name="id" value={item.id} />
           <input type="hidden" name="direction" value="up" />
