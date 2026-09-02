@@ -37,3 +37,19 @@ input,
 textarea {
   font: inherit;
 }
+
+/* Row controls: always visible on touch, revealed on hover where a mouse exists. */
+.row-tools {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row-tools {
+    opacity: 0;
+  }
+
+  .group:hover .row-tools,
+  .row-tools:focus-within {
+    opacity: 1;
+  }
+}

@@ -99,20 +99,6 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
       }`}
     >
       <div className="flex items-start gap-3">
-        <form action={toggleItemPaid} className="pt-0.5">
-          <input type="hidden" name="id" value={item.id} />
-          <SubmitButton
-            title={item.is_paid ? "จ่ายแล้ว — กดเพื่อยกเลิก" : "ยังไม่จ่าย — กดเมื่อจ่ายแล้ว"}
-            className={`flex size-5 items-center justify-center rounded-full border text-[10px] transition ${
-              item.is_paid
-                ? "border-moss bg-moss text-white"
-                : "border-line bg-surface text-transparent hover:border-moss/60"
-            }`}
-          >
-            ✓
-          </SubmitButton>
-        </form>
-
         <button
           type="button"
           onClick={() => setEditing(true)}
@@ -128,40 +114,60 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
           )}
         </button>
 
-        <div className="shrink-0 text-right">
-          <span className="tnum block text-sm text-ink">
+        <div className="-mt-1 flex shrink-0 items-center gap-2">
+          <span className="tnum text-sm text-ink">
             {formatRange(itemRange(item))}
           </span>
-          <div className="mt-1 flex items-center justify-end gap-0.5 opacity-0 transition group-hover:opacity-100 focus-within:opacity-100">
-            <form action={moveItem}>
-              <input type="hidden" name="id" value={item.id} />
-              <input type="hidden" name="direction" value="up" />
-              <SubmitButton title="เลื่อนขึ้น" className={ghostButtonClass}>
-                ↑
-              </SubmitButton>
-            </form>
-            <form action={moveItem}>
-              <input type="hidden" name="id" value={item.id} />
-              <input type="hidden" name="direction" value="down" />
-              <SubmitButton title="เลื่อนลง" className={ghostButtonClass}>
-                ↓
-              </SubmitButton>
-            </form>
-            <form action={toggleItemIncluded}>
-              <input type="hidden" name="id" value={item.id} />
-              <SubmitButton
-                title={
-                  item.is_included
-                    ? "นับรวมอยู่ — กดเพื่อไม่นับ"
-                    : "ไม่ถูกนับ — กดเพื่อนับรวม"
-                }
-                className={ghostButtonClass}
-              >
-                {item.is_included ? "นับรวม" : "ไม่นับ"}
-              </SubmitButton>
-            </form>
-          </div>
+
+          <form action={toggleItemPaid}>
+            <input type="hidden" name="id" value={item.id} />
+            <SubmitButton
+              title={
+                item.is_paid
+                  ? "จ่ายแล้ว — กดเพื่อยกเลิก"
+                  : "ยังไม่จ่าย — กดเมื่อจ่ายแล้ว"
+              }
+              className={`flex h-8 items-center gap-1 rounded-md border px-2 text-[11px] whitespace-nowrap transition ${
+                item.is_paid
+                  ? "border-moss bg-moss text-white"
+                  : "border-line-soft bg-transparent text-muted/60 hover:border-moss/50 hover:text-moss"
+              }`}
+            >
+              <span aria-hidden>{item.is_paid ? "✓" : "○"}</span>
+              จ่ายแล้ว
+            </SubmitButton>
+          </form>
         </div>
+      </div>
+
+      <div className="row-tools flex items-center justify-end gap-0.5 transition">
+        <form action={moveItem}>
+          <input type="hidden" name="id" value={item.id} />
+          <input type="hidden" name="direction" value="up" />
+          <SubmitButton title="เลื่อนขึ้น" className={ghostButtonClass}>
+            ↑
+          </SubmitButton>
+        </form>
+        <form action={moveItem}>
+          <input type="hidden" name="id" value={item.id} />
+          <input type="hidden" name="direction" value="down" />
+          <SubmitButton title="เลื่อนลง" className={ghostButtonClass}>
+            ↓
+          </SubmitButton>
+        </form>
+        <form action={toggleItemIncluded}>
+          <input type="hidden" name="id" value={item.id} />
+          <SubmitButton
+            title={
+              item.is_included
+                ? "นับรวมอยู่ — กดเพื่อไม่นับ"
+                : "ไม่ถูกนับ — กดเพื่อนับรวม"
+            }
+            className={ghostButtonClass}
+          >
+            {item.is_included ? "นับรวม" : "ไม่นับ"}
+          </SubmitButton>
+        </form>
       </div>
     </li>
   );

@@ -97,44 +97,45 @@ export function CategoryCard({ category }: { category: Category }) {
               </p>
             </button>
 
-            <div className="shrink-0 text-right">
-              <span className="tnum block text-base text-ink">
-                {formatRange(total)}
-              </span>
-              <div className="mt-1 flex items-center justify-end gap-0.5">
-                <form action={moveCategory}>
-                  <input type="hidden" name="id" value={category.id} />
-                  <input type="hidden" name="direction" value="up" />
-                  <SubmitButton title="เลื่อนขึ้น" className={ghostButtonClass}>
-                    ↑
-                  </SubmitButton>
-                </form>
-                <form action={moveCategory}>
-                  <input type="hidden" name="id" value={category.id} />
-                  <input type="hidden" name="direction" value="down" />
-                  <SubmitButton title="เลื่อนลง" className={ghostButtonClass}>
-                    ↓
-                  </SubmitButton>
-                </form>
-                <form action={toggleCategoryIncluded}>
-                  <input type="hidden" name="id" value={category.id} />
-                  <SubmitButton
-                    title={
-                      category.is_included
-                        ? "นับรวมอยู่ — กดเพื่อตัดทั้งหมวดออกจากยอด"
-                        : "ไม่ถูกนับ — กดเพื่อนับรวม"
-                    }
-                    className={`rounded-md px-2.5 py-1 text-xs transition ${
-                      category.is_included
-                        ? "text-muted hover:bg-line-soft hover:text-ink"
-                        : "bg-wood-soft text-clay"
-                    }`}
-                  >
-                    {category.is_included ? "นับรวม" : "ไม่นับ"}
-                  </SubmitButton>
-                </form>
-              </div>
-            </div>
+            <span className="tnum shrink-0 text-base text-ink">
+              {formatRange(total)}
+            </span>
+          </div>
+        )}
+
+        {!editing && (
+          <div className="flex items-center justify-end gap-0.5">
+            <form action={moveCategory}>
+              <input type="hidden" name="id" value={category.id} />
+              <input type="hidden" name="direction" value="up" />
+              <SubmitButton title="เลื่อนขึ้น" className={ghostButtonClass}>
+                ↑
+              </SubmitButton>
+            </form>
+            <form action={moveCategory}>
+              <input type="hidden" name="id" value={category.id} />
+              <input type="hidden" name="direction" value="down" />
+              <SubmitButton title="เลื่อนลง" className={ghostButtonClass}>
+                ↓
+              </SubmitButton>
+            </form>
+            <form action={toggleCategoryIncluded}>
+              <input type="hidden" name="id" value={category.id} />
+              <SubmitButton
+                title={
+                  category.is_included
+                    ? "นับรวมอยู่ — กดเพื่อตัดทั้งหมวดออกจากยอด"
+                    : "ไม่ถูกนับ — กดเพื่อนับรวม"
+                }
+                className={`inline-flex min-h-8 items-center rounded-md px-2.5 py-1 text-xs transition ${
+                  category.is_included
+                    ? "text-muted hover:bg-line-soft hover:text-ink"
+                    : "bg-wood-soft text-clay"
+                }`}
+              >
+                {category.is_included ? "นับรวม" : "ไม่นับ"}
+              </SubmitButton>
+            </form>
           </div>
         )}
       </header>

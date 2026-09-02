@@ -57,7 +57,8 @@ export const fieldClass =
   "placeholder:text-muted/60 focus:border-wood focus:ring-2 focus:ring-wood/20";
 
 export const ghostButtonClass =
-  "rounded-md px-2.5 py-1 text-xs text-muted transition hover:bg-line-soft hover:text-ink";
+  "inline-flex min-h-8 min-w-8 items-center justify-center rounded-md px-2.5 py-1 text-xs " +
+  "text-muted transition hover:bg-line-soft hover:text-ink";
 
 export const primaryButtonClass =
   "rounded-md bg-ink px-4 py-2 text-sm font-medium text-paper transition hover:bg-ink/85";
