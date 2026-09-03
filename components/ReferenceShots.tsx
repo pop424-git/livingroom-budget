@@ -54,13 +54,13 @@ const interior: Shot[] = [
   },
 ];
 
-/** Engawa reference, shown last and full width: it is the one shot about the
-    veranda itself rather than the room. */
+/** Engawa reference, shown full width: the veranda seen from the garden,
+    with the building around it, rather than the room. */
 const engawa: Shot[] = [
   {
     image: engawaVeranda,
-    alt: "ภาพเรนเดอร์ระเบียงเอ็นกาวะไม้ยกพื้น เสาไม้รับชายคายื่นคลุมยาว ประตูบานเลื่อนกระจกกรอบไม้ ม้านั่งไม้ยาว และสวนหินด้านหน้า",
-    caption: "ระเบียงเอ็นกาวะ — พื้นไม้ยกพื้น เสารับชายคายื่น ม้านั่งไม้ยาว",
+    alt: "ภาพเรนเดอร์มองจากสวนช่วงหัวค่ำ ระเบียงเอ็นกาวะไม้ยกพื้นพาดเต็มหน้าบ้าน เสาไม้สี่ต้นตั้งบนตอม่อคอนกรีตรับชายคาที่ยื่นคลุม ผนังฉาบสีครีม ประตูกระจกบานเลื่อนกรอบไม้ โคมไฟติดผนังสองดวง เก้าอี้กับโต๊ะเล็กบนระเบียง บันไดไม้ขั้นเดียวลงสวนกรวด และตะเกียงหิน",
+    caption: "ระเบียงเอ็นกาวะ — พื้นไม้ยกพื้น เสารับชายคายื่น บันไดลงสวนหิน",
   },
 ];
 
@@ -145,7 +145,9 @@ export function ReferenceShots() {
               key={shot.image.src}
               shot={shot}
               onOpen={() => open(overview.length + interior.length + index)}
-              aspect="aspect-2/1"
+              // 16:9 to match the render, so the shot lands whole — eave line
+              // down to the stepping stones — instead of losing both to a crop.
+              aspect="aspect-16/9"
             />
           ))}
         </div>
