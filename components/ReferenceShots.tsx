@@ -68,8 +68,8 @@ const engawa: Shot[] = [
 const materials: Shot[] = [
   {
     image: exteriorFront,
-    alt: "ภาพเรนเดอร์ตัวอาคาร หลังคาจั่วไม่สมมาตรชายคายื่นคลุม เสาไม้รับชายคา ประตูบานเลื่อนเปิดเต็มหน้า ระเบียงไม้ยกพื้น และไฟซ่อนใต้ชายคา",
-    caption: "ตัวอาคาร — จั่วชายคายื่น เสาไม้รับ ประตูเปิดเต็มหน้า",
+    alt: "ภาพเรนเดอร์ตัวอาคารมองจากด้านหน้าช่วงหัวค่ำ หลังคาเมทัลชีทตะเข็บตั้งชายคายื่นคลุมระเบียง เสาไม้สี่ต้นตั้งบนตอม่อคอนกรีต ผนังฉาบสีครีม ประตูกระจกบานเลื่อนกรอบไม้ โคมไฟติดผนังสองดวง ระเบียงไม้ยกพื้นมีบันไดขั้นเดียวลงสวนกรวด และตะเกียงหิน",
+    caption: "ตัวอาคาร — หลังคาเมทัลชีทชายคายื่น เสาไม้รับ ระเบียงยกพื้น สวนหิน",
   },
 ];
 
@@ -160,9 +160,10 @@ export function ReferenceShots() {
                   overview.length + interior.length + engawa.length + index
                 )
               }
-              // Alone on its row now, so it runs full width; 3:2 trims the
-              // empty sky and gravel without touching the building.
-              aspect="aspect-3/2"
+              // Alone on its row now, so it runs full width. The render is
+              // 16:9 already, so that box shows the building whole — from the
+              // ridge down to the stepping stones — with nothing cropped.
+              aspect="aspect-16/9"
             />
           ))}
         </div>
