@@ -75,7 +75,7 @@ export function CategoryCard({ category }: { category: Category }) {
             <button
               type="button"
               onClick={() => setOpen(!open)}
-              className="-mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg text-lg leading-none text-muted transition hover:bg-surface hover:text-ink"
+              className="-mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg text-4xl leading-none text-muted transition hover:bg-surface hover:text-ink"
               title={open ? "ย่อ" : "ขยาย"}
               aria-expanded={open}
             >
