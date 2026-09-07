@@ -19,7 +19,7 @@ import {
 } from "@/components/ui";
 
 export function CategoryCard({ category }: { category: Category }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState(false);
   const [adding, setAdding] = useState(false);
 
