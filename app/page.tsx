@@ -14,11 +14,7 @@ export default async function Page() {
       <SummaryBar categories={categories} />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="pt-8">
-          <ReferenceShots />
-        </div>
-
-        <header className="py-8">
+        <header className="pb-8 pt-10">
           <h1 className="text-xl font-medium text-ink">สรุปยอดห้องนั่งเล่น</h1>
           <p className="mt-1 text-sm leading-6 text-muted">
             ห้อง 4×8 ม. ยกพื้น 45 ซม. ระเบียงไม้เอ็นกาวะลึก 2 ม.
@@ -46,6 +42,10 @@ export default async function Page() {
 
         <div className="mt-4">
           <AddCategoryForm />
+        </div>
+
+        <div className="mt-12 border-t border-line pt-8">
+          <ReferenceShots />
         </div>
       </div>
     </main>

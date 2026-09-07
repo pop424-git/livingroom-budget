@@ -122,7 +122,6 @@ export function ReferenceShots() {
               // Both are drawings shown whole, so the box only has to be
               // roomy enough for a near-square page.
               aspect="aspect-4/3"
-              priority
             />
           ))}
         </div>
