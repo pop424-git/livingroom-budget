@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   addItem,
   deleteCategory,
@@ -18,10 +18,51 @@ import {
   primaryButtonClass,
 } from "@/components/ui";
 
+/** How long the title has to be held before the editor opens. */
+const HOLD_MS = 3000;
+
 export function CategoryCard({ category }: { category: Category }) {
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState(false);
   const [adding, setAdding] = useState(false);
+  const [holding, setHolding] = useState(false);
+
+  // A press on the title expands; holding it for HOLD_MS opens the editor
+  // instead. The ref tells the click that follows a completed hold to stay out
+  // of the way, since pointerup fires a click either way.
+  const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const held = useRef(false);
+
+  const cancelHold = () => {
+    if (holdTimer.current) clearTimeout(holdTimer.current);
+    holdTimer.current = null;
+    setHolding(false);
+  };
+
+  useEffect(
+    () => () => {
+      if (holdTimer.current) clearTimeout(holdTimer.current);
+    },
+    [],
+  );
+
+  const startHold = () => {
+    held.current = false;
+    setHolding(true);
+    holdTimer.current = setTimeout(() => {
+      held.current = true;
+      cancelHold();
+      setEditing(true);
+    }, HOLD_MS);
+  };
+
+  const onTitleClick = () => {
+    if (held.current) {
+      held.current = false;
+      return;
+    }
+    setOpen(!open);
+  };
 
   const total = categoryTotal(category);
   const priced = category.items.filter((item) => item.amount_min > 0).length;
@@ -34,9 +75,9 @@ export function CategoryCard({ category }: { category: Category }) {
       }`}
     >
       <header
-        className={`bg-band px-4 py-3 sm:px-5 ${open ? "border-b border-line" : ""} ${
-          off ? "opacity-50" : ""
-        }`}
+        className={`relative bg-band px-4 py-3 sm:px-5 ${
+          open ? "border-b border-line" : ""
+        } ${off ? "opacity-50" : ""}`}
       >
         {editing ? (
           <form
@@ -84,8 +125,15 @@ export function CategoryCard({ category }: { category: Category }) {
 
             <button
               type="button"
-              onClick={() => setEditing(true)}
-              className="min-w-0 flex-1 text-left"
+              onClick={onTitleClick}
+              onPointerDown={startHold}
+              onPointerUp={cancelHold}
+              onPointerLeave={cancelHold}
+              onPointerCancel={cancelHold}
+              onContextMenu={(event) => event.preventDefault()}
+              className="min-w-0 flex-1 select-none text-left"
+              aria-expanded={open}
+              title="กดเพื่อกาง/ย่อ · กดค้าง 3 วินาทีเพื่อแก้ชื่อหมวด"
             >
               <h2 className="text-base font-medium text-ink">{category.name}</h2>
               <p className="mt-0.5 text-xs text-muted">
@@ -138,6 +186,19 @@ export function CategoryCard({ category }: { category: Category }) {
             </form>
           </div>
         )}
+
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 overflow-hidden"
+        >
+          <span
+            className="block h-full bg-wood transition-[width] ease-linear"
+            style={{
+              width: holding ? "100%" : 0,
+              transitionDuration: holding ? `${HOLD_MS}ms` : "150ms",
+            }}
+          />
+        </span>
       </header>
 
       {open && (
