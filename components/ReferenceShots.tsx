@@ -112,8 +112,8 @@ export function ReferenceShots() {
 
   return (
     <>
-      <div className="space-y-3">
-        <div className="grid gap-3 sm:grid-cols-2">
+      <div className="space-y-4 sm:space-y-5">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
           {overview.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -126,7 +126,7 @@ export function ReferenceShots() {
           ))}
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
           {interior.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -138,7 +138,7 @@ export function ReferenceShots() {
           ))}
         </div>
 
-        <div className="grid gap-3">
+        <div className="grid gap-4 sm:gap-5">
           {engawa.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -151,7 +151,7 @@ export function ReferenceShots() {
           ))}
         </div>
 
-        <div className="grid gap-3">
+        <div className="grid gap-4 sm:gap-5">
           {materials.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -176,7 +176,7 @@ export function ReferenceShots() {
           // Clicks land on the dialog itself only when they hit the backdrop.
           if (event.target === dialogRef.current) close();
         }}
-        className="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-ink/80 backdrop:backdrop-blur-sm"
+        className="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-ink/90"
       >
         {current && (
           <div
@@ -212,8 +212,11 @@ export function ReferenceShots() {
                 ‹
               </button>
 
-              <p className="tnum min-w-0 flex-1 text-center text-xs text-muted">
-                {openAt! + 1}/{allShots.length}
+              <p className="min-w-0 flex-1 text-center text-xs leading-5 text-muted">
+                <span className="tnum font-mono">
+                  {openAt! + 1}/{allShots.length}
+                </span>
+                <span className="hidden sm:inline"> · {current.caption}</span>
               </p>
 
               <button
@@ -257,9 +260,12 @@ function Thumb({
       type="button"
       onClick={onOpen}
       aria-label={`ดูรูปใหญ่ — ${shot.caption}`}
-      className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface"
+      // A plain white photo frame: the mat sets the warm renders off the page,
+      // and the caption sits on the bottom of the mat like a gallery label.
+      className="group block w-full cursor-zoom-in rounded-[3px] border border-line bg-surface p-2.5 text-left shadow-[0_1px_2px_rgb(42_38_34/0.05),0_12px_28px_-20px_rgb(42_38_34/0.35)] transition hover:shadow-[0_1px_2px_rgb(42_38_34/0.06),0_16px_32px_-18px_rgb(42_38_34/0.45)] sm:p-3.5"
     >
-      <div className={aspect}>
+      {/* The thin line is the bevel where the mat is cut around the picture. */}
+      <div className={`overflow-hidden border border-ink/10 ${aspect}`}>
         <Image
           src={shot.image}
           alt={shot.alt}
@@ -270,6 +276,9 @@ function Thumb({
           priority={priority}
         />
       </div>
+      <p className="mt-2.5 text-xs leading-5 text-muted transition group-hover:text-ink sm:mt-3">
+        {shot.caption}
+      </p>
     </button>
   );
 }

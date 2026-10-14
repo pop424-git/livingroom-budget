@@ -1,20 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f6f4ef;
-  --color-surface: #fffdf9;
-  --color-line: #e5dfd3;
-  --color-line-soft: #f0ebe1;
-  /* Category header band — darker than the card it sits on. */
-  --color-band: #e8e0d1;
-  --color-ink: #3a3630;
-  --color-muted: #8b8478;
-  --color-wood: #b98e5e;
-  --color-wood-soft: #efe4d3;
-  --color-moss: #6f8069;
-  --color-clay: #b5764a;
+  /* Muji / Japandi: plaster white, gravel-grey hairlines, sumi charcoal, and
+     warmth only from wood. Text colours all clear WCAG AA on paper and surface. */
+  --color-paper: #f5f2ed;
+  --color-surface: #fcfbf8;
+  --color-line: #ddd8d0;
+  --color-line-soft: #eae6e0;
+  /* Edges of things you type into — hairlines are too faint to find (3.4:1). */
+  --color-line-strong: #8d8883;
+  --color-ink: #2b2825;
+  --color-muted: #68625c;
+  /* Oiled oak in shade: dark enough to read as text (5.3:1). */
+  --color-wood: #846340;
+  /* The room's blond oak (door frames, sideboard). Fills only, never text. */
+  --color-oak: #bb9770;
+  --color-wood-soft: #f1e8dc;
+  --color-moss: #516645;
+  --color-moss-soft: #e6ede2;
+  /* Persimmon rust — kept apart from wood so a warning never looks like a link. */
+  --color-clay: #994b34;
+
+  /* A step up from Tailwind's defaults: Thai tone marks and vowels stack, and
+     at 12–14px they blur together. Line heights are loose for the same reason. */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.55;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.375rem;
+  --text-xl--line-height: 1.4;
 
   --font-sans: var(--font-thai), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif-thai), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
 html {
@@ -36,4 +58,14 @@ body {
 input,
 textarea {
   font: inherit;
+}
+
+::selection {
+  background-color: var(--color-wood-soft);
+  color: var(--color-ink);
+}
+
+/* The native marker on <details> doesn't match the drawn chevrons. */
+summary::-webkit-details-marker {
+  display: none;
 }

@@ -8,12 +8,17 @@ import {
   toggleItemPaid,
   updateItem,
 } from "@/app/actions";
+import { Icon } from "@/components/icons";
 import { formatRange, itemRange, type Item } from "@/lib/types";
 import {
   ConfirmButton,
   SubmitButton,
+  amountFieldClass,
+  dangerButtonClass,
   fieldClass,
   ghostButtonClass,
+  iconButtonClass,
+  labelClass,
   primaryButtonClass,
 } from "@/components/ui";
 
@@ -23,7 +28,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
 
   if (editing) {
     return (
-      <li className="border-t border-line-soft bg-wood-soft/25 px-4 py-4 sm:px-5">
+      <li className="border-t border-line-soft bg-wood-soft/30 px-4 py-4 first:border-t-0 sm:px-5">
         <form
           action={async (formData) => {
             await updateItem(formData);
@@ -31,11 +36,13 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
           }}
           className="space-y-3"
         >
+          <p className={labelClass}>แก้รายการ</p>
           <input type="hidden" name="id" value={item.id} />
           <input
             name="name"
             defaultValue={item.name}
             required
+            autoFocus
             placeholder="ชื่อรายการ"
             className={fieldClass}
           />
@@ -52,7 +59,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
               defaultValue={item.amount_min || ""}
               inputMode="decimal"
               placeholder="ราคา"
-              className={`${fieldClass} tnum w-32`}
+              className={amountFieldClass}
             />
             <span className="text-sm text-muted">ถึง</span>
             <input
@@ -60,7 +67,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
               defaultValue={item.amount_max ?? ""}
               inputMode="decimal"
               placeholder="(ว่างได้)"
-              className={`${fieldClass} tnum w-32`}
+              className={amountFieldClass}
             />
             <span className="text-xs text-muted">
               เว้นช่องหลังไว้ถ้าเป็นราคาเดียว
@@ -75,100 +82,123 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
             >
               ยกเลิก
             </button>
-            <span className="flex-1" />
           </div>
         </form>
 
-        <form action={deleteItem} className="mt-2 border-t border-line pt-3">
-          <input type="hidden" name="id" value={item.id} />
-          <ConfirmButton
-            message={`ลบ "${item.name}" ออกถาวร?`}
-            className="rounded-md px-2.5 py-1 text-xs text-clay transition hover:bg-clay/10"
-          >
-            ลบรายการนี้
-          </ConfirmButton>
-        </form>
+        {/* Separate forms: these act straight away, without saving the edit. */}
+        <div className="mt-3 flex flex-wrap items-center gap-1 border-t border-line pt-2">
+          <form action={moveItem}>
+            <input type="hidden" name="id" value={item.id} />
+            <input type="hidden" name="direction" value="up" />
+            <SubmitButton title="เลื่อนขึ้น" className={iconButtonClass}>
+              <Icon name="up" />
+            </SubmitButton>
+          </form>
+          <form action={moveItem}>
+            <input type="hidden" name="id" value={item.id} />
+            <input type="hidden" name="direction" value="down" />
+            <SubmitButton title="เลื่อนลง" className={iconButtonClass}>
+              <Icon name="down" />
+            </SubmitButton>
+          </form>
+          <form action={toggleItemIncluded}>
+            <input type="hidden" name="id" value={item.id} />
+            <SubmitButton
+              title={
+                item.is_included
+                  ? "นับรวมอยู่ — กดเพื่อไม่นับ"
+                  : "ไม่ถูกนับ — กดเพื่อนับรวม"
+              }
+              className={`${ghostButtonClass} ${
+                item.is_included ? "" : "bg-wood-soft text-clay"
+              }`}
+            >
+              {item.is_included ? "นับรวม" : "ไม่นับ"}
+            </SubmitButton>
+          </form>
+          <span className="flex-1" />
+          <form action={deleteItem}>
+            <input type="hidden" name="id" value={item.id} />
+            <ConfirmButton
+              message={`ลบ "${item.name}" ออกถาวร?`}
+              className={dangerButtonClass}
+            >
+              <Icon name="trash" />
+              ลบรายการ
+            </ConfirmButton>
+          </form>
+        </div>
       </li>
     );
   }
 
   return (
-    <li
-      className={`group border-t border-line-soft px-4 py-3 transition sm:px-5 ${
-        dimmed ? "opacity-45" : ""
-      }`}
-    >
-      <div className="flex items-start gap-3">
-        <button
-          type="button"
-          onClick={() => setEditing(true)}
-          className="min-w-0 flex-1 text-left"
+    <li className="group flex items-start gap-3 border-t border-line-soft px-4 py-3 first:border-t-0 sm:gap-4 sm:px-5">
+      <form action={toggleItemPaid} className="shrink-0">
+        <input type="hidden" name="id" value={item.id} />
+        <SubmitButton
+          title={
+            item.is_paid
+              ? "จ่ายแล้ว — กดเพื่อยกเลิก"
+              : "ยังไม่จ่าย — กดเมื่อจ่ายแล้ว"
+          }
+          className="-m-2 flex size-10 items-center justify-center"
         >
-          <span className="text-sm leading-6 text-ink group-hover:text-wood">
+          <span
+            className={`flex size-6 items-center justify-center rounded-full border transition ${
+              item.is_paid
+                ? "border-moss bg-moss text-white"
+                : "border-line-strong bg-surface text-transparent hover:border-moss hover:bg-moss-soft hover:text-moss/60"
+            }`}
+          >
+            <Icon name="check" className="size-4" strokeWidth={2.2} />
+          </span>
+          <span className="sr-only">
+            {item.is_paid ? "จ่ายแล้ว" : "ยังไม่จ่าย"}
+          </span>
+        </SubmitButton>
+      </form>
+
+      <button
+        type="button"
+        onClick={() => setEditing(true)}
+        title="กดเพื่อแก้ไข"
+        className="min-w-0 flex-1 text-left"
+      >
+        <span className="flex flex-wrap items-center gap-x-2">
+          <span
+            className={`text-sm leading-6 decoration-oak underline-offset-4 group-hover:underline ${
+              dimmed ? "text-muted" : "text-ink"
+            }`}
+          >
             {item.name}
           </span>
-          {item.detail && (
-            <span className="mt-0.5 block text-xs leading-5 whitespace-pre-line text-muted">
-              {item.detail}
+          {!item.is_included && (
+            <span className="rounded-sm bg-wood-soft px-1.5 text-xs leading-5 text-clay">
+              ไม่นับ
             </span>
           )}
-        </button>
-
-        <div className="-mt-1 flex shrink-0 items-center gap-2">
-          <span className="tnum text-sm text-ink">
-            {formatRange(itemRange(item))}
+        </span>
+        {item.detail && (
+          <span className="mt-0.5 block text-xs leading-5 whitespace-pre-line text-muted">
+            {item.detail}
           </span>
+        )}
+      </button>
 
-          <form action={toggleItemPaid}>
-            <input type="hidden" name="id" value={item.id} />
-            <SubmitButton
-              title={
-                item.is_paid
-                  ? "จ่ายแล้ว — กดเพื่อยกเลิก"
-                  : "ยังไม่จ่าย — กดเมื่อจ่ายแล้ว"
-              }
-              className={`flex h-8 items-center gap-1 rounded-md border px-2 text-[11px] whitespace-nowrap transition ${
-                item.is_paid
-                  ? "border-moss bg-moss text-white"
-                  : "border-line-soft bg-transparent text-muted/60 hover:border-moss/50 hover:text-moss"
-              }`}
-            >
-              <span aria-hidden>{item.is_paid ? "✓" : "○"}</span>
-              จ่ายแล้ว
-            </SubmitButton>
-          </form>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-end gap-0.5">
-        <form action={moveItem}>
-          <input type="hidden" name="id" value={item.id} />
-          <input type="hidden" name="direction" value="up" />
-          <SubmitButton title="เลื่อนขึ้น" className={ghostButtonClass}>
-            ↑
-          </SubmitButton>
-        </form>
-        <form action={moveItem}>
-          <input type="hidden" name="id" value={item.id} />
-          <input type="hidden" name="direction" value="down" />
-          <SubmitButton title="เลื่อนลง" className={ghostButtonClass}>
-            ↓
-          </SubmitButton>
-        </form>
-        <form action={toggleItemIncluded}>
-          <input type="hidden" name="id" value={item.id} />
-          <SubmitButton
-            title={
-              item.is_included
-                ? "นับรวมอยู่ — กดเพื่อไม่นับ"
-                : "ไม่ถูกนับ — กดเพื่อนับรวม"
-            }
-            className={ghostButtonClass}
-          >
-            {item.is_included ? "นับรวม" : "ไม่นับ"}
-          </SubmitButton>
-        </form>
-      </div>
+      <span
+        className={`tnum shrink-0 pt-0.5 text-sm ${
+          dimmed
+            ? "text-muted line-through decoration-muted/50"
+            : item.amount_min === 0
+              ? "text-muted"
+              : item.is_paid
+                ? "text-moss"
+                : "text-ink"
+        }`}
+      >
+        {formatRange(itemRange(item))}
+      </span>
     </li>
   );
 }
