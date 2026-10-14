@@ -112,8 +112,8 @@ export function ReferenceShots() {
 
   return (
     <>
-      <div className="space-y-3">
-        <div className="grid gap-3 sm:grid-cols-2">
+      <div className="space-y-5">
+        <div className="grid gap-x-3 gap-y-5 sm:grid-cols-2">
           {overview.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -126,7 +126,7 @@ export function ReferenceShots() {
           ))}
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-x-3 gap-y-5 sm:grid-cols-2">
           {interior.map((shot, index) => (
             <Thumb
               key={shot.image.src}
@@ -212,8 +212,11 @@ export function ReferenceShots() {
                 ‹
               </button>
 
-              <p className="tnum min-w-0 flex-1 text-center text-xs text-muted">
-                {openAt! + 1}/{allShots.length}
+              <p className="min-w-0 flex-1 text-center text-xs leading-5 text-muted">
+                <span className="tnum font-mono">
+                  {openAt! + 1}/{allShots.length}
+                </span>
+                <span className="hidden sm:inline"> · {current.caption}</span>
               </p>
 
               <button
@@ -257,9 +260,11 @@ function Thumb({
       type="button"
       onClick={onOpen}
       aria-label={`ดูรูปใหญ่ — ${shot.caption}`}
-      className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface"
+      className="group block w-full cursor-zoom-in text-left"
     >
-      <div className={aspect}>
+      <div
+        className={`overflow-hidden rounded-lg border border-line bg-surface ${aspect}`}
+      >
         <Image
           src={shot.image}
           alt={shot.alt}
@@ -270,6 +275,9 @@ function Thumb({
           priority={priority}
         />
       </div>
+      <p className="mt-2 text-xs leading-5 text-muted transition group-hover:text-ink">
+        {shot.caption}
+      </p>
     </button>
   );
 }
