@@ -1,0 +1,75 @@
+<!--
+  Faint washi (kozo paper) texture for the page background, drawn entirely by
+  SVG noise so it costs ~3 KB and tiles seamlessly (stitchTiles).
+
+  Three layers, darkest last:
+  1. cloud  — very low-frequency mottling, where the fibre lies thicker
+  2. grain  — fine speckle of the paper surface
+  3. fibres — two sets of thin wandering strands at different scales
+
+  A fibre is the 0.5 crossing of smooth noise: the table keeps only a narrow
+  band around the midpoint, where the noise changes fastest, which leaves a
+  thin line. A second, low-frequency noise then cuts each line into lengths so
+  they read as loose fibres rather than a closed net.
+
+  Strength is the alpha in the cloud/grain matrices and the fibre slopes.
+  At these values muted text (#68625c) stays ≥ 4.5:1 on 99% of the paper.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600">
+  <filter id="washi" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <!-- 1. cloud -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="3" seed="5" stitchTiles="stitch" result="cloudNoise"/>
+    <feColorMatrix in="cloudNoise" type="matrix" result="cloud"
+      values="0 0 0 0 0.42  0 0 0 0 0.37  0 0 0 0 0.3  0 0 0 0.09 -0.039"/>
+
+    <!-- 2. grain -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="3" stitchTiles="stitch" result="grainNoise"/>
+    <feColorMatrix in="grainNoise" type="matrix" result="grain"
+      values="0 0 0 0 0.44  0 0 0 0 0.39  0 0 0 0 0.33  0 0 0 0.045 0"/>
+
+    <!-- 3a. long fibres -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" stitchTiles="stitch" result="longNoise"/>
+    <feColorMatrix in="longNoise" type="matrix" result="longRed"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0"/>
+    <feComponentTransfer in="longRed" result="longLines">
+      <feFuncA type="table" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    </feComponentTransfer>
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="2" stitchTiles="stitch" result="longCutNoise"/>
+    <feColorMatrix in="longCutNoise" type="matrix" result="longCut"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  5 0 0 0 -2.4"/>
+    <feComposite in="longLines" in2="longCut" operator="in" result="longCutLines"/>
+    <feComponentTransfer in="longCutLines" result="longFibres">
+      <feFuncA type="linear" slope="0.15"/>
+    </feComponentTransfer>
+
+    <!-- 3b. short fibres -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="19" stitchTiles="stitch" result="shortNoise"/>
+    <feColorMatrix in="shortNoise" type="matrix" result="shortRed"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0"/>
+    <feComponentTransfer in="shortRed" result="shortLines">
+      <feFuncA type="table" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    </feComponentTransfer>
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" stitchTiles="stitch" result="shortCutNoise"/>
+    <feColorMatrix in="shortCutNoise" type="matrix" result="shortCut"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  5 0 0 0 -2.4"/>
+    <feComposite in="shortLines" in2="shortCut" operator="in" result="shortCutLines"/>
+    <feComponentTransfer in="shortCutLines" result="shortFibres">
+      <feFuncA type="linear" slope="0.12"/>
+    </feComponentTransfer>
+
+    <!-- Fibres take the colour of unbleached kozo bark. -->
+    <feMerge result="fibreMask">
+      <feMergeNode in="longFibres"/>
+      <feMergeNode in="shortFibres"/>
+    </feMerge>
+    <feFlood flood-color="#6f604d"/>
+    <feComposite in2="fibreMask" operator="in" result="fibres"/>
+
+    <feMerge>
+      <feMergeNode in="cloud"/>
+      <feMergeNode in="grain"/>
+      <feMergeNode in="fibres"/>
+    </feMerge>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#washi)"/>
+</svg>

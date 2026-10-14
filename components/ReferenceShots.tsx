@@ -183,19 +183,20 @@ export function ReferenceShots() {
             onClick={close}
             className="flex h-dvh w-dvw flex-col items-center justify-center gap-3 p-4 sm:p-8"
           >
-            {/* A sized frame that the image fits inside: no layout shift while
-                it loads, and every aspect ratio lands centred. */}
-            <div className="relative w-full flex-1">
+            {/* The image is sized to the picture itself rather than filling
+                the frame, so the bands beside a tall plan or above a wide
+                render are the frame, not the image — a tap there closes.
+                Its width/height attributes still reserve the box before it
+                loads, so nothing shifts. */}
+            <div className="flex min-h-0 w-full flex-1 items-center justify-center">
               <Image
                 src={current.image}
                 alt={current.alt}
-                fill
                 sizes="100vw"
                 loading="eager"
-                // Only the picture itself swallows the click; the empty space
-                // around it still closes, which is what a tap there means.
+                // Only the picture itself swallows the click.
                 onClick={(event) => event.stopPropagation()}
-                className="object-contain"
+                className="h-auto max-h-full w-auto max-w-full"
               />
             </div>
 

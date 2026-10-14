@@ -43,8 +43,9 @@ html {
   color-scheme: light;
 }
 
+/* Faint washi fibres over the paper colour — see public/washi.svg. */
 body {
-  background-color: var(--color-paper);
+  background: var(--color-paper) url("/washi.svg");
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
