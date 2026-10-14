@@ -62,7 +62,7 @@ export function SummaryBar({ categories }: { categories: Category[] }) {
     <>
       <div
         aria-hidden={!compact}
-        className={`fixed inset-x-0 top-0 z-20 border-b border-line bg-paper transition duration-200 ${
+        className={`fixed inset-x-0 top-0 z-20 border-b border-line bg-paper bg-[url(/washi.svg)] transition duration-200 ${
           compact
             ? "translate-y-0 shadow-[0_6px_16px_-12px_rgb(42_38_34/0.4)]"
             : "pointer-events-none -translate-y-full"
