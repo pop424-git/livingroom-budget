@@ -19,7 +19,7 @@ export function AddCategoryForm() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-line py-3.5 text-sm text-muted transition hover:border-wood hover:bg-surface hover:text-wood"
+        className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-line-strong/70 py-3.5 text-sm text-muted transition hover:border-wood hover:bg-surface hover:text-wood"
       >
         <Icon name="plus" />
         เพิ่มหมวด

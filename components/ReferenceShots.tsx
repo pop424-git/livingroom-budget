@@ -176,7 +176,7 @@ export function ReferenceShots() {
           // Clicks land on the dialog itself only when they hit the backdrop.
           if (event.target === dialogRef.current) close();
         }}
-        className="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-ink/80 backdrop:backdrop-blur-sm"
+        className="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-ink/90"
       >
         {current && (
           <div

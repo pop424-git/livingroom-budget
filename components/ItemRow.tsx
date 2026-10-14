@@ -148,7 +148,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
             className={`flex size-6 items-center justify-center rounded-full border transition ${
               item.is_paid
                 ? "border-moss bg-moss text-white"
-                : "border-line bg-surface text-transparent hover:border-moss hover:text-moss/50"
+                : "border-line-strong bg-surface text-transparent hover:border-moss hover:bg-moss-soft hover:text-moss/60"
             }`}
           >
             <Icon name="check" className="size-4" strokeWidth={2.2} />
@@ -163,10 +163,14 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
         type="button"
         onClick={() => setEditing(true)}
         title="กดเพื่อแก้ไข"
-        className={`min-w-0 flex-1 text-left transition ${dimmed ? "opacity-50" : ""}`}
+        className="min-w-0 flex-1 text-left"
       >
         <span className="flex flex-wrap items-center gap-x-2">
-          <span className="text-sm leading-6 text-ink decoration-wood/50 underline-offset-4 group-hover:underline">
+          <span
+            className={`text-sm leading-6 decoration-oak underline-offset-4 group-hover:underline ${
+              dimmed ? "text-muted" : "text-ink"
+            }`}
+          >
             {item.name}
           </span>
           {!item.is_included && (
@@ -187,7 +191,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
           dimmed
             ? "text-muted line-through decoration-muted/50"
             : item.amount_min === 0
-              ? "text-muted/60"
+              ? "text-muted"
               : item.is_paid
                 ? "text-moss"
                 : "text-ink"

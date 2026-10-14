@@ -89,7 +89,10 @@ export function CategoryCard({
     <section
       className={`rounded-lg border bg-surface transition ${
         off ? "border-dashed border-line" : "border-line"
-      } ${open ? "shadow-[0_1px_0_var(--color-line),0_8px_24px_-16px_rgb(42_38_34/0.25)]" : ""}`}
+      } ${open ? "shadow-[0_1px_0_var(--color-line),0_8px_24px_-16px_rgb(42_38_34/0.25)]" : ""} ${
+        // An open card gets an oak top edge, like the lip of a wooden tray.
+        open && !off ? "border-t-2 border-t-oak" : ""
+      }`}
     >
       <header className="relative">
         {editing ? (
@@ -137,9 +140,7 @@ export function CategoryCard({
             onContextMenu={(event) => event.preventDefault()}
             aria-expanded={open}
             title="กดเพื่อกาง/ย่อ · กดค้าง 3 วินาทีเพื่อแก้ชื่อหมวด"
-            className={`group flex w-full select-none items-start gap-3 px-4 py-4 text-left sm:gap-4 sm:px-5 ${
-              off ? "opacity-55" : ""
-            }`}
+            className="group flex w-full select-none items-start gap-3 px-4 py-4 text-left sm:gap-4 sm:px-5"
           >
             <span className="tnum mt-1 w-6 shrink-0 font-mono text-xs text-wood">
               {number}
@@ -149,7 +150,9 @@ export function CategoryCard({
             <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:gap-4">
               <span className="min-w-0 flex-1">
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <h2 className="font-serif text-lg leading-snug text-ink">
+                  <h2
+                    className={`font-serif text-lg leading-snug ${off ? "text-muted" : "text-ink"}`}
+                  >
                     {category.name}
                   </h2>
                   {off && (
@@ -173,14 +176,16 @@ export function CategoryCard({
               </span>
 
               <span className="flex shrink-0 items-center gap-3 sm:flex-col sm:items-end sm:gap-1">
-                <span className="tnum text-base text-ink">
+                <span
+                  className={`tnum text-base ${off ? "text-muted line-through decoration-muted/50" : "text-ink"}`}
+                >
                   {formatRange(total)}
                 </span>
                 {!off && share > 0 && (
                   <span className="flex items-center gap-1.5" title="สัดส่วนจากยอดรวม">
                     <span className="h-1 w-12 overflow-hidden rounded-full bg-line-soft">
                       <span
-                        className="block h-full bg-wood/70"
+                        className="block h-full bg-oak"
                         style={{ width: `${Math.max(share * 100, 4)}%` }}
                       />
                     </span>
