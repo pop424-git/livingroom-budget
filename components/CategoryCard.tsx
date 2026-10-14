@@ -141,52 +141,55 @@ export function CategoryCard({
               off ? "opacity-55" : ""
             }`}
           >
-            <span className="tnum mt-0.5 w-6 shrink-0 font-mono text-xs text-wood">
+            <span className="tnum mt-1 w-6 shrink-0 font-mono text-xs text-wood">
               {number}
             </span>
 
-            <span className="min-w-0 flex-1">
-              <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <h2 className="font-serif text-[1.05rem] leading-snug text-ink">
-                  {category.name}
-                </h2>
-                {off && (
-                  <span className="rounded-sm bg-wood-soft px-1.5 py-px text-[11px] text-clay">
-                    ไม่นับรวม
+            {/* Phones stack the total under the name; there isn't room for both. */}
+            <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:gap-4">
+              <span className="min-w-0 flex-1">
+                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <h2 className="font-serif text-lg leading-snug text-ink">
+                    {category.name}
+                  </h2>
+                  {off && (
+                    <span className="rounded-sm bg-wood-soft px-1.5 py-px text-xs text-clay">
+                      ไม่นับรวม
+                    </span>
+                  )}
+                </span>
+                <span className="mt-1 block text-xs leading-5 text-muted">
+                  {category.items.length} รายการ
+                  {paid > 0 && <> · จ่ายแล้ว {paid}</>}
+                  {unpriced > 0 && (
+                    <span className="text-clay/90"> · ยังไม่มีราคา {unpriced}</span>
+                  )}
+                </span>
+                {category.note && (
+                  <span className="mt-1 block text-xs leading-5 text-muted/90">
+                    {category.note}
                   </span>
                 )}
               </span>
-              <span className="mt-1 block text-xs leading-5 text-muted">
-                {category.items.length} รายการ
-                {paid > 0 && <> · จ่ายแล้ว {paid}</>}
-                {unpriced > 0 && (
-                  <span className="text-clay/90"> · ยังไม่มีราคา {unpriced}</span>
-                )}
-              </span>
-              {category.note && (
-                <span className="mt-1 block text-xs leading-5 text-muted/90">
-                  {category.note}
-                </span>
-              )}
-            </span>
 
-            <span className="flex shrink-0 flex-col items-end gap-1">
-              <span className="tnum text-[0.95rem] text-ink">
-                {formatRange(total)}
-              </span>
-              {!off && share > 0 && (
-                <span className="flex items-center gap-1.5" title="สัดส่วนจากยอดรวม">
-                  <span className="h-1 w-12 overflow-hidden rounded-full bg-line-soft">
-                    <span
-                      className="block h-full bg-wood/70"
-                      style={{ width: `${Math.max(share * 100, 4)}%` }}
-                    />
-                  </span>
-                  <span className="tnum w-7 text-right font-mono text-[10px] text-muted">
-                    {Math.round(share * 100)}%
-                  </span>
+              <span className="flex shrink-0 items-center gap-3 sm:flex-col sm:items-end sm:gap-1">
+                <span className="tnum text-base text-ink">
+                  {formatRange(total)}
                 </span>
-              )}
+                {!off && share > 0 && (
+                  <span className="flex items-center gap-1.5" title="สัดส่วนจากยอดรวม">
+                    <span className="h-1 w-12 overflow-hidden rounded-full bg-line-soft">
+                      <span
+                        className="block h-full bg-wood/70"
+                        style={{ width: `${Math.max(share * 100, 4)}%` }}
+                      />
+                    </span>
+                    <span className="tnum w-9 text-right font-mono text-[0.75rem] text-muted">
+                      {Math.round(share * 100)}%
+                    </span>
+                  </span>
+                )}
+              </span>
             </span>
 
             <Icon
@@ -279,7 +282,8 @@ export function CategoryCard({
               <button
                 type="button"
                 onClick={() => setAdding(true)}
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-md px-2.5 text-sm text-wood transition hover:bg-wood-soft/60 hover:text-ink"
+                // Its own row on phones, where it and the tools don't fit side by side.
+                className="inline-flex min-h-10 basis-full items-center gap-1.5 rounded-md px-2.5 text-sm text-wood transition hover:bg-wood-soft/60 hover:text-ink sm:min-h-9 sm:basis-auto"
               >
                 <Icon name="plus" />
                 เพิ่มรายการ

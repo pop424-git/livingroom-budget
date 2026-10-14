@@ -145,13 +145,13 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
           className="-m-2 flex size-10 items-center justify-center"
         >
           <span
-            className={`flex size-[22px] items-center justify-center rounded-full border transition ${
+            className={`flex size-6 items-center justify-center rounded-full border transition ${
               item.is_paid
                 ? "border-moss bg-moss text-white"
                 : "border-line bg-surface text-transparent hover:border-moss hover:text-moss/50"
             }`}
           >
-            <Icon name="check" className="size-3.5" strokeWidth={2.2} />
+            <Icon name="check" className="size-4" strokeWidth={2.2} />
           </span>
           <span className="sr-only">
             {item.is_paid ? "จ่ายแล้ว" : "ยังไม่จ่าย"}
@@ -170,7 +170,7 @@ export function ItemRow({ item, muted }: { item: Item; muted: boolean }) {
             {item.name}
           </span>
           {!item.is_included && (
-            <span className="rounded-sm bg-wood-soft px-1.5 text-[11px] leading-5 text-clay">
+            <span className="rounded-sm bg-wood-soft px-1.5 text-xs leading-5 text-clay">
               ไม่นับ
             </span>
           )}

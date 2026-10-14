@@ -13,6 +13,19 @@
   --color-moss-soft: #e2e8dc;
   --color-clay: #b0603a;
 
+  /* A step up from Tailwind's defaults: Thai tone marks and vowels stack, and
+     at 12–14px they blur together. Line heights are loose for the same reason. */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.55;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.375rem;
+  --text-xl--line-height: 1.4;
+
   --font-sans: var(--font-thai), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif-thai), ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;

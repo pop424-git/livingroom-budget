@@ -77,7 +77,7 @@ export const labelClass = "text-xs text-muted";
 
 /** Latin-only annotation in the mono face, like the notes on a plan. */
 export const monoLabelClass =
-  "font-mono text-[11px] uppercase tracking-[0.12em] text-muted";
+  "font-mono text-[0.75rem] uppercase tracking-[0.12em] text-muted";
 
 /** Short number fields; max-w because fieldClass sets w-full. */
 export const amountFieldClass = `${fieldClass} tnum max-w-36`;

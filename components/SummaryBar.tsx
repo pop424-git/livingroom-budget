@@ -81,7 +81,7 @@ export function SummaryBar({ categories }: { categories: Category[] }) {
       <div ref={blockRef} className="border border-ink/80 bg-surface">
         <div className="px-4 pt-4 pb-5 sm:px-6 sm:pt-5">
           <p className={labelClass}>ยอดรวมที่นับ · บาท</p>
-          <p className="tnum mt-2 font-serif text-[2.1rem] leading-[1.15] text-ink sm:text-5xl">
+          <p className="tnum mt-2 font-serif text-[2.3rem] leading-[1.15] text-ink sm:text-5xl">
             <RangeText range={total} />
           </p>
           {missingPrice > 0 && (
