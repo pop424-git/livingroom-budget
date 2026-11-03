@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
+import elevationDimensions from "@/public/reference/elevation-dimensions.jpg";
+import engawaGardenPath from "@/public/reference/engawa-garden-path.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
+import engawaVerandaPlanted from "@/public/reference/engawa-veranda-planted.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
@@ -40,6 +43,16 @@ const overview: Shot[] = [
   },
 ];
 
+/** Front elevation, wide enough to need its own full-width row. */
+const elevation: Shot[] = [
+  {
+    image: elevationDimensions,
+    alt: "รูปด้านหน้าพร้อมระยะ ผนังตรงกลางจั่วสูง 400 ซม. ประตูบานเลื่อนกว้าง 300 ซม. ห้องน้ำกว้าง 200 ซม. ตู้เย็นชิดผนังซ้าย โต๊ะกินข้าวกับเก้าอี้หน้าประตู อาร์มแชร์และโซฟา 186 ซม. ด้านขวา บนพื้นยกบนตอม่อ",
+    caption: "รูปด้านหน้า — จั่ว 400 ซม. ประตูบานเลื่อน 300 ซม. ห้องน้ำ 200 ซม. โซฟา 186 ซม.",
+    contain: true,
+  },
+];
+
 /** Interior renders: the same room seen from each end. */
 const interior: Shot[] = [
   {
@@ -64,6 +77,20 @@ const engawa: Shot[] = [
   },
 ];
 
+/** More engawa references, side by side under the main one. */
+const engawaMore: Shot[] = [
+  {
+    image: engawaVerandaPlanted,
+    alt: "ภาพเรนเดอร์หน้าบ้านหลังคาเมทัลชีทสีขาว เสาไม้สี่ต้นบนตอม่อคอนกรีต ผนังไม้ตีเกล็ดแนวตั้งสีขาว ประตูกระจกบานเลื่อนลูกฟักไม้ ระเบียงไม้ยกพื้น บันไดไม้สามขั้นลงสวนกรวด ตะเกียงหิน บอนไซ และไม้พุ่มรอบบ้าน",
+    caption: "ระเบียงอีกแบบ — หลังคาขาว ประตูลูกฟัก บันไดไม้ สวนปลูกต้นไม้",
+  },
+  {
+    image: engawaGardenPath,
+    alt: "ภาพถ่ายบ้านญี่ปุ่น ระเบียงไม้ยาวใต้ชายคาไม้ เสาไม้ ผนังขาว ประตูกระจกกรอบไม้ มีคนนั่งริมระเบียง ทางเดินแผ่นหินผ่านสวนดอกไม้และต้นไม้",
+    caption: "ระเบียงจริง — นั่งริมขอบ ทางเดินหินผ่านสวน",
+  },
+];
+
 /** The building seen whole. */
 const materials: Shot[] = [
   {
@@ -74,7 +101,14 @@ const materials: Shot[] = [
 ];
 
 /** One flat list so the lightbox can page through every shot in order. */
-const allShots = [...overview, ...interior, ...engawa, ...materials];
+const allShots = [
+  ...overview,
+  ...elevation,
+  ...interior,
+  ...engawa,
+  ...engawaMore,
+  ...materials,
+];
 
 export function ReferenceShots() {
   const [openAt, setOpenAt] = useState<number | null>(null);
@@ -109,6 +143,8 @@ export function ReferenceShots() {
   }, [openAt, step]);
 
   const current = openAt === null ? null : allShots[openAt];
+  // Where a group starts in allShots, so its thumbs open the right page.
+  const offset = (group: Shot[]) => allShots.indexOf(group[0]);
 
   return (
     <>
@@ -118,10 +154,22 @@ export function ReferenceShots() {
             <Thumb
               key={shot.image.src}
               shot={shot}
-              onOpen={() => open(index)}
+              onOpen={() => open(offset(overview) + index)}
               // Both are drawings shown whole, so the box only has to be
               // roomy enough for a near-square page.
               aspect="aspect-4/3"
+            />
+          ))}
+        </div>
+
+        <div className="grid gap-4 sm:gap-5">
+          {elevation.map((shot, index) => (
+            <Thumb
+              key={shot.image.src}
+              shot={shot}
+              onOpen={() => open(offset(elevation) + index)}
+              // The drawing is exactly 2:1, so it lands whole.
+              aspect="aspect-2/1"
             />
           ))}
         </div>
@@ -131,7 +179,7 @@ export function ReferenceShots() {
             <Thumb
               key={shot.image.src}
               shot={shot}
-              onOpen={() => open(overview.length + index)}
+              onOpen={() => open(offset(interior) + index)}
               // The renders are panoramic; a 3:2 crop would cut off both ends.
               aspect="aspect-2/1"
             />
@@ -143,10 +191,23 @@ export function ReferenceShots() {
             <Thumb
               key={shot.image.src}
               shot={shot}
-              onOpen={() => open(overview.length + interior.length + index)}
+              onOpen={() => open(offset(engawa) + index)}
               // 16:9 to match the render, so the shot lands whole — eave line
               // down to the stepping stones — instead of losing both to a crop.
               aspect="aspect-16/9"
+            />
+          ))}
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
+          {engawaMore.map((shot, index) => (
+            <Thumb
+              key={shot.image.src}
+              shot={shot}
+              onOpen={() => open(offset(engawaMore) + index)}
+              // A photo and a render of different shapes; 3:2 suits both and
+              // only trims a little sky or gravel off the wider one.
+              aspect="aspect-3/2"
             />
           ))}
         </div>
@@ -156,11 +217,7 @@ export function ReferenceShots() {
             <Thumb
               key={shot.image.src}
               shot={shot}
-              onOpen={() =>
-                open(
-                  overview.length + interior.length + engawa.length + index
-                )
-              }
+              onOpen={() => open(offset(materials) + index)}
               // Alone on its row now, so it runs full width; 3:2 trims the
               // empty sky and gravel without touching the building.
               aspect="aspect-3/2"
