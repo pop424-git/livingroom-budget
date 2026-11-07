@@ -1,6 +1,7 @@
 import { AddCategoryForm } from "@/components/AddCategoryForm";
 import { CategoryCard } from "@/components/CategoryCard";
 import { Icon } from "@/components/icons";
+import { Openings } from "@/components/Openings";
 import { ReferenceShots } from "@/components/ReferenceShots";
 import { SummaryBar } from "@/components/SummaryBar";
 import { labelClass, monoLabelClass } from "@/components/ui";
@@ -94,6 +95,14 @@ export default async function Page() {
         <div className="mt-2.5">
           <AddCategoryForm />
         </div>
+
+        <section className="mt-16">
+          <div className="mb-4 flex items-end justify-between gap-4 border-t border-line pt-8">
+            <h2 className="font-serif text-xl text-ink">ประตู · หน้าต่าง</h2>
+            <span className={labelClass}>ขนาด · สี · ราคา</span>
+          </div>
+          <Openings />
+        </section>
 
         <section className="mt-16">
           <div className="mb-4 flex items-end justify-between gap-4 border-t border-line pt-8">
