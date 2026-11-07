@@ -73,10 +73,11 @@ export const openings: Opening[] = [
     name: "หน้าต่างครัว",
     tag: "Kitchen",
     kind: "casement",
-    note: "อะลูมิเนียมบานเปิด รุ่น N-ACG0611 พร้อมมุ้ง",
+    note: "อะลูมิเนียมบานเปิด รุ่น N-ACG0611 พร้อมมุ้ง · ร้าน GlobalHouse",
     size: { width: 60, length: null, height: 110 },
     color: wood,
     price: 2819,
+    url: "https://th.shp.ee/iiWbrdfK",
     image: kitchenWindow,
     curtain: {
       type: "ม่านจีบรังผึ้ง ทึบแสง",
