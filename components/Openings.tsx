@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { labelClass, monoLabelClass } from "@/components/ui";
 import {
-  lineTotal,
   openings as allOpenings,
   type Color,
   type Curtain,
@@ -11,13 +10,14 @@ import {
 import { formatAmount } from "@/lib/types";
 
 /** Sums what's priced and counts what isn't yet. */
-function tally(items: { price: number | null; quantity: number }[]) {
-  const totals = items.map(lineTotal);
-  const priced = totals.filter((t): t is number => t !== null);
+function tally(items: { price: number | null }[]) {
+  const priced = items
+    .map((item) => item.price)
+    .filter((price): price is number => price !== null);
   return {
     sum: priced.reduce((a, b) => a + b, 0),
     priced: priced.length,
-    missing: totals.length - priced.length,
+    missing: items.length - priced.length,
   };
 }
 
@@ -186,35 +186,27 @@ function ColorName({ color }: { color: Color | null }) {
   );
 }
 
-/** Price per piece, the line total when there's more than one, and its source. */
+/** The price and the store it came from. */
 function PriceRow({
   item,
   className,
   size,
 }: {
-  item: { price: number | null; quantity: number; source?: string; url?: string };
+  item: { price: number | null; source?: string; url?: string };
   className: string;
   size: "lg" | "base";
 }) {
-  const { price, quantity } = item;
-  const total = lineTotal(item);
+  const { price } = item;
   return (
     <div className={`flex items-end justify-between gap-3 ${className}`}>
-      <div>
-        <p
-          className={`tnum font-serif leading-tight text-ink ${
-            size === "lg" ? "text-xl" : "text-base"
-          }`}
-        >
-          {price !== null ? formatAmount(price) : "—"}
-          <span className="ml-1 text-sm text-muted">บาท</span>
-        </p>
-        {quantity > 1 && (
-          <p className="tnum text-xs text-muted">
-            × {quantity} = {total !== null ? formatAmount(total) : "—"}
-          </p>
-        )}
-      </div>
+      <p
+        className={`tnum font-serif leading-tight text-ink ${
+          size === "lg" ? "text-xl" : "text-base"
+        }`}
+      >
+        {price !== null ? formatAmount(price) : "—"}
+        <span className="ml-1 text-sm text-muted">บาท</span>
+      </p>
       <SourceTag source={item.source ?? "Shopee"} url={item.url} />
     </div>
   );

@@ -6,6 +6,9 @@ export type OpeningKind = "window" | "casement" | "louvre" | "sliding-door";
 
 export type Color = { name: string; hex: string };
 
+/** Every frame in the house is the same wood finish. */
+const wood: Color = { name: "สีไม้", hex: "#b47a45" };
+
 /** What hangs over the opening. Its own listing, so its own price. */
 export type Curtain = {
   /** e.g. ม่านม้วน, มู่ลี่ไม้, ม่านจีบ, ม่านตาไก่ */
@@ -15,7 +18,6 @@ export type Curtain = {
   color: Color | null;
   /** Baht per piece, as listed by the store. */
   price: number | null;
-  quantity: number;
   /** Where the price came from. Defaults to Shopee. */
   source?: string;
   /** Link to the listing. */
@@ -34,7 +36,6 @@ export type Opening = {
   color: Color | null;
   /** Baht per piece, as listed by the store. */
   price: number | null;
-  quantity: number;
   /** Where the price came from. Defaults to Shopee. */
   source?: string;
   /** Link to the listing. */
@@ -51,17 +52,11 @@ function emptyCurtain(): Curtain {
     size: { width: null, height: null },
     color: null,
     price: null,
-    quantity: 1,
   };
 }
 
-/** Price × quantity, or null while the price isn't known. */
-export function lineTotal(item: { price: number | null; quantity: number }) {
-  return item.price === null ? null : item.price * item.quantity;
-}
-
 /**
- * Doors and windows, with the store listing each price came from.
+ * Doors and windows, one of each, with the store listing each price came from.
  * Placeholder entries: sizes, colours and prices go in once they're chosen.
  */
 export const openings: Opening[] = [
@@ -70,9 +65,8 @@ export const openings: Opening[] = [
     tag: "North",
     kind: "window",
     size: { width: null, length: null, height: null },
-    color: null,
+    color: wood,
     price: null,
-    quantity: 1,
     curtain: emptyCurtain(),
   },
   {
@@ -81,16 +75,14 @@ export const openings: Opening[] = [
     kind: "casement",
     note: "อะลูมิเนียมบานเปิด รุ่น N-ACG0611 พร้อมมุ้ง",
     size: { width: 60, length: null, height: 110 },
-    color: { name: "สีไม้", hex: "#b47a45" },
+    color: wood,
     price: 2819,
-    quantity: 1,
     image: kitchenWindow,
     curtain: {
       type: "ม่านจีบรังผึ้ง ทึบแสง",
       size: { width: null, height: null },
       color: null,
       price: null,
-      quantity: 1,
       source: "ไทวัสดุ",
     },
   },
@@ -99,9 +91,8 @@ export const openings: Opening[] = [
     tag: "Bath",
     kind: "louvre",
     size: { width: null, length: null, height: null },
-    color: null,
+    color: wood,
     price: null,
-    quantity: 1,
     curtain: emptyCurtain(),
   },
   {
@@ -109,9 +100,8 @@ export const openings: Opening[] = [
     tag: "Front",
     kind: "sliding-door",
     size: { width: null, length: null, height: null },
-    color: null,
+    color: wood,
     price: null,
-    quantity: 1,
     curtain: emptyCurtain(),
   },
 ];
