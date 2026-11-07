@@ -1,7 +1,8 @@
 import type { StaticImageData } from "next/image";
+import kitchenWindow from "@/public/openings/kitchen-window.webp";
 
 /** Picks which line drawing stands in until a photo is added. */
-export type OpeningKind = "window" | "louvre" | "sliding-door";
+export type OpeningKind = "window" | "casement" | "louvre" | "sliding-door";
 
 export type Color = { name: string; hex: string };
 
@@ -12,10 +13,13 @@ export type Curtain = {
   /** Centimetres. */
   size: { width: number | null; height: number | null };
   color: Color | null;
-  /** Baht per piece, as listed on Shopee. */
+  /** Baht per piece, as listed by the store. */
   price: number | null;
   quantity: number;
-  shopeeUrl?: string;
+  /** Where the price came from. Defaults to Shopee. */
+  source?: string;
+  /** Link to the listing. */
+  url?: string;
 };
 
 export type Opening = {
@@ -28,10 +32,13 @@ export type Opening = {
   /** Centimetres. null shows as a dash until the number is known. */
   size: { width: number | null; length: number | null; height: number | null };
   color: Color | null;
-  /** Baht per piece, as listed on Shopee. */
+  /** Baht per piece, as listed by the store. */
   price: number | null;
   quantity: number;
-  shopeeUrl?: string;
+  /** Where the price came from. Defaults to Shopee. */
+  source?: string;
+  /** Link to the listing. */
+  url?: string;
   /** null when the opening goes without one. */
   curtain: Curtain | null;
   /** Product photo. Drop the file in public/openings/, import it here. */
@@ -54,7 +61,7 @@ export function lineTotal(item: { price: number | null; quantity: number }) {
 }
 
 /**
- * Doors and windows, with the Shopee listing each price came from.
+ * Doors and windows, with the store listing each price came from.
  * Placeholder entries: sizes, colours and prices go in once they're chosen.
  */
 export const openings: Opening[] = [
@@ -69,14 +76,23 @@ export const openings: Opening[] = [
     curtain: emptyCurtain(),
   },
   {
-    name: "หน้าต่างทิศใต้",
-    tag: "South",
-    kind: "window",
-    size: { width: null, length: null, height: null },
-    color: null,
-    price: null,
+    name: "หน้าต่างครัว",
+    tag: "Kitchen",
+    kind: "casement",
+    note: "อะลูมิเนียมบานเปิด รุ่น N-ACG0611 พร้อมมุ้ง",
+    size: { width: 60, length: null, height: 110 },
+    color: { name: "สีไม้", hex: "#b47a45" },
+    price: 2819,
     quantity: 1,
-    curtain: emptyCurtain(),
+    image: kitchenWindow,
+    curtain: {
+      type: "ม่านจีบรังผึ้ง ทึบแสง",
+      size: { width: null, height: null },
+      color: null,
+      price: null,
+      quantity: 1,
+      source: "ไทวัสดุ",
+    },
   },
   {
     name: "หน้าต่างในห้องน้ำ",

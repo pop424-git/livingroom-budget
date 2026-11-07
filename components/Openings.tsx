@@ -73,8 +73,8 @@ function OpeningCard({ opening }: { opening: Opening }) {
         {opening.image ? (
           <Image
             src={opening.image}
-            alt={opening.name}
-            className="size-full object-contain"
+            alt={`${opening.name} — ${opening.note ?? ""}`}
+            className="size-full object-cover"
             sizes="(min-width: 640px) 50vw, 100vw"
           />
         ) : (
@@ -192,7 +192,7 @@ function PriceRow({
   className,
   size,
 }: {
-  item: { price: number | null; quantity: number; shopeeUrl?: string };
+  item: { price: number | null; quantity: number; source?: string; url?: string };
   className: string;
   size: "lg" | "base";
 }) {
@@ -215,16 +215,16 @@ function PriceRow({
           </p>
         )}
       </div>
-      <ShopeeTag url={item.shopeeUrl} />
+      <SourceTag source={item.source ?? "Shopee"} url={item.url} />
     </div>
   );
 }
 
 /** Says where the price came from; links to the listing once there is one. */
-function ShopeeTag({ url }: { url?: string }) {
+function SourceTag({ source, url }: { source: string; url?: string }) {
   const className =
     "inline-flex shrink-0 items-center gap-1 rounded-full bg-clay/10 px-2.5 py-0.5 text-xs text-clay";
-  if (!url) return <span className={className}>ราคาจาก Shopee</span>;
+  if (!url) return <span className={className}>ราคาจาก {source}</span>;
   return (
     <a
       href={url}
@@ -232,7 +232,7 @@ function ShopeeTag({ url }: { url?: string }) {
       rel="noopener noreferrer"
       className={`${className} transition hover:bg-clay/20`}
     >
-      ราคาจาก Shopee <span aria-hidden>↗</span>
+      ราคาจาก {source} <span aria-hidden>↗</span>
     </a>
   );
 }
@@ -255,7 +255,9 @@ function Drawing({
   const box =
     kind === "sliding-door"
       ? { x: 26, y: 18, w: 112, h: 86 }
-      : kind === "louvre"
+      : kind === "casement"
+        ? { x: 56, y: 16, w: 48, h: 86 }
+        : kind === "louvre"
         ? { x: 52, y: 30, w: 64, h: 52 }
         : { x: 36, y: 24, w: 96, h: 66 };
   const { x, y, w, h } = box;
@@ -285,6 +287,21 @@ function Drawing({
             </g>
             {/* Sill */}
             <path d={`M${x - 6} ${y + h + 3}h${w + 12}`} />
+          </>
+        )}
+
+        {kind === "casement" && (
+          <>
+            {/* One sash, hinged on the right; the dashed swing lines meet at
+                the hinge side, the handle sits on the other. */}
+            <rect x={x + 5} y={y + 5} width={w - 10} height={h - 10} />
+            <path
+              d={`M${x + 5} ${y + 5}L${x + w - 5} ${y + h / 2}L${x + 5} ${y + h - 5}`}
+              strokeDasharray="2 2"
+              className={glass}
+            />
+            <path d={`M${x + 9} ${y + h / 2 - 5}v10`} strokeWidth={1.4} />
+            <path d={`M${x - 5} ${y + h + 3}h${w + 10}`} />
           </>
         )}
 
