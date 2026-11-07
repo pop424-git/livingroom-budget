@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import bathWindow from "@/public/openings/bath-window.webp";
+import frontDoor from "@/public/openings/front-door.webp";
 import kitchenWindow from "@/public/openings/kitchen-window.webp";
 import northWindow from "@/public/openings/north-window.webp";
 
@@ -53,15 +54,6 @@ export type Opening = {
   /** Flags a photo that isn't the product itself, e.g. an edited mock-up. */
   imageNote?: string;
 };
-
-function emptyCurtain(): Curtain {
-  return {
-    type: null,
-    size: { width: null, height: null },
-    color: null,
-    price: null,
-  };
-}
 
 /**
  * Doors and windows, one of each, with the store listing each price came from.
@@ -122,9 +114,20 @@ export const openings: Opening[] = [
     name: "ประตูด้านหน้า",
     tag: "Front",
     kind: "sliding-door",
-    size: { width: null, height: null },
+    note: "อะลูมิเนียมบานเลื่อนสามทบ · สั่งทำ",
+    size: { width: 300, height: 200 },
     color: wood,
     price: null,
-    curtain: emptyCurtain(),
+    priceNote: "สั่งทำ · ยังไม่รู้ราคา",
+    // Edited from a two-panel listing photo up to three panels at 300 × 200.
+    image: frontDoor,
+    imageNote: "ภาพจำลอง",
+    curtain: {
+      type: "2 ชั้น · ทึบแสง + โปร่ง",
+      size: { width: null, height: null },
+      color: null,
+      price: null,
+      priceNote: "ยังไม่ได้เลือกร้าน",
+    },
   },
 ];
