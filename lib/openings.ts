@@ -61,6 +61,26 @@ export type Opening = {
  */
 export const openings: Opening[] = [
   {
+    name: "ประตูด้านหน้า",
+    tag: "Front",
+    kind: "sliding-door",
+    note: "อะลูมิเนียมบานเลื่อนสามทบ · สั่งทำ",
+    size: { width: 300, height: 200 },
+    color: wood,
+    price: null,
+    priceNote: "สั่งทำ · ยังไม่รู้ราคา",
+    // Edited from a two-panel listing photo up to three panels at 300 × 200.
+    image: frontDoor,
+    imageNote: "ภาพจำลอง",
+    curtain: {
+      type: "2 ชั้น · ทึบแสง + โปร่ง",
+      size: { width: null, height: null },
+      color: null,
+      price: null,
+      priceNote: "ยังไม่ได้เลือกร้าน",
+    },
+  },
+  {
     name: "หน้าต่างทิศเหนือ",
     tag: "North",
     kind: "window",
@@ -109,25 +129,5 @@ export const openings: Opening[] = [
     url: "https://th.shp.ee/KPX7aSMq",
     image: bathWindow,
     curtain: "undecided",
-  },
-  {
-    name: "ประตูด้านหน้า",
-    tag: "Front",
-    kind: "sliding-door",
-    note: "อะลูมิเนียมบานเลื่อนสามทบ · สั่งทำ",
-    size: { width: 300, height: 200 },
-    color: wood,
-    price: null,
-    priceNote: "สั่งทำ · ยังไม่รู้ราคา",
-    // Edited from a two-panel listing photo up to three panels at 300 × 200.
-    image: frontDoor,
-    imageNote: "ภาพจำลอง",
-    curtain: {
-      type: "2 ชั้น · ทึบแสง + โปร่ง",
-      size: { width: null, height: null },
-      color: null,
-      price: null,
-      priceNote: "ยังไม่ได้เลือกร้าน",
-    },
   },
 ];
