@@ -3,7 +3,6 @@ import { labelClass, monoLabelClass } from "@/components/ui";
 import {
   openings as allOpenings,
   type Color,
-  type Curtain,
   type Opening,
   type OpeningKind,
 } from "@/lib/openings";
@@ -25,7 +24,9 @@ function tally(items: { price: number | null }[]) {
 export function Openings({ openings = allOpenings }: { openings?: Opening[] }) {
   const frames = tally(openings);
   const curtains = tally(
-    openings.flatMap((o) => (o.curtain ? [o.curtain] : [])),
+    openings.flatMap((o) =>
+      o.curtain && o.curtain !== "undecided" ? [o.curtain] : [],
+    ),
   );
   const missing = frames.missing + curtains.missing;
   const anyPriced = frames.priced + curtains.priced > 0;
@@ -62,7 +63,6 @@ function OpeningCard({ opening }: { opening: Opening }) {
   const { size, color } = opening;
   const dims: [string, number | null][] = [
     ["กว้าง", size.width],
-    ["ยาว", size.length],
     ["สูง", size.height],
   ];
 
@@ -99,7 +99,7 @@ function OpeningCard({ opening }: { opening: Opening }) {
         )}
 
         {/* Sizes set out like the notes on a drawing: label over figure. */}
-        <dl className="mt-3 grid grid-cols-3 divide-x divide-line-soft border-y border-line-soft py-2">
+        <dl className="mt-3 grid grid-cols-2 divide-x divide-line-soft border-y border-line-soft py-2">
           {dims.map(([label, value]) => (
             <div key={label} className="px-2 first:pl-0">
               <dt className={labelClass}>{label}</dt>
@@ -128,11 +128,17 @@ function OpeningCard({ opening }: { opening: Opening }) {
 }
 
 /** The curtain for an opening, set on a paper-tinted panel inside the card. */
-function CurtainPanel({ curtain }: { curtain: Curtain | null }) {
-  if (!curtain) {
+function CurtainPanel({ curtain }: { curtain: Opening["curtain"] }) {
+  if (!curtain || curtain === "undecided") {
     return (
       <p className="rounded-md border border-dashed border-line px-3 py-2 text-xs text-muted">
-        ไม่ใช้ม่าน
+        {curtain ? (
+          <>
+            <span className="mr-2">ม่าน</span>ยังไม่ได้ตัดสินใจว่าจะใช้ไหม
+          </>
+        ) : (
+          "ไม่ใช้ม่าน"
+        )}
       </p>
     );
   }
@@ -249,8 +255,8 @@ function Drawing({
       ? { x: 26, y: 18, w: 112, h: 86 }
       : kind === "casement"
         ? { x: 56, y: 16, w: 48, h: 86 }
-        : kind === "louvre"
-        ? { x: 52, y: 30, w: 64, h: 52 }
+        : kind === "awning"
+          ? { x: 40, y: 30, w: 80, h: 50 }
         : { x: 36, y: 24, w: 96, h: 66 };
   const { x, y, w, h } = box;
   const glass = "stroke-line-strong/50";
@@ -297,14 +303,18 @@ function Drawing({
           </>
         )}
 
-        {kind === "louvre" && (
-          <g>
-            {Array.from({ length: 7 }, (_, i) => {
-              const ly = y + 9 + i * 6;
-              return <path key={i} d={`M${x + 6} ${ly}h${w - 12}`} />;
-            })}
+        {kind === "awning" && (
+          <>
+            {/* One sash hinged along the top, pushed out from the bottom. */}
+            <rect x={x + 5} y={y + 5} width={w - 10} height={h - 10} />
+            <path
+              d={`M${x + 5} ${y + h - 5}L${x + w / 2} ${y + 5}L${x + w - 5} ${y + h - 5}`}
+              strokeDasharray="2 2"
+              className={glass}
+            />
+            <path d={`M${x + w / 2 - 5} ${y + h - 9}h10`} strokeWidth={1.4} />
             <path d={`M${x - 5} ${y + h + 3}h${w + 10}`} />
-          </g>
+          </>
         )}
 
         {kind === "sliding-door" && (
