@@ -1,6 +1,7 @@
 import type { StaticImageData } from "next/image";
 import bathWindow from "@/public/openings/bath-window.webp";
 import kitchenWindow from "@/public/openings/kitchen-window.webp";
+import northWindow from "@/public/openings/north-window.webp";
 
 /** Picks which line drawing stands in until a photo is added. */
 export type OpeningKind = "window" | "casement" | "awning" | "sliding-door";
@@ -23,6 +24,8 @@ export type Curtain = {
   source?: string;
   /** Link to the listing. */
   url?: string;
+  /** Said in place of the store when the price isn't a listing, e.g. made to order. */
+  priceNote?: string;
 };
 
 export type Opening = {
@@ -41,10 +44,14 @@ export type Opening = {
   source?: string;
   /** Link to the listing. */
   url?: string;
+  /** Said in place of the store when the price isn't a listing, e.g. made to order. */
+  priceNote?: string;
   /** null: goes without one. "undecided": not settled whether to have one. */
   curtain: Curtain | null | "undecided";
   /** Product photo. Drop the file in public/openings/, import it here. */
   image?: StaticImageData;
+  /** Flags a photo that isn't the product itself, e.g. an edited mock-up. */
+  imageNote?: string;
 };
 
 function emptyCurtain(): Curtain {
@@ -65,10 +72,21 @@ export const openings: Opening[] = [
     name: "หน้าต่างทิศเหนือ",
     tag: "North",
     kind: "window",
-    size: { width: null, height: null },
+    note: "อะลูมิเนียมบานเลื่อน 2 บาน · สั่งทำ",
+    size: { width: 180, height: 110 },
     color: wood,
     price: null,
-    curtain: emptyCurtain(),
+    priceNote: "สั่งทำ · ยังไม่รู้ราคา",
+    // Edited from a four-panel listing photo down to two panels at 180 × 110.
+    image: northWindow,
+    imageNote: "ภาพจำลอง",
+    curtain: {
+      type: "มู่ลี่",
+      size: { width: 200, height: 140 },
+      color: null,
+      price: 2142,
+      url: "https://th.shp.ee/1moNCyRm",
+    },
   },
   {
     name: "หน้าต่างครัว",

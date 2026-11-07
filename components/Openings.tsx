@@ -71,12 +71,19 @@ function OpeningCard({ opening }: { opening: Opening }) {
     <article className="flex flex-col rounded-[3px] border border-line bg-surface p-2.5 shadow-[0_1px_2px_rgb(42_38_34/0.05),0_12px_28px_-20px_rgb(42_38_34/0.35)] sm:p-3.5">
       <div className="relative aspect-4/3 overflow-hidden border border-ink/10 bg-paper">
         {opening.image ? (
-          <Image
-            src={opening.image}
-            alt={`${opening.name} — ${opening.note ?? ""}`}
-            className="size-full object-cover"
-            sizes="(min-width: 640px) 50vw, 100vw"
-          />
+          <>
+            <Image
+              src={opening.image}
+              alt={`${opening.name} — ${opening.note ?? ""}`}
+              className="size-full object-cover"
+              sizes="(min-width: 640px) 50vw, 100vw"
+            />
+            {opening.imageNote && (
+              <span className="absolute top-2 left-2 rounded-sm bg-surface/90 px-2 py-0.5 text-xs text-muted">
+                {opening.imageNote}
+              </span>
+            )}
+          </>
         ) : (
           <>
             <Drawing kind={opening.kind} width={size.width} height={size.height} />
@@ -198,7 +205,12 @@ function PriceRow({
   className,
   size,
 }: {
-  item: { price: number | null; source?: string; url?: string };
+  item: {
+    price: number | null;
+    source?: string;
+    url?: string;
+    priceNote?: string;
+  };
   className: string;
   size: "lg" | "base";
 }) {
@@ -213,7 +225,14 @@ function PriceRow({
         {price !== null ? formatAmount(price) : "—"}
         <span className="ml-1 text-sm text-muted">บาท</span>
       </p>
-      <SourceTag source={item.source ?? "Shopee"} url={item.url} />
+      {item.priceNote ? (
+        // Not a listing, so no store colour: just a quiet note.
+        <span className="inline-flex shrink-0 items-center rounded-full bg-line-soft px-2.5 py-0.5 text-xs text-muted">
+          {item.priceNote}
+        </span>
+      ) : (
+        <SourceTag source={item.source ?? "Shopee"} url={item.url} />
+      )}
     </div>
   );
 }
