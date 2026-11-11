@@ -8,6 +8,7 @@ import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import engawaVerandaPlanted from "@/public/reference/engawa-veranda-planted.jpg";
 import exteriorCorner from "@/public/reference/exterior-corner.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
+import exteriorHipRoof from "@/public/reference/exterior-hip-roof.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
 import planDimensions from "@/public/reference/plan-dimensions.png";
@@ -98,6 +99,11 @@ const materials: Shot[] = [
     image: exteriorCorner,
     alt: "ภาพเรนเดอร์บ้านมุมเฉียงกลางวัน หลังคาเมทัลชีทสีเทาเงินจั่วสองชั้น ชายคาต่ำคลุมระเบียงไม้ยกพื้น เสาไม้ ผนังฉาบสีขาว ประตูบานเลื่อนกรอบไม้ลายตาราง บันไดไม้ลงทางเดินกรวดกับแผ่นหิน สวนหินและไม้พุ่ม แอร์คอมเพรสเซอร์ข้างบ้าน มีภูเขาเป็นฉากหลัง",
     caption: "มุมเฉียง — หลังคาเมทัลชีทเทา ผนังขาว ระเบียงไม้ สวนหิน ภูเขาด้านหลัง",
+  },
+  {
+    image: exteriorHipRoof,
+    alt: "ภาพบ้านชั้นเดียวมองตรงจากสนามหญ้า หลังคาปั้นหยากระเบื้องสีเทาอ่อน ผนังฉาบสีขาว ประตูกระจกบานเลื่อนกรอบไม้สีส้มอ่อนหลายชุดกับผ้าม่านขาว ฉากไม้ระแนงข้างประตูกลาง ระเบียงไม้ยกพื้นยาวเต็มหน้าบ้าน ม้านั่งไม้ โต๊ะกับม้านั่งกินข้าว บันไดปูนลงทางเดินแผ่นหิน ไม้พุ่มรอบบ้าน และภูเขาป่าเขียวเป็นฉากหลัง",
+    caption: "หลังคาปั้นหยา — กระเบื้องเทา กรอบไม้ ระเบียงยาวเต็มหน้า ภูเขาด้านหลัง",
   },
 ];
 
