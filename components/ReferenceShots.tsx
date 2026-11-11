@@ -17,8 +17,6 @@ type Shot = {
   image: StaticImageData;
   alt: string;
   caption: string;
-  /** Plans lose their edges under object-cover. */
-  contain?: boolean;
 };
 
 /**
@@ -34,23 +32,20 @@ const overview: Shot[] = [
     image: planDimensions,
     alt: "ผังพื้นพร้อมระยะ ห้องนั่งเล่น 32 ตร.ม. ห้องน้ำ 3 ตร.ม. อาคาร 400 × 800 ซม. ระเบียงลึก 200 ซม.",
     caption: "ผังพื้น — ห้อง 4×8 ม. ห้องน้ำ 3 ตร.ม. ระเบียง 2 ม.",
-    contain: true,
   },
   {
     image: sectionDimensions,
     alt: "รูปตัดขวางพร้อมระยะ จั่วไม่สมมาตร ชันฝั่งเดค 38.7° ฝั่งหลัง 21.8° สันสูง 4.00 ม. จากพื้น ท้องชายคา 2.00 ม. เท่ากันสองฝั่ง ฝ้าห้อง 2.40 ม. พื้นยก 0.45 ม. เดคลึก 2.00 ม. ชายคาเลยขอบเดค 0.50 ม.",
     caption: "รูปตัด — จั่วไม่สมมาตร 38.7°/21.8° สัน 4.00 ม. ฝ้า 2.40 ม.",
-    contain: true,
   },
 ];
 
-/** Front elevation, wide enough to need its own full-width row. */
+/** Front elevation. */
 const elevation: Shot[] = [
   {
     image: elevationDimensions,
     alt: "รูปด้านหน้าพร้อมระยะ ผนังตรงกลางจั่วสูง 400 ซม. ประตูบานเลื่อนกว้าง 300 ซม. ห้องน้ำกว้าง 200 ซม. ตู้เย็นชิดผนังซ้าย โต๊ะกินข้าวกับเก้าอี้หน้าประตู อาร์มแชร์และโซฟา 186 ซม. ด้านขวา บนพื้นยกบนตอม่อ",
     caption: "รูปด้านหน้า — จั่ว 400 ซม. ประตูบานเลื่อน 300 ซม. ห้องน้ำ 200 ซม. โซฟา 186 ซม.",
-    contain: true,
   },
 ];
 
@@ -68,8 +63,8 @@ const interior: Shot[] = [
   },
 ];
 
-/** Engawa reference, shown full width: the veranda seen from the garden,
-    with the building around it, rather than the room. */
+/** Engawa reference: the veranda seen from the garden, with the building
+    around it, rather than the room. */
 const engawa: Shot[] = [
   {
     image: engawaVeranda,
@@ -78,7 +73,7 @@ const engawa: Shot[] = [
   },
 ];
 
-/** More engawa references, side by side under the main one. */
+/** More engawa references. */
 const engawaMore: Shot[] = [
   {
     image: engawaVerandaPlanted,
@@ -106,7 +101,7 @@ const materials: Shot[] = [
   },
 ];
 
-/** One flat list so the lightbox can page through every shot in order. */
+/** Every shot in page order; the lightbox pages through the same list. */
 const allShots = [
   ...overview,
   ...elevation,
@@ -149,87 +144,19 @@ export function ReferenceShots() {
   }, [openAt, step]);
 
   const current = openAt === null ? null : allShots[openAt];
-  // Where a group starts in allShots, so its thumbs open the right page.
-  const offset = (group: Shot[]) => allShots.indexOf(group[0]);
 
   return (
     <>
+      {/* One shot per row at full width, each at its own proportions, so
+          nothing is cropped or shrunk to fit beside another. */}
       <div className="space-y-4 sm:space-y-5">
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-          {overview.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(offset(overview) + index)}
-              // Both are drawings shown whole, so the box only has to be
-              // roomy enough for a near-square page.
-              aspect="aspect-4/3"
-            />
-          ))}
-        </div>
-
-        <div className="grid gap-4 sm:gap-5">
-          {elevation.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(offset(elevation) + index)}
-              // The drawing is exactly 2:1, so it lands whole.
-              aspect="aspect-2/1"
-            />
-          ))}
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-          {interior.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(offset(interior) + index)}
-              // The renders are panoramic; a 3:2 crop would cut off both ends.
-              aspect="aspect-2/1"
-            />
-          ))}
-        </div>
-
-        <div className="grid gap-4 sm:gap-5">
-          {engawa.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(offset(engawa) + index)}
-              // 16:9 to match the render, so the shot lands whole — eave line
-              // down to the stepping stones — instead of losing both to a crop.
-              aspect="aspect-16/9"
-            />
-          ))}
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-          {engawaMore.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(offset(engawaMore) + index)}
-              // A photo and a render of different shapes; 3:2 suits both and
-              // only trims a little sky or gravel off the wider one.
-              aspect="aspect-3/2"
-            />
-          ))}
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-          {materials.map((shot, index) => (
-            <Thumb
-              key={shot.image.src}
-              shot={shot}
-              onOpen={() => open(offset(materials) + index)}
-              // The corner view is 4:3 and the front one a little taller, so
-              // 4:3 shows the first whole and only trims sky off the second.
-              aspect="aspect-4/3"
-            />
-          ))}
-        </div>
+        {allShots.map((shot, index) => (
+          <Thumb
+            key={shot.image.src}
+            shot={shot}
+            onOpen={() => open(index)}
+          />
+        ))}
       </div>
 
       <dialog
@@ -308,17 +235,7 @@ export function ReferenceShots() {
   );
 }
 
-function Thumb({
-  shot,
-  onOpen,
-  aspect,
-  priority = false,
-}: {
-  shot: Shot;
-  onOpen: () => void;
-  aspect: string;
-  priority?: boolean;
-}) {
+function Thumb({ shot, onOpen }: { shot: Shot; onOpen: () => void }) {
   return (
     <button
       type="button"
@@ -329,15 +246,12 @@ function Thumb({
       className="group block w-full cursor-zoom-in rounded-[3px] border border-line bg-surface p-2.5 text-left shadow-[0_1px_2px_rgb(42_38_34/0.05),0_12px_28px_-20px_rgb(42_38_34/0.35)] transition hover:shadow-[0_1px_2px_rgb(42_38_34/0.06),0_16px_32px_-18px_rgb(42_38_34/0.45)] sm:p-3.5"
     >
       {/* The thin line is the bevel where the mat is cut around the picture. */}
-      <div className={`overflow-hidden border border-ink/10 ${aspect}`}>
+      <div className="overflow-hidden border border-ink/10">
         <Image
           src={shot.image}
           alt={shot.alt}
-          className={`size-full transition duration-300 group-hover:scale-[1.03] ${
-            shot.contain ? "object-contain" : "object-cover"
-          }`}
-          sizes="(min-width: 640px) 50vw, 100vw"
-          priority={priority}
+          className="h-auto w-full transition duration-300 group-hover:scale-[1.03]"
+          sizes="(min-width: 768px) 768px, 100vw"
         />
       </div>
       <p className="mt-2.5 text-xs leading-5 text-muted transition group-hover:text-ink sm:mt-3">
