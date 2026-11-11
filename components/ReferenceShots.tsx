@@ -6,6 +6,7 @@ import elevationDimensions from "@/public/reference/elevation-dimensions.jpg";
 import engawaGardenPath from "@/public/reference/engawa-garden-path.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import engawaVerandaPlanted from "@/public/reference/engawa-veranda-planted.jpg";
+import exteriorCorner from "@/public/reference/exterior-corner.jpg";
 import exteriorFront from "@/public/reference/exterior-front.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
@@ -97,6 +98,11 @@ const materials: Shot[] = [
     image: exteriorFront,
     alt: "ภาพเรนเดอร์ตัวอาคาร หลังคาจั่วไม่สมมาตรชายคายื่นคลุม เสาไม้รับชายคา ประตูบานเลื่อนเปิดเต็มหน้า ระเบียงไม้ยกพื้น และไฟซ่อนใต้ชายคา",
     caption: "ตัวอาคาร — จั่วชายคายื่น เสาไม้รับ ประตูเปิดเต็มหน้า",
+  },
+  {
+    image: exteriorCorner,
+    alt: "ภาพเรนเดอร์บ้านมุมเฉียงกลางวัน หลังคาเมทัลชีทสีเทาเงินจั่วสองชั้น ชายคาต่ำคลุมระเบียงไม้ยกพื้น เสาไม้ ผนังฉาบสีขาว ประตูบานเลื่อนกรอบไม้ลายตาราง บันไดไม้ลงทางเดินกรวดกับแผ่นหิน สวนหินและไม้พุ่ม แอร์คอมเพรสเซอร์ข้างบ้าน มีภูเขาเป็นฉากหลัง",
+    caption: "มุมเฉียง — หลังคาเมทัลชีทเทา ผนังขาว ระเบียงไม้ สวนหิน ภูเขาด้านหลัง",
   },
 ];
 
@@ -212,15 +218,15 @@ export function ReferenceShots() {
           ))}
         </div>
 
-        <div className="grid gap-4 sm:gap-5">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
           {materials.map((shot, index) => (
             <Thumb
               key={shot.image.src}
               shot={shot}
               onOpen={() => open(offset(materials) + index)}
-              // Alone on its row now, so it runs full width; 3:2 trims the
-              // empty sky and gravel without touching the building.
-              aspect="aspect-3/2"
+              // The corner view is 4:3 and the front one a little taller, so
+              // 4:3 shows the first whole and only trims sky off the second.
+              aspect="aspect-4/3"
             />
           ))}
         </div>
