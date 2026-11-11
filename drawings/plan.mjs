@@ -45,8 +45,8 @@ const thin = `fill="none" stroke="${soft}" stroke-width="1"`;
 const parts = [];
 
 // Paper and grid.
-parts.push(`<rect x="-340" y="-160" width="920" height="1290" fill="#fbfaf6"/>`);
-parts.push(`<rect x="-340" y="-160" width="920" height="1290" fill="url(#grid)"/>`);
+parts.push(`<rect x="-390" y="-160" width="970" height="1290" fill="#fbfaf6"/>`);
+parts.push(`<rect x="-390" y="-160" width="970" height="1290" fill="url(#grid)"/>`);
 
 // Engawa deck with boards running its length, posts on the outer edge, steps at each end.
 parts.push(
@@ -173,13 +173,13 @@ parts.push(dimV(0, L, W + 90, "960"));
 parts.push(dimV(0, frontDoor.y0, -255, "330"));
 parts.push(dimV(frontDoor.y0, frontDoor.y1, -255, ["บานเลื่อน", "300"]));
 parts.push(dimV(frontDoor.y1, L, -255, "330"));
-parts.push(dimH(0, W, L + 62, "400"));
+parts.push(dimH(0, W, L + 72, "400"));
 
 // North arrow and title.
 parts.push(
   `<g transform="translate(510 1035)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 -20 L7 8 L0 3 L-7 8 Z" fill="${ink}"/>${text(0, -30, "N", { size: 14, weight: 600 })}</g>`
 );
-parts.push(text(-320, 1100, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 11 พ.ย. 2026", { size: 17, anchor: "start" }));
+parts.push(text(-370, 1100, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 11 พ.ย. 2026", { size: 17, anchor: "start" }));
 
 const defs = `
   <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse" x="0" y="0">
@@ -189,4 +189,4 @@ const defs = `
     <line x1="0" y1="0" x2="0" y2="5" stroke="${soft}" stroke-width="1"/>
   </pattern>`;
 
-export const plan = svgDoc({ x: -340, y: -160, w: 920, h: 1290, defs, body: parts.join("\n"), font: FONT });
+export const plan = svgDoc({ x: -390, y: -160, w: 970, h: 1290, defs, body: parts.join("\n"), font: FONT });
