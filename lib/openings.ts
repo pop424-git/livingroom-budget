@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import bathWindow from "@/public/openings/bath-window.webp";
 import frontDoor from "@/public/openings/front-door.webp";
 import kitchenWindow from "@/public/openings/kitchen-window.webp";
 import northWindow from "@/public/openings/north-window.webp";
@@ -127,6 +128,7 @@ export const openings: Opening[] = [
     color: null,
     price: null,
     priceNote: "ยังไม่รู้ราคา",
+    image: bathWindow,
     curtain: "undecided",
   },
 ];
