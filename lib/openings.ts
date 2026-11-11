@@ -1,5 +1,4 @@
 import type { StaticImageData } from "next/image";
-import bathWindow from "@/public/openings/bath-window.webp";
 import frontDoor from "@/public/openings/front-door.webp";
 import kitchenWindow from "@/public/openings/kitchen-window.webp";
 import northWindow from "@/public/openings/north-window.webp";
@@ -119,15 +118,15 @@ export const openings: Opening[] = [
     },
   },
   {
-    name: "หน้าต่างในห้องน้ำ",
+    name: "หน้าต่างระบายอากาศห้องน้ำ",
     tag: "Bath",
-    kind: "awning",
-    note: "อะลูมิเนียมบานกระทุ้ง รุ่น N-AAG0805 พร้อมมุ้ง · ร้าน\u00a0GlobalHouse",
-    size: { width: 80, height: 50 },
-    color: wood,
-    price: 2003,
-    url: "https://th.shp.ee/KPX7aSMq",
-    image: bathWindow,
+    kind: "window",
+    note: "กรอบอะลูมิเนียม กระจกฝ้า พร้อมมุ้งกันยุง · ผนังเหนือ เหนือโถ",
+    size: { width: 60, height: 40 },
+    // Comes in black, tea brown or white; not chosen yet.
+    color: null,
+    price: null,
+    priceNote: "ยังไม่รู้ราคา",
     curtain: "undecided",
   },
 ];
