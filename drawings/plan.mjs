@@ -58,10 +58,10 @@ for (let x = -T - DECK + 20; x < -T; x += 20) {
 for (const y of [-T, 235, 480, 725, L + T - 12]) {
   parts.push(`<rect x="${-T - DECK}" y="${y}" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>`);
 }
-parts.push(`<rect x="${-T - DECK}" y="-55" width="100" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
-parts.push(`<rect x="${-T - DECK}" y="${L + T}" width="100" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
-parts.push(text(-160, -27, "บันได", { size: 12, fill: soft }));
-parts.push(text(-160, L + 42, "บันได", { size: 12, fill: soft }));
+parts.push(`<rect x="${-T - DECK}" y="-55" width="${DECK}" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
+parts.push(`<rect x="${-T - DECK}" y="${L + T}" width="${DECK}" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
+parts.push(text(-T - DECK / 2, -27, "บันได 200", { size: 12, fill: soft }));
+parts.push(text(-T - DECK / 2, L + 42, "บันได 200", { size: 12, fill: soft }));
 parts.push(`<rect x="-185" y="170" width="150" height="62" fill="#f1e8da"/>`);
 parts.push(text(-110, 195, "ระเบียง engawa", { size: 17, weight: 600 }));
 parts.push(text(-110, 220, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));

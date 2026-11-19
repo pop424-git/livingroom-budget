@@ -11,6 +11,9 @@
 <rect x="193" y="18" width="15" height="27" fill="#d9d9d6" stroke="#2f2e2b" stroke-width="1"/>
 <rect x="385" y="18" width="15" height="27" fill="#d9d9d6" stroke="#2f2e2b" stroke-width="1"/>
 <rect x="-212" y="0" width="620" height="18" fill="#e6e6e3" stroke="#2f2e2b" stroke-width="1.2"/>
+<rect x="-200" y="15" width="200" height="15" fill="#e9e2d6" stroke="#2f2e2b" stroke-width="1"/>
+<rect x="-200" y="30" width="200" height="15" fill="#e9e2d6" stroke="#2f2e2b" stroke-width="1"/>
+<text x="-100" y="42" font-size="12" font-weight="400" text-anchor="middle" fill="#2f2e2b">บันได 2 ขั้น กว้าง 2.00</text>
 <path d="M0 0 V-400 L400 -240 V0 Z" fill="#fafaf9" stroke="#2f2e2b" stroke-width="1.5"/>
 <rect x="-206" y="-240" width="12" height="240" fill="#f1f1ef" stroke="#2f2e2b" stroke-width="1.2"/>
 <rect x="100" y="-200" width="180" height="110" fill="#e8c287" stroke="#b8743f" stroke-width="1"/>

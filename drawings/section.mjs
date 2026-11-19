@@ -47,6 +47,13 @@ for (const x of [-DECK - 7, -7, 193, W - 15]) {
 }
 parts.push(`<rect x="${-DECK - 12}" y="0" width="${DECK + W + 20}" height="18" fill="#e6e6e3" stroke="${ink}" stroke-width="1.2"/>`);
 
+// Steps at the end of the deck, beyond the cut: two risers of 15 down to the
+// ground, as wide as the deck.
+const step = "#e9e2d6";
+parts.push(`<rect x="${-DECK}" y="15" width="${DECK}" height="15" fill="${step}" stroke="${ink}" stroke-width="1"/>`);
+parts.push(`<rect x="${-DECK}" y="30" width="${DECK}" height="15" fill="${step}" stroke="${ink}" stroke-width="1"/>`);
+parts.push(text(-DECK / 2, 42, "บันได 2 ขั้น กว้าง 2.00", { size: 12, fill: ink }));
+
 // The room, cut: front wall under the ridge, west wall at 400, roof between.
 parts.push(
   `<path d="M0 0 V${up(RIDGE)} L${W} ${up(roofAt(W))} V0 Z" fill="#fafaf9" stroke="${ink}" stroke-width="1.5"/>`
