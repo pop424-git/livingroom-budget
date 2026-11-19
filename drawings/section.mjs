@@ -1,10 +1,12 @@
 /**
- * Cross section across the 400 cm width, looking north, in centimetres.
+ * Cross section across the 400 cm width, in centimetres.
  *
  * Horizontal is the plan's x: 0 is the front wall under the ridge, the engawa
  * runs out to -200 on the left, the room to 400 on the right. Vertical is
  * height above the finished floor, drawn upwards through up(). The north wall
- * and its three-panel sliding window stand behind the cut.
+ * and its three-panel sliding window stand behind the cut. With the deck on the
+ * left this is strictly the view looking south, so the north wall is shown
+ * mirrored; looking north for real would put the deck on the right.
  */
 import { FONT, dimH, dimV, text, svgDoc } from "./lib.mjs";
 
@@ -13,7 +15,7 @@ const up = (h) => -h; // height above floor → SVG y
 const W = 400; // room width
 const DECK = 200;
 const EAVE_L = 50; // overhang past the deck post
-const EAVE_R = 100; // overhang past the east wall
+const EAVE_R = 100; // overhang past the west wall
 const RIDGE = 400;
 const EAVE_H = 200; // both eaves end at the same height
 const FLOOR = 45; // floor raised above the ground
@@ -45,7 +47,7 @@ for (const x of [-DECK - 7, -7, 193, W - 15]) {
 }
 parts.push(`<rect x="${-DECK - 12}" y="0" width="${DECK + W + 20}" height="18" fill="#e6e6e3" stroke="${ink}" stroke-width="1.2"/>`);
 
-// The room, cut: front wall under the ridge, east wall at 400, roof between.
+// The room, cut: front wall under the ridge, west wall at 400, roof between.
 parts.push(
   `<path d="M0 0 V${up(RIDGE)} L${W} ${up(roofAt(W))} V0 Z" fill="#fafaf9" stroke="${ink}" stroke-width="1.5"/>`
 );
@@ -108,7 +110,7 @@ parts.push(text(-DECK - 14, up(140) + 19, "ชายคา", { size: 15, anchor:
 parts.push(text(-100, up(130), "เดค", { size: 17, fill: soft }));
 parts.push(text(-DECK + 8, -6, "พื้นยก +0.45", { size: 14, anchor: "start", fill: soft }));
 
-// Heights on the east side.
+// Heights on the west side.
 parts.push(`<line x1="${W}" y1="${up(roofAt(W))}" x2="${W + 150}" y2="${up(roofAt(W))}" stroke="${soft}" stroke-width="0.8" stroke-dasharray="4 4"/>`);
 parts.push(`<line x1="20" y1="${up(RIDGE)}" x2="${W + 210}" y2="${up(RIDGE)}" stroke="${soft}" stroke-width="0.8" stroke-dasharray="4 4"/>`);
 parts.push(dimV(up(roofAt(W)), 0, W + 140, "2.40"));

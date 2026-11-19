@@ -1,8 +1,8 @@
 /**
  * Floor plan, drawn in centimetres.
  *
- * Origin is the inside face of the south-west corner. x runs east across the
- * 400 cm width, y runs north down the 960 cm length. The engawa sits west of
+ * Origin is the inside face of the south-east corner. x runs west across the
+ * 400 cm width, y runs north down the 960 cm length. The engawa sits east of
  * the front wall.
  */
 import { FONT, dimH, dimV, text, svgDoc } from "./lib.mjs";
@@ -13,14 +13,14 @@ const T = 10; // wall thickness
 const DECK = 200; // engawa depth
 
 // Openings, in plan coordinates.
-const frontDoor = { y0: 340, y1: 620 }; // west wall, 280 wide, centred
+const frontDoor = { y0: 340, y1: 620 }; // east wall, 280 wide, centred
 const kitchenWindow = { x0: 85, x1: 185 }; // south wall, 100 × 100, over the counter
 const ventWindow = { x0: 335, x1: 375 }; // south wall, 40 × 35 louvre, over the toilet
 const northWindow = { x0: 100, x1: 280 }; // north wall, 180 × 110, three-panel slider
 
-// Toilet: 200 × 150 in the south-east corner.
+// Toilet: 200 × 150 in the south-west corner.
 const toilet = { x0: 200, x1: W, y0: 0, y1: 150 };
-const toiletDoor = { x0: 205, x1: 275 }; // in its north partition, west corner
+const toiletDoor = { x0: 205, x1: 275 }; // in its north partition, east corner
 
 const ink = "#3b3a36";
 const soft = "#6d6a62";
@@ -67,9 +67,9 @@ parts.push(text(-110, 195, "ระเบียง engawa", { size: 17, weight: 6
 parts.push(text(-110, 220, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
 
 // Exterior walls, broken at each opening.
-parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // west, south of the door
-parts.push(wall(-T, frontDoor.y1, T, L + T - frontDoor.y1)); // west, north of the door
-parts.push(wall(W, -T, T, L + 2 * T)); // east
+parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // east, south of the door
+parts.push(wall(-T, frontDoor.y1, T, L + T - frontDoor.y1)); // east, north of the door
+parts.push(wall(W, -T, T, L + 2 * T)); // west
 parts.push(wall(-T, -T, kitchenWindow.x0 + T, T)); // south, up to the kitchen window
 parts.push(wall(kitchenWindow.x1, -T, ventWindow.x0 - kitchenWindow.x1, T));
 parts.push(wall(ventWindow.x1, -T, W - ventWindow.x1, T));
@@ -93,12 +93,12 @@ parts.push(windowIn(northWindow.x0, L, northWindow.x1 - northWindow.x0, T));
   parts.push(`<line x1="-10" y1="${mid}" x2="0" y2="${mid}" stroke="${ink}" stroke-width="1"/>`);
 }
 
-// Toilet partitions, with the door gap at the west end of the north partition.
+// Toilet partitions, with the door gap at the east end of the north partition.
 parts.push(wall(toilet.x0 - T, 0, T, toilet.y1 + T));
 parts.push(wall(toilet.x0, toilet.y1, toiletDoor.x0 - toilet.x0, T));
 parts.push(wall(toiletDoor.x1, toilet.y1, toilet.x1 - toiletDoor.x1, T));
 
-// Toilet door: 70, opens in, leaf comes to rest along the west partition.
+// Toilet door: 70, opens in, leaf comes to rest along the east partition.
 {
   const hx = toiletDoor.x0 + 2;
   const hy = toilet.y1;
@@ -109,7 +109,7 @@ parts.push(wall(toiletDoor.x1, toilet.y1, toilet.x1 - toiletDoor.x1, T));
   );
 }
 
-// Kitchen along the south wall: fridge 70, counter 120 with the sink at its east end.
+// Kitchen along the south wall: fridge 70, counter 120 with the sink at its west end.
 parts.push(`<rect x="3" y="3" width="64" height="62" ${fx}/>`);
 parts.push(`<line x1="3" y1="12" x2="67" y2="12" stroke="${soft}" stroke-width="1"/>`);
 parts.push(text(35, 43, "ตู้เย็น", { size: 14 }));
@@ -127,7 +127,7 @@ parts.push(`<ellipse cx="356" cy="75" rx="24" ry="18" ${fx}/>`);
 parts.push(text(354, 79, "โถ", { size: 12 }));
 parts.push(`<circle cx="393" cy="36" r="4.5" fill="#fff" stroke="${door}" stroke-width="1.6"/>`);
 parts.push(text(384, 40, "ฉีดชำระ", { size: 11, anchor: "end", fill: soft }));
-// Exhaust fan high on the east wall, north of the bowl, across the room from the vent window.
+// Exhaust fan high on the west wall, north of the bowl, across the room from the vent window.
 parts.push(`<rect x="384" y="112" width="16" height="22" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`);
 parts.push(`<path d="M384 112 L400 134 M400 112 L384 134" stroke="${ink}" stroke-width="0.9"/>`);
 parts.push(text(380, 144, "พัดลมดูดอากาศ", { size: 11, anchor: "end", fill: soft }));
@@ -136,7 +136,7 @@ parts.push(text(305, 122, "3.0 ตร.ม.", { size: 12, fill: soft }));
 
 // Dining in the open floor between the toilet and the living corner: table
 // 200 × 100 running east-west, three chairs on the toilet side, a bench of the
-// same length on the sofa side. The table's end is against the east wall,
+// same length on the sofa side. The table's end is against the west wall,
 // across from the door, and the set sits midway between the toilet partition
 // (160) and the armchair (580).
 const dining = { x0: 198, x1: 398, y0: 323, y1: 423 };
@@ -160,8 +160,8 @@ parts.push(`<rect x="318" y="580" width="75" height="75" rx="10" ${fx}/>`);
 parts.push(`<rect x="378" y="584" width="12" height="67" rx="4" ${thin}/>`);
 parts.push(text(352, 621, "อาร์มแชร์", { size: 11 }));
 
-// Living: three-section sofa 280 on the east wall with its chaise in the north
-// corner, TV on the west wall.
+// Living: three-section sofa 280 on the west wall with its chaise in the north
+// corner, TV on the east wall.
 const sofa = { x0: 302, x1: 398, y0: 660, y1: 940, chaiseX: 250, chaiseY: 847 };
 parts.push(
   `<path d="M${sofa.x0} ${sofa.y0} H${sofa.x1} V${sofa.y1} H${sofa.chaiseX} V${sofa.chaiseY} H${sofa.x0} Z" stroke-linejoin="round" ${fx}/>`

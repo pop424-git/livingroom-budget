@@ -1,5 +1,5 @@
 /**
- * Front elevation, seen from the engawa looking east, in centimetres.
+ * Front elevation, seen from the engawa looking west, in centimetres.
  *
  * Horizontal is the plan's y (south on the left, 0 to 960). Vertical is height
  * above the finished floor, drawn upwards, so every y below goes through up().

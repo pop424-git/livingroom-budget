@@ -118,7 +118,7 @@ export const openings: Opening[] = [
     name: "หน้าต่างระบายอากาศห้องน้ำ",
     tag: "Bath",
     kind: "awning",
-    note: "บานเกล็ดซ้อน กระจกฝ้า พร้อมมุ้ง 1 ชุด · ผนังเหนือ เหนือโถ",
+    note: "บานเกล็ดซ้อน กระจกฝ้า พร้อมมุ้ง 1 ชุด · ผนังใต้ เหนือโถ",
     size: { width: 40, height: 35 },
     color: wood,
     price: 790,
