@@ -63,44 +63,44 @@
 <rect x="322" y="-218" width="316" height="18" fill="#e8c287" />
 <rect x="0" y="-290" width="960" height="18" fill="#e8c287" />
 <text x="617" y="-32" font-size="14" font-weight="600" text-anchor="middle" fill="#2f2e2b">ArmChair</text>
-<rect x="-50" y="-465" width="1060" height="235" fill="rgba(150,150,150,0.88)" />
-<line x1="-17" y1="-465" x2="-17" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="16" y1="-465" x2="16" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="49" y1="-465" x2="49" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="82" y1="-465" x2="82" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="115" y1="-465" x2="115" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="148" y1="-465" x2="148" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="181" y1="-465" x2="181" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="214" y1="-465" x2="214" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="247" y1="-465" x2="247" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="280" y1="-465" x2="280" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="313" y1="-465" x2="313" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="346" y1="-465" x2="346" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="379" y1="-465" x2="379" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="412" y1="-465" x2="412" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="445" y1="-465" x2="445" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="478" y1="-465" x2="478" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="511" y1="-465" x2="511" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="544" y1="-465" x2="544" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="577" y1="-465" x2="577" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="610" y1="-465" x2="610" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="643" y1="-465" x2="643" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="676" y1="-465" x2="676" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="709" y1="-465" x2="709" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="742" y1="-465" x2="742" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="775" y1="-465" x2="775" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="808" y1="-465" x2="808" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="841" y1="-465" x2="841" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="874" y1="-465" x2="874" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="907" y1="-465" x2="907" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="940" y1="-465" x2="940" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="973" y1="-465" x2="973" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<line x1="1006" y1="-465" x2="1006" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
-<text x="480" y="-340" font-size="22" font-weight="600" text-anchor="middle" fill="#2f2e2b">ผนังตรงกลางจั่ว สูง 400 cm</text>
-<rect x="0" y="-300" width="960" height="300" fill="url(#wallwash)"/>
-<rect x="0" y="-313" width="960" height="6" rx="2" fill="#fff1cc" stroke="#d9931f" stroke-width="1.5"/>
-<rect x="0" y="-307" width="960" height="22" fill="url(#halo)"/>
-<text x="20" y="-322" font-size="16" font-weight="600" text-anchor="start" fill="#fff6e0">LED linear ใต้แป 9.6 ม. · ~3.10</text>
+<rect x="-50" y="-430" width="1060" height="200" fill="rgba(150,150,150,0.88)" />
+<line x1="-17" y1="-430" x2="-17" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="16" y1="-430" x2="16" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="49" y1="-430" x2="49" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="82" y1="-430" x2="82" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="115" y1="-430" x2="115" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="148" y1="-430" x2="148" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="181" y1="-430" x2="181" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="214" y1="-430" x2="214" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="247" y1="-430" x2="247" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="280" y1="-430" x2="280" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="313" y1="-430" x2="313" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="346" y1="-430" x2="346" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="379" y1="-430" x2="379" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="412" y1="-430" x2="412" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="445" y1="-430" x2="445" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="478" y1="-430" x2="478" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="511" y1="-430" x2="511" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="544" y1="-430" x2="544" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="577" y1="-430" x2="577" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="610" y1="-430" x2="610" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="643" y1="-430" x2="643" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="676" y1="-430" x2="676" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="709" y1="-430" x2="709" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="742" y1="-430" x2="742" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="775" y1="-430" x2="775" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="808" y1="-430" x2="808" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="841" y1="-430" x2="841" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="874" y1="-430" x2="874" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="907" y1="-430" x2="907" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="940" y1="-430" x2="940" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="973" y1="-430" x2="973" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<line x1="1006" y1="-430" x2="1006" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
+<text x="480" y="-340" font-size="22" font-weight="600" text-anchor="middle" fill="#2f2e2b">ผนังตรงกลางจั่ว สูง ~365 cm</text>
+<rect x="0" y="-280" width="960" height="280" fill="url(#wallwash)"/>
+<rect x="0" y="-293" width="960" height="6" rx="2" fill="#fff1cc" stroke="#d9931f" stroke-width="1.5"/>
+<rect x="0" y="-287" width="960" height="22" fill="url(#halo)"/>
+<text x="20" y="-302" font-size="16" font-weight="600" text-anchor="start" fill="#fff6e0">LED linear ใต้แป 9.6 ม. · ~2.90</text>
 <g><line x1="0" y1="95" x2="960" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="100" x2="5" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="100" x2="965" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">ยาว 960 cm</text></g>
 <text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · LED linear ใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026</text>
 </svg>

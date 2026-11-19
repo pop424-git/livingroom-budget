@@ -15,9 +15,9 @@ const woodDark = "#c99a5b";
 const ink = "#2f2e2b";
 const lamp = "#d9931f";
 
-// LED linear under the purlin, 1.00 in front of the wall at about +3.10, the
+// LED linear under the purlin, 1.00 in front of the wall at about +2.90, the
 // length of the deck. It faces down and back, washing the deck and this wall.
-const LINEAR_H = 310;
+const LINEAR_H = 290;
 
 const r = (x, y0, w, h, fill, extra = "") =>
   `<rect x="${x}" y="${up(y0 + h)}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`;
@@ -95,18 +95,19 @@ parts.push(r(0, 272, L, 18, wood));
 // Armchair label goes over the door post that stands in front of it.
 parts.push(text(617, up(32), "ArmChair", { size: 14, weight: 600, fill: ink }));
 
-// Roof: steep side faces the engawa, eaves at 2.00 m over the deck edge.
-parts.push(r(-50, 230, L + 100, 235, "rgba(150,150,150,0.88)"));
+// Roof: steep side faces the engawa, eaves at about 2.09 m over the deck edge.
+// Ridge about 3.65 as built (estimated from site photos).
+parts.push(r(-50, 230, L + 100, 200, "rgba(150,150,150,0.88)"));
 for (let x = -50 + 33; x < L + 50; x += 33) {
-  parts.push(`<line x1="${x}" y1="${up(465)}" x2="${x}" y2="${up(230)}" stroke="#8c8c8c" stroke-width="1.5"/>`);
+  parts.push(`<line x1="${x}" y1="${up(430)}" x2="${x}" y2="${up(230)}" stroke="#8c8c8c" stroke-width="1.5"/>`);
 }
-parts.push(text(480, up(340), "ผนังตรงกลางจั่ว สูง 400 cm", { size: 22, weight: 600, fill: ink }));
+parts.push(text(480, up(340), "ผนังตรงกลางจั่ว สูง ~365 cm", { size: 22, weight: 600, fill: ink }));
 
 // Wall wash from the linear, then the linear itself over the cut-away roof.
 parts.push(`<rect x="0" y="${up(LINEAR_H - 10)}" width="${L}" height="${LINEAR_H - 10}" fill="url(#wallwash)"/>`);
 parts.push(`<rect x="0" y="${up(LINEAR_H) - 3}" width="${L}" height="6" rx="2" fill="#fff1cc" stroke="${lamp}" stroke-width="1.5"/>`);
 parts.push(`<rect x="0" y="${up(LINEAR_H) + 3}" width="${L}" height="22" fill="url(#halo)"/>`);
-parts.push(text(20, up(LINEAR_H) - 12, "LED linear ใต้แป 9.6 ม. · ~3.10", { size: 16, weight: 600, anchor: "start", fill: "#fff6e0" }));
+parts.push(text(20, up(LINEAR_H) - 12, "LED linear ใต้แป 9.6 ม. · ~2.90", { size: 16, weight: 600, anchor: "start", fill: "#fff6e0" }));
 
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));

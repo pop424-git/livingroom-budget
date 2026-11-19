@@ -16,8 +16,11 @@ const W = 400; // room width
 const DECK = 200;
 const EAVE_L = 50; // overhang past the deck post
 const EAVE_R = 100; // overhang past the west wall
-const RIDGE = 400;
-const EAVE_H = 200; // both eaves end at the same height
+// As built, estimated from site photos (Nov 2026): the ridge came down from
+// 4.00 to about 3.65, the deck post heads and the west wall head stay at 2.40.
+// Replace with measured figures when they come in.
+const RIDGE = 365;
+const WALL_H = 240; // deck post head and west wall head
 const FLOOR = 45; // floor raised above the ground
 
 const ink = "#2f2e2b";
@@ -32,8 +35,12 @@ const lampFill = "#fff1cc";
 // LED linear under the purlin 100 out from the front wall, running the deck's length.
 const LINEAR_X = -100;
 
-const slopeL = (RIDGE - EAVE_H) / (DECK + EAVE_L);
-const slopeR = (RIDGE - EAVE_H) / (W + EAVE_R);
+const slopeL = (RIDGE - WALL_H) / DECK;
+const slopeR = (RIDGE - WALL_H) / W;
+// 50 past a 200 deck and 100 past a 400 room drop by the same amount, so both
+// eaves still end level.
+const EAVE_H = WALL_H - EAVE_L * slopeL;
+const m = (cm) => (cm / 100).toFixed(2);
 const deg = (t) => ((Math.atan(t) * 180) / Math.PI).toFixed(1);
 const roofAt = (x) => (x < 0 ? RIDGE + x * slopeL : RIDGE - x * slopeR);
 
@@ -95,7 +102,7 @@ parts.push(dimV(up(win.sill), 0, 310, "90"));
 
 // Eave line: both eaves at 2.00.
 parts.push(`<line x1="${-DECK - EAVE_L - 30}" y1="${up(EAVE_H)}" x2="${W + EAVE_R + 20}" y2="${up(EAVE_H)}" stroke="${green}" stroke-width="1.6" stroke-dasharray="10 7"/>`);
-parts.push(text(-DECK + 12, up(EAVE_H) + 20, "แนวชายคาระดับเดียวกัน 2.00", { size: 14, weight: 600, anchor: "start", fill: green }));
+parts.push(text(-DECK + 12, up(EAVE_H) + 20, `แนวชายคาระดับเดียวกัน ${m(EAVE_H)}`, { size: 14, weight: 600, anchor: "start", fill: green }));
 parts.push(text(-DECK + 12, up(EAVE_H) + 42, "โล่ง 2.40 ที่ขอบเดค", { size: 15, weight: 600, anchor: "start", fill: green }));
 
 // Roof.
@@ -126,8 +133,8 @@ parts.push(
   parts.push(`<path d="M${sx} ${sy} L${floorX} 0 L0 0 L0 ${wallY} Z" fill="url(#beam)"/>`);
   const [cx, cy] = ray(centre);
   parts.push(`<line x1="${sx}" y1="${sy}" x2="0" y2="${sy + cy * (-sx / cx)}" stroke="${lamp}" stroke-width="1" stroke-dasharray="3 4"/>`);
-  parts.push(text(-160, up(250), "LED linear ใต้แป ~3.10", { size: 13, weight: 600, anchor: "start", fill: lamp }));
-  parts.push(text(-160, up(232), "ส่องลงเดค + ผนังหน้า", { size: 12, anchor: "start", fill: lamp }));
+  parts.push(text(-160, up(236), `LED linear ใต้แป ~${m(-sy)}`, { size: 12, weight: 600, anchor: "start", fill: lamp }));
+  parts.push(text(-160, up(221), "ส่องลงเดค + ผนังหน้า", { size: 12, anchor: "start", fill: lamp }));
 
   // Wire inside the rafter at the middle post, up to the wall, down to the switch.
   parts.push(
@@ -171,8 +178,8 @@ parts.push(text(-DECK + 8, -6, "พื้นยก +0.45", { size: 14, anchor: "
 parts.push(`<line x1="${W}" y1="${up(roofAt(W))}" x2="${W + 150}" y2="${up(roofAt(W))}" stroke="${soft}" stroke-width="0.8" stroke-dasharray="4 4"/>`);
 parts.push(`<line x1="20" y1="${up(RIDGE)}" x2="${W + 210}" y2="${up(RIDGE)}" stroke="${soft}" stroke-width="0.8" stroke-dasharray="4 4"/>`);
 parts.push(dimV(up(roofAt(W)), 0, W + 140, "2.40"));
-parts.push(dimV(up(RIDGE), 0, W + 200, "4.00"));
-parts.push(text(W + 200, up(RIDGE) - 14, "สัน 4.00 จากพื้น", { size: 16, weight: 600, fill: ink }));
+parts.push(dimV(up(RIDGE), 0, W + 200, `~${m(RIDGE)}`));
+parts.push(text(W + 200, up(RIDGE) - 14, `สัน ~${m(RIDGE)} จากพื้น`, { size: 16, weight: 600, fill: ink }));
 
 // Widths under the ground line.
 const dy = FLOOR + 50;
@@ -189,7 +196,7 @@ const notes = [
 ];
 notes.forEach(([line, fill], i) => parts.push(text(-310, 200 + i * 24, line, { size: 14, anchor: "start", fill })));
 
-parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · หน้าต่างบานเลื่อน 3 ช่อง 180 × 110 ขอบล่าง 90 · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · หน้าต่างบานเลื่อน 3 ช่อง 180 × 110 ขอบล่าง 90 · หลังคาประมาณจากรูปโครงจริง รอวัด · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 const defs = `
   <radialGradient id="beam" gradientUnits="userSpaceOnUse" cx="${LINEAR_X + 9}" cy="${up(roofAt(LINEAR_X)) + 12}" r="340">

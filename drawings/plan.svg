@@ -131,7 +131,7 @@
 <line x1="-368" y1="1084" x2="-340" y2="1084" stroke="#d9931f" stroke-width="3" stroke-linecap="round"/>
 <text x="-330" y="1088" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · วงจร 1</text>
 <line x1="-368" y1="1108" x2="-340" y2="1108" stroke="#d9931f" stroke-width="5" stroke-dasharray="16 6" stroke-linecap="butt"/>
-<text x="-330" y="1112" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">LED linear 9.6 ม. ใต้แป เหนือหัว ห่างผนัง 100 · +3.12 · 24V 5–6 W/ม. ส่องลงเดคกับผนังหน้า · วงจร 2</text>
+<text x="-330" y="1112" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">LED linear 9.6 ม. ใต้แป เหนือหัว ห่างผนัง 100 · ~2.90 · 24V 5–6 W/ม. ส่องลงเดคกับผนังหน้า · วงจร 2</text>
 <line x1="-368" y1="1132" x2="-340" y2="1132" stroke="#6d6a62" stroke-width="1" stroke-dasharray="8 5"/>
 <text x="-330" y="1136" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)</text>
 <rect x="-359" y="1149" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.4"/>
