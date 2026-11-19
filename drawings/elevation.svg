@@ -1,5 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-160 -560 1280 700" width="1280" height="700" font-family="Leelawadee UI, Tahoma, sans-serif">
-<defs></defs>
+<defs>
+  <radialGradient id="glow">
+    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.7"/>
+    <stop offset="1" stop-color="#ffd77a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffc85a" stop-opacity="0.75"/>
+    <stop offset="1" stop-color="#ffc85a" stop-opacity="0.05"/>
+  </linearGradient></defs>
 <rect x="-160" y="-560" width="1280" height="700" fill="#ffffff"/>
 <rect x="-160" y="45" width="1280" height="15" fill="#cfcfcf" />
 <rect x="0" y="20" width="25" height="25" fill="#cf8f55" />
@@ -12,6 +20,12 @@
 <rect x="-110" y="32" width="60" height="13" fill="#c9a083" />
 <rect x="970" y="20" width="60" height="12" fill="#c9a083" />
 <rect x="1010" y="32" width="60" height="13" fill="#c9a083" />
+<rect x="-10" y="20" width="980" height="25" fill="url(#wash)"/>
+<line x1="-10" y1="20" x2="970" y2="20" stroke="#d9931f" stroke-width="3"/>
+<line x1="-70" y1="21" x2="-10" y2="21" stroke="#d9931f" stroke-width="2.5"/>
+<line x1="-110" y1="33" x2="-70" y2="33" stroke="#d9931f" stroke-width="2.5"/>
+<line x1="970" y1="21" x2="1030" y2="21" stroke="#d9931f" stroke-width="2.5"/>
+<line x1="1030" y1="33" x2="1070" y2="33" stroke="#d9931f" stroke-width="2.5"/>
 <rect x="0" y="-240" width="960" height="240" fill="#f4f4f3" />
 <rect x="18" y="-240" width="150" height="240" fill="#e6e6e4" />
 <text x="125" y="-150" font-size="22" font-weight="600" text-anchor="middle" fill="#2f2e2b">ห้องน้ำ</text>
@@ -78,6 +92,25 @@
 <line x1="973" y1="-465" x2="973" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
 <line x1="1006" y1="-465" x2="1006" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
 <text x="480" y="-340" font-size="22" font-weight="600" text-anchor="middle" fill="#2f2e2b">ผนังตรงกลางจั่ว สูง 400 cm</text>
+<circle cx="241" cy="-227" r="70" fill="url(#glow)"/>
+<line x1="241" y1="-300" x2="241" y2="-244" stroke="#2f2e2b" stroke-width="1.2"/>
+<ellipse cx="241" cy="-227" rx="16" ry="17" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<line x1="227.14359353944897" y1="-235.5" x2="254.85640646055103" y2="-235.5" stroke="#d9931f" stroke-width="0.7"/>
+<line x1="225" y1="-227" x2="257" y2="-227" stroke="#d9931f" stroke-width="0.7"/>
+<line x1="227.14359353944897" y1="-218.5" x2="254.85640646055103" y2="-218.5" stroke="#d9931f" stroke-width="0.7"/>
+<circle cx="486" cy="-227" r="70" fill="url(#glow)"/>
+<line x1="486" y1="-300" x2="486" y2="-244" stroke="#2f2e2b" stroke-width="1.2"/>
+<ellipse cx="486" cy="-227" rx="16" ry="17" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<line x1="472.143593539449" y1="-235.5" x2="499.856406460551" y2="-235.5" stroke="#d9931f" stroke-width="0.7"/>
+<line x1="470" y1="-227" x2="502" y2="-227" stroke="#d9931f" stroke-width="0.7"/>
+<line x1="472.143593539449" y1="-218.5" x2="499.856406460551" y2="-218.5" stroke="#d9931f" stroke-width="0.7"/>
+<circle cx="731" cy="-227" r="70" fill="url(#glow)"/>
+<line x1="731" y1="-300" x2="731" y2="-244" stroke="#2f2e2b" stroke-width="1.2"/>
+<ellipse cx="731" cy="-227" rx="16" ry="17" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<line x1="717.143593539449" y1="-235.5" x2="744.856406460551" y2="-235.5" stroke="#d9931f" stroke-width="0.7"/>
+<line x1="715" y1="-227" x2="747" y2="-227" stroke="#d9931f" stroke-width="0.7"/>
+<line x1="717.143593539449" y1="-218.5" x2="744.856406460551" y2="-218.5" stroke="#d9931f" stroke-width="0.7"/>
+<text x="215" y="-202" font-size="16" font-weight="600" text-anchor="end" fill="#d9931f">โคมห้อย +2.10</text>
 <g><line x1="0" y1="95" x2="960" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="100" x2="5" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="100" x2="965" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">ยาว 960 cm</text></g>
-<text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · ปรับ 19 พ.ย. 2026</text>
+<text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมห้อย 3 ดวงแนวเสา + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026</text>
 </svg>

@@ -13,6 +13,13 @@ const up = (h) => -h; // height above floor → SVG y
 const wood = "#e8c287";
 const woodDark = "#c99a5b";
 const ink = "#2f2e2b";
+const lamp = "#d9931f";
+const lampFill = "#fff1cc";
+
+// Pendants hang under the rafters at the three inner posts, 2.00 in front of
+// the wall; their bottoms sit at +2.10, just under the eave line.
+const rafters = [241, 486, 731];
+const pendant = { bottom: 210, h: 34, r: 16 };
 
 const r = (x, y0, w, h, fill, extra = "") =>
   `<rect x="${x}" y="${up(y0 + h)}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`;
@@ -27,6 +34,13 @@ for (const y of [0, 240, 480, 720, L - 25]) parts.push(r(y, -45, 25, 25, "#cf8f5
 parts.push(r(-10, -20, L + 20, 20, "#c9a083"));
 parts.push(r(-70, -32, 60, 12, "#c9a083"), r(-110, -45, 60, 13, "#c9a083"));
 parts.push(r(L + 10, -32, 60, 12, "#c9a083"), r(L + 50, -45, 60, 13, "#c9a083"));
+
+// LED strip under the deck edge washing the ground, and under each step nosing.
+parts.push(`<rect x="-10" y="${up(-20)}" width="${L + 20}" height="25" fill="url(#wash)"/>`);
+parts.push(`<line x1="-10" y1="${up(-20)}" x2="${L + 10}" y2="${up(-20)}" stroke="${lamp}" stroke-width="3"/>`);
+for (const [x0, x1, h] of [[-70, -10, -21], [-110, -70, -33], [L + 10, L + 70, -21], [L + 70, L + 110, -33]]) {
+  parts.push(`<line x1="${x0}" y1="${up(h)}" x2="${x1}" y2="${up(h)}" stroke="${lamp}" stroke-width="2.5"/>`);
+}
 
 // The room behind the front wall, cut away.
 parts.push(r(0, 0, L, 240, "#f4f4f3"));
@@ -90,8 +104,34 @@ for (let x = -50 + 33; x < L + 50; x += 33) {
 }
 parts.push(text(480, up(340), "ผนังตรงกลางจั่ว สูง 400 cm", { size: 22, weight: 600, fill: ink }));
 
+// Pendants, drawn over the cut-away roof.
+{
+  const { bottom, h, r: rr } = pendant;
+  const cy = up(bottom + h / 2);
+  for (const x of rafters) {
+    parts.push(`<circle cx="${x}" cy="${cy}" r="70" fill="url(#glow)"/>`);
+    parts.push(`<line x1="${x}" y1="${up(300)}" x2="${x}" y2="${up(bottom + h)}" stroke="${ink}" stroke-width="1.2"/>`);
+    parts.push(`<ellipse cx="${x}" cy="${cy}" rx="${rr}" ry="${h / 2}" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
+    for (const k of [-0.5, 0, 0.5]) {
+      const half = rr * Math.sqrt(1 - k * k);
+      parts.push(`<line x1="${x - half}" y1="${cy + (k * h) / 2}" x2="${x + half}" y2="${cy + (k * h) / 2}" stroke="${lamp}" stroke-width="0.7"/>`);
+    }
+  }
+  parts.push(text(rafters[0] - 26, up(bottom - 8), "โคมห้อย +2.10", { size: 16, weight: 600, anchor: "end", fill: lamp }));
+}
+
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));
-parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมห้อย 3 ดวงแนวเสา + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
-export const elevation = svgDoc({ x: -160, y: -560, w: 1280, h: 700, body: parts.join("\n"), font: FONT });
+const defs = `
+  <radialGradient id="glow">
+    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.7"/>
+    <stop offset="1" stop-color="#ffd77a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffc85a" stop-opacity="0.75"/>
+    <stop offset="1" stop-color="#ffc85a" stop-opacity="0.05"/>
+  </linearGradient>`;
+
+export const elevation = svgDoc({ x: -160, y: -560, w: 1280, h: 700, defs, body: parts.join("\n"), font: FONT });

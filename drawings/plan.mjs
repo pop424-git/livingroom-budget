@@ -26,6 +26,12 @@ const ink = "#3b3a36";
 const soft = "#6d6a62";
 const door = "#c0562f";
 
+// Deck lighting: two circuits on one two-gang switch inside the front door.
+const lamp = "#d9931f"; // light fittings and LED strip
+const lampFill = "#fff1cc";
+const rafters = [241, 486, 731]; // post centres; each pendant hangs under the rafter there
+const pendantX = -T - 100; // 100 out from the front wall, mid-deck
+
 function wall(x, y, w, h) {
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#hatch)" stroke="${ink}" stroke-width="1.6"/>`;
 }
@@ -45,8 +51,8 @@ const thin = `fill="none" stroke="${soft}" stroke-width="1"`;
 const parts = [];
 
 // Paper and grid.
-parts.push(`<rect x="-390" y="-160" width="970" height="1290" fill="#fbfaf6"/>`);
-parts.push(`<rect x="-390" y="-160" width="970" height="1290" fill="url(#grid)"/>`);
+parts.push(`<rect x="-390" y="-160" width="970" height="1400" fill="#fbfaf6"/>`);
+parts.push(`<rect x="-390" y="-160" width="970" height="1400" fill="url(#grid)"/>`);
 
 // Engawa deck with boards running its length, posts on the outer edge, steps at each end.
 parts.push(
@@ -60,11 +66,34 @@ for (const y of [-T, 235, 480, 725, L + T - 12]) {
 }
 parts.push(`<rect x="${-T - DECK}" y="-55" width="${DECK}" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
 parts.push(`<rect x="${-T - DECK}" y="${L + T}" width="${DECK}" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
-parts.push(text(-T - DECK / 2, -27, "บันได 200", { size: 12, fill: soft }));
-parts.push(text(-T - DECK / 2, L + 42, "บันได 200", { size: 12, fill: soft }));
-parts.push(`<rect x="-185" y="170" width="150" height="62" fill="#f1e8da"/>`);
-parts.push(text(-110, 195, "ระเบียง engawa", { size: 17, weight: 600 }));
-parts.push(text(-110, 220, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
+// Two treads per flight: the step down from the deck, then the step to the ground.
+parts.push(`<line x1="${-T - DECK}" y1="-32.5" x2="${-T}" y2="-32.5" stroke="#8a7a64" stroke-width="0.8"/>`);
+parts.push(`<line x1="${-T - DECK}" y1="${L + T + 22.5}" x2="${-T}" y2="${L + T + 22.5}" stroke="#8a7a64" stroke-width="0.8"/>`);
+parts.push(text(-T - DECK / 2, -39, "บันได 200", { size: 12, fill: soft }));
+parts.push(text(-T - DECK / 2, L + 46, "บันได 200", { size: 12, fill: soft }));
+parts.push(`<rect x="-185" y="100" width="150" height="62" fill="#f1e8da"/>`);
+parts.push(text(-110, 125, "ระเบียง engawa", { size: 17, weight: 600 }));
+parts.push(text(-110, 150, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
+
+// Circuit 1: LED strip hidden under the outer deck edge and under the nosing of
+// every step, two treads at each end.
+const strip = (x1, y1, x2, y2) =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${lamp}" stroke-width="3" stroke-linecap="round"/>`;
+parts.push(strip(-T - DECK + 3, -T, -T - DECK + 3, L + T));
+for (const y of [-32.5, -53, L + T + 22.5, L + T + 43]) parts.push(strip(-T - DECK + 4, y, -T - 4, y));
+
+// Circuit 2: rafters overhead at each inner post, a pendant under each.
+for (const y of rafters) {
+  parts.push(`<line x1="${-T - DECK}" y1="${y}" x2="${-T}" y2="${y}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
+  parts.push(`<circle cx="${pendantX}" cy="${y}" r="11" fill="${lampFill}" stroke="${lamp}" stroke-width="1.8"/>`);
+  parts.push(
+    `<path d="M${pendantX - 7.8} ${y - 7.8} L${pendantX + 7.8} ${y + 7.8} M${pendantX + 7.8} ${y - 7.8} L${pendantX - 7.8} ${y + 7.8}" stroke="${lamp}" stroke-width="1.4"/>`
+  );
+}
+
+// Strip driver in a weatherproof box under the deck, by the wall south of the door.
+parts.push(`<rect x="-34" y="296" width="16" height="16" fill="#fff" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="3 2"/>`);
+parts.push(text(-26, 308, "D", { size: 10, weight: 600, fill: lamp }));
 
 // Exterior walls, broken at each opening.
 parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // east, south of the door
@@ -92,6 +121,10 @@ parts.push(windowIn(northWindow.x0, L, northWindow.x1 - northWindow.x0, T));
   );
   parts.push(`<line x1="-10" y1="${mid}" x2="0" y2="${mid}" stroke="${ink}" stroke-width="1"/>`);
 }
+
+// Two-gang switch on the inside face, just south of the door.
+parts.push(`<rect x="2" y="318" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
+parts.push(text(16, 330, "สวิตช์ 2 ช่อง", { size: 11, anchor: "start", fill: lamp }));
 
 // Toilet partitions, with the door gap at the east end of the north partition.
 parts.push(wall(toilet.x0 - T, 0, T, toilet.y1 + T));
@@ -203,7 +236,30 @@ parts.push(dimH(0, W, L + 72, "400"));
 parts.push(
   `<g transform="translate(510 1025)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 20 L7 -8 L0 -3 L-7 -8 Z" fill="${ink}"/>${text(0, 44, "N", { size: 14, weight: 600 })}</g>`
 );
-parts.push(text(-370, 1100, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 19 พ.ย. 2026", { size: 17, anchor: "start" }));
+// Deck lighting legend.
+{
+  const x = -370;
+  const rows = [
+    ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · วงจร 1"],
+    ["pendant", "โคมห้อยญี่ปุ่น 3 ดวง ใต้จันทันแนวเสา ห่างผนัง 100 · ก้นโคม +2.10 จากพื้นเดค · วงจร 2"],
+    ["rafter", "จันทันเหนือหัว · ร้อยสายในจันทันเข้าผนังหน้า (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
+    ["switch", "สวิตช์ 2 ช่องข้างบานเลื่อน: 1 strip · 2 โคม · D กล่อง driver กันน้ำใต้เดค"],
+  ];
+  parts.push(text(x, 1062, "ไฟระเบียง", { size: 15, weight: 600, anchor: "start" }));
+  rows.forEach(([kind, label], i) => {
+    const y = 1088 + i * 24;
+    if (kind === "strip") parts.push(strip(x + 2, y - 4, x + 30, y - 4));
+    if (kind === "pendant") {
+      parts.push(`<circle cx="${x + 16}" cy="${y - 4}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
+      parts.push(`<path d="M${x + 10.5} ${y - 9.5} L${x + 21.5} ${y + 1.5} M${x + 21.5} ${y - 9.5} L${x + 10.5} ${y + 1.5}" stroke="${lamp}" stroke-width="1.2"/>`);
+    }
+    if (kind === "rafter") parts.push(`<line x1="${x + 2}" y1="${y - 4}" x2="${x + 30}" y2="${y - 4}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
+    if (kind === "switch") parts.push(`<rect x="${x + 11}" y="${y - 11}" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
+    parts.push(text(x + 40, y, label, { size: 13, anchor: "start" }));
+  });
+}
+
+parts.push(text(-370, 1210, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 19 พ.ย. 2026", { size: 17, anchor: "start" }));
 
 const defs = `
   <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse" x="0" y="0">
@@ -213,4 +269,4 @@ const defs = `
     <line x1="0" y1="0" x2="0" y2="5" stroke="${soft}" stroke-width="1"/>
   </pattern>`;
 
-export const plan = svgDoc({ x: -390, y: -160, w: 970, h: 1290, defs, body: parts.join("\n"), font: FONT });
+export const plan = svgDoc({ x: -390, y: -160, w: 970, h: 1400, defs, body: parts.join("\n"), font: FONT });
