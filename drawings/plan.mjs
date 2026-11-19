@@ -13,7 +13,7 @@ const T = 10; // wall thickness
 const DECK = 200; // engawa depth
 
 // Openings, in plan coordinates.
-const frontDoor = { y0: 330, y1: 630 }; // west wall, 300 wide, centred
+const frontDoor = { y0: 340, y1: 620 }; // west wall, 280 wide, centred
 const kitchenWindow = { x0: 125, x1: 185 }; // north wall, 60
 const ventWindow = { x0: 325, x1: 385 }; // north wall, 60 × 40, over the toilet
 const southWindow = { x0: 100, x1: 280 }; // south wall, 180, left of the sofa
@@ -80,11 +80,18 @@ parts.push(windowIn(kitchenWindow.x0, -T, kitchenWindow.x1 - kitchenWindow.x0, T
 parts.push(windowIn(ventWindow.x0, -T, ventWindow.x1 - ventWindow.x0, T));
 parts.push(windowIn(southWindow.x0, L, southWindow.x1 - southWindow.x0, T));
 
-// Front door: three sliding panels of 100 on staggered tracks.
-parts.push(`<rect x="${-T}" y="${frontDoor.y0}" width="${T}" height="300" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`);
-parts.push(
-  `<g stroke="${ink}" stroke-width="2.2"><line x1="-8" y1="${frontDoor.y0}" x2="-8" y2="${frontDoor.y0 + 105}"/><line x1="-5" y1="${frontDoor.y0 + 97}" x2="-5" y2="${frontDoor.y0 + 203}"/><line x1="-2" y1="${frontDoor.y0 + 195}" x2="-2" y2="${frontDoor.y1}"/></g>`
-);
+// Front door: four panels of 70. The outer two are fixed on the outside track;
+// the middle two slide on the inside track and meet at the centre.
+{
+  const { y0, y1 } = frontDoor;
+  const p = (y1 - y0) / 4;
+  const mid = (y0 + y1) / 2;
+  parts.push(`<rect x="${-T}" y="${y0}" width="${T}" height="${y1 - y0}" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`);
+  parts.push(
+    `<g stroke="${ink}" stroke-width="2.2"><line x1="-7" y1="${y0}" x2="-7" y2="${y0 + p + 4}"/><line x1="-7" y1="${y1 - p - 4}" x2="-7" y2="${y1}"/><line x1="-3" y1="${y0 + p - 4}" x2="-3" y2="${mid}"/><line x1="-3" y1="${mid}" x2="-3" y2="${y1 - p + 4}"/></g>`
+  );
+  parts.push(`<line x1="-10" y1="${mid}" x2="0" y2="${mid}" stroke="${ink}" stroke-width="1"/>`);
+}
 
 // Toilet partitions, with the door gap at the west end of the south wall.
 parts.push(wall(toilet.x0 - T, 0, T, toilet.y1 + T));
@@ -170,16 +177,16 @@ parts.push(dimH(0, W, -92, "400"));
 parts.push(dimH(-T - DECK, -T, -92, "200"));
 parts.push(dimV(toilet.y0, toilet.y1, W + 40, "150"));
 parts.push(dimV(0, L, W + 90, "960"));
-parts.push(dimV(0, frontDoor.y0, -255, "330"));
-parts.push(dimV(frontDoor.y0, frontDoor.y1, -255, ["บานเลื่อน", "300"]));
-parts.push(dimV(frontDoor.y1, L, -255, "330"));
+parts.push(dimV(0, frontDoor.y0, -255, String(frontDoor.y0)));
+parts.push(dimV(frontDoor.y0, frontDoor.y1, -255, ["บานเลื่อน", String(frontDoor.y1 - frontDoor.y0)]));
+parts.push(dimV(frontDoor.y1, L, -255, String(L - frontDoor.y1)));
 parts.push(dimH(0, W, L + 72, "400"));
 
 // North arrow and title.
 parts.push(
   `<g transform="translate(510 1035)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 -20 L7 8 L0 3 L-7 8 Z" fill="${ink}"/>${text(0, -30, "N", { size: 14, weight: 600 })}</g>`
 );
-parts.push(text(-370, 1100, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 11 พ.ย. 2026", { size: 17, anchor: "start" }));
+parts.push(text(-370, 1100, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 19 พ.ย. 2026", { size: 17, anchor: "start" }));
 
 const defs = `
   <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse" x="0" y="0">

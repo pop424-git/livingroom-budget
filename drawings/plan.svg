@@ -30,8 +30,8 @@
 <rect x="-185" y="170" width="150" height="62" fill="#f1e8da"/>
 <text x="-110" y="195" font-size="17" font-weight="600" text-anchor="middle" fill="#3b3a36">ระเบียง engawa</text>
 <text x="-110" y="220" font-size="13" font-weight="400" text-anchor="middle" fill="#6d6a62">200 × 960 · 19.2 ตร.ม.</text>
-<rect x="-10" y="-10" width="10" height="340" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
-<rect x="-10" y="630" width="10" height="340" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="-10" y="-10" width="10" height="350" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="-10" y="620" width="10" height="350" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="400" y="-10" width="10" height="980" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="-10" y="-10" width="135" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="185" y="-10" width="140" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
@@ -41,8 +41,9 @@
 <rect x="125" y="-10" width="60" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="125" y1="-6" x2="185" y2="-6"/><line x1="125" y1="-4" x2="185" y2="-4"/></g>
 <rect x="325" y="-10" width="60" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="325" y1="-6" x2="385" y2="-6"/><line x1="325" y1="-4" x2="385" y2="-4"/></g>
 <rect x="100" y="960" width="180" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="100" y1="964" x2="280" y2="964"/><line x1="100" y1="966" x2="280" y2="966"/></g>
-<rect x="-10" y="330" width="10" height="300" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/>
-<g stroke="#3b3a36" stroke-width="2.2"><line x1="-8" y1="330" x2="-8" y2="435"/><line x1="-5" y1="427" x2="-5" y2="533"/><line x1="-2" y1="525" x2="-2" y2="630"/></g>
+<rect x="-10" y="340" width="10" height="280" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/>
+<g stroke="#3b3a36" stroke-width="2.2"><line x1="-7" y1="340" x2="-7" y2="414"/><line x1="-7" y1="546" x2="-7" y2="620"/><line x1="-3" y1="406" x2="-3" y2="480"/><line x1="-3" y1="480" x2="-3" y2="554"/></g>
+<line x1="-10" y1="480" x2="0" y2="480" stroke="#3b3a36" stroke-width="1"/>
 <rect x="190" y="0" width="10" height="160" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="200" y="150" width="5" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="275" y="150" width="125" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
@@ -102,10 +103,10 @@
 <g><line x1="-210" y1="-92" x2="-10" y2="-92" stroke="#3b3a36" stroke-width="0.9"/><line x1="-215" y1="-87" x2="-205" y2="-97" stroke="#3b3a36" stroke-width="1.3"/><line x1="-15" y1="-87" x2="-5" y2="-97" stroke="#3b3a36" stroke-width="1.3"/><text x="-110" y="-101" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">200</text></g>
 <g><line x1="440" y1="0" x2="440" y2="150" stroke="#3b3a36" stroke-width="0.9"/><line x1="435" y1="5" x2="445" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="435" y1="155" x2="445" y2="145" stroke="#3b3a36" stroke-width="1.3"/><text x="450" y="82" font-size="20" font-weight="500" text-anchor="start" fill="#3b3a36">150</text></g>
 <g><line x1="490" y1="0" x2="490" y2="960" stroke="#3b3a36" stroke-width="0.9"/><line x1="485" y1="5" x2="495" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="485" y1="965" x2="495" y2="955" stroke="#3b3a36" stroke-width="1.3"/><text x="500" y="487" font-size="20" font-weight="500" text-anchor="start" fill="#3b3a36">960</text></g>
-<g><line x1="-255" y1="0" x2="-255" y2="330" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="5" x2="-250" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="335" x2="-250" y2="325" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="172" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">330</text></g>
-<g><line x1="-255" y1="330" x2="-255" y2="630" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="335" x2="-250" y2="325" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="635" x2="-250" y2="625" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="474.5" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">บานเลื่อน</text><text x="-265" y="499.5" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">300</text></g>
-<g><line x1="-255" y1="630" x2="-255" y2="960" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="635" x2="-250" y2="625" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="965" x2="-250" y2="955" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="802" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">330</text></g>
+<g><line x1="-255" y1="0" x2="-255" y2="340" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="5" x2="-250" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="345" x2="-250" y2="335" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="177" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">340</text></g>
+<g><line x1="-255" y1="340" x2="-255" y2="620" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="345" x2="-250" y2="335" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="625" x2="-250" y2="615" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="474.5" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">บานเลื่อน</text><text x="-265" y="499.5" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">280</text></g>
+<g><line x1="-255" y1="620" x2="-255" y2="960" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="625" x2="-250" y2="615" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="965" x2="-250" y2="955" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="797" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">340</text></g>
 <g><line x1="0" y1="1032" x2="400" y2="1032" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="1037" x2="5" y2="1027" stroke="#3b3a36" stroke-width="1.3"/><line x1="395" y1="1037" x2="405" y2="1027" stroke="#3b3a36" stroke-width="1.3"/><text x="200" y="1023" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">400</text></g>
 <g transform="translate(510 1035)"><circle r="24" fill="none" stroke="#3b3a36" stroke-width="1.2"/><path d="M0 -20 L7 8 L0 3 L-7 8 Z" fill="#3b3a36"/><text x="0" y="-30" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">N</text></g>
-<text x="-370" y="1100" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 11 พ.ย. 2026</text>
+<text x="-370" y="1100" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 19 พ.ย. 2026</text>
 </svg>

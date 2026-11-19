@@ -54,19 +54,27 @@ parts.push(r(754, 0, 186, 80, "#ece7e1"));
 parts.push(r(754, 0, 186, 45, "#e6e0d9"));
 parts.push(text(847, up(35), "SOFA 186 cm", { size: 20, weight: 600, fill: ink }));
 
-// Sliding door, 300 × 200, centred: three panels in a wood frame.
-const d0 = 330;
-const d1 = 630;
-parts.push(r(d0, 0, 300, 200, "rgba(255,255,255,0.55)"));
-for (const [x, w] of [[d0 + 8, 96], [d0 + 104, 96], [d0 + 200, 92]]) {
-  parts.push(`<rect x="${x}" y="${up(192)}" width="${w}" height="184" fill="none" stroke="${wood}" stroke-width="8"/>`);
+// Sliding door, 280 × 200 over the outer frame, centred: four panels. The two
+// fixed outer panels carry a 2 × 4 glazing grid; the middle pair slide and meet.
+const d0 = 340;
+const d1 = 620;
+const pw = (d1 - d0 - 16) / 4;
+parts.push(r(d0, 0, d1 - d0, 200, "rgba(255,255,255,0.55)"));
+for (let i = 0; i < 4; i++) {
+  const x = d0 + 8 + i * pw;
+  parts.push(`<rect x="${x}" y="${up(192)}" width="${pw}" height="184" fill="none" stroke="${wood}" stroke-width="8"/>`);
+  if (i === 0 || i === 3) {
+    const grid = [`M${x + pw / 2} ${up(188)} V${up(12)}`];
+    for (const h of [56, 100, 144]) grid.push(`M${x + 4} ${up(h)} H${x + pw - 4}`);
+    parts.push(`<path d="${grid.join(" ")}" stroke="${wood}" stroke-width="3"/>`);
+  }
 }
-parts.push(r(d0 + 194, 105, 5, 22, woodDark));
-parts.push(text(480, up(150), "ประตูบานเลื่อน 300 cm", { size: 20, weight: 600, fill: ink }));
+parts.push(r(480 - 8, 95, 4, 22, woodDark), r(480 + 4, 95, 4, 22, woodDark));
+parts.push(text(480, up(150), "ประตูบานเลื่อน 280 cm", { size: 20, weight: 600, fill: ink }));
 
 // Wood frame: corner posts, door posts, head beam.
 for (const x of [0, d0 - 18, d1, L - 18]) parts.push(r(x, 0, 18, 290, wood));
-parts.push(r(d0 - 18, 200, 336, 18, wood));
+parts.push(r(d0 - 18, 200, d1 - d0 + 36, 18, wood));
 parts.push(r(0, 272, L, 18, wood));
 
 // Roof: steep side faces the engawa, eaves at 2.00 m over the deck edge.
@@ -78,6 +86,6 @@ parts.push(text(480, up(340), "ผนังตรงกลางจั่ว ส
 
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));
-parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศเหนืออยู่ซ้าย · ปรับ 11 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศเหนืออยู่ซ้าย · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 export const elevation = svgDoc({ x: -160, y: -560, w: 1280, h: 700, body: parts.join("\n"), font: FONT });
