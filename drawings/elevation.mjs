@@ -1,7 +1,7 @@
 /**
  * Front elevation, seen from the engawa looking east, in centimetres.
  *
- * Horizontal is the plan's y (north on the left, 0 to 960). Vertical is height
+ * Horizontal is the plan's y (south on the left, 0 to 960). Vertical is height
  * above the finished floor, drawn upwards, so every y below goes through up().
  * Walls are cut away to show what stands behind them, as in the first sketch.
  */
@@ -31,28 +31,33 @@ parts.push(r(L + 10, -32, 60, 12, "#c9a083"), r(L + 50, -45, 60, 13, "#c9a083"))
 // The room behind the front wall, cut away.
 parts.push(r(0, 0, L, 240, "#f4f4f3"));
 
-// Toilet at the north end: 150 deep in plan, so 150 wide from the engawa.
+// Toilet at the south end: 150 deep in plan, so 150 wide from the engawa.
 parts.push(r(18, 0, 150, 240, "#e6e6e4"));
 // Labels sit right of the fridge, which hides the toilet's front 65.
 parts.push(text(125, up(150), "ห้องน้ำ", { size: 22, weight: 600, fill: ink }));
 parts.push(text(125, up(126), "150 cm", { size: 20, fill: ink }));
-// Fridge stands in front of it, against the north wall.
+// Fridge stands in front of it, against the south wall.
 parts.push(r(18, 0, 65, 180, "#d6d6d3"));
 parts.push(text(50, up(80), "ตู้เย็น", { size: 18, weight: 600, fill: ink }));
 
-// Dining set in front of the door: table 100 wide seen end on, a chair each side.
+// Dining set across from the door, seen side on: table 200 long at 75, the
+// bench behind it against the far wall, three chairs this side with their
+// backs to the door.
 const ghost = `fill="none" stroke="#e3cf9f" stroke-width="5"`;
-parts.push(`<path d="M430 ${up(75)} H530 M440 ${up(75)} V0 M520 ${up(75)} V0" ${ghost}/>`);
-parts.push(`<rect x="425" y="${up(78)}" width="110" height="8" fill="#ead9b0"/>`);
-parts.push(`<path d="M380 ${up(45)} H420 M385 ${up(45)} V0 M415 ${up(45)} V0 M380 ${up(45)} L374 ${up(90)}" ${ghost}/>`);
-parts.push(`<path d="M540 ${up(45)} H580 M545 ${up(45)} V0 M575 ${up(45)} V0 M580 ${up(45)} L586 ${up(90)}" ${ghost}/>`);
+parts.push(`<path d="M380 ${up(45)} H580 M386 ${up(45)} V0 M574 ${up(45)} V0" fill="none" stroke="#efe2c4" stroke-width="5"/>`);
+parts.push(`<path d="M390 ${up(75)} V0 M570 ${up(75)} V0" ${ghost}/>`);
+parts.push(`<rect x="378" y="${up(78)}" width="204" height="8" fill="#ead9b0"/>`);
+for (const cy of [413, 480, 547]) {
+  const x0 = cy - 22;
+  const x1 = cy + 22;
+  parts.push(`<path d="M${x0} ${up(90)} H${x1} M${x0 + 3} ${up(90)} V0 M${x1 - 3} ${up(90)} V0 M${x0} ${up(45)} H${x1}" ${ghost}/>`);
+}
 
-// Armchair and sofa against the far wall at the south end.
-parts.push(r(660, 0, 75, 75, "#e2deda"));
-parts.push(text(697, up(32), "ArmChair", { size: 14, weight: 600, fill: ink }));
-parts.push(r(754, 0, 186, 80, "#ece7e1"));
-parts.push(r(754, 0, 186, 45, "#e6e0d9"));
-parts.push(text(847, up(35), "SOFA 186 cm", { size: 20, weight: 600, fill: ink }));
+// Three-section sofa against the far wall at the north end, chaise in the corner.
+parts.push(r(660, 0, 280, 80, "#ece7e1"));
+parts.push(r(660, 0, 280, 45, "#e6e0d9"));
+parts.push(r(847, 0, 93, 45, "#ddd6ce"));
+parts.push(text(780, up(35), "SOFA 280 cm", { size: 20, weight: 600, fill: ink }));
 
 // Sliding door, 280 × 200 over the outer frame, centred: four panels. The two
 // fixed outer panels carry a 2 × 4 glazing grid; the middle pair slide and meet.
@@ -86,6 +91,6 @@ parts.push(text(480, up(340), "ผนังตรงกลางจั่ว ส
 
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));
-parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศเหนืออยู่ซ้าย · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 export const elevation = svgDoc({ x: -160, y: -560, w: 1280, h: 700, body: parts.join("\n"), font: FONT });

@@ -18,15 +18,16 @@
 <text x="125" y="-126" font-size="20" font-weight="400" text-anchor="middle" fill="#2f2e2b">150 cm</text>
 <rect x="18" y="-180" width="65" height="180" fill="#d6d6d3" />
 <text x="50" y="-80" font-size="18" font-weight="600" text-anchor="middle" fill="#2f2e2b">ตู้เย็น</text>
-<path d="M430 -75 H530 M440 -75 V0 M520 -75 V0" fill="none" stroke="#e3cf9f" stroke-width="5"/>
-<rect x="425" y="-78" width="110" height="8" fill="#ead9b0"/>
-<path d="M380 -45 H420 M385 -45 V0 M415 -45 V0 M380 -45 L374 -90" fill="none" stroke="#e3cf9f" stroke-width="5"/>
-<path d="M540 -45 H580 M545 -45 V0 M575 -45 V0 M580 -45 L586 -90" fill="none" stroke="#e3cf9f" stroke-width="5"/>
-<rect x="660" y="-75" width="75" height="75" fill="#e2deda" />
-<text x="697" y="-32" font-size="14" font-weight="600" text-anchor="middle" fill="#2f2e2b">ArmChair</text>
-<rect x="754" y="-80" width="186" height="80" fill="#ece7e1" />
-<rect x="754" y="-45" width="186" height="45" fill="#e6e0d9" />
-<text x="847" y="-35" font-size="20" font-weight="600" text-anchor="middle" fill="#2f2e2b">SOFA 186 cm</text>
+<path d="M380 -45 H580 M386 -45 V0 M574 -45 V0" fill="none" stroke="#efe2c4" stroke-width="5"/>
+<path d="M390 -75 V0 M570 -75 V0" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<rect x="378" y="-78" width="204" height="8" fill="#ead9b0"/>
+<path d="M391 -90 H435 M394 -90 V0 M432 -90 V0 M391 -45 H435" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<path d="M458 -90 H502 M461 -90 V0 M499 -90 V0 M458 -45 H502" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<path d="M525 -90 H569 M528 -90 V0 M566 -90 V0 M525 -45 H569" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<rect x="660" y="-80" width="280" height="80" fill="#ece7e1" />
+<rect x="660" y="-45" width="280" height="45" fill="#e6e0d9" />
+<rect x="847" y="-45" width="93" height="45" fill="#ddd6ce" />
+<text x="780" y="-35" font-size="20" font-weight="600" text-anchor="middle" fill="#2f2e2b">SOFA 280 cm</text>
 <rect x="340" y="-200" width="280" height="200" fill="rgba(255,255,255,0.55)" />
 <rect x="348" y="-192" width="66" height="184" fill="none" stroke="#e8c287" stroke-width="8"/>
 <path d="M381 -188 V-12 M352 -56 H410 M352 -100 H410 M352 -144 H410" stroke="#e8c287" stroke-width="3"/>
@@ -78,5 +79,5 @@
 <line x1="1006" y1="-465" x2="1006" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
 <text x="480" y="-340" font-size="22" font-weight="600" text-anchor="middle" fill="#2f2e2b">ผนังตรงกลางจั่ว สูง 400 cm</text>
 <g><line x1="0" y1="95" x2="960" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="100" x2="5" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="100" x2="965" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">ยาว 960 cm</text></g>
-<text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศเหนืออยู่ซ้าย · ปรับ 19 พ.ย. 2026</text>
+<text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · ปรับ 19 พ.ย. 2026</text>
 </svg>

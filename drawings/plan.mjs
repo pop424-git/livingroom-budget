@@ -1,8 +1,8 @@
 /**
  * Floor plan, drawn in centimetres.
  *
- * Origin is the inside face of the north-west corner. x runs east across the
- * 400 cm width, y runs south down the 960 cm length. The engawa sits west of
+ * Origin is the inside face of the south-west corner. x runs east across the
+ * 400 cm width, y runs north down the 960 cm length. The engawa sits west of
  * the front wall.
  */
 import { FONT, dimH, dimV, text, svgDoc } from "./lib.mjs";
@@ -14,13 +14,13 @@ const DECK = 200; // engawa depth
 
 // Openings, in plan coordinates.
 const frontDoor = { y0: 340, y1: 620 }; // west wall, 280 wide, centred
-const kitchenWindow = { x0: 85, x1: 185 }; // north wall, 100 × 100, over the counter
-const ventWindow = { x0: 335, x1: 375 }; // north wall, 40 × 35 louvre, over the toilet
-const southWindow = { x0: 100, x1: 280 }; // south wall, 180, left of the sofa
+const kitchenWindow = { x0: 85, x1: 185 }; // south wall, 100 × 100, over the counter
+const ventWindow = { x0: 335, x1: 375 }; // south wall, 40 × 35 louvre, over the toilet
+const northWindow = { x0: 100, x1: 280 }; // north wall, 180 × 110, three-panel slider
 
-// Toilet: 200 × 150 in the north-east corner.
+// Toilet: 200 × 150 in the south-east corner.
 const toilet = { x0: 200, x1: W, y0: 0, y1: 150 };
-const toiletDoor = { x0: 205, x1: 275 }; // in its south wall, west corner
+const toiletDoor = { x0: 205, x1: 275 }; // in its north partition, west corner
 
 const ink = "#3b3a36";
 const soft = "#6d6a62";
@@ -67,18 +67,18 @@ parts.push(text(-110, 195, "ระเบียง engawa", { size: 17, weight: 6
 parts.push(text(-110, 220, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
 
 // Exterior walls, broken at each opening.
-parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // west, north of the door
-parts.push(wall(-T, frontDoor.y1, T, L + T - frontDoor.y1)); // west, south of the door
+parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // west, south of the door
+parts.push(wall(-T, frontDoor.y1, T, L + T - frontDoor.y1)); // west, north of the door
 parts.push(wall(W, -T, T, L + 2 * T)); // east
-parts.push(wall(-T, -T, kitchenWindow.x0 + T, T)); // north, up to the kitchen window
+parts.push(wall(-T, -T, kitchenWindow.x0 + T, T)); // south, up to the kitchen window
 parts.push(wall(kitchenWindow.x1, -T, ventWindow.x0 - kitchenWindow.x1, T));
 parts.push(wall(ventWindow.x1, -T, W - ventWindow.x1, T));
-parts.push(wall(-T, L, southWindow.x0 + T, T)); // south
-parts.push(wall(southWindow.x1, L, W - southWindow.x1, T));
+parts.push(wall(-T, L, northWindow.x0 + T, T)); // north
+parts.push(wall(northWindow.x1, L, W - northWindow.x1, T));
 
 parts.push(windowIn(kitchenWindow.x0, -T, kitchenWindow.x1 - kitchenWindow.x0, T));
 parts.push(windowIn(ventWindow.x0, -T, ventWindow.x1 - ventWindow.x0, T));
-parts.push(windowIn(southWindow.x0, L, southWindow.x1 - southWindow.x0, T));
+parts.push(windowIn(northWindow.x0, L, northWindow.x1 - northWindow.x0, T));
 
 // Front door: four panels of 70. The outer two are fixed on the outside track;
 // the middle two slide on the inside track and meet at the centre.
@@ -93,12 +93,12 @@ parts.push(windowIn(southWindow.x0, L, southWindow.x1 - southWindow.x0, T));
   parts.push(`<line x1="-10" y1="${mid}" x2="0" y2="${mid}" stroke="${ink}" stroke-width="1"/>`);
 }
 
-// Toilet partitions, with the door gap at the west end of the south wall.
+// Toilet partitions, with the door gap at the west end of the north partition.
 parts.push(wall(toilet.x0 - T, 0, T, toilet.y1 + T));
 parts.push(wall(toilet.x0, toilet.y1, toiletDoor.x0 - toilet.x0, T));
 parts.push(wall(toiletDoor.x1, toilet.y1, toilet.x1 - toiletDoor.x1, T));
 
-// Toilet door: 70, opens in, leaf comes to rest along the west wall.
+// Toilet door: 70, opens in, leaf comes to rest along the west partition.
 {
   const hx = toiletDoor.x0 + 2;
   const hy = toilet.y1;
@@ -109,7 +109,7 @@ parts.push(wall(toiletDoor.x1, toilet.y1, toilet.x1 - toiletDoor.x1, T));
   );
 }
 
-// Kitchen along the north wall: fridge 70, counter 120 with the sink at its east end.
+// Kitchen along the south wall: fridge 70, counter 120 with the sink at its east end.
 parts.push(`<rect x="3" y="3" width="64" height="62" ${fx}/>`);
 parts.push(`<line x1="3" y1="12" x2="67" y2="12" stroke="${soft}" stroke-width="1"/>`);
 parts.push(text(35, 43, "ตู้เย็น", { size: 14 }));
@@ -127,36 +127,46 @@ parts.push(`<ellipse cx="356" cy="75" rx="24" ry="18" ${fx}/>`);
 parts.push(text(354, 79, "โถ", { size: 12 }));
 parts.push(`<circle cx="393" cy="36" r="4.5" fill="#fff" stroke="${door}" stroke-width="1.6"/>`);
 parts.push(text(384, 40, "ฉีดชำระ", { size: 11, anchor: "end", fill: soft }));
-// Exhaust fan high on the east wall, south of the bowl, across the room from the vent window.
+// Exhaust fan high on the east wall, north of the bowl, across the room from the vent window.
 parts.push(`<rect x="384" y="112" width="16" height="22" fill="#fff" stroke="${ink}" stroke-width="1.2"/>`);
 parts.push(`<path d="M384 112 L400 134 M400 112 L384 134" stroke="${ink}" stroke-width="0.9"/>`);
 parts.push(text(380, 144, "พัดลมดูดอากาศ", { size: 11, anchor: "end", fill: soft }));
 parts.push(text(305, 105, "ห้องน้ำ", { size: 15, weight: 600 }));
 parts.push(text(305, 122, "3.0 ตร.ม.", { size: 12, fill: soft }));
 
-// Dining in front of the sliding door: table 180 × 100, two chairs a side.
-function chair(x, y, backAtTop) {
-  const back = backAtTop ? y : y + 36;
-  return `<rect x="${x}" y="${y}" width="45" height="42" rx="6" ${fx}/><rect x="${x + 4}" y="${back}" width="37" height="6" rx="2" fill="${soft}"/>`;
+// Dining across the room from the sliding door: table 200 × 100 running along
+// the east wall, a bench of the same length against the wall, three chairs
+// on the door side.
+const dining = { x0: 255, x1: 355, y0: 380, y1: 580 };
+const bench = { x0: 360, x1: 400 };
+function chair(cy) {
+  // 42 deep, 45 wide, back on the west edge, seat facing the table.
+  const x = dining.x0 - 50;
+  const y = cy - 22.5;
+  return `<rect x="${x}" y="${y}" width="42" height="45" rx="6" ${fx}/><rect x="${x}" y="${y + 4}" width="6" height="37" rx="2" fill="${soft}"/>`;
 }
-parts.push(chair(140, 382, true), chair(215, 382, true), chair(140, 536, false), chair(215, 536, false));
-parts.push(`<rect x="110" y="430" width="180" height="100" rx="3" ${fx}/>`);
-parts.push(text(200, 478, "โต๊ะกินข้าว", { size: 13 }));
-parts.push(text(200, 496, "180 × 100", { size: 11, fill: soft }));
+const seat = (dining.y1 - dining.y0) / 3;
+for (let i = 0; i < 3; i++) parts.push(chair(dining.y0 + seat * (i + 0.5)));
+parts.push(`<rect x="${dining.x0}" y="${dining.y0}" width="${dining.x1 - dining.x0}" height="${dining.y1 - dining.y0}" rx="3" ${fx}/>`);
+parts.push(text(305, 476, "โต๊ะกินข้าว", { size: 13 }));
+parts.push(text(305, 494, "200 × 100", { size: 11, fill: soft }));
+parts.push(`<rect x="${bench.x0}" y="${dining.y0}" width="${bench.x1 - bench.x0 - 2}" height="${dining.y1 - dining.y0}" rx="3" ${fx}/>`);
+parts.push(`<g transform="translate(${(bench.x0 + bench.x1) / 2 - 1} 480) rotate(90)">${text(0, 4, "ม้านั่ง 200", { size: 11, fill: soft })}</g>`);
 
-// Living: armchair, sofa 186 on the east wall, coffee table, TV on the west wall.
-parts.push(`<rect x="318" y="660" width="75" height="75" rx="10" ${fx}/>`);
-parts.push(`<rect x="378" y="664" width="12" height="67" rx="4" ${thin}/>`);
-parts.push(text(352, 701, "อาร์มแชร์", { size: 11 }));
-parts.push(`<rect x="310" y="754" width="88" height="186" rx="8" ${fx}/>`);
-parts.push(`<rect x="376" y="770" width="18" height="154" rx="4" ${thin}/>`);
-parts.push(`<line x1="310" y1="770" x2="376" y2="770" stroke="${soft}" stroke-width="1"/>`);
-parts.push(`<line x1="310" y1="924" x2="376" y2="924" stroke="${soft}" stroke-width="1"/>`);
-parts.push(`<line x1="310" y1="847" x2="376" y2="847" stroke="${soft}" stroke-width="0.8"/>`);
-parts.push(text(343, 815, "โซฟา", { size: 13 }));
-parts.push(text(343, 832, "186", { size: 11, fill: soft }));
-parts.push(`<rect x="215" y="800" width="60" height="95" rx="4" ${fx}/>`);
-parts.push(text(245, 851, "โต๊ะกลาง", { size: 11, fill: soft }));
+// Living: three-section sofa 280 on the east wall with its chaise in the north
+// corner, TV on the west wall.
+const sofa = { x0: 302, x1: 398, y0: 660, y1: 940, chaiseX: 250, chaiseY: 847 };
+parts.push(
+  `<path d="M${sofa.x0} ${sofa.y0} H${sofa.x1} V${sofa.y1} H${sofa.chaiseX} V${sofa.chaiseY} H${sofa.x0} Z" stroke-linejoin="round" ${fx}/>`
+);
+parts.push(`<rect x="380" y="675" width="15" height="250" rx="4" ${thin}/>`);
+parts.push(`<line x1="${sofa.x0}" y1="675" x2="380" y2="675" stroke="${soft}" stroke-width="1"/>`);
+parts.push(`<line x1="${sofa.chaiseX}" y1="925" x2="380" y2="925" stroke="${soft}" stroke-width="1"/>`);
+parts.push(`<line x1="${sofa.x0}" y1="761" x2="380" y2="761" stroke="${soft}" stroke-width="0.8"/>`);
+parts.push(`<line x1="${sofa.x0}" y1="${sofa.chaiseY}" x2="380" y2="${sofa.chaiseY}" stroke="${soft}" stroke-width="0.8"/>`);
+parts.push(text(341, 798, "โซฟา", { size: 13 }));
+parts.push(text(341, 815, "280", { size: 11, fill: soft }));
+parts.push(text(315, 890, "เชส", { size: 11, fill: soft }));
 parts.push(`<rect x="2" y="720" width="40" height="180" rx="2" ${fx}/>`);
 parts.push(`<line x1="40" y1="745" x2="40" y2="875" stroke="${ink}" stroke-width="3"/>`);
 parts.push(text(21, 815, "ทีวี", { size: 12 }));
@@ -184,7 +194,7 @@ parts.push(dimH(0, W, L + 72, "400"));
 
 // North arrow and title.
 parts.push(
-  `<g transform="translate(510 1035)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 -20 L7 8 L0 3 L-7 8 Z" fill="${ink}"/>${text(0, -30, "N", { size: 14, weight: 600 })}</g>`
+  `<g transform="translate(510 1025)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 20 L7 -8 L0 -3 L-7 -8 Z" fill="${ink}"/>${text(0, 44, "N", { size: 14, weight: 600 })}</g>`
 );
 parts.push(text(-370, 1100, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ปรับ 19 พ.ย. 2026", { size: 17, anchor: "start" }));
 
