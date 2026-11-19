@@ -40,18 +40,16 @@ parts.push(text(125, up(126), "150 cm", { size: 20, fill: ink }));
 parts.push(r(18, 0, 65, 180, "#d6d6d3"));
 parts.push(text(50, up(80), "ตู้เย็น", { size: 18, weight: 600, fill: ink }));
 
-// Dining set across from the door, seen side on: table 200 long at 75, the
-// bench behind it against the far wall, three chairs this side with their
-// backs to the door.
+// Dining set seen end on: table 100 wide at 75, a chair on the toilet side
+// (left) with its back away from the table, the bench on the sofa side.
 const ghost = `fill="none" stroke="#e3cf9f" stroke-width="5"`;
-parts.push(`<path d="M380 ${up(45)} H580 M386 ${up(45)} V0 M574 ${up(45)} V0" fill="none" stroke="#efe2c4" stroke-width="5"/>`);
-parts.push(`<path d="M390 ${up(75)} V0 M570 ${up(75)} V0" ${ghost}/>`);
-parts.push(`<rect x="378" y="${up(78)}" width="204" height="8" fill="#ead9b0"/>`);
-for (const cy of [413, 480, 547]) {
-  const x0 = cy - 22;
-  const x1 = cy + 22;
-  parts.push(`<path d="M${x0} ${up(90)} H${x1} M${x0 + 3} ${up(90)} V0 M${x1 - 3} ${up(90)} V0 M${x0} ${up(45)} H${x1}" ${ghost}/>`);
-}
+parts.push(`<rect x="318" y="${up(78)}" width="110" height="8" fill="#ead9b0"/>`);
+parts.push(`<path d="M333 ${up(75)} V0 M413 ${up(75)} V0" ${ghost}/>`);
+parts.push(`<path d="M273 ${up(45)} H315 M278 ${up(45)} V0 M310 ${up(45)} V0 M273 ${up(45)} L267 ${up(90)}" ${ghost}/>`);
+parts.push(`<path d="M428 ${up(45)} H468 M433 ${up(45)} V0 M463 ${up(45)} V0" ${ghost}/>`);
+
+// Armchair beside the sofa.
+parts.push(r(580, 0, 75, 75, "#e2deda"));
 
 // Three-section sofa against the far wall at the north end, chaise in the corner.
 parts.push(r(660, 0, 280, 80, "#ece7e1"));
@@ -81,6 +79,9 @@ parts.push(text(480, up(150), "ประตูบานเลื่อน 280 cm
 for (const x of [0, d0 - 18, d1, L - 18]) parts.push(r(x, 0, 18, 290, wood));
 parts.push(r(d0 - 18, 200, d1 - d0 + 36, 18, wood));
 parts.push(r(0, 272, L, 18, wood));
+
+// Armchair label goes over the door post that stands in front of it.
+parts.push(text(617, up(32), "ArmChair", { size: 14, weight: 600, fill: ink }));
 
 // Roof: steep side faces the engawa, eaves at 2.00 m over the deck edge.
 parts.push(r(-50, 230, L + 100, 235, "rgba(150,150,150,0.88)"));

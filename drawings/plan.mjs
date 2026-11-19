@@ -134,24 +134,30 @@ parts.push(text(380, 144, "พัดลมดูดอากาศ", { size: 11,
 parts.push(text(305, 105, "ห้องน้ำ", { size: 15, weight: 600 }));
 parts.push(text(305, 122, "3.0 ตร.ม.", { size: 12, fill: soft }));
 
-// Dining across the room from the sliding door: table 200 × 100 running along
-// the east wall, a bench of the same length against the wall, three chairs
-// on the door side.
-const dining = { x0: 255, x1: 355, y0: 380, y1: 580 };
-const bench = { x0: 360, x1: 400 };
-function chair(cy) {
-  // 42 deep, 45 wide, back on the west edge, seat facing the table.
-  const x = dining.x0 - 50;
-  const y = cy - 22.5;
-  return `<rect x="${x}" y="${y}" width="42" height="45" rx="6" ${fx}/><rect x="${x}" y="${y + 4}" width="6" height="37" rx="2" fill="${soft}"/>`;
+// Dining in the open floor between the toilet and the living corner: table
+// 200 × 100 running east-west, three chairs on the toilet side, a bench of the
+// same length on the sofa side. The set is centred across the room and between
+// the toilet partition (160) and the armchair (580).
+const dining = { x0: 100, x1: 300, y0: 323, y1: 423 };
+const bench = { y0: 428, y1: 468 };
+function chair(cx) {
+  // 45 wide, 42 deep, back on the south edge, seat facing the table.
+  const x = cx - 22.5;
+  const y = dining.y0 - 50;
+  return `<rect x="${x}" y="${y}" width="45" height="42" rx="6" ${fx}/><rect x="${x + 4}" y="${y}" width="37" height="6" rx="2" fill="${soft}"/>`;
 }
-const seat = (dining.y1 - dining.y0) / 3;
-for (let i = 0; i < 3; i++) parts.push(chair(dining.y0 + seat * (i + 0.5)));
+const seat = (dining.x1 - dining.x0) / 3;
+for (let i = 0; i < 3; i++) parts.push(chair(dining.x0 + seat * (i + 0.5)));
 parts.push(`<rect x="${dining.x0}" y="${dining.y0}" width="${dining.x1 - dining.x0}" height="${dining.y1 - dining.y0}" rx="3" ${fx}/>`);
-parts.push(text(305, 476, "โต๊ะกินข้าว", { size: 13 }));
-parts.push(text(305, 494, "200 × 100", { size: 11, fill: soft }));
-parts.push(`<rect x="${bench.x0}" y="${dining.y0}" width="${bench.x1 - bench.x0 - 2}" height="${dining.y1 - dining.y0}" rx="3" ${fx}/>`);
-parts.push(`<g transform="translate(${(bench.x0 + bench.x1) / 2 - 1} 480) rotate(90)">${text(0, 4, "ม้านั่ง 200", { size: 11, fill: soft })}</g>`);
+parts.push(text(200, 370, "โต๊ะกินข้าว", { size: 13 }));
+parts.push(text(200, 388, "200 × 100", { size: 11, fill: soft }));
+parts.push(`<rect x="${dining.x0}" y="${bench.y0}" width="${dining.x1 - dining.x0}" height="${bench.y1 - bench.y0}" rx="3" ${fx}/>`);
+parts.push(text(200, 452, "ม้านั่ง 200", { size: 11, fill: soft }));
+
+// Armchair beside the sofa, at its south end.
+parts.push(`<rect x="318" y="580" width="75" height="75" rx="10" ${fx}/>`);
+parts.push(`<rect x="378" y="584" width="12" height="67" rx="4" ${thin}/>`);
+parts.push(text(352, 621, "อาร์มแชร์", { size: 11 }));
 
 // Living: three-section sofa 280 on the east wall with its chaise in the north
 // corner, TV on the west wall.

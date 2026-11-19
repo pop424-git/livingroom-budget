@@ -18,12 +18,11 @@
 <text x="125" y="-126" font-size="20" font-weight="400" text-anchor="middle" fill="#2f2e2b">150 cm</text>
 <rect x="18" y="-180" width="65" height="180" fill="#d6d6d3" />
 <text x="50" y="-80" font-size="18" font-weight="600" text-anchor="middle" fill="#2f2e2b">ตู้เย็น</text>
-<path d="M380 -45 H580 M386 -45 V0 M574 -45 V0" fill="none" stroke="#efe2c4" stroke-width="5"/>
-<path d="M390 -75 V0 M570 -75 V0" fill="none" stroke="#e3cf9f" stroke-width="5"/>
-<rect x="378" y="-78" width="204" height="8" fill="#ead9b0"/>
-<path d="M391 -90 H435 M394 -90 V0 M432 -90 V0 M391 -45 H435" fill="none" stroke="#e3cf9f" stroke-width="5"/>
-<path d="M458 -90 H502 M461 -90 V0 M499 -90 V0 M458 -45 H502" fill="none" stroke="#e3cf9f" stroke-width="5"/>
-<path d="M525 -90 H569 M528 -90 V0 M566 -90 V0 M525 -45 H569" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<rect x="318" y="-78" width="110" height="8" fill="#ead9b0"/>
+<path d="M333 -75 V0 M413 -75 V0" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<path d="M273 -45 H315 M278 -45 V0 M310 -45 V0 M273 -45 L267 -90" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<path d="M428 -45 H468 M433 -45 V0 M463 -45 V0" fill="none" stroke="#e3cf9f" stroke-width="5"/>
+<rect x="580" y="-75" width="75" height="75" fill="#e2deda" />
 <rect x="660" y="-80" width="280" height="80" fill="#ece7e1" />
 <rect x="660" y="-45" width="280" height="45" fill="#e6e0d9" />
 <rect x="847" y="-45" width="93" height="45" fill="#ddd6ce" />
@@ -44,6 +43,7 @@
 <rect x="942" y="-290" width="18" height="290" fill="#e8c287" />
 <rect x="322" y="-218" width="316" height="18" fill="#e8c287" />
 <rect x="0" y="-290" width="960" height="18" fill="#e8c287" />
+<text x="617" y="-32" font-size="14" font-weight="600" text-anchor="middle" fill="#2f2e2b">ArmChair</text>
 <rect x="-50" y="-465" width="1060" height="235" fill="rgba(150,150,150,0.88)" />
 <line x1="-17" y1="-465" x2="-17" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
 <line x1="16" y1="-465" x2="16" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
