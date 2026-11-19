@@ -136,9 +136,10 @@ parts.push(text(305, 122, "3.0 ตร.ม.", { size: 12, fill: soft }));
 
 // Dining in the open floor between the toilet and the living corner: table
 // 200 × 100 running east-west, three chairs on the toilet side, a bench of the
-// same length on the sofa side. The set is centred across the room and between
-// the toilet partition (160) and the armchair (580).
-const dining = { x0: 100, x1: 300, y0: 323, y1: 423 };
+// same length on the sofa side. The table's end is against the east wall,
+// across from the door, and the set sits midway between the toilet partition
+// (160) and the armchair (580).
+const dining = { x0: 198, x1: 398, y0: 323, y1: 423 };
 const bench = { y0: 428, y1: 468 };
 function chair(cx) {
   // 45 wide, 42 deep, back on the south edge, seat facing the table.
@@ -149,10 +150,10 @@ function chair(cx) {
 const seat = (dining.x1 - dining.x0) / 3;
 for (let i = 0; i < 3; i++) parts.push(chair(dining.x0 + seat * (i + 0.5)));
 parts.push(`<rect x="${dining.x0}" y="${dining.y0}" width="${dining.x1 - dining.x0}" height="${dining.y1 - dining.y0}" rx="3" ${fx}/>`);
-parts.push(text(200, 370, "โต๊ะกินข้าว", { size: 13 }));
-parts.push(text(200, 388, "200 × 100", { size: 11, fill: soft }));
+parts.push(text(298, 370, "โต๊ะกินข้าว", { size: 13 }));
+parts.push(text(298, 388, "200 × 100", { size: 11, fill: soft }));
 parts.push(`<rect x="${dining.x0}" y="${bench.y0}" width="${dining.x1 - dining.x0}" height="${bench.y1 - bench.y0}" rx="3" ${fx}/>`);
-parts.push(text(200, 452, "ม้านั่ง 200", { size: 11, fill: soft }));
+parts.push(text(298, 452, "ม้านั่ง 200", { size: 11, fill: soft }));
 
 // Armchair beside the sofa, at its south end.
 parts.push(`<rect x="318" y="580" width="75" height="75" rx="10" ${fx}/>`);
