@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 /** The room's key dimensions, set out like the notes on a drawing. */
 const specs = [
-  ["ห้อง", "4 × 8 ม."],
+  ["ขนาดห้อง", "4 × 9.6 ม."],
   ["ยกพื้น", "45 ซม."],
   ["ฝ้า", "2.40 ม."],
   ["ระเบียง", "ลึก 2 ม."],

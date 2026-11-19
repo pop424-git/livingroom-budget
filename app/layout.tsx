@@ -27,7 +27,7 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "สรุปยอดห้องนั่งเล่น",
-  description: "รายการค่าใช้จ่ายงานสร้างห้องนั่งเล่น 4×8 ม. พร้อมระเบียงเอ็นกาวะ",
+  description: "รายการค่าใช้จ่ายงานสร้างห้องนั่งเล่น 4×9.6 ม. พร้อมระเบียงเอ็นกาวะ",
 };
 
 export default function RootLayout({
