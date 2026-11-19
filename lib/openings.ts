@@ -82,14 +82,12 @@ export const openings: Opening[] = [
     name: "หน้าต่างทิศเหนือ",
     tag: "North",
     kind: "window",
-    note: "อะลูมิเนียมบานเลื่อน 2 บาน · สั่งทำ",
+    note: "บานเลื่อน 3 ช่อง กระจกใสเขียว พร้อมมุ้ง 1 ชุด",
     size: { width: 180, height: 110 },
-    color: wood,
-    price: null,
-    priceNote: "สั่งทำ · ยังไม่รู้ราคา",
-    // Edited from a four-panel listing photo down to two panels at 180 × 110.
+    color: { name: "ลายไม้สักทอง", hex: "#b8743f" },
+    price: 3890,
+    source: "ppwindows",
     image: northWindow,
-    imageNote: "ภาพจำลอง",
     curtain: {
       type: "มู่ลี่",
       size: { width: 200, height: 140 },
