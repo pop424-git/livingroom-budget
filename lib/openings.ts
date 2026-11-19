@@ -1,5 +1,7 @@
 import type { StaticImageData } from "next/image";
+import bathWindow from "@/public/openings/bath-window.webp";
 import frontDoor from "@/public/openings/front-door.webp";
+import kitchenWindow from "@/public/openings/kitchen-window.webp";
 import northWindow from "@/public/openings/north-window.webp";
 
 /** Picks which line drawing stands in until a photo is added. */
@@ -103,6 +105,7 @@ export const openings: Opening[] = [
     color: wood,
     price: 2190,
     source: "ppwindows",
+    image: kitchenWindow,
     curtain: {
       type: "ม่านจีบรังผึ้ง ทึบแสง",
       size: { width: null, height: null },
@@ -120,6 +123,7 @@ export const openings: Opening[] = [
     color: wood,
     price: 790,
     source: "ppwindows",
+    image: bathWindow,
     curtain: "undecided",
   },
 ];
