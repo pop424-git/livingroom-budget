@@ -29,8 +29,8 @@ const door = "#c0562f";
 // Deck lighting: two circuits on one two-gang switch inside the front door.
 const lamp = "#d9931f"; // light fittings and LED strip
 const lampFill = "#fff1cc";
-const rafters = [241, 486, 731]; // post centres; each pendant hangs under the rafter there
-const pendantX = -T - 100; // 100 out from the front wall, mid-deck
+const linearX = -T - 100; // LED linear under the purlin 100 out from the front wall
+const feedY = 486; // fed from the middle, down the rafter at the middle post
 
 function wall(x, y, w, h) {
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#hatch)" stroke="${ink}" stroke-width="1.6"/>`;
@@ -82,18 +82,22 @@ const strip = (x1, y1, x2, y2) =>
 parts.push(strip(-T - DECK + 3, -T, -T - DECK + 3, L + T));
 for (const y of [-32.5, -53, L + T + 22.5, L + T + 43]) parts.push(strip(-T - DECK + 4, y, -T - 4, y));
 
-// Circuit 2: rafters overhead at each inner post, a pendant under each.
-for (const y of rafters) {
-  parts.push(`<line x1="${-T - DECK}" y1="${y}" x2="${-T}" y2="${y}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
-  parts.push(`<circle cx="${pendantX}" cy="${y}" r="11" fill="${lampFill}" stroke="${lamp}" stroke-width="1.8"/>`);
-  parts.push(
-    `<path d="M${pendantX - 7.8} ${y - 7.8} L${pendantX + 7.8} ${y + 7.8} M${pendantX + 7.8} ${y - 7.8} L${pendantX - 7.8} ${y + 7.8}" stroke="${lamp}" stroke-width="1.4"/>`
-  );
-}
+// Circuit 2: one LED linear overhead, the length of the deck under the purlin,
+// fed at the middle through the rafter over the middle post.
+const overhead = (x1, y1, x2, y2) =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${lamp}" stroke-width="5" stroke-dasharray="16 6" stroke-linecap="butt"/>`;
+parts.push(`<line x1="${-T - DECK}" y1="${feedY}" x2="${-T}" y2="${feedY}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
+// Broken where it passes behind the deck's name.
+parts.push(overhead(linearX, 0, linearX, 94));
+parts.push(overhead(linearX, 168, linearX, L));
+parts.push(`<circle cx="${linearX}" cy="${feedY}" r="5" fill="${lamp}"/>`);
+parts.push(text(linearX - 10, feedY - 12, "ป้อนไฟกลาง", { size: 11, anchor: "end", fill: lamp }));
 
-// Strip driver in a weatherproof box under the deck, by the wall south of the door.
-parts.push(`<rect x="-34" y="296" width="16" height="16" fill="#fff" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="3 2"/>`);
-parts.push(text(-26, 308, "D", { size: 10, weight: 600, fill: lamp }));
+// Drivers in weatherproof boxes under the deck, by the wall south of the door.
+for (const [x, label] of [[-34, "D1"], [-56, "D2"]]) {
+  parts.push(`<rect x="${x}" y="296" width="18" height="16" fill="#fff" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="3 2"/>`);
+  parts.push(text(x + 9, 308, label, { size: 9, weight: 600, fill: lamp }));
+}
 
 // Exterior walls, broken at each opening.
 parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // east, south of the door
@@ -241,18 +245,15 @@ parts.push(
   const x = -370;
   const rows = [
     ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · วงจร 1"],
-    ["pendant", "โคมห้อยญี่ปุ่น 3 ดวง ใต้จันทันแนวเสา ห่างผนัง 100 · ก้นโคม +2.10 จากพื้นเดค · วงจร 2"],
-    ["rafter", "จันทันเหนือหัว · ร้อยสายในจันทันเข้าผนังหน้า (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
-    ["switch", "สวิตช์ 2 ช่องข้างบานเลื่อน: 1 strip · 2 โคม · D กล่อง driver กันน้ำใต้เดค"],
+    ["linear", "LED linear 9.6 ม. ใต้แป เหนือหัว ห่างผนัง 100 · +3.12 · 24V 5–6 W/ม. ส่องลงเดคกับผนังหน้า · วงจร 2"],
+    ["rafter", "จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
+    ["switch", "สวิตช์ 2 ช่องข้างบานเลื่อน: 1 strip · 2 linear · D1 D2 กล่อง driver กันน้ำใต้เดค"],
   ];
   parts.push(text(x, 1062, "ไฟระเบียง", { size: 15, weight: 600, anchor: "start" }));
   rows.forEach(([kind, label], i) => {
     const y = 1088 + i * 24;
     if (kind === "strip") parts.push(strip(x + 2, y - 4, x + 30, y - 4));
-    if (kind === "pendant") {
-      parts.push(`<circle cx="${x + 16}" cy="${y - 4}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
-      parts.push(`<path d="M${x + 10.5} ${y - 9.5} L${x + 21.5} ${y + 1.5} M${x + 21.5} ${y - 9.5} L${x + 10.5} ${y + 1.5}" stroke="${lamp}" stroke-width="1.2"/>`);
-    }
+    if (kind === "linear") parts.push(overhead(x + 2, y - 4, x + 30, y - 4));
     if (kind === "rafter") parts.push(`<line x1="${x + 2}" y1="${y - 4}" x2="${x + 30}" y2="${y - 4}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
     if (kind === "switch") parts.push(`<rect x="${x + 11}" y="${y - 11}" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
     parts.push(text(x + 40, y, label, { size: 13, anchor: "start" }));

@@ -14,12 +14,10 @@ const wood = "#e8c287";
 const woodDark = "#c99a5b";
 const ink = "#2f2e2b";
 const lamp = "#d9931f";
-const lampFill = "#fff1cc";
 
-// Pendants hang under the rafters at the three inner posts, 2.00 in front of
-// the wall; their bottoms sit at +2.10, just under the eave line.
-const rafters = [241, 486, 731];
-const pendant = { bottom: 210, h: 34, r: 16 };
+// LED linear under the purlin, 1.00 in front of the wall at about +3.10, the
+// length of the deck. It faces down and back, washing the deck and this wall.
+const LINEAR_H = 310;
 
 const r = (x, y0, w, h, fill, extra = "") =>
   `<rect x="${x}" y="${up(y0 + h)}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`;
@@ -104,31 +102,26 @@ for (let x = -50 + 33; x < L + 50; x += 33) {
 }
 parts.push(text(480, up(340), "ผนังตรงกลางจั่ว สูง 400 cm", { size: 22, weight: 600, fill: ink }));
 
-// Pendants, drawn over the cut-away roof.
-{
-  const { bottom, h, r: rr } = pendant;
-  const cy = up(bottom + h / 2);
-  for (const x of rafters) {
-    parts.push(`<circle cx="${x}" cy="${cy}" r="70" fill="url(#glow)"/>`);
-    parts.push(`<line x1="${x}" y1="${up(300)}" x2="${x}" y2="${up(bottom + h)}" stroke="${ink}" stroke-width="1.2"/>`);
-    parts.push(`<ellipse cx="${x}" cy="${cy}" rx="${rr}" ry="${h / 2}" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
-    for (const k of [-0.5, 0, 0.5]) {
-      const half = rr * Math.sqrt(1 - k * k);
-      parts.push(`<line x1="${x - half}" y1="${cy + (k * h) / 2}" x2="${x + half}" y2="${cy + (k * h) / 2}" stroke="${lamp}" stroke-width="0.7"/>`);
-    }
-  }
-  parts.push(text(rafters[0] - 26, up(bottom - 8), "โคมห้อย +2.10", { size: 16, weight: 600, anchor: "end", fill: lamp }));
-}
+// Wall wash from the linear, then the linear itself over the cut-away roof.
+parts.push(`<rect x="0" y="${up(LINEAR_H - 10)}" width="${L}" height="${LINEAR_H - 10}" fill="url(#wallwash)"/>`);
+parts.push(`<rect x="0" y="${up(LINEAR_H) - 3}" width="${L}" height="6" rx="2" fill="#fff1cc" stroke="${lamp}" stroke-width="1.5"/>`);
+parts.push(`<rect x="0" y="${up(LINEAR_H) + 3}" width="${L}" height="22" fill="url(#halo)"/>`);
+parts.push(text(20, up(LINEAR_H) - 12, "LED linear ใต้แป 9.6 ม. · ~3.10", { size: 16, weight: 600, anchor: "start", fill: "#fff6e0" }));
 
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));
-parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมห้อย 3 ดวงแนวเสา + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · LED linear ใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 const defs = `
-  <radialGradient id="glow">
+  <linearGradient id="wallwash" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.32"/>
+    <stop offset="0.45" stop-color="#ffd77a" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#ffd77a" stop-opacity="0.04"/>
+  </linearGradient>
+  <linearGradient id="halo" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#ffd77a" stop-opacity="0.7"/>
     <stop offset="1" stop-color="#ffd77a" stop-opacity="0"/>
-  </radialGradient>
+  </linearGradient>
   <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#ffc85a" stop-opacity="0.75"/>
     <stop offset="1" stop-color="#ffc85a" stop-opacity="0.05"/>

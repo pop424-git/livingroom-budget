@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-330 -480 1040 790" width="1040" height="790" font-family="Leelawadee UI, Tahoma, sans-serif">
 <defs>
-  <radialGradient id="glow">
-    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.75"/>
-    <stop offset="1" stop-color="#ffd77a" stop-opacity="0"/>
+  <radialGradient id="beam" gradientUnits="userSpaceOnUse" cx="-91" cy="-308" r="340">
+    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.6"/>
+    <stop offset="1" stop-color="#ffd77a" stop-opacity="0.06"/>
   </radialGradient>
   <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#ffc85a" stop-opacity="0.8"/>
@@ -44,20 +44,15 @@
 <text x="-188" y="-180" font-size="14" font-weight="600" text-anchor="start" fill="#2f8a63">แนวชายคาระดับเดียวกัน 2.00</text>
 <text x="-188" y="-158" font-size="15" font-weight="600" text-anchor="start" fill="#2f8a63">โล่ง 2.40 ที่ขอบเดค</text>
 <path d="M-250 -200 L0 -400 L500 -200" fill="none" stroke="#1d1d1b" stroke-width="12" stroke-linejoin="round"/>
-<path d="M-100 -312 L-6 -387.2 L6 -387.2 V-126" fill="none" stroke="#d9931f" stroke-width="1.4" stroke-dasharray="6 4"/>
+<g transform="rotate(-38.66 -100 -320)"><rect x="-103" y="-314" width="6" height="6" fill="#f1f1ef" stroke="#2f2e2b" stroke-width="1"/><rect x="-104" y="-308" width="8" height="3" fill="#d9931f"/></g>
+<path d="M-90.62957428668363 -308.28696785835456 L-124.88368182650078 0 L0 0 L0 -298.21701515983415 Z" fill="url(#beam)"/>
+<line x1="-90.62957428668363" y1="-308.28696785835456" x2="0" y2="-195.00000000000003" stroke="#d9931f" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="-160" y="-250" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">LED linear ใต้แป ~3.10</text>
+<text x="-160" y="-232" font-size="12" font-weight="400" text-anchor="start" fill="#d9931f">ส่องลงเดค + ผนังหน้า</text>
+<path d="M-90.62957428668363 -308.28696785835456 L-6 -387.2 L6 -387.2 V-126" fill="none" stroke="#d9931f" stroke-width="1.4" stroke-dasharray="6 4"/>
 <rect x="2" y="-127" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.4"/>
 <text x="16" y="-116" font-size="13" font-weight="400" text-anchor="start" fill="#d9931f">สวิตช์ 2 ช่อง</text>
 <text x="16" y="-98" font-size="13" font-weight="400" text-anchor="start" fill="#d9931f">+1.20</text>
-<rect x="-104" y="-312" width="8" height="5" fill="#2f2e2b"/>
-<line x1="-100" y1="-307" x2="-100" y2="-244" stroke="#2f2e2b" stroke-width="1.2"/>
-<circle cx="-100" cy="-227" r="62" fill="url(#glow)"/>
-<ellipse cx="-100" cy="-227" rx="16" ry="17" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<line x1="-113.85640646055101" y1="-235.5" x2="-86.14359353944899" y2="-235.5" stroke="#d9931f" stroke-width="0.7"/>
-<line x1="-116" y1="-227" x2="-84" y2="-227" stroke="#d9931f" stroke-width="0.7"/>
-<line x1="-113.85640646055101" y1="-218.5" x2="-86.14359353944899" y2="-218.5" stroke="#d9931f" stroke-width="0.7"/>
-<text x="-78" y="-232" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">โคมห้อย</text>
-<text x="-78" y="-215" font-size="12" font-weight="400" text-anchor="start" fill="#d9931f">ก้นโคม +2.10</text>
-<text x="-92" y="-290" font-size="12" font-weight="400" text-anchor="start" fill="#8a877f">ใต้จันทัน 3.12</text>
 <path d="M-209 4 L-240 45 L-178 45 Z" fill="url(#wash)"/>
 <rect x="-211" y="2" width="7" height="5" fill="#d9931f"/>
 <text x="-218" y="14" font-size="12" font-weight="400" text-anchor="end" fill="#d9931f">strip ใต้ขอบเดค</text>
@@ -82,9 +77,9 @@
 <g><line x1="-200" y1="95" x2="0" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="-205" y1="100" x2="-195" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="-5" y1="100" x2="5" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="-100" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">2.00 (เดค)</text></g>
 <g><line x1="0" y1="95" x2="400" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="100" x2="5" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="395" y1="100" x2="405" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="200" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">4.00 (ตัวห้อง)</text></g>
 <g><line x1="400" y1="95" x2="500" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="395" y1="100" x2="405" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="495" y1="100" x2="505" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="450" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">1.00</text></g>
-<text x="-310" y="200" font-size="14" font-weight="400" text-anchor="start" fill="#2f2e2b">ไฟระเบียง 2700K CRI 90 · สวิตช์ 2 ช่องข้างบานเลื่อน: วงจร 1 LED strip 24V ใต้ขอบเดค + จมูกขั้นบันได · วงจร 2 โคมห้อย 3 ดวง</text>
-<text x="-310" y="224" font-size="14" font-weight="400" text-anchor="start" fill="#c0453a">ก่อนมุงหลังคา: ① เชื่อมหูแขวนใต้จันทัน 3 จุด (แนวเสา ห่างผนัง 1.00)  ② เจาะรูจุดโคม + จุดลงผนัง ใส่ยางกันบาด ร้อยลวดนำสายทิ้งไว้</text>
-<text x="-310" y="248" font-size="14" font-weight="400" text-anchor="start" fill="#c0453a">③ ทาสี zinc กันสนิมทุกจุดที่เจาะหรือเชื่อม · ปูเดค: ไม้ยื่นเลยคานขอบนอก 3–4 ซม. ซ่อน strip IP65 · บันได IP67</text>
-<text x="-310" y="272" font-size="14" font-weight="400" text-anchor="start" fill="#2f2e2b">โคม damp-rated ทรงกลมหรือหัวมน (กระดาษ / หวายสาน) ให้แสงลอดขึ้นท้องลายไม้ และไม่เป็นที่เกาะของนก</text>
+<text x="-310" y="200" font-size="14" font-weight="400" text-anchor="start" fill="#2f2e2b">ไฟระเบียง 2700K CRI 90 · สวิตช์ 2 ช่องข้างบานเลื่อน: วงจร 1 LED strip ใต้ขอบเดค + จมูกขั้นบันได · วงจร 2 LED linear 9.6 ม. ใต้แป</text>
+<text x="-310" y="224" font-size="14" font-weight="400" text-anchor="start" fill="#c0453a">ก่อนมุงหลังคา: ① เจาะรูร้อยสายจากจันทันแนวเสากลางเข้าแปที่ห่างผนัง 1.00 (ทะลุรอยต่อแป-จันทัน) และจุดลงผนัง ใส่ยางกันบาด</text>
+<text x="-310" y="248" font-size="14" font-weight="400" text-anchor="start" fill="#c0453a">ร้อยลวดนำสายทิ้งไว้  ② ทาสี zinc กันสนิมทุกจุดที่เจาะ · ปูเดค: ไม้ยื่นเลยคานขอบนอก 3–4 ซม. ซ่อน strip IP65 · บันได IP67</text>
+<text x="-310" y="272" font-size="14" font-weight="400" text-anchor="start" fill="#2f2e2b">linear: 24V 5–6 W/ม. รางอะลูมิเนียมฝาขุ่นลึก IP65 ปิดหัวท้าย · ป้อนไฟกลาง แยกซ้ายขวาข้างละ 4.80 · driver 75–100 W IP67 ใต้เดค</text>
 <text x="-310" y="158" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปตัด · มองไปทางทิศเหนือ · หน้าต่างบานเลื่อน 3 ช่อง 180 × 110 ขอบล่าง 90 · ปรับ 19 พ.ย. 2026</text>
 </svg>

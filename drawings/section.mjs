@@ -29,8 +29,8 @@ const woodDark = "#b8743f";
 const lamp = "#d9931f";
 const lampFill = "#fff1cc";
 
-// Pendant under the rafter, 100 out from the front wall; bottom at +2.10.
-const pendant = { x: -100, bottom: 210, h: 34, r: 16 };
+// LED linear under the purlin 100 out from the front wall, running the deck's length.
+const LINEAR_X = -100;
 
 const slopeL = (RIDGE - EAVE_H) / (DECK + EAVE_L);
 const slopeR = (RIDGE - EAVE_H) / (W + EAVE_R);
@@ -105,27 +105,37 @@ parts.push(
 
 // Deck lighting.
 {
-  const { x, bottom, h, r } = pendant;
-  const hook = roofAt(x) - 8; // underside of the rafter
-  const cy = up(bottom + h / 2);
-  // Wire inside the rafter, up the slope to the front wall, down to the switch.
+  // Purlin in section (a box tube running into the page) tight under the sheet,
+  // the aluminium profile on its underside. Both sit square to the slope.
+  const t = Math.atan(slopeL);
+  const rot = (-t * 180) / Math.PI;
+  const ox = LINEAR_X;
+  const oy = up(roofAt(LINEAR_X));
   parts.push(
-    `<path d="M${x} ${up(hook)} L-6 ${up(roofAt(-6) - 8)} L6 ${up(roofAt(-6) - 8)} V${up(126)}" fill="none" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="6 4"/>`
+    `<g transform="rotate(${rot.toFixed(2)} ${ox} ${oy})"><rect x="${ox - 3}" y="${oy + 6}" width="6" height="6" fill="#f1f1ef" stroke="${ink}" stroke-width="1"/><rect x="${ox - 4}" y="${oy + 12}" width="8" height="3" fill="${lamp}"/></g>`
+  );
+  // The profile faces square off the slope: down, and back toward the wall.
+  const sx = ox + Math.sin(t) * 15;
+  const sy = oy + Math.cos(t) * 15;
+  const ray = (deg) => [Math.cos((deg * Math.PI) / 180), Math.sin((deg * Math.PI) / 180)];
+  const centre = 90 - (t * 180) / Math.PI;
+  const [gx, gy] = ray(centre + 45); // garden-side edge, to the deck floor
+  const [wx, wy] = ray(centre - 45); // wall-side edge, to the front wall
+  const floorX = sx + gx * (-sy / gy);
+  const wallY = sy + wy * (-sx / wx);
+  parts.push(`<path d="M${sx} ${sy} L${floorX} 0 L0 0 L0 ${wallY} Z" fill="url(#beam)"/>`);
+  const [cx, cy] = ray(centre);
+  parts.push(`<line x1="${sx}" y1="${sy}" x2="0" y2="${sy + cy * (-sx / cx)}" stroke="${lamp}" stroke-width="1" stroke-dasharray="3 4"/>`);
+  parts.push(text(-160, up(250), "LED linear ใต้แป ~3.10", { size: 13, weight: 600, anchor: "start", fill: lamp }));
+  parts.push(text(-160, up(232), "ส่องลงเดค + ผนังหน้า", { size: 12, anchor: "start", fill: lamp }));
+
+  // Wire inside the rafter at the middle post, up to the wall, down to the switch.
+  parts.push(
+    `<path d="M${sx} ${sy} L-6 ${up(roofAt(-6) - 8)} L6 ${up(roofAt(-6) - 8)} V${up(126)}" fill="none" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="6 4"/>`
   );
   parts.push(`<rect x="2" y="${up(127)}" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
   parts.push(text(16, up(116), "สวิตช์ 2 ช่อง", { size: 13, anchor: "start", fill: lamp }));
   parts.push(text(16, up(98), "+1.20", { size: 13, anchor: "start", fill: lamp }));
-  // Welded hook, cord and a round lantern.
-  parts.push(`<rect x="${x - 4}" y="${up(hook)}" width="8" height="5" fill="${ink}"/>`);
-  parts.push(`<line x1="${x}" y1="${up(hook) + 5}" x2="${x}" y2="${up(bottom + h)}" stroke="${ink}" stroke-width="1.2"/>`);
-  parts.push(`<circle cx="${x}" cy="${cy}" r="62" fill="url(#glow)"/>`);
-  parts.push(`<ellipse cx="${x}" cy="${cy}" rx="${r}" ry="${h / 2}" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
-  for (const k of [-0.5, 0, 0.5]) {
-    parts.push(`<line x1="${x - r * Math.sqrt(1 - k * k)}" y1="${cy + (k * h) / 2}" x2="${x + r * Math.sqrt(1 - k * k)}" y2="${cy + (k * h) / 2}" stroke="${lamp}" stroke-width="0.7"/>`);
-  }
-  parts.push(text(x + 22, up(bottom + 22), "โคมห้อย", { size: 13, weight: 600, anchor: "start", fill: lamp }));
-  parts.push(text(x + 22, up(bottom + 5), `ก้นโคม +${(bottom / 100).toFixed(2)}`, { size: 12, anchor: "start", fill: lamp }));
-  parts.push(text(x + 8, up(hook) + 22, `ใต้จันทัน ${(hook / 100).toFixed(2)}`, { size: 12, anchor: "start", fill: soft }));
 
   // LED strip under the outer board edge, washing the ground below the deck.
   parts.push(`<path d="M${-DECK - 9} 4 L${-DECK - 40} ${FLOOR} L${-DECK + 22} ${FLOOR} Z" fill="url(#wash)"/>`);
@@ -172,19 +182,19 @@ parts.push(dimH(0, W, dy, "4.00 (ตัวห้อง)"));
 parts.push(dimH(W, W + EAVE_R, dy, "1.00"));
 
 const notes = [
-  ["ไฟระเบียง 2700K CRI 90 · สวิตช์ 2 ช่องข้างบานเลื่อน: วงจร 1 LED strip 24V ใต้ขอบเดค + จมูกขั้นบันได · วงจร 2 โคมห้อย 3 ดวง", ink],
-  ["ก่อนมุงหลังคา: ① เชื่อมหูแขวนใต้จันทัน 3 จุด (แนวเสา ห่างผนัง 1.00)  ② เจาะรูจุดโคม + จุดลงผนัง ใส่ยางกันบาด ร้อยลวดนำสายทิ้งไว้", red],
-  ["③ ทาสี zinc กันสนิมทุกจุดที่เจาะหรือเชื่อม · ปูเดค: ไม้ยื่นเลยคานขอบนอก 3–4 ซม. ซ่อน strip IP65 · บันได IP67", red],
-  ["โคม damp-rated ทรงกลมหรือหัวมน (กระดาษ / หวายสาน) ให้แสงลอดขึ้นท้องลายไม้ และไม่เป็นที่เกาะของนก", ink],
+  ["ไฟระเบียง 2700K CRI 90 · สวิตช์ 2 ช่องข้างบานเลื่อน: วงจร 1 LED strip ใต้ขอบเดค + จมูกขั้นบันได · วงจร 2 LED linear 9.6 ม. ใต้แป", ink],
+  ["ก่อนมุงหลังคา: ① เจาะรูร้อยสายจากจันทันแนวเสากลางเข้าแปที่ห่างผนัง 1.00 (ทะลุรอยต่อแป-จันทัน) และจุดลงผนัง ใส่ยางกันบาด", red],
+  ["ร้อยลวดนำสายทิ้งไว้  ② ทาสี zinc กันสนิมทุกจุดที่เจาะ · ปูเดค: ไม้ยื่นเลยคานขอบนอก 3–4 ซม. ซ่อน strip IP65 · บันได IP67", red],
+  ["linear: 24V 5–6 W/ม. รางอะลูมิเนียมฝาขุ่นลึก IP65 ปิดหัวท้าย · ป้อนไฟกลาง แยกซ้ายขวาข้างละ 4.80 · driver 75–100 W IP67 ใต้เดค", ink],
 ];
 notes.forEach(([line, fill], i) => parts.push(text(-310, 200 + i * 24, line, { size: 14, anchor: "start", fill })));
 
 parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · หน้าต่างบานเลื่อน 3 ช่อง 180 × 110 ขอบล่าง 90 · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 const defs = `
-  <radialGradient id="glow">
-    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.75"/>
-    <stop offset="1" stop-color="#ffd77a" stop-opacity="0"/>
+  <radialGradient id="beam" gradientUnits="userSpaceOnUse" cx="${LINEAR_X + 9}" cy="${up(roofAt(LINEAR_X)) + 12}" r="340">
+    <stop offset="0" stop-color="#ffd77a" stop-opacity="0.6"/>
+    <stop offset="1" stop-color="#ffd77a" stop-opacity="0.06"/>
   </radialGradient>
   <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#ffc85a" stop-opacity="0.8"/>
