@@ -14,8 +14,8 @@ const DECK = 200; // engawa depth
 
 // Openings, in plan coordinates.
 const frontDoor = { y0: 340, y1: 620 }; // west wall, 280 wide, centred
-const kitchenWindow = { x0: 125, x1: 185 }; // north wall, 60
-const ventWindow = { x0: 325, x1: 385 }; // north wall, 60 × 40, over the toilet
+const kitchenWindow = { x0: 85, x1: 185 }; // north wall, 100 × 100, over the counter
+const ventWindow = { x0: 335, x1: 375 }; // north wall, 40 × 35 louvre, over the toilet
 const southWindow = { x0: 100, x1: 280 }; // south wall, 180, left of the sofa
 
 // Toilet: 200 × 150 in the north-east corner.
@@ -165,8 +165,8 @@ parts.push(text(170, 648, "ห้องนั่งเล่น", { size: 19, we
 parts.push(text(170, 670, "35.4 ตร.ม.", { size: 14, fill: soft }));
 
 // Window and opening notes outside the walls.
-parts.push(text(155, -18, "หน้าต่างครัว 60", { size: 11, fill: soft }));
-parts.push(text(355, -18, "ระบายอากาศ 60 × 40", { size: 11, fill: soft }));
+parts.push(text(135, -18, "หน้าต่างครัว 100 × 100", { size: 11, fill: soft }));
+parts.push(text(355, -18, "บานเกล็ด 40 × 35", { size: 11, fill: soft }));
 parts.push(text(190, 988, "หน้าต่างบานเลื่อน 180 × 110", { size: 11, fill: soft }));
 
 // Dimensions.

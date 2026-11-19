@@ -1,7 +1,5 @@
 import type { StaticImageData } from "next/image";
-import bathWindow from "@/public/openings/bath-window.webp";
 import frontDoor from "@/public/openings/front-door.webp";
-import kitchenWindow from "@/public/openings/kitchen-window.webp";
 import northWindow from "@/public/openings/north-window.webp";
 
 /** Picks which line drawing stands in until a photo is added. */
@@ -10,7 +8,7 @@ export type OpeningKind = "window" | "casement" | "awning" | "sliding-door";
 export type Color = { name: string; hex: string };
 
 /** Every frame in the house is the same wood finish. */
-const wood: Color = { name: "สีไม้", hex: "#b47a45" };
+const wood: Color = { name: "ลายไม้สักทอง", hex: "#b8743f" };
 
 /** What hangs over the opening. Its own listing, so its own price. */
 export type Curtain = {
@@ -66,7 +64,7 @@ export const openings: Opening[] = [
     kind: "sliding-door",
     note: "บานเลื่อน 4 ช่อง กระจกใสเขียว ลายตารางเฉพาะบานตาย พร้อมมุ้ง 1 ชุด · ขนาดรวมวงกบนอก",
     size: { width: 280, height: 200 },
-    color: { name: "ลายไม้สักทอง", hex: "#b8743f" },
+    color: wood,
     price: 13890,
     source: "ppwindows",
     image: frontDoor,
@@ -84,7 +82,7 @@ export const openings: Opening[] = [
     kind: "window",
     note: "บานเลื่อน 3 ช่อง กระจกใสเขียว พร้อมมุ้ง 1 ชุด",
     size: { width: 180, height: 110 },
-    color: { name: "ลายไม้สักทอง", hex: "#b8743f" },
+    color: wood,
     price: 3890,
     source: "ppwindows",
     image: northWindow,
@@ -99,13 +97,12 @@ export const openings: Opening[] = [
   {
     name: "หน้าต่างครัว",
     tag: "Kitchen",
-    kind: "casement",
-    note: "อะลูมิเนียมบานเปิด รุ่น N-ACG0611 พร้อมมุ้ง · ร้าน\u00a0GlobalHouse",
-    size: { width: 60, height: 110 },
+    kind: "window",
+    note: "บานเลื่อนสลับ 2 ช่อง กระจกใสเขียว พร้อมมุ้ง 1 ชุด",
+    size: { width: 100, height: 100 },
     color: wood,
-    price: 2819,
-    url: "https://th.shp.ee/iiWbrdfK",
-    image: kitchenWindow,
+    price: 2190,
+    source: "ppwindows",
     curtain: {
       type: "ม่านจีบรังผึ้ง ทึบแสง",
       size: { width: null, height: null },
@@ -117,14 +114,12 @@ export const openings: Opening[] = [
   {
     name: "หน้าต่างระบายอากาศห้องน้ำ",
     tag: "Bath",
-    kind: "window",
-    note: "กรอบอะลูมิเนียม กระจกฝ้า พร้อมมุ้งกันยุง · ผนังเหนือ เหนือโถ",
-    size: { width: 60, height: 40 },
-    // Comes in black, tea brown or white; not chosen yet.
-    color: null,
-    price: null,
-    priceNote: "ยังไม่รู้ราคา",
-    image: bathWindow,
+    kind: "awning",
+    note: "บานเกล็ดซ้อน กระจกฝ้า พร้อมมุ้ง 1 ชุด · ผนังเหนือ เหนือโถ",
+    size: { width: 40, height: 35 },
+    color: wood,
+    price: 790,
+    source: "ppwindows",
     curtain: "undecided",
   },
 ];
