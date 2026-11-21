@@ -82,6 +82,16 @@ function powerLayer(parts) {
   parts.push(switchBox(2, 630, 10, 14), switchBox(2, 648, 10, 14));
   parts.push(tag(18, 642, "S1 · 3 ช่อง", { fill: lamp }), tag(18, 662, "S2 · 2 ช่อง", { fill: lamp }));
 
+  // Hidden strip (S1 gang 3) along the two long walls only, up at the ceiling:
+  // the east wall over the door, and the west wall from the toilet partition
+  // to the north corner. The toilet's only light is a hidden strip on its south wall.
+  const cove = (x1, y1, x2, y2) =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${lamp}" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>`;
+  parts.push(cove(16, 4, 16, 956), cove(384, 166, 384, 956), cove(204, 18, 396, 18));
+  parts.push(tag(392, 520, "ไฟซ่อน", { anchor: "end", fill: lamp }));
+  parts.push(tag(24, 470, "ไฟซ่อน", { fill: lamp }));
+  parts.push(`<path d="M289 162 Q260 80 250 20" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+
   // The two ceiling lamps on S1: over the dining table and over the sofa.
   const lampSym = (cx, cy) =>
     `<circle cx="${cx}" cy="${cy}" r="11" fill="${lampFill}" stroke="${lamp}" stroke-width="1.8"/><path d="M${cx - 7.8} ${cy - 7.8} L${cx + 7.8} ${cy + 7.8} M${cx + 7.8} ${cy - 7.8} L${cx - 7.8} ${cy + 7.8}" stroke="${lamp}" stroke-width="1.5"/>`;
@@ -144,10 +154,13 @@ function powerSchedule(parts) {
   const duo = (cx, cy) => outlet(cx, cy);
 
   head("สวิตช์ · สูง 120 ทุกตัว");
-  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 เหนือโซฟา · 2 โคม L2 เหนือโต๊ะกินข้าว · 3 ไฟซ่อน");
+  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 เหนือโซฟา · 2 โคม L2 เหนือโต๊ะกินข้าว · 3 ไฟซ่อนผนังยาวสองด้าน");
   row(sw, "S2", "2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 LED linear ใต้แป (ย้ายมาจากข้างประตูฝั่งครัว)");
-  row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
+  row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
   row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 กลางโซฟา · L2 กลางโต๊ะ ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
+  row((cx, cy) => `<line x1="${cx - 12}" y1="${cy}" x2="${cx + 12}" y2="${cy}" stroke="${lamp}" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>`, "", "ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)");
+  row(null, "", "ห้องน้ำ: ไฟซ่อนผนังทิศใต้ 2.0 ม. ดวงเดียวในห้อง · IP65 (S3-1) · เส้นยาว 8–9.6 ม. ป้อนไฟกลางเส้นหรือสองหัว ไฟไม่ดรอปปลายเส้น");
+  row(null, "", "driver ไฟซ่อนวางบนฝ้าใกล้จุดป้อน ทำช่องเซอร์วิสเปิดเปลี่ยนได้ · ห้องน้ำวาง driver นอกห้องน้ำ");
   y += 8;
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ใต้ขาแขวน · สูง 110 · ปลั๊กคู่ 2 ชุด + LAN + เสาอากาศ (◇)");
@@ -175,7 +188,7 @@ function powerSchedule(parts) {
 /** layer: "deck" for the deck-lighting sheet, "power" for switches and outlets. */
 function build(layer) {
 const power = layer === "power";
-const H = power ? 1840 : 1400;
+const H = power ? 1910 : 1400;
 const parts = [];
 
 // Paper and grid.
@@ -399,7 +412,7 @@ if (!power) {
 
 parts.push(
   power
-    ? text(-370, 1652, "ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026", { size: 17, anchor: "start" })
+    ? text(-370, 1716, "ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026", { size: 17, anchor: "start" })
     : text(-370, 1210, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 21 พ.ย. 2026", { size: 17, anchor: "start" })
 );
 
