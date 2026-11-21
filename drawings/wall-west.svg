@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -340 1140 560" width="1140" height="560" font-family="Leelawadee UI, Tahoma, sans-serif">
+<defs></defs>
+<rect x="-80" y="-340" width="1140" height="560" fill="#fbfaf6"/>
+<text x="-60" y="-300" font-size="24" font-weight="600" text-anchor="start" fill="#3b3a36">ผนังยาวฝั่งโซฟา-ห้องน้ำ · มองจากในห้องไปทางทิศตะวันตก</text>
+<text x="-60" y="-274" font-size="14" font-weight="400" text-anchor="start" fill="#8a877f">ซ้าย = ทิศใต้ (ครัว ห้องน้ำ) · ขวา = ทิศเหนือ (โซฟา) · ความสูงวัดจากพื้นในห้อง</text>
+<rect x="0" y="-240" width="960" height="240" fill="#ffffff" stroke="#3b3a36" stroke-width="1.6"/>
+<line x1="-30" y1="0" x2="990" y2="0" stroke="#3b3a36" stroke-width="2.4"/>
+<text x="968" y="-235" font-size="12" font-weight="400" text-anchor="start" fill="#8a877f">ฝ้า 240</text>
+<rect x="0" y="-240" width="160" height="240" fill="#efede7" stroke="#3b3a36" stroke-width="1.4"/>
+<rect x="0" y="-85" width="61" height="85" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<text x="80" y="-150" font-size="13" font-weight="400" text-anchor="middle" fill="#8a877f">ผนังห้องน้ำ</text>
+<text x="80" y="-132" font-size="11" font-weight="400" text-anchor="middle" fill="#8a877f">(ไม่มีปลั๊ก)</text>
+<text x="30" y="-45" font-size="10" font-weight="400" text-anchor="middle" fill="#8a877f">เคาน์เตอร์</text>
+<line x1="166" y1="-235" x2="956" y2="-235" stroke="#d9931f" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+<text x="560" y="-217" font-size="12" font-weight="400" text-anchor="middle" fill="#d9931f">ไฟซ่อนชิดฝ้า</text>
+<rect x="273" y="-45" width="42" height="45" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<rect x="273" y="-85" width="6" height="40" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<rect x="323" y="-75" width="100" height="3" fill="#e3d7bf" stroke="#c9c6bd" stroke-width="1.4"/>
+<path d="M330 -72 V0 M416 -72 V0" stroke="#c9c6bd" stroke-width="3"/>
+<rect x="428" y="-45" width="40" height="45" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<text x="373" y="-30" font-size="11" font-weight="400" text-anchor="middle" fill="#8a877f">โต๊ะกินข้าว</text>
+<rect x="367" y="-99" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
+<text x="373" y="-126" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2f6f9f">P6 ปลั๊กคู่</text><text x="373" y="-111" font-size="12.5" font-weight="400" text-anchor="middle" fill="#3b3a36">กึ่งกลางโต๊ะ · สูง 95</text>
+<rect x="580" y="-42" width="75" height="42" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<rect x="580" y="-80" width="75" height="38" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<text x="617" y="-55" font-size="11" font-weight="400" text-anchor="middle" fill="#8a877f">อาร์มแชร์</text>
+<rect x="611" y="-34" width="12" height="8" rx="1.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-dasharray="2 2"/>
+<text x="617" y="-116" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2f6f9f">P8 ปลั๊กคู่</text><text x="617" y="-101" font-size="12.5" font-weight="400" text-anchor="middle" fill="#3b3a36">หลังอาร์มแชร์ · สูง 30</text>
+<line x1="617" y1="-36" x2="617" y2="-103" stroke="#2f6f9f" stroke-width="0.8"/>
+<rect x="660" y="-42" width="280" height="42" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<rect x="660" y="-80" width="280" height="38" fill="#f4f2ec" stroke="#c9c6bd" stroke-width="1.4"/>
+<text x="800" y="-55" font-size="11" font-weight="400" text-anchor="middle" fill="#8a877f">โซฟา 280</text>
+<text x="800" y="-140" font-size="11" font-weight="400" text-anchor="middle" fill="#8a877f">ไม่มีปลั๊กหลังโซฟา</text>
+<line x1="-26" y1="-30" x2="-14" y2="-30" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-26" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">30</text>
+<line x1="-26" y1="-75" x2="-14" y2="-75" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-71" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">75</text>
+<line x1="-26" y1="-95" x2="-14" y2="-95" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-91" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">95</text>
+<line x1="-26" y1="-240" x2="-14" y2="-240" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-236" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">240</text>
+<line x1="-20" y1="0" x2="-20" y2="-240" stroke="#3b3a36" stroke-width="0.8"/>
+<g><line x1="0" y1="40" x2="160" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="45" x2="5" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="155" y1="45" x2="165" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="80" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">ห้องน้ำ 160</text></g>
+<g><line x1="160" y1="40" x2="373" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="155" y1="45" x2="165" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="368" y1="45" x2="378" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="266.5" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">213</text></g>
+<g><line x1="373" y1="40" x2="617" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="368" y1="45" x2="378" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="612" y1="45" x2="622" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="495" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">244</text></g>
+<g><line x1="617" y1="40" x2="960" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="612" y1="45" x2="622" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="45" x2="965" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="788.5" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">343</text></g>
+<text x="-60" y="120" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· ปลั๊กผนังนี้มี 2 จุด: P6 กึ่งกลางปลายโต๊ะกินข้าว · P8 กึ่งกลางหลังอาร์มแชร์</text>
+<text x="-60" y="144" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· P6 สูง 95 = เหนือท็อปโต๊ะ 20 ซม. เสียบหม้อสุกี้หรือโน้ตบุ๊กบนโต๊ะได้ตรง (ถ้าเลือก 30 จะอยู่ใต้โต๊ะ ต้องก้มมุดเสียบ)</text>
+<text x="-60" y="186" font-size="16" font-weight="400" text-anchor="start" fill="#3b3a36">รูปด้านภายใน ผนังฝั่งโซฟา-ห้องน้ำ · 21 พ.ย. 2026</text>
+</svg>
