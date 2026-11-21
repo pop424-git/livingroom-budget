@@ -42,14 +42,16 @@ parts.push(`<line x1="129" y1="${up(100)}" x2="129" y2="${up(200)}" stroke="${fa
 parts.push(text(129, up(150), "หน้าต่างครัว 100 × 100", { size: 7.5, fill: soft }));
 
 // IKEA KNOXHULT 122 × 61 × 85: body 120, top 122 × 2.9, three door sections
-// of 40. The sink goes in the right-hand section, so its drawer comes out.
+// of 40. The drawer moves to the left-hand section, leaving the right-hand
+// section clear under the sink.
 parts.push(rect(69, 0, 120, 82.1, `fill="#ffffff" stroke="${ink}" stroke-width="1.2"`));
 parts.push(rect(68, 82.1, 122, 2.9, `fill="#d9b47e" stroke="${ink}" stroke-width="0.8"`));
 for (const x of [109, 149]) parts.push(`<line x1="${x}" y1="${up(80)}" x2="${x}" y2="${up(6)}" stroke="${soft}" stroke-width="0.8"/>`);
 parts.push(`<line x1="69" y1="${up(6)}" x2="189" y2="${up(6)}" stroke="${faint}" stroke-width="0.8"/>`);
-// The drawer in the sink section, crossed out: the bowl takes its place.
-parts.push(rect(150, 70, 38, 10, `fill="none" stroke="#b3412c" stroke-width="0.8" stroke-dasharray="2 2"`));
-parts.push(`<path d="M150 ${up(80)} L188 ${up(70)} M150 ${up(70)} L188 ${up(80)}" stroke="#b3412c" stroke-width="0.6"/>`);
+// The small drawer, in the left-hand section by the fridge.
+parts.push(rect(70, 70, 38, 10, `fill="none" stroke="${soft}" stroke-width="0.9"`));
+parts.push(`<line x1="84" y1="${up(75)}" x2="94" y2="${up(75)}" stroke="${soft}" stroke-width="1"/>`);
+parts.push(text(89, up(64), "ลิ้นชัก", { size: 6.5, fill: soft }));
 // Sink bowl (dashed, inside the cabinet) and tap.
 parts.push(`<path d="M152 ${up(85)} v20 h34 v-20" fill="none" stroke="${soft}" stroke-width="1" stroke-dasharray="3 2"/>`);
 parts.push(`<path d="M169 ${up(85)} v-16 h-7" fill="none" stroke="${soft}" stroke-width="1.4"/>`);
@@ -127,7 +129,7 @@ const dims = [dimH(0, 68, 28, "68"), dimH(68, 190, 28, "122"), dimH(200, 290, 28
 parts.push(dims);
 
 parts.push(text(-55, 70, "· ผนังนี้ไม่มีไฟซ่อน (ไฟซ่อนในห้องอยู่แค่ผนังยาวสองด้าน) · ไฟซ่อนห้องน้ำอยู่หลังผนังห้องน้ำ ชิดผนังทิศใต้", { size: 8, anchor: "start" }));
-parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ · P4 ตู้เย็นซ่อนหลังตู้ (ตั้งตู้ห่างผนัง ~8) · P5 ปลั๊กคู่ใช้งาน เสมอขอบล่างหน้าต่าง · ซิงก์ช่องขวา ต้องถอดลิ้นชักออก ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
+parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ · P4 ตู้เย็นซ่อนหลังตู้ (ตั้งตู้ห่างผนัง ~8) · P5 ปลั๊กคู่ใช้งาน เสมอขอบล่างหน้าต่าง · ลิ้นชักย้ายไปช่องซ้าย ซิงก์ช่องขวาโล่ง ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
 parts.push(text(-55, 98, "· หน้าต่างครัวขอบล่าง 100 พ้นเคาน์เตอร์ 85 ได้ 15 ซม. · ที่คว่ำจานสูงเกิน 15 จะบังขอบล่างหน้าต่างนิดหน่อย", { size: 8, anchor: "start" }));
 parts.push(text(-55, 124, "รูปด้านภายใน ผนังครัว · 21 พ.ย. 2026", { size: 10, anchor: "start" }));
 
