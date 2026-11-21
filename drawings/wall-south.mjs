@@ -40,16 +40,25 @@ parts.push(rect(85, 100, 100, 100, `fill="#eef3f4" stroke="${ink}" stroke-width=
 parts.push(`<line x1="135" y1="${up(100)}" x2="135" y2="${up(200)}" stroke="${faint}" stroke-width="1"/>`);
 parts.push(text(135, up(150), "หน้าต่างครัว 100 × 100", { size: 7.5, fill: soft }));
 
-// Counter 120 at 85, sink at its west end.
-parts.push(rect(70, 0, 120, 85, `fill="#f4f2ec" stroke="${ink}" stroke-width="1.2"`));
-parts.push(`<line x1="70" y1="${up(80)}" x2="190" y2="${up(80)}" stroke="${faint}" stroke-width="1"/>`);
-parts.push(`<path d="M134 ${up(85)} v6 h48 v-6" fill="none" stroke="${soft}" stroke-width="1"/>`);
-parts.push(`<path d="M158 ${up(85)} v-14 h8" fill="none" stroke="${soft}" stroke-width="1.4"/>`);
-parts.push(text(158, up(50), "ซิงก์ล้างจาน", { size: 8, fill: soft }));
-parts.push(text(105, up(50), "เคาน์เตอร์ 85", { size: 8, fill: soft }));
+// IKEA KNOXHULT 122 × 61 × 85: body 120, top 122 × 2.9, three door sections
+// of 40. The sink goes in the right-hand section, so its drawer comes out.
+parts.push(rect(69, 0, 120, 82.1, `fill="#ffffff" stroke="${ink}" stroke-width="1.2"`));
+parts.push(rect(68, 82.1, 122, 2.9, `fill="#d9b47e" stroke="${ink}" stroke-width="0.8"`));
+for (const x of [109, 149]) parts.push(`<line x1="${x}" y1="${up(80)}" x2="${x}" y2="${up(6)}" stroke="${soft}" stroke-width="0.8"/>`);
+parts.push(`<line x1="69" y1="${up(6)}" x2="189" y2="${up(6)}" stroke="${faint}" stroke-width="0.8"/>`);
+// The drawer in the sink section, crossed out: the bowl takes its place.
+parts.push(rect(150, 70, 38, 10, `fill="none" stroke="#b3412c" stroke-width="0.8" stroke-dasharray="2 2"`));
+parts.push(`<path d="M150 ${up(80)} L188 ${up(70)} M150 ${up(70)} L188 ${up(80)}" stroke="#b3412c" stroke-width="0.6"/>`);
+// Sink bowl (dashed, inside the cabinet) and tap.
+parts.push(`<path d="M152 ${up(85)} v20 h34 v-20" fill="none" stroke="${soft}" stroke-width="1" stroke-dasharray="3 2"/>`);
+parts.push(`<path d="M169 ${up(85)} v-16 h-7" fill="none" stroke="${soft}" stroke-width="1.4"/>`);
+parts.push(text(169, up(45), "ซิงก์ 1 หลุม", { size: 7.5, fill: soft }));
+parts.push(text(169, up(36), "ช่องขวา 40", { size: 7, fill: soft }));
+parts.push(text(109, up(45), "KNOXHULT", { size: 7.5, fill: soft }));
+parts.push(text(109, up(36), "122 × 61 × 85", { size: 7, fill: soft }));
 // Dish rack on the counter, dashed.
-parts.push(rect(76, 85, 50, 14, `fill="none" stroke="${faint}" stroke-width="1" stroke-dasharray="3 2"`));
-parts.push(text(101, up(94), "ที่คว่ำจาน", { size: 7, fill: soft }));
+parts.push(rect(74, 85, 50, 14, `fill="none" stroke="${faint}" stroke-width="1" stroke-dasharray="3 2"`));
+parts.push(text(99, up(94), "ที่คว่ำจาน", { size: 7, fill: soft }));
 
 // Fridge 55 × 97 in the 70 bay, microwave possibly on top.
 parts.push(rect(8, 0, 55, 97, `fill="#f4f2ec" stroke="${ink}" stroke-width="1.2"`));
@@ -97,13 +106,13 @@ for (const h of [85, 110, 120, 170, 200, 240]) {
 parts.push(`<line x1="-17" y1="0" x2="-17" y2="${up(CEIL)}" stroke="${ink}" stroke-width="0.6"/>`);
 
 // Widths along the floor (dimension text is big in lib, so scale it down here).
-const dims = [dimH(0, 70, 28, "70"), dimH(70, 190, 28, "120"), dimH(200, 275, 28, "75"), dimH(275, 400, 28, "125")]
+const dims = [dimH(0, 68, 28, "68"), dimH(68, 190, 28, "122"), dimH(200, 275, 28, "75"), dimH(275, 400, 28, "125")]
   .join("")
   .replace(/font-size="20"/g, 'font-size="10"');
 parts.push(dims);
 
 parts.push(text(-55, 70, "· ผนังนี้ไม่มีไฟซ่อน (ไฟซ่อนในห้องอยู่แค่ผนังยาวสองด้าน) · ไฟซ่อนห้องน้ำอยู่หลังผนังห้องน้ำ ชิดผนังทิศใต้", { size: 8, anchor: "start" }));
-parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ ใช้ P4 ปลั๊กคู่เดียวสำหรับตู้เย็นกับไมโครเวฟ", { size: 8, anchor: "start" }));
+parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ ใช้ P4 ปลั๊กคู่เดียวสำหรับตู้เย็นกับไมโครเวฟ · ซิงก์ช่องขวา ต้องถอดลิ้นชักออก ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
 parts.push(text(-55, 98, "· หน้าต่างครัวขอบล่าง 100 พ้นเคาน์เตอร์ 85 ได้ 15 ซม. · ที่คว่ำจานสูงเกิน 15 จะบังขอบล่างหน้าต่างนิดหน่อย", { size: 8, anchor: "start" }));
 parts.push(text(-55, 124, "รูปด้านภายใน ผนังครัว · 21 พ.ย. 2026", { size: 10, anchor: "start" }));
 

@@ -293,14 +293,16 @@ parts.push(wall(toiletDoor.x1, toilet.y1, toilet.x1 - toiletDoor.x1, T));
 }
 
 // Kitchen along the south wall: a 70 bay for the fridge (55 × 55 × 97),
-// counter 120 with the sink at its west end.
+// IKEA KNOXHULT base cabinet 122 × 61 with a single-bowl sink cut into its
+// west (right-hand) door section.
 parts.push(`<rect x="8" y="2" width="55" height="55" ${fx}/>`);
 parts.push(`<line x1="8" y1="10" x2="63" y2="10" stroke="${soft}" stroke-width="1"/>`);
 parts.push(text(35, 39, "ตู้เย็น", { size: 14 }));
-parts.push(`<rect x="70" y="0" width="120" height="60" ${fx}/>`);
-parts.push(`<rect x="134" y="8" width="48" height="44" rx="5" ${thin}/>`);
-parts.push(`<circle cx="158" cy="30" r="3" fill="${soft}"/>`);
-parts.push(text(101, 35, "เคาน์เตอร์", { size: 12 }));
+parts.push(`<rect x="68" y="0" width="122" height="61" ${fx}/>`);
+parts.push(`<rect x="152" y="10" width="34" height="42" rx="4" ${thin}/>`);
+parts.push(`<circle cx="169" cy="31" r="2.5" fill="${soft}"/>`);
+parts.push(`<circle cx="169" cy="5" r="2" fill="none" stroke="${soft}" stroke-width="1"/>`);
+parts.push(text(108, 35, "เคาน์เตอร์", { size: 12 }));
 
 // Toilet fittings.
 parts.push(`<rect x="215" y="0" width="50" height="42" rx="4" ${fx}/>`);
@@ -371,8 +373,8 @@ parts.push(text(355, -18, "บานเกล็ด 40 × 35", { size: 11, fill:
 parts.push(text(190, 988, "หน้าต่างบานเลื่อน 180 × 110", { size: 11, fill: soft }));
 
 // Dimensions.
-parts.push(dimH(0, 70, -52, "70"));
-parts.push(dimH(70, 190, -52, "120"));
+parts.push(dimH(0, 68, -52, "68"));
+parts.push(dimH(68, 190, -52, "122"));
 parts.push(dimH(200, W, -52, "200"));
 parts.push(dimH(0, W, -92, "400"));
 parts.push(dimH(-T - DECK, -T, -92, "200"));
