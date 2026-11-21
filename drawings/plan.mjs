@@ -388,6 +388,12 @@ parts.push(
   `<g transform="translate(510 1025)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 20 L7 -8 L0 -3 L-7 -8 Z" fill="${ink}"/>${text(0, 44, "N", { size: 14, weight: 600 })}</g>`
 );
 if (power) {
+  // Strip the base plan to outlines: no names, sizes or dimension lines, so
+  // only the switches and outlets carry any writing.
+  const start = parts.indexOf(`<g opacity="0.38">`);
+  for (let i = parts.length - 1; i > start; i--) {
+    if (parts[i].startsWith("<text") || parts[i].startsWith("<g><line")) parts.splice(i, 1);
+  }
   parts.push(`</g>`);
   powerLayer(parts);
   powerSchedule(parts);
