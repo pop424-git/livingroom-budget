@@ -126,15 +126,13 @@
 <line x1="52" y1="13" x2="46" y2="73" stroke="#2f6f9f" stroke-width="0.7"/><line x1="77" y1="13" x2="92" y2="73" stroke="#2f6f9f" stroke-width="0.7"/>
 <circle cx="392" cy="373" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="389.8" y1="370" x2="389.8" y2="376"/><line x1="394.2" y1="370" x2="394.2" y2="376"/></g>
 <rect x="356" y="339" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="350" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P6</text>
-<rect x="376" y="595" width="22" height="100" fill="none" stroke="#2f6f9f" stroke-width="1.3" stroke-dasharray="6 4"/>
-<text x="368" y="646" font-size="11" font-weight="400" text-anchor="end" fill="#2f6f9f">แอร์</text>
-<rect x="386" y="576" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="392" y="585.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>
-<rect x="356" y="561" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="572" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P7</text>
+<rect x="140" y="938" width="100" height="20" fill="none" stroke="#2f6f9f" stroke-width="1.3" stroke-dasharray="6 4"/>
+<text x="190" y="952" font-size="11" font-weight="400" text-anchor="middle" fill="#2f6f9f">แอร์</text>
+<rect x="246" y="946" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="252" y="955.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>
+<rect x="262" y="924" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="273" y="935" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P7</text>
 <circle cx="392" cy="668" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><circle cx="392" cy="668" r="2.4" fill="#2f6f9f"/></g>
 <rect x="274" y="661" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="285" y="672" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P8</text>
 <line x1="386" y1="668" x2="298" y2="668" stroke="#2f6f9f" stroke-width="0.7"/>
-<circle cx="60" cy="953" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="57.8" y1="950" x2="57.8" y2="956"/><line x1="62.2" y1="950" x2="62.2" y2="956"/></g>
-<rect x="49" y="924" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="60" y="935" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P9</text>
 <circle cx="-22" cy="690" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-22" cy="690" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-24.2" y1="687" x2="-24.2" y2="693"/><line x1="-19.8" y1="687" x2="-19.8" y2="693"/></g>
 <rect x="-65" y="683" width="29" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="-50.5" y="694" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P10</text>
 <text x="-370" y="1062" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">สวิตช์ · สูง 120 ทุกตัว</text>
@@ -175,31 +173,28 @@
 <text x="-300" y="1370" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก</text>
 <rect x="-362" y="1380" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="-356" y="1389.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>
 <text x="-336" y="1391" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P7</text>
-<text x="-300" y="1391" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ 18,000 BTU เหนืออาร์มแชร์ · สูง 220 · วงจรแยก + เบรกเกอร์ตัดตอนข้างเครื่อง</text>
+<text x="-300" y="1391" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ 18,000 BTU ผนังหน้าต่างใหญ่ เหนือหน้าต่าง กึ่งกลางบาน · สูง 220 · วงจรแยก + ตัดตอนข้างเครื่อง</text>
 <circle cx="-356" cy="1407" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><circle cx="-356" cy="1407" r="2.4" fill="#2f6f9f"/></g>
 <text x="-336" y="1412" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P8</text>
 <text x="-300" y="1412" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ</text>
-<circle cx="-356" cy="1428" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1425" x2="-358.2" y2="1431"/><line x1="-353.8" y1="1425" x2="-353.8" y2="1431"/></g>
-<text x="-336" y="1433" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P9</text>
-<text x="-300" y="1433" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">มุมโคมตั้งพื้น ข้างทีวี · สูง 30</text>
-<circle cx="-356" cy="1449" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-356" cy="1449" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1446" x2="-358.2" y2="1452"/><line x1="-353.8" y1="1446" x2="-353.8" y2="1452"/></g>
-<text x="-336" y="1454" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P10</text>
-<text x="-300" y="1454" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น</text>
-<rect x="-362" y="1461" width="12" height="18" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
-<text x="-300" y="1475" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ≥180 (พ้นหลังตู้เย็น ≥10) · ขอบบน ~220 · หน้าตู้เปิดได้ไม่ติดอะไร</text>
-<text x="-370" y="1504" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">วงจรแนะนำ</text>
-<text x="-336" y="1528" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C1</text>
-<text x="-300" y="1528" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A</text>
-<text x="-336" y="1549" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C2</text>
-<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A</text>
-<text x="-336" y="1570" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C3</text>
-<text x="-300" y="1570" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทั่วไป P1 P2 P3 P6 P8 P9 · 16A</text>
-<text x="-336" y="1591" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C4</text>
-<text x="-300" y="1591" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว P4 P5 · 20A</text>
-<text x="-336" y="1612" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C5</text>
-<text x="-300" y="1612" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ P7 · 20A วงจรเดี่ยว</text>
-<text x="-336" y="1633" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C6</text>
-<text x="-300" y="1633" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กนอก P10 · 16A</text>
-<text x="-300" y="1654" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)</text>
+<circle cx="-356" cy="1428" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-356" cy="1428" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1425" x2="-358.2" y2="1431"/><line x1="-353.8" y1="1425" x2="-353.8" y2="1431"/></g>
+<text x="-336" y="1433" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P10</text>
+<text x="-300" y="1433" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น</text>
+<rect x="-362" y="1440" width="12" height="18" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
+<text x="-300" y="1454" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ≥180 (พ้นหลังตู้เย็น ≥10) · ขอบบน ~220 · หน้าตู้เปิดได้ไม่ติดอะไร</text>
+<text x="-370" y="1483" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">วงจรแนะนำ</text>
+<text x="-336" y="1507" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C1</text>
+<text x="-300" y="1507" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A</text>
+<text x="-336" y="1528" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C2</text>
+<text x="-300" y="1528" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A</text>
+<text x="-336" y="1549" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C3</text>
+<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทั่วไป P1 P2 P3 P6 P8 · 16A</text>
+<text x="-336" y="1570" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C4</text>
+<text x="-300" y="1570" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว P4 P5 · 20A</text>
+<text x="-336" y="1591" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C5</text>
+<text x="-300" y="1591" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ P7 · 20A วงจรเดี่ยว</text>
+<text x="-336" y="1612" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C6</text>
+<text x="-300" y="1612" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กนอก P10 · 16A</text>
+<text x="-300" y="1633" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)</text>
 <text x="-370" y="1716" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026</text>
 </svg>

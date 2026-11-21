@@ -124,14 +124,14 @@ function powerLayer(parts) {
   parts.push(`<line x1="52" y1="13" x2="46" y2="73" stroke="${pw}" stroke-width="0.7"/><line x1="77" y1="13" x2="92" y2="73" stroke="${pw}" stroke-width="0.7"/>`);
   parts.push(outlet(392, 373), tag(378, 350, "P6", { anchor: "end" })); // dining table end
 
-  // Air conditioner high on the west wall over the armchair, outlet at its south end.
-  parts.push(`<rect x="376" y="595" width="22" height="100" fill="none" stroke="${pw}" stroke-width="1.3" stroke-dasharray="6 4"/>`);
-  parts.push(text(368, 646, "แอร์", { size: 11, anchor: "end", fill: pw }));
-  parts.push(outlet(392, 582, "ac"), tag(378, 572, "P7", { anchor: "end" }));
+  // Air conditioner on the north wall over the big window, centred on it,
+  // blowing down the length of the room; outlet at its west end.
+  parts.push(`<rect x="140" y="938" width="100" height="20" fill="none" stroke="${pw}" stroke-width="1.3" stroke-dasharray="6 4"/>`);
+  parts.push(text(190, 952, "แอร์", { size: 11, fill: pw }));
+  parts.push(outlet(252, 952, "ac"), tag(262, 935, "P7"));
 
   parts.push(outlet(392, 668, "usb"), tag(296, 672, "P8", { anchor: "end" })); // sofa arm
   parts.push(`<line x1="386" y1="668" x2="298" y2="668" stroke="${pw}" stroke-width="0.7"/>`);
-  parts.push(outlet(60, 953), tag(60, 935, "P9", { anchor: "middle" })); // floor-lamp corner
   parts.push(outlet(-22, 690, "ip"), tag(-36, 694, "P10", { anchor: "end" })); // deck, outside face
 }
 
@@ -168,16 +168,15 @@ function powerSchedule(parts) {
   row(duo, "P4", "หลังตู้เย็น · สูง 120 (เหนือคอมเพรสเซอร์ ดึงปลั๊กได้ไม่ต้องลากตู้)");
   row(duo, "P5", "เคาน์เตอร์ ข้างตู้เย็น · สูง 110 · ฝากันน้ำ · ห่างซิงก์ ~55 · เว้นวงกบหน้าต่าง ≥5");
   row(duo, "P6", "ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก");
-  row((cx, cy) => outlet(cx, cy, "ac"), "P7", "แอร์ 18,000 BTU เหนืออาร์มแชร์ · สูง 220 · วงจรแยก + เบรกเกอร์ตัดตอนข้างเครื่อง");
+  row((cx, cy) => outlet(cx, cy, "ac"), "P7", "แอร์ 18,000 BTU ผนังหน้าต่างใหญ่ เหนือหน้าต่าง กึ่งกลางบาน · สูง 220 · วงจรแยก + ตัดตอนข้างเครื่อง");
   row((cx, cy) => outlet(cx, cy, "usb"), "P8", "ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ");
-  row(duo, "P9", "มุมโคมตั้งพื้น ข้างทีวี · สูง 30");
   row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
   row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ≥180 (พ้นหลังตู้เย็น ≥10) · ขอบบน ~220 · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
   head("วงจรแนะนำ");
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
   row(null, "C2", "ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A");
-  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P3 P6 P8 P9 · 16A");
+  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P3 P6 P8 · 16A");
   row(null, "C4", "ครัว P4 P5 · 20A");
   row(null, "C5", "แอร์ P7 · 20A วงจรเดี่ยว");
   row(null, "C6", "ปลั๊กนอก P10 · 16A");
