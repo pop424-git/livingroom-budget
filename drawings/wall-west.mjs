@@ -51,14 +51,14 @@ for (const [y0, y1] of [[273, 315]]) {
   parts.push(rect(y0, 0, y1 - y0, 45, furn));
   parts.push(rect(y0, 45, 6, 40, furn));
 }
-parts.push(rect(323, 72, 100, 3, `fill="#e3d7bf" stroke="${faint}" stroke-width="1.4"`));
-parts.push(`<path d="M330 ${up(72)} V0 M416 ${up(72)} V0" stroke="${faint}" stroke-width="3"/>`);
+parts.push(rect(323, 67, 100, 3, `fill="#e3d7bf" stroke="${faint}" stroke-width="1.4"`));
+parts.push(`<path d="M330 ${up(67)} V0 M416 ${up(67)} V0" stroke="${faint}" stroke-width="3"/>`);
 parts.push(rect(428, 0, 40, 45, furn));
 parts.push(text(373, up(30), "โต๊ะกินข้าว", { size: 11, fill: soft }));
 
-// P6 centred on the table end, over the top.
-parts.push(rect(367, 91, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
-parts.push(label(373, 130, ["P6 ปลั๊กคู่", "กึ่งกลางโต๊ะ · สูง 95"], { anchor: "middle" }));
+// P6 centred on the table end, just under its top so it never shows above it.
+parts.push(rect(367, 56, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
+parts.push(label(373, 130, ["P6 ปลั๊กคู่", "กึ่งกลางโต๊ะ · สูง 60 ใต้ท็อป"], { anchor: "middle" }));
 
 // Armchair, back to the wall; P8 behind its middle, low.
 parts.push(rect(580, 0, 75, 42, furn));
@@ -75,7 +75,7 @@ parts.push(text(800, up(55), "โซฟา 280", { size: 11, fill: soft }));
 parts.push(text(800, up(140), "ไม่มีปลั๊กหลังโซฟา", { size: 11, fill: soft }));
 
 // Height scale.
-for (const h of [30, 75, 95, 240]) {
+for (const h of [30, 60, 70, 240]) {
   parts.push(`<line x1="-26" y1="${up(h)}" x2="-14" y2="${up(h)}" stroke="${ink}" stroke-width="1"/>`);
   parts.push(text(-30, up(h) + 4, String(h), { size: 12, anchor: "end" }));
 }
@@ -88,7 +88,7 @@ parts.push(dimH(373, 617, 40, "244"));
 parts.push(dimH(617, L, 40, "343"));
 
 parts.push(text(-60, 120, "· ปลั๊กผนังนี้มี 2 จุด: P6 กึ่งกลางปลายโต๊ะกินข้าว · P8 กึ่งกลางหลังอาร์มแชร์", { size: 13.5, anchor: "start" }));
-parts.push(text(-60, 144, "· P6 สูง 95 = เหนือท็อปโต๊ะ 20 ซม. เสียบหม้อสุกี้หรือโน้ตบุ๊กบนโต๊ะได้ตรง (ถ้าเลือก 30 จะอยู่ใต้โต๊ะ ต้องก้มมุดเสียบ)", { size: 13.5, anchor: "start" }));
+parts.push(text(-60, 144, "· P6 สูง 60 = ต่ำกว่าท็อปโต๊ะ (70) 10 ซม. มองไม่เห็นเหนือโต๊ะ แต่ล้วงมือใต้ขอบโต๊ะเสียบได้ไม่ต้องก้มมุด", { size: 13.5, anchor: "start" }));
 parts.push(text(-60, 186, "รูปด้านภายใน ผนังฝั่งโซฟา-ห้องน้ำ · 21 พ.ย. 2026", { size: 16, anchor: "start" }));
 
 export const wallWest = svgDoc({ x: -80, y: -340, w: 1140, h: 560, body: parts.join("\n"), font: FONT });
