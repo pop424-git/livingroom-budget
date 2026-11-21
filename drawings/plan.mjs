@@ -112,12 +112,11 @@ function powerLayer(parts) {
   parts.push(`<line x1="20" y1="13" x2="20" y2="100" stroke="${ink}" stroke-width="0.7"/>`);
   parts.push(tag(4, 112, "ตู้ไฟ เหนือตู้เย็น", { fill: ink }));
 
-  // P1 behind the TV, under the bracket; P2 low under it; a conduit between for HDMI.
-  parts.push(`<line x1="8" y1="790" x2="8" y2="858" stroke="${pw}" stroke-width="2.4" stroke-dasharray="4 3"/>`);
-  parts.push(outlet(8, 782), outlet(8, 800));
-  parts.push(`<path d="M8 811 l6 6 -6 6 -6 -6 Z" fill="#fff" stroke="${pw}" stroke-width="1.3"/>`);
-  parts.push(outlet(8, 864));
-  parts.push(tag(50, 796, "P1"), tag(50, 868, "P2"));
+  // P1: two doubles hidden behind the TV, under the bracket.
+  parts.push(outlet(8, 792), outlet(8, 810));
+  parts.push(tag(50, 805, "P1 ×2"));
+  // P2: a double low on the wall right under the main switches.
+  parts.push(outlet(8, 680), tag(20, 694, "P2 ใต้สวิตช์"));
 
   parts.push(outlet(8, 200), tag(20, 204, "P3")); // general, east wall
   parts.push(outlet(52, 7), tag(46, 84, "P4", { anchor: "middle" })); // fridge
@@ -163,8 +162,8 @@ function powerSchedule(parts) {
   row(null, "", "driver ไฟซ่อนวางบนฝ้าใกล้จุดป้อน ทำช่องเซอร์วิสเปิดเปลี่ยนได้ · ห้องน้ำวาง driver นอกห้องน้ำ");
   y += 8;
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
-  row(duo, "P1", "หลังทีวี ใต้ขาแขวน · สูง 110 · ปลั๊กคู่ 2 ชุด + LAN + เสาอากาศ (◇)");
-  row(duo, "P2", "ใต้ทีวี · สูง 30 · ปลั๊กคู่ router / soundbar · ท่อ 1¼\" ฝังผนังขึ้น P1 ร้อย HDMI");
+  row(duo, "P1", "หลังทีวี ซ่อนใต้ขาแขวน · สูง 110 · ปลั๊กคู่ 2 ตัว");
+  row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 30 · ปลั๊กคู่");
   row(duo, "P3", "ผนังข้างประตู · สูง 30 · เครื่องดูดฝุ่น พัดลม");
   row(duo, "P4", "หลังตู้เย็น · สูง 120 (เหนือคอมเพรสเซอร์ ดึงปลั๊กได้ไม่ต้องลากตู้)");
   row(duo, "P5", "เคาน์เตอร์ ข้างตู้เย็น · สูง 110 · ฝากันน้ำ · ห่างซิงก์ ~55 · เว้นวงกบหน้าต่าง ≥5");
@@ -195,6 +194,7 @@ const parts = [];
 parts.push(`<rect x="-390" y="-160" width="970" height="${H}" fill="#fbfaf6"/>`);
 parts.push(`<rect x="-390" y="-160" width="970" height="${H}" fill="url(#grid)"/>`);
 
+if (power) parts.push(`<g opacity="0.38">`);
 // Engawa deck with boards running its length, posts on the outer edge, steps at each end.
 parts.push(
   `<rect x="${-T - DECK}" y="${-T}" width="${DECK}" height="${L + 2 * T}" fill="#f1e8da" stroke="#8a7a64" stroke-width="1.3"/>`
@@ -387,6 +387,7 @@ parts.push(
   `<g transform="translate(510 1025)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 20 L7 -8 L0 -3 L-7 -8 Z" fill="${ink}"/>${text(0, 44, "N", { size: 14, weight: 600 })}</g>`
 );
 if (power) {
+  parts.push(`</g>`);
   powerLayer(parts);
   powerSchedule(parts);
 }

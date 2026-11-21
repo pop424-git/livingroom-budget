@@ -102,12 +102,12 @@
 <text x="534" y="785" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ข้างประตู</text>
 <polyline points="598,770 620,770" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
 <rect x="620" y="747" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
-<text x="684" y="767" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P1 ×2</text>
-<text x="684" y="785" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">หลังทีวี +LAN</text>
+<text x="684" y="767" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P2</text>
+<text x="684" y="785" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ใต้สวิตช์หลัก</text>
 <polyline points="748,770 770,770" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
 <rect x="770" y="747" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
-<text x="834" y="767" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P2</text>
-<text x="834" y="785" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ใต้ทีวี</text>
+<text x="834" y="767" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P1 ×2</text>
+<text x="834" y="785" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">หลังทีวี</text>
 <polyline points="898,770 920,770" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
 <rect x="920" y="747" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
 <text x="984" y="767" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P9</text>
