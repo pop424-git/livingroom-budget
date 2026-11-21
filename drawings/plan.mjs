@@ -29,7 +29,7 @@ const door = "#c0562f";
 // Deck lighting: two circuits on one two-gang switch inside the front door.
 const lamp = "#d9931f"; // light fittings and LED strip
 const lampFill = "#fff1cc";
-const linearX = -T - 100; // LED linear under the purlin 100 out from the front wall
+const linearX = -T - 100; // wooden-box lamps under the purlin, 100 out from the front wall
 const feedY = 486; // fed from the middle, down the rafter at the middle post
 
 function wall(x, y, w, h) {
@@ -154,7 +154,7 @@ function powerSchedule(parts) {
 
   head("สวิตช์ · สูง 120 ทุกตัว");
   row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 โซนโซฟา · 2 โคม L2 โซนโต๊ะกินข้าว · 3 ไฟซ่อนผนังยาวสองด้าน");
-  row(sw, "S2", "2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 LED linear ใต้แป (ย้ายมาจากข้างประตูฝั่งครัว)");
+  row(sw, "S2", "2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 โคมกล่องไม้ 2 ดวงใต้แป");
   row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
   row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
   row((cx, cy) => `<line x1="${cx - 12}" y1="${cy}" x2="${cx + 12}" y2="${cy}" stroke="${lamp}" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>`, "", "ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)");
@@ -176,7 +176,7 @@ function powerSchedule(parts) {
   y += 8;
   head("วงจรแนะนำ");
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
-  row(null, "C2", "ไฟระเบียง D1 D2 · 10A");
+  row(null, "C2", "ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A");
   row(null, "C3", "ปลั๊กทั่วไป P1 P2 P3 P6 P8 P9 · 16A");
   row(null, "C4", "ครัว P4 P5 · 20A");
   row(null, "C5", "แอร์ P7 · 20A วงจรเดี่ยว");
@@ -224,19 +224,20 @@ const strip = (x1, y1, x2, y2) =>
 parts.push(strip(-T - DECK + 3, -T, -T - DECK + 3, L + T));
 for (const y of [-32.5, -53, L + T + 22.5, L + T + 43]) parts.push(strip(-T - DECK + 4, y, -T - 4, y));
 
-// Circuit 2: one LED linear overhead, the length of the deck under the purlin,
-// fed at the middle through the rafter over the middle post.
-const overhead = (x1, y1, x2, y2) =>
-  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${lamp}" stroke-width="5" stroke-dasharray="16 6" stroke-linecap="butt"/>`;
+// Circuit 2: two wooden-box linear lamps hung under the purlin, one in each
+// half of the deck, fed at the middle through the rafter over the middle post
+// and on along the purlin to each lamp.
+const woodBox = (cx, cy, len) =>
+  `<rect x="${cx - 6}" y="${cy - len / 2}" width="12" height="${len}" rx="1.5" fill="#c98b52" stroke="#7d5430" stroke-width="1.2"/><line x1="${cx}" y1="${cy - len / 2 + 5}" x2="${cx}" y2="${cy + len / 2 - 5}" stroke="${lampFill}" stroke-width="3" stroke-linecap="round"/>`;
+const boxY = [240, 720]; // quarter points of the deck
 parts.push(`<line x1="${-T - DECK}" y1="${feedY}" x2="${-T}" y2="${feedY}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
-// Broken where it passes behind the deck's name.
-parts.push(overhead(linearX, 0, linearX, 94));
-parts.push(overhead(linearX, 168, linearX, L));
+parts.push(`<line x1="${linearX}" y1="${boxY[0] + 60}" x2="${linearX}" y2="${boxY[1] - 60}" stroke="${lamp}" stroke-width="1.2" stroke-dasharray="4 3"/>`);
+for (const y of boxY) parts.push(woodBox(linearX, y, 120));
 parts.push(`<circle cx="${linearX}" cy="${feedY}" r="5" fill="${lamp}"/>`);
 parts.push(text(linearX - 10, feedY - 12, "ป้อนไฟกลาง", { size: 11, anchor: "end", fill: lamp }));
 
 // Drivers in weatherproof boxes under the deck, by the wall south of the door.
-for (const [x, label] of [[-34, "D1"], [-56, "D2"]]) {
+for (const [x, label] of [[-34, "D1"]]) {
   parts.push(`<rect x="${x}" y="296" width="18" height="16" fill="#fff" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="3 2"/>`);
   parts.push(text(x + 9, 308, label, { size: 9, weight: 600, fill: lamp }));
 }
@@ -396,15 +397,15 @@ if (!power) {
   const x = -370;
   const rows = [
     ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · วงจร 1"],
-    ["linear", "LED linear 9.6 ม. ใต้แป เหนือหัว ห่างผนัง 100 · ~2.90 · 24V 5–6 W/ม. ส่องลงเดคกับผนังหน้า · วงจร 2"],
+    ["box", "โคมกล่องไม้ 2 ดวง ห้อยใต้แป ห่างผนัง 100 · กล่องไม้ 12×12 ยาว ~130 ใส่ LED batten 120 ซม. 2700K · วงจร 2"],
     ["rafter", "จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
-    ["switch", "สวิตช์ 2 ช่องระหว่างบานเลื่อนกับทีวี: 1 strip · 2 linear · D1 D2 กล่อง driver กันน้ำใต้เดค"],
+    ["switch", "สวิตช์ 2 ช่องระหว่างบานเลื่อนกับทีวี: 1 strip · 2 โคมกล่องไม้ · D1 กล่อง driver strip กันน้ำใต้เดค"],
   ];
   parts.push(text(x, 1062, "ไฟระเบียง", { size: 15, weight: 600, anchor: "start" }));
   rows.forEach(([kind, label], i) => {
     const y = 1088 + i * 24;
     if (kind === "strip") parts.push(strip(x + 2, y - 4, x + 30, y - 4));
-    if (kind === "linear") parts.push(overhead(x + 2, y - 4, x + 30, y - 4));
+    if (kind === "box") parts.push(`<g transform="rotate(-90 ${x + 16} ${y - 4})">${woodBox(x + 16, y - 4, 30)}</g>`);
     if (kind === "rafter") parts.push(`<line x1="${x + 2}" y1="${y - 4}" x2="${x + 30}" y2="${y - 4}" stroke="${soft}" stroke-width="1" stroke-dasharray="8 5"/>`);
     if (kind === "switch") parts.push(`<rect x="${x + 11}" y="${y - 11}" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
     parts.push(text(x + 40, y, label, { size: 13, anchor: "start" }));
