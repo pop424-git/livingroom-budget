@@ -69,9 +69,9 @@ parts.push(rect(10, 97, 40, 27, `fill="none" stroke="${soft}" stroke-width="1" s
 parts.push(text(30, up(112), "ไมโครเวฟ?", { size: 7, fill: soft }));
 
 // P4 hidden behind the fridge, below its top (dashed = behind).
-parts.push(rect(25, 76.5, 10, 7, `rx="1" fill="none" stroke="${pw}" stroke-width="1.2" stroke-dasharray="1.5 1.5"`));
-parts.push(`<line x1="35" y1="${up(80)}" x2="56" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
-parts.push(label(6, 156, ["P4 ปลั๊กคู่ สูง 80", "ซ่อนหลังตู้เย็น"]));
+parts.push(rect(52, 76.5, 10, 7, `rx="1" fill="none" stroke="${pw}" stroke-width="1.2" stroke-dasharray="1.5 1.5"`));
+parts.push(`<line x1="57" y1="${up(83.5)}" x2="56" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
+parts.push(label(6, 156, ["P4 ปลั๊กคู่ สูง 80", "หลังตู้เย็นชิดขอบขวา"]));
 
 // Consumer unit over the fridge.
 parts.push(rect(12, 170, 36, 40, `fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"`));

@@ -28,9 +28,9 @@
 <text x="35.5" y="-30" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">55 × 55 × 97</text>
 <rect x="10" y="-124" width="40" height="27" fill="none" stroke="#8a877f" stroke-width="1" stroke-dasharray="3 2"/>
 <text x="30" y="-112" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">ไมโครเวฟ?</text>
-<rect x="25" y="-83.5" width="10" height="7" rx="1" fill="none" stroke="#2f6f9f" stroke-width="1.2" stroke-dasharray="1.5 1.5"/>
-<line x1="35" y1="-80" x2="56" y2="-138" stroke="#2f6f9f" stroke-width="0.6"/>
-<text x="6" y="-153" font-size="8" font-weight="600" text-anchor="start" fill="#2f6f9f">P4 ปลั๊กคู่ สูง 80</text><text x="6" y="-143" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ซ่อนหลังตู้เย็น</text>
+<rect x="52" y="-83.5" width="10" height="7" rx="1" fill="none" stroke="#2f6f9f" stroke-width="1.2" stroke-dasharray="1.5 1.5"/>
+<line x1="57" y1="-83.5" x2="56" y2="-138" stroke="#2f6f9f" stroke-width="0.6"/>
+<text x="6" y="-153" font-size="8" font-weight="600" text-anchor="start" fill="#2f6f9f">P4 ปลั๊กคู่ สูง 80</text><text x="6" y="-143" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">หลังตู้เย็นชิดขอบขวา</text>
 <rect x="12" y="-210" width="36" height="40" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
 <line x1="12" y1="-210" x2="48" y2="-170" stroke="#3b3a36" stroke-width="0.6"/>
 <text x="6" y="-215" font-size="8" font-weight="600" text-anchor="start" fill="#3b3a36">ตู้ไฟ ขอบล่าง 170 · บน 210</text>
