@@ -88,10 +88,11 @@ function powerLayer(parts) {
   // Feed lines from S3 to the toilet light and the fan.
   parts.push(`<path d="M289 162 Q300 120 340 120 T392 123" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
 
-  // Consumer unit where the deck switch used to be: next to the drivers under the deck.
-  parts.push(`<rect x="1" y="282" width="12" height="44" fill="#d8d5cc" stroke="${ink}" stroke-width="1.4"/>`);
-  parts.push(`<line x1="1" y1="282" x2="13" y2="326" stroke="${ink}" stroke-width="0.8"/>`);
-  parts.push(tag(18, 309, "ตู้ไฟ", { fill: ink }));
+  // Consumer unit high in the corner over the fridge, on the east wall.
+  parts.push(`<rect x="1" y="14" width="12" height="40" fill="#d8d5cc" stroke="${ink}" stroke-width="1.4"/>`);
+  parts.push(`<line x1="1" y1="14" x2="13" y2="54" stroke="${ink}" stroke-width="0.8"/>`);
+  parts.push(`<line x1="13" y1="34" x2="20" y2="100" stroke="${ink}" stroke-width="0.7"/>`);
+  parts.push(tag(4, 112, "ตู้ไฟ เหนือตู้เย็น", { fill: ink }));
 
   // P1 behind the TV, under the bracket; P2 low under it; a conduit between for HDMI.
   parts.push(`<line x1="8" y1="790" x2="8" y2="858" stroke="${pw}" stroke-width="2.4" stroke-dasharray="4 3"/>`);
@@ -150,7 +151,7 @@ function powerSchedule(parts) {
   row((cx, cy) => outlet(cx, cy, "usb"), "P8", "ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ");
   row(duo, "P9", "มุมโคมตั้งพื้น ข้างทีวี · สูง 30");
   row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
-  row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ · ขอบบนสูง 180 · แทนที่สวิตช์ระเบียงเดิม ชิด driver D1 D2 ใต้เดค");
+  row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ มุมบนเหนือตู้เย็น ผนังฝั่งระเบียง · ขอบล่าง ≥180 (พ้นหลังตู้เย็น ≥10) · ขอบบน ~220 · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
   head("วงจรแนะนำ");
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
