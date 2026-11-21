@@ -118,7 +118,7 @@ function powerLayer(parts) {
   // P2: a double low on the wall right under the main switches.
   parts.push(outlet(8, 680), tag(20, 694, "P2 ใต้สวิตช์"));
 
-  parts.push(outlet(8, 200), tag(20, 204, "P3")); // general, east wall
+  parts.push(outlet(8, 240), tag(20, 244, "P3")); // east wall, in line with the south deck lamp
   parts.push(outlet(52, 7), tag(46, 84, "P4", { anchor: "middle" })); // fridge
   parts.push(outlet(77, 7), tag(84, 84, "P5", { anchor: "start" })); // counter
   parts.push(`<line x1="52" y1="13" x2="46" y2="73" stroke="${pw}" stroke-width="0.7"/><line x1="77" y1="13" x2="92" y2="73" stroke="${pw}" stroke-width="0.7"/>`);
@@ -164,7 +164,7 @@ function powerSchedule(parts) {
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว");
   row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 30 · ปลั๊กคู่");
-  row(duo, "P3", "ผนังข้างประตู · สูง 30 · เครื่องดูดฝุ่น พัดลม");
+  row(duo, "P3", "ผนังข้างประตู ตรงกับโคมระเบียงดวงใต้ · สูง 30");
   row(duo, "P4", "หลังตู้เย็น · สูง 120 (เหนือคอมเพรสเซอร์ ดึงปลั๊กได้ไม่ต้องลากตู้)");
   row(duo, "P5", "เคาน์เตอร์ ข้างตู้เย็น · สูง 110 · ฝากันน้ำ · ห่างซิงก์ ~55 · เว้นวงกบหน้าต่าง ≥5");
   row(duo, "P6", "ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก");

@@ -91,9 +91,9 @@ parts.push(outlet(sx, 30));
 parts.push(`<line x1="${sx}" y1="${up(36)}" x2="${sx}" y2="${up(110)}" stroke="${faint}" stroke-width="0.8" stroke-dasharray="3 3"/>`);
 parts.push(label(sx - 12, 30, ["P2 ปลั๊กคู่", "ใต้สวิตช์ · สูง 30"], { anchor: "end" }));
 
-// P3 between the door and the fridge: plan y 200 → x 760.
-parts.push(outlet(X(200), 30));
-parts.push(label(X(200) + 12, 30, ["P3 ปลั๊กคู่", "สูง 30"]));
+// P3 in line with the south deck lamp: plan y 240 → x 720.
+parts.push(outlet(X(240), 30));
+parts.push(label(X(240) + 12, 30, ["P3 ปลั๊กคู่ สูง 30", "ตรงกับโคมระเบียงดวงใต้"]));
 
 // Heights, on a scale at the left.
 for (const h of [30, 95, 120, 200, 240]) {
@@ -108,8 +108,8 @@ parts.push(dimH(60, 240, 40, "ทีวี 180"));
 parts.push(dimH(240, sx, 40, "70"));
 parts.push(dimH(sx, d0, 40, "30"));
 parts.push(dimH(d0, d1, 40, "280"));
-parts.push(dimH(d1, X(200), 40, "140"));
-parts.push(dimH(X(200), L, 40, "200"));
+parts.push(dimH(d1, X(240), 40, "100"));
+parts.push(dimH(X(240), L, 40, "240"));
 
 // ---- enlarged switch face ---------------------------------------------
 const S = 16; // px per cm in the detail
