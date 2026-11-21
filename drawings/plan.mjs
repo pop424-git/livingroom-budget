@@ -82,16 +82,24 @@ function powerLayer(parts) {
   parts.push(switchBox(2, 630, 10, 14), switchBox(2, 648, 10, 14));
   parts.push(tag(18, 642, "S1 · 3 ช่อง", { fill: lamp }), tag(18, 662, "S2 · 2 ช่อง", { fill: lamp }));
 
+  // The two ceiling lamps on S1: over the dining table and over the sofa.
+  const lampSym = (cx, cy) =>
+    `<circle cx="${cx}" cy="${cy}" r="11" fill="${lampFill}" stroke="${lamp}" stroke-width="1.8"/><path d="M${cx - 7.8} ${cy - 7.8} L${cx + 7.8} ${cy + 7.8} M${cx + 7.8} ${cy - 7.8} L${cx - 7.8} ${cy + 7.8}" stroke="${lamp}" stroke-width="1.5"/>`;
+  parts.push(`<path d="M12 637 Q150 560 287 352" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  parts.push(`<path d="M12 641 Q200 690 334 718" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  parts.push(lampSym(298, 346), tag(314, 350, "L2", { fill: lamp }));
+  parts.push(lampSym(345, 718), tag(304, 722, "L1", { anchor: "end", fill: lamp }));
+
   // S3 outside the toilet, on the room face of its partition, latch side of the door.
   parts.push(switchBox(282, 162, 14, 10));
   parts.push(tag(289, 190, "S3", { anchor: "middle", fill: lamp }));
   // Feed lines from S3 to the toilet light and the fan.
   parts.push(`<path d="M289 162 Q300 120 340 120 T392 123" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
 
-  // Consumer unit high in the corner over the fridge, on the east wall.
-  parts.push(`<rect x="1" y="14" width="12" height="40" fill="#d8d5cc" stroke="${ink}" stroke-width="1.4"/>`);
-  parts.push(`<line x1="1" y1="14" x2="13" y2="54" stroke="${ink}" stroke-width="0.8"/>`);
-  parts.push(`<line x1="13" y1="34" x2="20" y2="100" stroke="${ink}" stroke-width="0.7"/>`);
+  // Consumer unit high on the south wall, over the fridge.
+  parts.push(`<rect x="12" y="1" width="36" height="12" fill="#d8d5cc" stroke="${ink}" stroke-width="1.4"/>`);
+  parts.push(`<line x1="12" y1="1" x2="48" y2="13" stroke="${ink}" stroke-width="0.8"/>`);
+  parts.push(`<line x1="20" y1="13" x2="20" y2="100" stroke="${ink}" stroke-width="0.7"/>`);
   parts.push(tag(4, 112, "ตู้ไฟ เหนือตู้เย็น", { fill: ink }));
 
   // P1 behind the TV, under the bracket; P2 low under it; a conduit between for HDMI.
@@ -128,7 +136,7 @@ function powerSchedule(parts) {
   };
   const row = (sym, code, label) => {
     if (sym) parts.push(sym(x + 14, y - 5));
-    if (code) parts.push(text(x + 34, y, code, { size: 13, weight: 600, anchor: "start", fill: code.startsWith("S") ? lamp : code.startsWith("C") ? ink : pw }));
+    if (code) parts.push(text(x + 34, y, code, { size: 13, weight: 600, anchor: "start", fill: code.startsWith("S") || code.startsWith("L") ? lamp : code.startsWith("C") ? ink : pw }));
     parts.push(text(x + 70, y, label, { size: 13, anchor: "start" }));
     y += 21;
   };
@@ -136,9 +144,10 @@ function powerSchedule(parts) {
   const duo = (cx, cy) => outlet(cx, cy);
 
   head("สวิตช์ · สูง 120 ทุกตัว");
-  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคมโซนนั่งเล่น · 2 โคมโซนโต๊ะกินข้าว-ครัว · 3 ไฟซ่อน");
+  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 เหนือโซฟา · 2 โคม L2 เหนือโต๊ะกินข้าว · 3 ไฟซ่อน");
   row(sw, "S2", "2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 LED linear ใต้แป (ย้ายมาจากข้างประตูฝั่งครัว)");
   row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
+  row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 กลางโซฟา · L2 กลางโต๊ะ ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
   y += 8;
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ใต้ขาแขวน · สูง 110 · ปลั๊กคู่ 2 ชุด + LAN + เสาอากาศ (◇)");
@@ -151,7 +160,7 @@ function powerSchedule(parts) {
   row((cx, cy) => outlet(cx, cy, "usb"), "P8", "ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ");
   row(duo, "P9", "มุมโคมตั้งพื้น ข้างทีวี · สูง 30");
   row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
-  row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ มุมบนเหนือตู้เย็น ผนังฝั่งระเบียง · ขอบล่าง ≥180 (พ้นหลังตู้เย็น ≥10) · ขอบบน ~220 · หน้าตู้เปิดได้ไม่ติดอะไร");
+  row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ≥180 (พ้นหลังตู้เย็น ≥10) · ขอบบน ~220 · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
   head("วงจรแนะนำ");
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
@@ -166,7 +175,7 @@ function powerSchedule(parts) {
 /** layer: "deck" for the deck-lighting sheet, "power" for switches and outlets. */
 function build(layer) {
 const power = layer === "power";
-const H = power ? 1820 : 1400;
+const H = power ? 1840 : 1400;
 const parts = [];
 
 // Paper and grid.
@@ -390,7 +399,7 @@ if (!power) {
 
 parts.push(
   power
-    ? text(-370, 1630, "ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026", { size: 17, anchor: "start" })
+    ? text(-370, 1652, "ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026", { size: 17, anchor: "start" })
     : text(-370, 1210, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 21 พ.ย. 2026", { size: 17, anchor: "start" })
 );
 
