@@ -120,9 +120,9 @@
 <rect x="20" y="683" width="92" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="66" y="694" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P2 ใต้สวิตช์</text>
 <circle cx="8" cy="240" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="237" x2="5.8" y2="243"/><line x1="10.2" y1="237" x2="10.2" y2="243"/></g>
 <rect x="20" y="233" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="31" y="244" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P3</text>
-<circle cx="56" cy="7" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="53.8" y1="4" x2="53.8" y2="10"/><line x1="58.2" y1="4" x2="58.2" y2="10"/></g>
-<rect x="45" y="69" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="56" y="80" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P4</text>
-<line x1="56" y1="13" x2="56" y2="68" stroke="#2f6f9f" stroke-width="0.7"/>
+<circle cx="30" cy="7" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="27.8" y1="4" x2="27.8" y2="10"/><line x1="32.2" y1="4" x2="32.2" y2="10"/></g>
+<rect x="19" y="69" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="30" y="80" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P4</text>
+<line x1="30" y1="13" x2="30" y2="68" stroke="#2f6f9f" stroke-width="0.7"/>
 <circle cx="392" cy="373" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="389.8" y1="370" x2="389.8" y2="376"/><line x1="394.2" y1="370" x2="394.2" y2="376"/></g>
 <rect x="356" y="339" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="350" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P6</text>
 <rect x="140" y="938" width="100" height="20" fill="none" stroke="#2f6f9f" stroke-width="1.3" stroke-dasharray="6 4"/>
@@ -163,7 +163,7 @@
 <text x="-300" y="1307" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังข้างประตู ตรงกับโคมระเบียงดวงใต้ · สูง 30</text>
 <circle cx="-356" cy="1323" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1320" x2="-358.2" y2="1326"/><line x1="-353.8" y1="1320" x2="-353.8" y2="1326"/></g>
 <text x="-336" y="1328" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P4</text>
-<text x="-300" y="1328" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว ปลั๊กคู่ผนังทิศใต้ กึ่งกลางเหนือตู้เย็น · สูง 110 · ตู้เย็น 97 + ไมโครเวฟบนหลังตู้เย็น</text>
+<text x="-300" y="1328" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว ปลั๊กคู่ผนังทิศใต้ ซ่อนหลังตู้เย็น · สูง 80 · ตู้เย็น + ไมโครเวฟบนหลังตู้ · ตั้งตู้เย็นห่างผนัง ~8</text>
 <circle cx="-356" cy="1344" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1341" x2="-358.2" y2="1347"/><line x1="-353.8" y1="1341" x2="-353.8" y2="1347"/></g>
 <text x="-336" y="1349" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P6</text>
 <text x="-300" y="1349" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก</text>

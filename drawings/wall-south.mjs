@@ -68,10 +68,10 @@ parts.push(text(35.5, up(30), "55 × 55 × 97", { size: 7, fill: soft }));
 parts.push(rect(10, 97, 40, 27, `fill="none" stroke="${soft}" stroke-width="1" stroke-dasharray="3 2"`));
 parts.push(text(30, up(112), "ไมโครเวฟ?", { size: 7, fill: soft }));
 
-// P4 beside the microwave, over the fridge.
-parts.push(rect(51, 106, 10, 7, `rx="1" fill="${pwFill}" stroke="${pw}" stroke-width="1.2"`));
-parts.push(`<line x1="56" y1="${up(113)}" x2="50" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
-parts.push(label(6, 156, ["P4 ปลั๊กคู่ สูง 110", "ตู้เย็น + ไมโครเวฟ"]));
+// P4 hidden behind the fridge, below its top (dashed = behind).
+parts.push(rect(25, 76.5, 10, 7, `rx="1" fill="none" stroke="${pw}" stroke-width="1.2" stroke-dasharray="1.5 1.5"`));
+parts.push(`<line x1="35" y1="${up(80)}" x2="56" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
+parts.push(label(6, 156, ["P4 ปลั๊กคู่ สูง 80", "ซ่อนหลังตู้เย็น"]));
 
 // Consumer unit over the fridge.
 parts.push(rect(12, 170, 36, 40, `fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"`));
@@ -99,7 +99,7 @@ parts.push(`<line x1="-15" y1="0" x2="${W + 15}" y2="0" stroke="${ink}" stroke-w
 parts.push(text(W + 4, up(CEIL) + 4, "ฝ้า 240", { size: 8, fill: soft, anchor: "start" }));
 
 // Height scale.
-for (const h of [85, 110, 120, 170, 200, 240]) {
+for (const h of [80, 120, 170, 200, 240]) {
   parts.push(`<line x1="-22" y1="${up(h)}" x2="-12" y2="${up(h)}" stroke="${ink}" stroke-width="0.8"/>`);
   parts.push(text(-25, up(h) + 3, String(h), { size: 8, anchor: "end" }));
 }
@@ -112,7 +112,7 @@ const dims = [dimH(0, 68, 28, "68"), dimH(68, 190, 28, "122"), dimH(200, 275, 28
 parts.push(dims);
 
 parts.push(text(-55, 70, "· ผนังนี้ไม่มีไฟซ่อน (ไฟซ่อนในห้องอยู่แค่ผนังยาวสองด้าน) · ไฟซ่อนห้องน้ำอยู่หลังผนังห้องน้ำ ชิดผนังทิศใต้", { size: 8, anchor: "start" }));
-parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ ใช้ P4 ปลั๊กคู่เดียวสำหรับตู้เย็นกับไมโครเวฟ · ซิงก์ช่องขวา ต้องถอดลิ้นชักออก ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
+parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ · P4 ปลั๊กคู่ซ่อนหลังตู้เย็น ใช้ทั้งตู้เย็นกับไมโครเวฟ ตั้งตู้เย็นห่างผนัง ~8 · ซิงก์ช่องขวา ต้องถอดลิ้นชักออก ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
 parts.push(text(-55, 98, "· หน้าต่างครัวขอบล่าง 100 พ้นเคาน์เตอร์ 85 ได้ 15 ซม. · ที่คว่ำจานสูงเกิน 15 จะบังขอบล่างหน้าต่างนิดหน่อย", { size: 8, anchor: "start" }));
 parts.push(text(-55, 124, "รูปด้านภายใน ผนังครัว · 21 พ.ย. 2026", { size: 10, anchor: "start" }));
 
