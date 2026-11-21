@@ -129,10 +129,11 @@ function powerLayer(parts) {
   parts.push(outlet(392, 373), tag(378, 350, "P6", { anchor: "end" })); // dining table end
 
   // Air conditioner on the north wall over the big window, centred on it,
-  // blowing down the length of the room; outlet at its west end.
+  // blowing down the length of the room. Wired straight from its own breaker
+  // in the consumer unit: no outlet, no local isolator.
   parts.push(`<rect x="140" y="938" width="100" height="20" fill="none" stroke="${pw}" stroke-width="1.3" stroke-dasharray="6 4"/>`);
   parts.push(text(190, 952, "แอร์", { size: 11, fill: pw }));
-  parts.push(outlet(252, 952, "ac"), tag(262, 935, "P7"));
+  parts.push(outlet(250, 948, "ac"), tag(262, 935, "แอร์ ต่อตรง C5"));
 
   parts.push(outlet(392, 668, "usb"), tag(296, 672, "P8", { anchor: "end" })); // sofa arm
   parts.push(`<line x1="386" y1="668" x2="298" y2="668" stroke="${pw}" stroke-width="0.7"/>`);
@@ -172,7 +173,7 @@ function powerSchedule(parts) {
   row(duo, "P4", "ปลั๊กเดี่ยวตู้เย็น ซ่อนกลางหลังตู้เย็น · สูง 80 · ตั้งตู้เย็นห่างผนัง ~8");
   row(duo, "P5", "ปลั๊กคู่ ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 100 เสมอขอบล่างหน้าต่าง · ไมโครเวฟ กาต้มน้ำ");
   row(duo, "P6", "ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก");
-  row((cx, cy) => outlet(cx, cy, "ac"), "P7", "แอร์ 18,000 BTU ผนังหน้าต่างใหญ่ เหนือหน้าต่าง กึ่งกลางบาน · สูง 220 · วงจรแยก + ตัดตอนข้างเครื่อง");
+  row((cx, cy) => outlet(cx, cy, "ac"), "AC", "แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ");
   row((cx, cy) => outlet(cx, cy, "usb"), "P8", "ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ");
   row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
   row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ~170 · ขอบบน ~210 · พ้นไมโครเวฟบนตู้เย็น · หน้าตู้เปิดได้ไม่ติดอะไร");
@@ -182,7 +183,7 @@ function powerSchedule(parts) {
   row(null, "C2", "ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A");
   row(null, "C3", "ปลั๊กทั่วไป P1 P2 P3 P6 P8 · 16A");
   row(null, "C4", "ครัว P4 P5 · 20A");
-  row(null, "C5", "แอร์ P7 · 20A วงจรเดี่ยว");
+  row(null, "C5", "แอร์ · 20A วงจรเดี่ยว ต่อตรง ปิดที่ตู้ไฟเวลาล้างแอร์");
   row(null, "C6", "ปลั๊กนอก P10 · 16A");
   row(null, "", "ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
 }
