@@ -11,7 +11,7 @@
 import sharp from "sharp";
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { plan } from "./plan.mjs";
+import { plan, electrical } from "./plan.mjs";
 import { elevation } from "./elevation.mjs";
 import { section } from "./section.mjs";
 
@@ -29,5 +29,6 @@ async function render(name, svg, out, format) {
 }
 
 await render("plan", plan, "plan-dimensions.png", "png");
+await render("electrical", electrical, "plan-electrical.png", "png");
 await render("elevation", elevation, "elevation-dimensions.jpg", "jpeg");
 await render("section", section, "section-dimensions.jpg", "jpeg");

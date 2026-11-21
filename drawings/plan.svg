@@ -60,8 +60,8 @@
 <rect x="-10" y="340" width="10" height="280" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/>
 <g stroke="#3b3a36" stroke-width="2.2"><line x1="-7" y1="340" x2="-7" y2="414"/><line x1="-7" y1="546" x2="-7" y2="620"/><line x1="-3" y1="406" x2="-3" y2="480"/><line x1="-3" y1="480" x2="-3" y2="554"/></g>
 <line x1="-10" y1="480" x2="0" y2="480" stroke="#3b3a36" stroke-width="1"/>
-<rect x="2" y="318" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.4"/>
-<text x="16" y="330" font-size="11" font-weight="400" text-anchor="start" fill="#d9931f">สวิตช์ 2 ช่อง</text>
+<rect x="2" y="650" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.4"/>
+<text x="16" y="662" font-size="11" font-weight="400" text-anchor="start" fill="#d9931f">สวิตช์ 2 ช่อง</text>
 <rect x="190" y="0" width="10" height="160" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="200" y="150" width="5" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="275" y="150" width="125" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
@@ -135,6 +135,6 @@
 <line x1="-368" y1="1132" x2="-340" y2="1132" stroke="#6d6a62" stroke-width="1" stroke-dasharray="8 5"/>
 <text x="-330" y="1136" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)</text>
 <rect x="-359" y="1149" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.4"/>
-<text x="-330" y="1160" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">สวิตช์ 2 ช่องข้างบานเลื่อน: 1 strip · 2 linear · D1 D2 กล่อง driver กันน้ำใต้เดค</text>
-<text x="-370" y="1210" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 19 พ.ย. 2026</text>
+<text x="-330" y="1160" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">สวิตช์ 2 ช่องระหว่างบานเลื่อนกับทีวี: 1 strip · 2 linear · D1 D2 กล่อง driver กันน้ำใต้เดค</text>
+<text x="-370" y="1210" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 21 พ.ย. 2026</text>
 </svg>

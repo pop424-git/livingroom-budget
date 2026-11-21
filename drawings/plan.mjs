@@ -48,11 +48,129 @@ function windowIn(x, y, w, h) {
 const fx = `fill="#fff" stroke="${ink}" stroke-width="1.3"`;
 const thin = `fill="none" stroke="${soft}" stroke-width="1"`;
 
+
+// ---------------------------------------------------------------------------
+// Switches and outlets, for the "power" sheet. Heights are from the finished
+// room floor and live in the schedule, since a plan can't show them.
+const pw = "#2f6f9f"; // outlets
+const pwFill = "#e4eff8";
+
+function tag(x, y, label, { anchor = "start", fill = pw } = {}) {
+  const w = label.length * 7 + 8;
+  const left = anchor === "start" ? x : anchor === "end" ? x - w : x - w / 2;
+  return `<rect x="${left}" y="${y - 11}" width="${w}" height="15" rx="3" fill="#fff" stroke="${fill}" stroke-width="0.8"/>${text(left + w / 2, y, label, { size: 10, weight: 600, fill })}`;
+}
+
+/** Outlet symbol: kind "duo" (double), "usb", "ip" (weatherproof), "ac" (dedicated). */
+function outlet(cx, cy, kind = "duo") {
+  if (kind === "ac") return `<rect x="${cx - 6}" y="${cy - 6}" width="12" height="12" fill="${pw}" stroke="${pw}"/><text x="${cx}" y="${cy + 3.5}" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>`;
+  const ring = kind === "ip" ? `<circle cx="${cx}" cy="${cy}" r="9.5" fill="none" stroke="${pw}" stroke-width="1.2"/>` : "";
+  const mark =
+    kind === "usb"
+      ? `<circle cx="${cx}" cy="${cy}" r="2.4" fill="${pw}"/>`
+      : `<line x1="${cx - 2.2}" y1="${cy - 3}" x2="${cx - 2.2}" y2="${cy + 3}"/><line x1="${cx + 2.2}" y1="${cy - 3}" x2="${cx + 2.2}" y2="${cy + 3}"/>`;
+  return `${ring}<circle cx="${cx}" cy="${cy}" r="6" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"/><g stroke="${pw}" stroke-width="1.3">${mark}</g>`;
+}
+
+function switchBox(x, y, w, h) {
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`;
+}
+
+function powerLayer(parts) {
+  // S1 three-gang and S2 two-gang, side by side on the east wall between the
+  // door frame (620) and the TV (720), on the latch-free side of the opening.
+  parts.push(switchBox(2, 630, 10, 14), switchBox(2, 648, 10, 14));
+  parts.push(tag(18, 642, "S1 · 3 ช่อง", { fill: lamp }), tag(18, 662, "S2 · 2 ช่อง", { fill: lamp }));
+
+  // S3 outside the toilet, on the room face of its partition, latch side of the door.
+  parts.push(switchBox(282, 162, 14, 10));
+  parts.push(tag(289, 190, "S3", { anchor: "middle", fill: lamp }));
+  // Feed lines from S3 to the toilet light and the fan.
+  parts.push(`<path d="M289 162 Q300 120 340 120 T392 123" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+
+  // Consumer unit where the deck switch used to be: next to the drivers under the deck.
+  parts.push(`<rect x="1" y="282" width="12" height="44" fill="#d8d5cc" stroke="${ink}" stroke-width="1.4"/>`);
+  parts.push(`<line x1="1" y1="282" x2="13" y2="326" stroke="${ink}" stroke-width="0.8"/>`);
+  parts.push(tag(18, 309, "ตู้ไฟ", { fill: ink }));
+
+  // P1 behind the TV, under the bracket; P2 low under it; a conduit between for HDMI.
+  parts.push(`<line x1="8" y1="790" x2="8" y2="858" stroke="${pw}" stroke-width="2.4" stroke-dasharray="4 3"/>`);
+  parts.push(outlet(8, 782), outlet(8, 800));
+  parts.push(`<path d="M8 811 l6 6 -6 6 -6 -6 Z" fill="#fff" stroke="${pw}" stroke-width="1.3"/>`);
+  parts.push(outlet(8, 864));
+  parts.push(tag(50, 796, "P1"), tag(50, 868, "P2"));
+
+  parts.push(outlet(8, 200), tag(20, 204, "P3")); // general, east wall
+  parts.push(outlet(52, 7), tag(46, 84, "P4", { anchor: "middle" })); // fridge
+  parts.push(outlet(77, 7), tag(84, 84, "P5", { anchor: "start" })); // counter
+  parts.push(`<line x1="52" y1="13" x2="46" y2="73" stroke="${pw}" stroke-width="0.7"/><line x1="77" y1="13" x2="92" y2="73" stroke="${pw}" stroke-width="0.7"/>`);
+  parts.push(outlet(392, 373), tag(378, 350, "P6", { anchor: "end" })); // dining table end
+
+  // Air conditioner high on the west wall over the armchair, outlet at its south end.
+  parts.push(`<rect x="376" y="595" width="22" height="100" fill="none" stroke="${pw}" stroke-width="1.3" stroke-dasharray="6 4"/>`);
+  parts.push(text(368, 646, "แอร์", { size: 11, anchor: "end", fill: pw }));
+  parts.push(outlet(392, 582, "ac"), tag(378, 572, "P7", { anchor: "end" }));
+
+  parts.push(outlet(392, 668, "usb"), tag(296, 672, "P8", { anchor: "end" })); // sofa arm
+  parts.push(`<line x1="386" y1="668" x2="298" y2="668" stroke="${pw}" stroke-width="0.7"/>`);
+  parts.push(outlet(60, 953), tag(60, 935, "P9", { anchor: "middle" })); // floor-lamp corner
+  parts.push(outlet(-22, 690, "ip"), tag(-36, 694, "P10", { anchor: "end" })); // deck, outside face
+}
+
+/** Schedule under the power plan. */
+function powerSchedule(parts) {
+  const x = -370;
+  let y = 1062;
+  const head = (label) => {
+    parts.push(text(x, y, label, { size: 15, weight: 600, anchor: "start" }));
+    y += 24;
+  };
+  const row = (sym, code, label) => {
+    if (sym) parts.push(sym(x + 14, y - 5));
+    if (code) parts.push(text(x + 34, y, code, { size: 13, weight: 600, anchor: "start", fill: code.startsWith("S") ? lamp : code.startsWith("C") ? ink : pw }));
+    parts.push(text(x + 70, y, label, { size: 13, anchor: "start" }));
+    y += 21;
+  };
+  const sw = (cx, cy) => switchBox(cx - 5, cy - 7, 10, 14);
+  const duo = (cx, cy) => outlet(cx, cy);
+
+  head("สวิตช์ · สูง 120 ทุกตัว");
+  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคมโซนนั่งเล่น · 2 โคมโซนโต๊ะกินข้าว-ครัว · 3 ไฟซ่อน");
+  row(sw, "S2", "2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 LED linear ใต้แป (ย้ายมาจากข้างประตูฝั่งครัว)");
+  row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
+  y += 8;
+  head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
+  row(duo, "P1", "หลังทีวี ใต้ขาแขวน · สูง 110 · ปลั๊กคู่ 2 ชุด + LAN + เสาอากาศ (◇)");
+  row(duo, "P2", "ใต้ทีวี · สูง 30 · ปลั๊กคู่ router / soundbar · ท่อ 1¼\" ฝังผนังขึ้น P1 ร้อย HDMI");
+  row(duo, "P3", "ผนังข้างประตู · สูง 30 · เครื่องดูดฝุ่น พัดลม");
+  row(duo, "P4", "หลังตู้เย็น · สูง 120 (เหนือคอมเพรสเซอร์ ดึงปลั๊กได้ไม่ต้องลากตู้)");
+  row(duo, "P5", "เคาน์เตอร์ ข้างตู้เย็น · สูง 110 · ฝากันน้ำ · ห่างซิงก์ ~55 · เว้นวงกบหน้าต่าง ≥5");
+  row(duo, "P6", "ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก");
+  row((cx, cy) => outlet(cx, cy, "ac"), "P7", "แอร์ 18,000 BTU เหนืออาร์มแชร์ · สูง 220 · วงจรแยก + เบรกเกอร์ตัดตอนข้างเครื่อง");
+  row((cx, cy) => outlet(cx, cy, "usb"), "P8", "ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ");
+  row(duo, "P9", "มุมโคมตั้งพื้น ข้างทีวี · สูง 30");
+  row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
+  row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ · ขอบบนสูง 180 · แทนที่สวิตช์ระเบียงเดิม ชิด driver D1 D2 ใต้เดค");
+  y += 8;
+  head("วงจรแนะนำ");
+  row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
+  row(null, "C2", "ไฟระเบียง D1 D2 · 10A");
+  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P3 P6 P8 P9 · 16A");
+  row(null, "C4", "ครัว P4 P5 · 20A");
+  row(null, "C5", "แอร์ P7 · 20A วงจรเดี่ยว");
+  row(null, "C6", "ปลั๊กนอก P10 · 16A");
+  row(null, "", "ปลั๊กทุกวงจร + ไฟระเบียง ผ่าน RCBO 30 mA · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
+}
+
+/** layer: "deck" for the deck-lighting sheet, "power" for switches and outlets. */
+function build(layer) {
+const power = layer === "power";
+const H = power ? 1820 : 1400;
 const parts = [];
 
 // Paper and grid.
-parts.push(`<rect x="-390" y="-160" width="970" height="1400" fill="#fbfaf6"/>`);
-parts.push(`<rect x="-390" y="-160" width="970" height="1400" fill="url(#grid)"/>`);
+parts.push(`<rect x="-390" y="-160" width="970" height="${H}" fill="#fbfaf6"/>`);
+parts.push(`<rect x="-390" y="-160" width="970" height="${H}" fill="url(#grid)"/>`);
 
 // Engawa deck with boards running its length, posts on the outer edge, steps at each end.
 parts.push(
@@ -75,6 +193,7 @@ parts.push(`<rect x="-185" y="100" width="150" height="62" fill="#f1e8da"/>`);
 parts.push(text(-110, 125, "ระเบียง engawa", { size: 17, weight: 600 }));
 parts.push(text(-110, 150, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
 
+if (power) parts.push(`<g opacity="0.3">`);
 // Circuit 1: LED strip hidden under the outer deck edge and under the nosing of
 // every step, two treads at each end.
 const strip = (x1, y1, x2, y2) =>
@@ -98,6 +217,7 @@ for (const [x, label] of [[-34, "D1"], [-56, "D2"]]) {
   parts.push(`<rect x="${x}" y="296" width="18" height="16" fill="#fff" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="3 2"/>`);
   parts.push(text(x + 9, 308, label, { size: 9, weight: 600, fill: lamp }));
 }
+if (power) parts.push(`</g>`);
 
 // Exterior walls, broken at each opening.
 parts.push(wall(-T, -T, T, frontDoor.y0 + T)); // east, south of the door
@@ -126,9 +246,12 @@ parts.push(windowIn(northWindow.x0, L, northWindow.x1 - northWindow.x0, T));
   parts.push(`<line x1="-10" y1="${mid}" x2="0" y2="${mid}" stroke="${ink}" stroke-width="1"/>`);
 }
 
-// Two-gang switch on the inside face, just south of the door.
-parts.push(`<rect x="2" y="318" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
-parts.push(text(16, 330, "สวิตช์ 2 ช่อง", { size: 11, anchor: "start", fill: lamp }));
+// Switches on the inside face between the door and the TV: the deck's
+// two-gang next to the room's three-gang, so every light is at one spot.
+if (!power) {
+  parts.push(`<rect x="2" y="650" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
+  parts.push(text(16, 662, "สวิตช์ 2 ช่อง", { size: 11, anchor: "start", fill: lamp }));
+}
 
 // Toilet partitions, with the door gap at the east end of the north partition.
 parts.push(wall(toilet.x0 - T, 0, T, toilet.y1 + T));
@@ -240,14 +363,18 @@ parts.push(dimH(0, W, L + 72, "400"));
 parts.push(
   `<g transform="translate(510 1025)"><circle r="24" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M0 20 L7 -8 L0 -3 L-7 -8 Z" fill="${ink}"/>${text(0, 44, "N", { size: 14, weight: 600 })}</g>`
 );
+if (power) {
+  powerLayer(parts);
+  powerSchedule(parts);
+}
 // Deck lighting legend.
-{
+if (!power) {
   const x = -370;
   const rows = [
     ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · วงจร 1"],
     ["linear", "LED linear 9.6 ม. ใต้แป เหนือหัว ห่างผนัง 100 · ~2.90 · 24V 5–6 W/ม. ส่องลงเดคกับผนังหน้า · วงจร 2"],
     ["rafter", "จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
-    ["switch", "สวิตช์ 2 ช่องข้างบานเลื่อน: 1 strip · 2 linear · D1 D2 กล่อง driver กันน้ำใต้เดค"],
+    ["switch", "สวิตช์ 2 ช่องระหว่างบานเลื่อนกับทีวี: 1 strip · 2 linear · D1 D2 กล่อง driver กันน้ำใต้เดค"],
   ];
   parts.push(text(x, 1062, "ไฟระเบียง", { size: 15, weight: 600, anchor: "start" }));
   rows.forEach(([kind, label], i) => {
@@ -260,7 +387,11 @@ parts.push(
   });
 }
 
-parts.push(text(-370, 1210, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 19 พ.ย. 2026", { size: 17, anchor: "start" }));
+parts.push(
+  power
+    ? text(-370, 1630, "ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026", { size: 17, anchor: "start" })
+    : text(-370, 1210, "ผังพื้น · ห้อง 400 × 960 cm · 38.4 ตร.ม. · ไฟระเบียง · ปรับ 21 พ.ย. 2026", { size: 17, anchor: "start" })
+);
 
 const defs = `
   <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse" x="0" y="0">
@@ -270,4 +401,8 @@ const defs = `
     <line x1="0" y1="0" x2="0" y2="5" stroke="${soft}" stroke-width="1"/>
   </pattern>`;
 
-export const plan = svgDoc({ x: -390, y: -160, w: 970, h: 1400, defs, body: parts.join("\n"), font: FONT });
+return svgDoc({ x: -390, y: -160, w: 970, h: H, defs, body: parts.join("\n"), font: FONT });
+}
+
+export const plan = build("deck");
+export const electrical = build("power");

@@ -12,6 +12,7 @@ import exteriorHipRoof from "@/public/reference/exterior-hip-roof.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
 import planDimensions from "@/public/reference/plan-dimensions.png";
+import planElectrical from "@/public/reference/plan-electrical.png";
 import sectionDimensions from "@/public/reference/section-dimensions.jpg";
 
 type Shot = {
@@ -33,6 +34,11 @@ const overview: Shot[] = [
     image: planDimensions,
     alt: "ผังพื้นพร้อมระยะ ห้อง 400 × 960 ซม. 38.4 ตร.ม. ห้องน้ำ 200 × 150 ซม. มุมตะวันตกเฉียงใต้ ประตูห้องน้ำผนังเหนือ อ่างล้างหน้าชนหลังซิงค์ครัว ตู้เย็น 70 เคาน์เตอร์ 120 ประตูบานเลื่อน 4 บาน 280 กลางผนังด้านระเบียง ระเบียงลึก 200 ซม. โต๊ะกินข้าว 200 × 100 วางขวางห้อง หัวโต๊ะชิดผนังตะวันตกตรงข้ามประตู เก้าอี้ 3 ตัวฝั่งห้องน้ำ ม้านั่งยาว 200 ฝั่งโซฟา อาร์มแชร์ข้างโซฟา โซฟาสามตอนมีเชส 280 ซม. ชิดผนังตะวันตกมุมเหนือ ทีวีผนังตะวันออก หน้าต่างบานเลื่อน 180 × 110 ผนังเหนือ",
     caption: "ผังพื้น — ห้อง 4 × 9.6 ม. ห้องน้ำ 3 ตร.ม. ระเบียง 2 ม.",
+  },
+  {
+    image: planElectrical,
+    alt: "ผังปลั๊กและสวิตช์ สวิตช์ 3 ช่องกับ 2 ช่องคู่กันบนผนังระหว่างประตูบานเลื่อนกับทีวี สูง 120 สวิตช์ 2 ช่องไฟห้องน้ำกับพัดลมดูดอากาศนอกห้องน้ำฝั่งมือจับ ปลั๊กหลังทีวีใต้ขาแขวนสูง 110 กับปลั๊กล่างสูง 30 ต่อท่อร้อย HDMI ปลั๊กตู้เย็น เคาน์เตอร์ ปลายโต๊ะกินข้าว แอร์ ข้างโซฟามี USB-C มุมโคมตั้งพื้น ปลั๊กกันน้ำบนระเบียง ตู้ไฟข้างประตู และวงจรแนะนำ 6 วงจร",
+    caption: "ผังปลั๊ก-สวิตช์ — S1 S2 ระหว่างประตูกับทีวี · ปลั๊ก 10 จุด · 6 วงจร",
   },
   {
     image: sectionDimensions,

@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-390 -160 970 1820" width="970" height="1820" font-family="Leelawadee UI, Tahoma, sans-serif">
+<defs>
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse" x="0" y="0">
+    <path d="M50 0H0V50" fill="none" stroke="#e3e0d8" stroke-width="1"/>
+  </pattern>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#6d6a62" stroke-width="1"/>
+  </pattern></defs>
+<rect x="-390" y="-160" width="970" height="1820" fill="#fbfaf6"/>
+<rect x="-390" y="-160" width="970" height="1820" fill="url(#grid)"/>
+<rect x="-210" y="-10" width="200" height="980" fill="#f1e8da" stroke="#8a7a64" stroke-width="1.3"/>
+<line x1="-190" y1="-10" x2="-190" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-170" y1="-10" x2="-170" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-150" y1="-10" x2="-150" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-130" y1="-10" x2="-130" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-110" y1="-10" x2="-110" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-90" y1="-10" x2="-90" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-70" y1="-10" x2="-70" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-50" y1="-10" x2="-50" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<line x1="-30" y1="-10" x2="-30" y2="970" stroke="#ddd0bc" stroke-width="0.8"/>
+<rect x="-210" y="-10" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>
+<rect x="-210" y="235" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>
+<rect x="-210" y="480" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>
+<rect x="-210" y="725" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>
+<rect x="-210" y="958" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>
+<rect x="-210" y="-55" width="200" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>
+<rect x="-210" y="970" width="200" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>
+<line x1="-210" y1="-32.5" x2="-10" y2="-32.5" stroke="#8a7a64" stroke-width="0.8"/>
+<line x1="-210" y1="992.5" x2="-10" y2="992.5" stroke="#8a7a64" stroke-width="0.8"/>
+<text x="-110" y="-39" font-size="12" font-weight="400" text-anchor="middle" fill="#6d6a62">บันได 200</text>
+<text x="-110" y="1006" font-size="12" font-weight="400" text-anchor="middle" fill="#6d6a62">บันได 200</text>
+<rect x="-185" y="100" width="150" height="62" fill="#f1e8da"/>
+<text x="-110" y="125" font-size="17" font-weight="600" text-anchor="middle" fill="#3b3a36">ระเบียง engawa</text>
+<text x="-110" y="150" font-size="13" font-weight="400" text-anchor="middle" fill="#6d6a62">200 × 960 · 19.2 ตร.ม.</text>
+<g opacity="0.3">
+<line x1="-207" y1="-10" x2="-207" y2="970" stroke="#d9931f" stroke-width="3" stroke-linecap="round"/>
+<line x1="-206" y1="-32.5" x2="-14" y2="-32.5" stroke="#d9931f" stroke-width="3" stroke-linecap="round"/>
+<line x1="-206" y1="-53" x2="-14" y2="-53" stroke="#d9931f" stroke-width="3" stroke-linecap="round"/>
+<line x1="-206" y1="992.5" x2="-14" y2="992.5" stroke="#d9931f" stroke-width="3" stroke-linecap="round"/>
+<line x1="-206" y1="1013" x2="-14" y2="1013" stroke="#d9931f" stroke-width="3" stroke-linecap="round"/>
+<line x1="-210" y1="486" x2="-10" y2="486" stroke="#6d6a62" stroke-width="1" stroke-dasharray="8 5"/>
+<line x1="-110" y1="0" x2="-110" y2="94" stroke="#d9931f" stroke-width="5" stroke-dasharray="16 6" stroke-linecap="butt"/>
+<line x1="-110" y1="168" x2="-110" y2="960" stroke="#d9931f" stroke-width="5" stroke-dasharray="16 6" stroke-linecap="butt"/>
+<circle cx="-110" cy="486" r="5" fill="#d9931f"/>
+<text x="-120" y="474" font-size="11" font-weight="400" text-anchor="end" fill="#d9931f">ป้อนไฟกลาง</text>
+<rect x="-34" y="296" width="18" height="16" fill="#fff" stroke="#d9931f" stroke-width="1.4" stroke-dasharray="3 2"/>
+<text x="-25" y="308" font-size="9" font-weight="600" text-anchor="middle" fill="#d9931f">D1</text>
+<rect x="-56" y="296" width="18" height="16" fill="#fff" stroke="#d9931f" stroke-width="1.4" stroke-dasharray="3 2"/>
+<text x="-47" y="308" font-size="9" font-weight="600" text-anchor="middle" fill="#d9931f">D2</text>
+</g>
+<rect x="-10" y="-10" width="10" height="350" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="-10" y="620" width="10" height="350" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="400" y="-10" width="10" height="980" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="-10" y="-10" width="95" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="185" y="-10" width="150" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="375" y="-10" width="25" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="-10" y="960" width="110" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="280" y="960" width="120" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="85" y="-10" width="100" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="85" y1="-6" x2="185" y2="-6"/><line x1="85" y1="-4" x2="185" y2="-4"/></g>
+<rect x="335" y="-10" width="40" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="335" y1="-6" x2="375" y2="-6"/><line x1="335" y1="-4" x2="375" y2="-4"/></g>
+<rect x="100" y="960" width="180" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="100" y1="964" x2="280" y2="964"/><line x1="100" y1="966" x2="280" y2="966"/></g>
+<rect x="-10" y="340" width="10" height="280" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/>
+<g stroke="#3b3a36" stroke-width="2.2"><line x1="-7" y1="340" x2="-7" y2="414"/><line x1="-7" y1="546" x2="-7" y2="620"/><line x1="-3" y1="406" x2="-3" y2="480"/><line x1="-3" y1="480" x2="-3" y2="554"/></g>
+<line x1="-10" y1="480" x2="0" y2="480" stroke="#3b3a36" stroke-width="1"/>
+<rect x="190" y="0" width="10" height="160" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="200" y="150" width="5" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="275" y="150" width="125" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="205" y="82" width="4" height="68" fill="#c0562f"/>
+<path d="M275 150 A68 68 0 0 0 207 82" fill="none" stroke="#c0562f" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="3" y="3" width="64" height="62" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<line x1="3" y1="12" x2="67" y2="12" stroke="#6d6a62" stroke-width="1"/>
+<text x="35" y="43" font-size="14" font-weight="400" text-anchor="middle" fill="#3b3a36">ตู้เย็น</text>
+<rect x="70" y="0" width="120" height="60" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<rect x="134" y="8" width="48" height="44" rx="5" fill="none" stroke="#6d6a62" stroke-width="1"/>
+<circle cx="158" cy="30" r="3" fill="#6d6a62"/>
+<text x="101" y="35" font-size="12" font-weight="400" text-anchor="middle" fill="#3b3a36">เคาน์เตอร์</text>
+<rect x="215" y="0" width="50" height="42" rx="4" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<ellipse cx="240" cy="22" rx="17" ry="12" fill="none" stroke="#6d6a62" stroke-width="1"/>
+<text x="240" y="60" font-size="12" font-weight="400" text-anchor="middle" fill="#6d6a62">อ่างล้างหน้า</text>
+<rect x="380" y="55" width="18" height="40" rx="3" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<ellipse cx="356" cy="75" rx="24" ry="18" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<text x="354" y="79" font-size="12" font-weight="400" text-anchor="middle" fill="#3b3a36">โถ</text>
+<circle cx="393" cy="36" r="4.5" fill="#fff" stroke="#c0562f" stroke-width="1.6"/>
+<text x="384" y="40" font-size="11" font-weight="400" text-anchor="end" fill="#6d6a62">ฉีดชำระ</text>
+<rect x="384" y="112" width="16" height="22" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/>
+<path d="M384 112 L400 134 M400 112 L384 134" stroke="#3b3a36" stroke-width="0.9"/>
+<text x="380" y="144" font-size="11" font-weight="400" text-anchor="end" fill="#6d6a62">พัดลมดูดอากาศ</text>
+<text x="305" y="105" font-size="15" font-weight="600" text-anchor="middle" fill="#3b3a36">ห้องน้ำ</text>
+<text x="305" y="122" font-size="12" font-weight="400" text-anchor="middle" fill="#6d6a62">3.0 ตร.ม.</text>
+<rect x="208.83333333333334" y="273" width="45" height="42" rx="6" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/><rect x="212.83333333333334" y="273" width="37" height="6" rx="2" fill="#6d6a62"/>
+<rect x="275.5" y="273" width="45" height="42" rx="6" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/><rect x="279.5" y="273" width="37" height="6" rx="2" fill="#6d6a62"/>
+<rect x="342.1666666666667" y="273" width="45" height="42" rx="6" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/><rect x="346.1666666666667" y="273" width="37" height="6" rx="2" fill="#6d6a62"/>
+<rect x="198" y="323" width="200" height="100" rx="3" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<text x="298" y="370" font-size="13" font-weight="400" text-anchor="middle" fill="#3b3a36">โต๊ะกินข้าว</text>
+<text x="298" y="388" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">200 × 100</text>
+<rect x="198" y="428" width="200" height="40" rx="3" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<text x="298" y="452" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">ม้านั่ง 200</text>
+<rect x="318" y="580" width="75" height="75" rx="10" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<rect x="378" y="584" width="12" height="67" rx="4" fill="none" stroke="#6d6a62" stroke-width="1"/>
+<text x="352" y="621" font-size="11" font-weight="400" text-anchor="middle" fill="#3b3a36">อาร์มแชร์</text>
+<path d="M302 660 H398 V940 H250 V847 H302 Z" stroke-linejoin="round" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<rect x="380" y="675" width="15" height="250" rx="4" fill="none" stroke="#6d6a62" stroke-width="1"/>
+<line x1="302" y1="675" x2="380" y2="675" stroke="#6d6a62" stroke-width="1"/>
+<line x1="250" y1="925" x2="380" y2="925" stroke="#6d6a62" stroke-width="1"/>
+<line x1="302" y1="761" x2="380" y2="761" stroke="#6d6a62" stroke-width="0.8"/>
+<line x1="302" y1="847" x2="380" y2="847" stroke="#6d6a62" stroke-width="0.8"/>
+<text x="341" y="798" font-size="13" font-weight="400" text-anchor="middle" fill="#3b3a36">โซฟา</text>
+<text x="341" y="815" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">280</text>
+<text x="315" y="890" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">เชส</text>
+<rect x="2" y="720" width="40" height="180" rx="2" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
+<line x1="40" y1="745" x2="40" y2="875" stroke="#3b3a36" stroke-width="3"/>
+<text x="21" y="815" font-size="12" font-weight="400" text-anchor="middle" fill="#3b3a36">ทีวี</text>
+<text x="170" y="648" font-size="19" font-weight="600" text-anchor="middle" fill="#3b3a36">ห้องนั่งเล่น</text>
+<text x="170" y="670" font-size="14" font-weight="400" text-anchor="middle" fill="#6d6a62">35.4 ตร.ม.</text>
+<text x="135" y="-18" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">หน้าต่างครัว 100 × 100</text>
+<text x="355" y="-18" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">บานเกล็ด 40 × 35</text>
+<text x="190" y="988" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">หน้าต่างบานเลื่อน 180 × 110</text>
+<g><line x1="0" y1="-52" x2="70" y2="-52" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="-47" x2="5" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><line x1="65" y1="-47" x2="75" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><text x="35" y="-61" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">70</text></g>
+<g><line x1="70" y1="-52" x2="190" y2="-52" stroke="#3b3a36" stroke-width="0.9"/><line x1="65" y1="-47" x2="75" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><line x1="185" y1="-47" x2="195" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><text x="130" y="-61" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">120</text></g>
+<g><line x1="200" y1="-52" x2="400" y2="-52" stroke="#3b3a36" stroke-width="0.9"/><line x1="195" y1="-47" x2="205" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><line x1="395" y1="-47" x2="405" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><text x="300" y="-61" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">200</text></g>
+<g><line x1="0" y1="-92" x2="400" y2="-92" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="-87" x2="5" y2="-97" stroke="#3b3a36" stroke-width="1.3"/><line x1="395" y1="-87" x2="405" y2="-97" stroke="#3b3a36" stroke-width="1.3"/><text x="200" y="-101" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">400</text></g>
+<g><line x1="-210" y1="-92" x2="-10" y2="-92" stroke="#3b3a36" stroke-width="0.9"/><line x1="-215" y1="-87" x2="-205" y2="-97" stroke="#3b3a36" stroke-width="1.3"/><line x1="-15" y1="-87" x2="-5" y2="-97" stroke="#3b3a36" stroke-width="1.3"/><text x="-110" y="-101" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">200</text></g>
+<g><line x1="440" y1="0" x2="440" y2="150" stroke="#3b3a36" stroke-width="0.9"/><line x1="435" y1="5" x2="445" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="435" y1="155" x2="445" y2="145" stroke="#3b3a36" stroke-width="1.3"/><text x="450" y="82" font-size="20" font-weight="500" text-anchor="start" fill="#3b3a36">150</text></g>
+<g><line x1="490" y1="0" x2="490" y2="960" stroke="#3b3a36" stroke-width="0.9"/><line x1="485" y1="5" x2="495" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="485" y1="965" x2="495" y2="955" stroke="#3b3a36" stroke-width="1.3"/><text x="500" y="487" font-size="20" font-weight="500" text-anchor="start" fill="#3b3a36">960</text></g>
+<g><line x1="-255" y1="0" x2="-255" y2="340" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="5" x2="-250" y2="-5" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="345" x2="-250" y2="335" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="177" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">340</text></g>
+<g><line x1="-255" y1="340" x2="-255" y2="620" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="345" x2="-250" y2="335" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="625" x2="-250" y2="615" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="474.5" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">บานเลื่อน</text><text x="-265" y="499.5" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">280</text></g>
+<g><line x1="-255" y1="620" x2="-255" y2="960" stroke="#3b3a36" stroke-width="0.9"/><line x1="-260" y1="625" x2="-250" y2="615" stroke="#3b3a36" stroke-width="1.3"/><line x1="-260" y1="965" x2="-250" y2="955" stroke="#3b3a36" stroke-width="1.3"/><text x="-265" y="797" font-size="20" font-weight="500" text-anchor="end" fill="#3b3a36">340</text></g>
+<g><line x1="0" y1="1032" x2="400" y2="1032" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="1037" x2="5" y2="1027" stroke="#3b3a36" stroke-width="1.3"/><line x1="395" y1="1037" x2="405" y2="1027" stroke="#3b3a36" stroke-width="1.3"/><text x="200" y="1023" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">400</text></g>
+<g transform="translate(510 1025)"><circle r="24" fill="none" stroke="#3b3a36" stroke-width="1.2"/><path d="M0 20 L7 -8 L0 -3 L-7 -8 Z" fill="#3b3a36"/><text x="0" y="44" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">N</text></g>
+<rect x="2" y="630" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<rect x="2" y="648" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<rect x="18" y="631" width="85" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="60.5" y="642" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S1 · 3 ช่อง</text>
+<rect x="18" y="651" width="85" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="60.5" y="662" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S2 · 2 ช่อง</text>
+<rect x="282" y="162" width="14" height="10" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<rect x="278" y="179" width="22" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="289" y="190" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S3</text>
+<path d="M289 162 Q300 120 340 120 T392 123" fill="none" stroke="#d9931f" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="1" y="282" width="12" height="44" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.4"/>
+<line x1="1" y1="282" x2="13" y2="326" stroke="#3b3a36" stroke-width="0.8"/>
+<rect x="18" y="298" width="43" height="15" rx="3" fill="#fff" stroke="#3b3a36" stroke-width="0.8"/><text x="39.5" y="309" font-size="10" font-weight="600" text-anchor="middle" fill="#3b3a36">ตู้ไฟ</text>
+<line x1="8" y1="790" x2="8" y2="858" stroke="#2f6f9f" stroke-width="2.4" stroke-dasharray="4 3"/>
+<circle cx="8" cy="782" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="779" x2="5.8" y2="785"/><line x1="10.2" y1="779" x2="10.2" y2="785"/></g>
+<circle cx="8" cy="800" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="797" x2="5.8" y2="803"/><line x1="10.2" y1="797" x2="10.2" y2="803"/></g>
+<path d="M8 811 l6 6 -6 6 -6 -6 Z" fill="#fff" stroke="#2f6f9f" stroke-width="1.3"/>
+<circle cx="8" cy="864" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="861" x2="5.8" y2="867"/><line x1="10.2" y1="861" x2="10.2" y2="867"/></g>
+<rect x="50" y="785" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="61" y="796" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P1</text>
+<rect x="50" y="857" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="61" y="868" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P2</text>
+<circle cx="8" cy="200" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="197" x2="5.8" y2="203"/><line x1="10.2" y1="197" x2="10.2" y2="203"/></g>
+<rect x="20" y="193" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="31" y="204" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P3</text>
+<circle cx="52" cy="7" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="49.8" y1="4" x2="49.8" y2="10"/><line x1="54.2" y1="4" x2="54.2" y2="10"/></g>
+<rect x="35" y="73" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="46" y="84" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P4</text>
+<circle cx="77" cy="7" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="74.8" y1="4" x2="74.8" y2="10"/><line x1="79.2" y1="4" x2="79.2" y2="10"/></g>
+<rect x="84" y="73" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="95" y="84" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P5</text>
+<line x1="52" y1="13" x2="46" y2="73" stroke="#2f6f9f" stroke-width="0.7"/><line x1="77" y1="13" x2="92" y2="73" stroke="#2f6f9f" stroke-width="0.7"/>
+<circle cx="392" cy="373" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="389.8" y1="370" x2="389.8" y2="376"/><line x1="394.2" y1="370" x2="394.2" y2="376"/></g>
+<rect x="356" y="339" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="350" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P6</text>
+<rect x="376" y="595" width="22" height="100" fill="none" stroke="#2f6f9f" stroke-width="1.3" stroke-dasharray="6 4"/>
+<text x="368" y="646" font-size="11" font-weight="400" text-anchor="end" fill="#2f6f9f">แอร์</text>
+<rect x="386" y="576" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="392" y="585.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>
+<rect x="356" y="561" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="572" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P7</text>
+<circle cx="392" cy="668" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><circle cx="392" cy="668" r="2.4" fill="#2f6f9f"/></g>
+<rect x="274" y="661" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="285" y="672" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P8</text>
+<line x1="386" y1="668" x2="298" y2="668" stroke="#2f6f9f" stroke-width="0.7"/>
+<circle cx="60" cy="953" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="57.8" y1="950" x2="57.8" y2="956"/><line x1="62.2" y1="950" x2="62.2" y2="956"/></g>
+<rect x="49" y="924" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="60" y="935" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P9</text>
+<circle cx="-22" cy="690" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-22" cy="690" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-24.2" y1="687" x2="-24.2" y2="693"/><line x1="-19.8" y1="687" x2="-19.8" y2="693"/></g>
+<rect x="-65" y="683" width="29" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="-50.5" y="694" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P10</text>
+<text x="-370" y="1062" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">สวิตช์ · สูง 120 ทุกตัว</text>
+<rect x="-361" y="1074" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="-336" y="1086" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S1</text>
+<text x="-300" y="1086" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคมโซนนั่งเล่น · 2 โคมโซนโต๊ะกินข้าว-ครัว · 3 ไฟซ่อน</text>
+<rect x="-361" y="1095" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="-336" y="1107" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S2</text>
+<text x="-300" y="1107" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 LED linear ใต้แป (ย้ายมาจากข้างประตูฝั่งครัว)</text>
+<rect x="-361" y="1116" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="-336" y="1128" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S3</text>
+<text x="-300" y="1128" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)</text>
+<text x="-370" y="1157" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด</text>
+<circle cx="-356" cy="1176" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1173" x2="-358.2" y2="1179"/><line x1="-353.8" y1="1173" x2="-353.8" y2="1179"/></g>
+<text x="-336" y="1181" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P1</text>
+<text x="-300" y="1181" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">หลังทีวี ใต้ขาแขวน · สูง 110 · ปลั๊กคู่ 2 ชุด + LAN + เสาอากาศ (◇)</text>
+<circle cx="-356" cy="1197" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1194" x2="-358.2" y2="1200"/><line x1="-353.8" y1="1194" x2="-353.8" y2="1200"/></g>
+<text x="-336" y="1202" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P2</text>
+<text x="-300" y="1202" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ใต้ทีวี · สูง 30 · ปลั๊กคู่ router / soundbar · ท่อ 1¼" ฝังผนังขึ้น P1 ร้อย HDMI</text>
+<circle cx="-356" cy="1218" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1215" x2="-358.2" y2="1221"/><line x1="-353.8" y1="1215" x2="-353.8" y2="1221"/></g>
+<text x="-336" y="1223" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P3</text>
+<text x="-300" y="1223" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังข้างประตู · สูง 30 · เครื่องดูดฝุ่น พัดลม</text>
+<circle cx="-356" cy="1239" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1236" x2="-358.2" y2="1242"/><line x1="-353.8" y1="1236" x2="-353.8" y2="1242"/></g>
+<text x="-336" y="1244" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P4</text>
+<text x="-300" y="1244" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">หลังตู้เย็น · สูง 120 (เหนือคอมเพรสเซอร์ ดึงปลั๊กได้ไม่ต้องลากตู้)</text>
+<circle cx="-356" cy="1260" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1257" x2="-358.2" y2="1263"/><line x1="-353.8" y1="1257" x2="-353.8" y2="1263"/></g>
+<text x="-336" y="1265" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P5</text>
+<text x="-300" y="1265" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">เคาน์เตอร์ ข้างตู้เย็น · สูง 110 · ฝากันน้ำ · ห่างซิงก์ ~55 · เว้นวงกบหน้าต่าง ≥5</text>
+<circle cx="-356" cy="1281" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1278" x2="-358.2" y2="1284"/><line x1="-353.8" y1="1278" x2="-353.8" y2="1284"/></g>
+<text x="-336" y="1286" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P6</text>
+<text x="-300" y="1286" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังปลายโต๊ะกินข้าว · สูง 95 (เหนือท็อปโต๊ะ) · หม้อสุกี้ โน้ตบุ๊ก</text>
+<rect x="-362" y="1296" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="-356" y="1305.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>
+<text x="-336" y="1307" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P7</text>
+<text x="-300" y="1307" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ 18,000 BTU เหนืออาร์มแชร์ · สูง 220 · วงจรแยก + เบรกเกอร์ตัดตอนข้างเครื่อง</text>
+<circle cx="-356" cy="1323" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><circle cx="-356" cy="1323" r="2.4" fill="#2f6f9f"/></g>
+<text x="-336" y="1328" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P8</text>
+<text x="-300" y="1328" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ข้างพนักแขนโซฟา · สูง 70 (พ้นพนัก) · ปลั๊กคู่ + USB-C ชาร์จมือถือ</text>
+<circle cx="-356" cy="1344" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1341" x2="-358.2" y2="1347"/><line x1="-353.8" y1="1341" x2="-353.8" y2="1347"/></g>
+<text x="-336" y="1349" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P9</text>
+<text x="-300" y="1349" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">มุมโคมตั้งพื้น ข้างทีวี · สูง 30</text>
+<circle cx="-356" cy="1365" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-356" cy="1365" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1362" x2="-358.2" y2="1368"/><line x1="-353.8" y1="1362" x2="-353.8" y2="1368"/></g>
+<text x="-336" y="1370" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P10</text>
+<text x="-300" y="1370" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น</text>
+<rect x="-362" y="1377" width="12" height="18" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
+<text x="-300" y="1391" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ตู้ไฟ · ขอบบนสูง 180 · แทนที่สวิตช์ระเบียงเดิม ชิด driver D1 D2 ใต้เดค</text>
+<text x="-370" y="1420" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">วงจรแนะนำ</text>
+<text x="-336" y="1444" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C1</text>
+<text x="-300" y="1444" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A</text>
+<text x="-336" y="1465" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C2</text>
+<text x="-300" y="1465" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟระเบียง D1 D2 · 10A</text>
+<text x="-336" y="1486" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C3</text>
+<text x="-300" y="1486" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทั่วไป P1 P2 P3 P6 P8 P9 · 16A</text>
+<text x="-336" y="1507" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C4</text>
+<text x="-300" y="1507" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว P4 P5 · 20A</text>
+<text x="-336" y="1528" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C5</text>
+<text x="-300" y="1528" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ P7 · 20A วงจรเดี่ยว</text>
+<text x="-336" y="1549" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C6</text>
+<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กนอก P10 · 16A</text>
+<text x="-300" y="1570" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทุกวงจร + ไฟระเบียง ผ่าน RCBO 30 mA · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)</text>
+<text x="-370" y="1630" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 21 พ.ย. 2026</text>
+</svg>
