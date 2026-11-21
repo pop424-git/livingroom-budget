@@ -95,10 +95,10 @@ function powerLayer(parts) {
   // The two ceiling lamps on S1: over the dining table and over the sofa.
   const lampSym = (cx, cy) =>
     `<circle cx="${cx}" cy="${cy}" r="11" fill="${lampFill}" stroke="${lamp}" stroke-width="1.8"/><path d="M${cx - 7.8} ${cy - 7.8} L${cx + 7.8} ${cy + 7.8} M${cx + 7.8} ${cy - 7.8} L${cx - 7.8} ${cy + 7.8}" stroke="${lamp}" stroke-width="1.5"/>`;
-  parts.push(`<path d="M12 637 Q150 560 287 352" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
-  parts.push(`<path d="M12 641 Q200 690 334 718" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
-  parts.push(lampSym(298, 346), tag(314, 350, "L2", { fill: lamp }));
-  parts.push(lampSym(345, 718), tag(304, 722, "L1", { anchor: "end", fill: lamp }));
+  parts.push(`<path d="M12 637 Q130 560 230 358" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  parts.push(`<path d="M12 641 Q130 700 230 786" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  parts.push(lampSym(240, 350), tag(256, 354, "L2", { fill: lamp }));
+  parts.push(lampSym(240, 790), tag(256, 794, "L1", { fill: lamp }));
 
   // S3 outside the toilet, on the room face of its partition, latch side of the door.
   parts.push(switchBox(282, 162, 14, 10));
@@ -154,10 +154,10 @@ function powerSchedule(parts) {
   const duo = (cx, cy) => outlet(cx, cy);
 
   head("สวิตช์ · สูง 120 ทุกตัว");
-  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 เหนือโซฟา · 2 โคม L2 เหนือโต๊ะกินข้าว · 3 ไฟซ่อนผนังยาวสองด้าน");
+  row(sw, "S1", "3 ช่อง ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 โซนโซฟา · 2 โคม L2 โซนโต๊ะกินข้าว · 3 ไฟซ่อนผนังยาวสองด้าน");
   row(sw, "S2", "2 ช่อง ติดกับ S1 · 1 LED strip ใต้ขอบเดค · 2 LED linear ใต้แป (ย้ายมาจากข้างประตูฝั่งครัว)");
   row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
-  row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 กลางโซฟา · L2 กลางโต๊ะ ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
+  row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
   row((cx, cy) => `<line x1="${cx - 12}" y1="${cy}" x2="${cx + 12}" y2="${cy}" stroke="${lamp}" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>`, "", "ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)");
   row(null, "", "ห้องน้ำ: ไฟซ่อนผนังทิศใต้ 2.0 ม. ดวงเดียวในห้อง · IP65 (S3-1) · เส้นยาว 8–9.6 ม. ป้อนไฟกลางเส้นหรือสองหัว ไฟไม่ดรอปปลายเส้น");
   row(null, "", "driver ไฟซ่อนวางบนฝ้าใกล้จุดป้อน ทำช่องเซอร์วิสเปิดเปลี่ยนได้ · ห้องน้ำวาง driver นอกห้องน้ำ");
@@ -182,7 +182,7 @@ function powerSchedule(parts) {
   row(null, "C4", "ครัว P4 P5 · 20A");
   row(null, "C5", "แอร์ P7 · 20A วงจรเดี่ยว");
   row(null, "C6", "ปลั๊กนอก P10 · 16A");
-  row(null, "", "ปลั๊กทุกวงจร + ไฟระเบียง ผ่าน RCBO 30 mA · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
+  row(null, "", "ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
 }
 
 /** layer: "deck" for the deck-lighting sheet, "power" for switches and outlets. */

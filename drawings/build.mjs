@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 import { plan, electrical } from "./plan.mjs";
 import { elevation } from "./elevation.mjs";
 import { section } from "./section.mjs";
+import { wiring } from "./wiring.mjs";
 
 const here = (p) => fileURLToPath(new URL(p, import.meta.url));
 
@@ -30,5 +31,6 @@ async function render(name, svg, out, format) {
 
 await render("plan", plan, "plan-dimensions.png", "png");
 await render("electrical", electrical, "plan-electrical.png", "png");
+await render("wiring", wiring, "wiring-diagram.png", "png");
 await render("elevation", elevation, "elevation-dimensions.jpg", "jpeg");
 await render("section", section, "section-dimensions.jpg", "jpeg");
