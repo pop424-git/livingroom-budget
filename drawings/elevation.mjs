@@ -49,8 +49,8 @@ parts.push(r(18, 0, 150, 240, "#e6e6e4"));
 parts.push(text(125, up(150), "ห้องน้ำ", { size: 22, weight: 600, fill: ink }));
 parts.push(text(125, up(126), "150 cm", { size: 20, fill: ink }));
 // Fridge stands in front of it, against the south wall.
-parts.push(r(18, 0, 65, 180, "#d6d6d3"));
-parts.push(text(50, up(80), "ตู้เย็น", { size: 18, weight: 600, fill: ink }));
+parts.push(r(20, 0, 55, 97, "#d6d6d3"));
+parts.push(text(47, up(45), "ตู้เย็น", { size: 18, weight: 600, fill: ink }));
 
 // Dining set seen end on: table 100 wide at 75, a chair on the toilet side
 // (left) with its back away from the table, the bench on the sofa side.

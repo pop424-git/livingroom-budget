@@ -47,11 +47,11 @@ for (let i = 1; i < 4; i++) {
 parts.push(text((d0 + d1) / 2, up(110), "ประตูบานเลื่อน 280 × 200", { size: 13, fill: soft }));
 
 // Fridge in the south corner, seen side on, faint.
-parts.push(`<rect x="${X(70)}" y="${up(155)}" width="70" height="155" fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="6 4"/>`);
-parts.push(text(X(35), up(80), "ตู้เย็น", { size: 12, fill: soft }));
+parts.push(`<rect x="${X(57)}" y="${up(97)}" width="55" height="97" fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="6 4"/>`);
+parts.push(text(X(30), up(50), "ตู้เย็น 97", { size: 12, fill: soft }));
 // A microwave may sit on top of the fridge.
-parts.push(`<rect x="${X(60)}" y="${up(185)}" width="50" height="30" fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="3 3"/>`);
-parts.push(text(X(35), up(166), "ไมโครเวฟ?", { size: 10, fill: soft }));
+parts.push(`<rect x="${X(52)}" y="${up(125)}" width="40" height="28" fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="3 3"/>`);
+parts.push(text(X(32), up(108), "ไมโครเวฟ?", { size: 10, fill: soft }));
 
 // TV on its bracket: plan 720–900, so 60–240 here. 65" ≈ 145 × 83, bottom at 75.
 const tv = { x: 150 - 72.5, w: 145, b: 75, h: 83 };
@@ -94,9 +94,6 @@ parts.push(outlet(sx, 30));
 parts.push(`<line x1="${sx}" y1="${up(36)}" x2="${sx}" y2="${up(110)}" stroke="${faint}" stroke-width="0.8" stroke-dasharray="3 3"/>`);
 parts.push(label(sx - 12, 30, ["P2 ปลั๊กคู่", "ใต้สวิตช์ · สูง 30"], { anchor: "end" }));
 
-// P4: the kitchen double beside the fridge, at 170.
-parts.push(outlet(X(80), 170));
-parts.push(label(X(80) - 12, 176, ["P4 ปลั๊กคู่ สูง 170", "ตู้เย็น + ไมโครเวฟ"], { anchor: "end" }));
 
 // P3 in line with the south deck lamp: plan y 240 → x 720.
 parts.push(outlet(X(240), 30));
