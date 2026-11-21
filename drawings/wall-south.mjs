@@ -35,10 +35,11 @@ const label = (x, h, lines, { anchor = "start", fill = pw } = {}) =>
 // Kitchen wall, 0–190, the far plane.
 parts.push(rect(0, 0, 200, CEIL, `fill="#ffffff" stroke="${ink}" stroke-width="1.2"`));
 
-// Kitchen window 100 × 100 over the counter, sill 100 so it clears the splash.
-parts.push(rect(85, 100, 100, 100, `fill="#eef3f4" stroke="${ink}" stroke-width="1.2"`));
-parts.push(`<line x1="135" y1="${up(100)}" x2="135" y2="${up(200)}" stroke="${faint}" stroke-width="1"/>`);
-parts.push(text(135, up(150), "หน้าต่างครัว 100 × 100", { size: 7.5, fill: soft }));
+// Kitchen window 100 × 100 centred on the counter, sill 100, with room each
+// side and above for a bamboo roll blind.
+parts.push(rect(79, 100, 100, 100, `fill="#eef3f4" stroke="${ink}" stroke-width="1.2"`));
+parts.push(`<line x1="129" y1="${up(100)}" x2="129" y2="${up(200)}" stroke="${faint}" stroke-width="1"/>`);
+parts.push(text(129, up(150), "หน้าต่างครัว 100 × 100", { size: 7.5, fill: soft }));
 
 // IKEA KNOXHULT 122 × 61 × 85: body 120, top 122 × 2.9, three door sections
 // of 40. The sink goes in the right-hand section, so its drawer comes out.
@@ -77,28 +78,36 @@ parts.push(text(35.5, up(53), "ซ่อนหลังตู้เย็น", {
 parts.push(rect(62.5, 100, 7, 11, `rx="1" fill="${pwFill}" stroke="${pw}" stroke-width="1.2"`));
 parts.push(`<line x1="62.5" y1="${up(100)}" x2="85" y2="${up(100)}" stroke="${pw}" stroke-width="0.5" stroke-dasharray="1.5 1.5"/>`);
 parts.push(`<line x1="64" y1="${up(111)}" x2="56" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
-parts.push(label(6, 156, ["P5 ปลั๊กคู่ ขอบล่าง 100", "ไมโครเวฟ · กาต้มน้ำ"]));
+parts.push(label(6, 160, ["P5 ปลั๊กคู่", "ขอบล่าง 100", "ไมโครเวฟ กาต้มน้ำ"]));
 
 // Consumer unit over the fridge.
 parts.push(rect(12, 170, 36, 40, `fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"`));
 parts.push(`<line x1="12" y1="${up(210)}" x2="48" y2="${up(170)}" stroke="${ink}" stroke-width="0.6"/>`);
-parts.push(label(6, 218, ["ตู้ไฟ ขอบล่าง 170 · บน 210"], { fill: ink }));
+parts.push(label(6, 228, ["ตู้ไฟ ขอบล่าง 170 · บน 210"], { fill: ink }));
 
 // Toilet partition end, 190–200.
 parts.push(rect(190, 0, 10, CEIL, `fill="url(#hatch)" stroke="${ink}" stroke-width="1"`));
 
-// Toilet's north partition, the nearer plane, 200–400 with its door 205–275.
+// Bamboo roll blind over the window head, 5 past each side.
+parts.push(rect(74, 202, 110, 8, `rx="4" fill="#efe3c6" stroke="#b89a5e" stroke-width="1" stroke-dasharray="3 2"`));
+parts.push(text(129, up(214), "มู่ลี่ไม้ไผ่ เลยกรอบข้างละ 5", { size: 7, fill: "#8a6d35" }));
+
+// Toilet's north partition, the nearer plane, 200–400 with its door 205–285.
 parts.push(rect(200, 0, 200, CEIL, `fill="#f1efe9" stroke="${ink}" stroke-width="1.4"`));
 parts.push(text(330, up(222), "ผนังห้องน้ำ (ยื่นออกมาจากผนังครัว 160)", { size: 7.5, fill: soft }));
-parts.push(rect(205, 0, 70, 200, `fill="#fff" stroke="${ink}" stroke-width="1.2"`));
-parts.push(`<circle cx="268" cy="${up(100)}" r="1.6" fill="${ink}"/>`);
-parts.push(text(240, up(150), "ประตูห้องน้ำ 70", { size: 7.5, fill: soft }));
-parts.push(text(240, up(140), "บานพับซ้าย มือจับขวา", { size: 7, fill: soft }));
+// Frame ~5 each side around an 80 uPVC leaf: light oak grain, two
+// aluminium grooves on the latch side, round knob.
+parts.push(rect(200, 0, 90, 205, `fill="#f6f4ef" stroke="${ink}" stroke-width="1.2"`));
+parts.push(rect(205, 0, 80, 200, `fill="#e9d8b8" stroke="${ink}" stroke-width="1.2"`));
+for (const x of [261, 268]) parts.push(`<line x1="${x}" y1="${up(196)}" x2="${x}" y2="${up(4)}" stroke="#a9a59c" stroke-width="0.9"/>`);
+parts.push(`<circle cx="277" cy="${up(100)}" r="2.6" fill="#fff" stroke="${ink}" stroke-width="0.9"/>`);
+parts.push(text(232, up(150), "ประตู uPVC 80", { size: 7.5, fill: soft }));
+parts.push(text(232, up(140), "บานพับซ้าย", { size: 7, fill: soft }));
 
 // S3 on the latch side.
-parts.push(rect(283, 116, 12, 7.2, `rx="0.8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.2"`));
-parts.push(`<line x1="${289}" y1="${up(116)}" x2="${289}" y2="${up(123.2)}" stroke="${lamp}" stroke-width="0.6"/>`);
-parts.push(label(300, 124, ["S3 2 ช่อง สูง 120", "1 ไฟซ่อนห้องน้ำ", "2 พัดลมดูดอากาศ"], { fill: lamp }));
+parts.push(rect(302, 116, 12, 7.2, `rx="0.8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.2"`));
+parts.push(`<line x1="${308}" y1="${up(116)}" x2="${308}" y2="${up(123.2)}" stroke="${lamp}" stroke-width="0.6"/>`);
+parts.push(label(318, 124, ["S3 2 ช่อง สูง 120", "1 ไฟซ่อนห้องน้ำ", "2 พัดลมดูดอากาศ"], { fill: lamp }));
 
 // Floor and ceiling.
 parts.push(`<line x1="-15" y1="0" x2="${W + 15}" y2="0" stroke="${ink}" stroke-width="2"/>`);
@@ -112,7 +121,7 @@ for (const h of [80, 100, 120, 170, 200, 240]) {
 parts.push(`<line x1="-17" y1="0" x2="-17" y2="${up(CEIL)}" stroke="${ink}" stroke-width="0.6"/>`);
 
 // Widths along the floor (dimension text is big in lib, so scale it down here).
-const dims = [dimH(0, 68, 28, "68"), dimH(68, 190, 28, "122"), dimH(200, 275, 28, "75"), dimH(275, 400, 28, "125")]
+const dims = [dimH(0, 68, 28, "68"), dimH(68, 190, 28, "122"), dimH(200, 290, 28, "วงกบ 90"), dimH(290, 400, 28, "110")]
   .join("")
   .replace(/font-size="20"/g, 'font-size="10"');
 parts.push(dims);

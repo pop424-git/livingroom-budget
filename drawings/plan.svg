@@ -48,12 +48,12 @@
 <rect x="-10" y="-10" width="10" height="350" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="-10" y="620" width="10" height="350" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="400" y="-10" width="10" height="980" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
-<rect x="-10" y="-10" width="95" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
-<rect x="185" y="-10" width="150" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="-10" y="-10" width="89" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="179" y="-10" width="156" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="375" y="-10" width="25" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="-10" y="960" width="110" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="280" y="960" width="120" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
-<rect x="85" y="-10" width="100" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="85" y1="-6" x2="185" y2="-6"/><line x1="85" y1="-4" x2="185" y2="-4"/></g>
+<rect x="79" y="-10" width="100" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="79" y1="-6" x2="179" y2="-6"/><line x1="79" y1="-4" x2="179" y2="-4"/></g>
 <rect x="335" y="-10" width="40" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="335" y1="-6" x2="375" y2="-6"/><line x1="335" y1="-4" x2="375" y2="-4"/></g>
 <rect x="100" y="960" width="180" height="10" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/><g stroke="#3b3a36" stroke-width="0.9"><line x1="100" y1="964" x2="280" y2="964"/><line x1="100" y1="966" x2="280" y2="966"/></g>
 <rect x="-10" y="340" width="10" height="280" fill="#fff" stroke="#3b3a36" stroke-width="1.2"/>
@@ -63,9 +63,9 @@
 <text x="16" y="662" font-size="11" font-weight="400" text-anchor="start" fill="#d9931f">สวิตช์ 2 ช่อง</text>
 <rect x="190" y="0" width="10" height="160" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
 <rect x="200" y="150" width="5" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
-<rect x="275" y="150" width="125" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
-<rect x="205" y="82" width="4" height="68" fill="#c0562f"/>
-<path d="M275 150 A68 68 0 0 0 207 82" fill="none" stroke="#c0562f" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="285" y="150" width="115" height="10" fill="url(#hatch)" stroke="#3b3a36" stroke-width="1.6"/>
+<rect x="205" y="72" width="4" height="78" fill="#c0562f"/>
+<path d="M285 150 A78 78 0 0 0 207 72" fill="none" stroke="#c0562f" stroke-width="1.2" stroke-dasharray="5 4"/>
 <rect x="8" y="2" width="55" height="55" fill="#fff" stroke="#3b3a36" stroke-width="1.3"/>
 <line x1="8" y1="10" x2="63" y2="10" stroke="#6d6a62" stroke-width="1"/>
 <text x="35" y="39" font-size="14" font-weight="400" text-anchor="middle" fill="#3b3a36">ตู้เย็น</text>
@@ -112,7 +112,7 @@
 <text x="21" y="815" font-size="12" font-weight="400" text-anchor="middle" fill="#3b3a36">ทีวี</text>
 <text x="170" y="648" font-size="19" font-weight="600" text-anchor="middle" fill="#3b3a36">ห้องนั่งเล่น</text>
 <text x="170" y="670" font-size="14" font-weight="400" text-anchor="middle" fill="#6d6a62">35.4 ตร.ม.</text>
-<text x="135" y="-18" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">หน้าต่างครัว 100 × 100</text>
+<text x="129" y="-18" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">หน้าต่างครัว 100 × 100</text>
 <text x="355" y="-18" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">บานเกล็ด 40 × 35</text>
 <text x="190" y="988" font-size="11" font-weight="400" text-anchor="middle" fill="#6d6a62">หน้าต่างบานเลื่อน 180 × 110</text>
 <g><line x1="0" y1="-52" x2="68" y2="-52" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="-47" x2="5" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><line x1="63" y1="-47" x2="73" y2="-57" stroke="#3b3a36" stroke-width="1.3"/><text x="34" y="-61" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">68</text></g>

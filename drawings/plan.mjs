@@ -14,13 +14,13 @@ const DECK = 200; // engawa depth
 
 // Openings, in plan coordinates.
 const frontDoor = { y0: 340, y1: 620 }; // east wall, 280 wide, centred
-const kitchenWindow = { x0: 85, x1: 185 }; // south wall, 100 × 100, over the counter
+const kitchenWindow = { x0: 79, x1: 179 }; // south wall, 100 × 100, centred on the counter so a bamboo blind clears both sides
 const ventWindow = { x0: 335, x1: 375 }; // south wall, 40 × 35 louvre, over the toilet
 const northWindow = { x0: 100, x1: 280 }; // north wall, 180 × 110, three-panel slider
 
 // Toilet: 200 × 150 in the south-west corner.
 const toilet = { x0: 200, x1: W, y0: 0, y1: 150 };
-const toiletDoor = { x0: 205, x1: 275 }; // in its north partition, east corner
+const toiletDoor = { x0: 205, x1: 285 }; // 80, in its north partition, east corner
 
 const ink = "#3b3a36";
 const soft = "#6d6a62";
@@ -90,7 +90,7 @@ function powerLayer(parts) {
   parts.push(cove(16, 4, 16, 956), cove(384, 166, 384, 956), cove(204, 18, 396, 18));
   parts.push(tag(392, 520, "ไฟซ่อน", { anchor: "end", fill: lamp }));
   parts.push(tag(24, 470, "ไฟซ่อน", { fill: lamp }));
-  parts.push(`<path d="M289 162 Q260 80 250 20" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  parts.push(`<path d="M308 162 Q265 80 250 20" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
 
   // The two ceiling lamps on S1: over the dining table and over the sofa.
   const lampSym = (cx, cy) =>
@@ -101,10 +101,10 @@ function powerLayer(parts) {
   parts.push(lampSym(240, 790), tag(256, 794, "L1", { fill: lamp }));
 
   // S3 outside the toilet, on the room face of its partition, latch side of the door.
-  parts.push(switchBox(282, 162, 14, 10));
-  parts.push(tag(289, 190, "S3", { anchor: "middle", fill: lamp }));
+  parts.push(switchBox(301, 162, 14, 10));
+  parts.push(tag(308, 190, "S3", { anchor: "middle", fill: lamp }));
   // Feed lines from S3 to the toilet light and the fan.
-  parts.push(`<path d="M289 162 Q300 120 340 120 T392 123" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  parts.push(`<path d="M308 162 Q318 120 350 120 T392 123" fill="none" stroke="${lamp}" stroke-width="1" stroke-dasharray="4 3"/>`);
 
   // Consumer unit high on the south wall, over the fridge.
   parts.push(`<rect x="12" y="1" width="36" height="12" fill="#d8d5cc" stroke="${ink}" stroke-width="1.4"/>`);
@@ -285,7 +285,7 @@ parts.push(wall(toilet.x0 - T, 0, T, toilet.y1 + T));
 parts.push(wall(toilet.x0, toilet.y1, toiletDoor.x0 - toilet.x0, T));
 parts.push(wall(toiletDoor.x1, toilet.y1, toilet.x1 - toiletDoor.x1, T));
 
-// Toilet door: 70, opens in, leaf comes to rest along the east partition.
+// Toilet door: 80, opens in, leaf comes to rest along the east partition.
 {
   const hx = toiletDoor.x0 + 2;
   const hy = toilet.y1;
@@ -372,7 +372,7 @@ parts.push(text(170, 648, "ห้องนั่งเล่น", { size: 19, we
 parts.push(text(170, 670, "35.4 ตร.ม.", { size: 14, fill: soft }));
 
 // Window and opening notes outside the walls.
-parts.push(text(135, -18, "หน้าต่างครัว 100 × 100", { size: 11, fill: soft }));
+parts.push(text(129, -18, "หน้าต่างครัว 100 × 100", { size: 11, fill: soft }));
 parts.push(text(355, -18, "บานเกล็ด 40 × 35", { size: 11, fill: soft }));
 parts.push(text(190, 988, "หน้าต่างบานเลื่อน 180 × 110", { size: 11, fill: soft }));
 
