@@ -29,13 +29,11 @@
 <text x="35.5" y="-30" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">55 × 55 × 97</text>
 <rect x="10" y="-124" width="40" height="27" fill="none" stroke="#8a877f" stroke-width="1" stroke-dasharray="3 2"/>
 <text x="30" y="-112" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">ไมโครเวฟ?</text>
-<rect x="31" y="-83.5" width="9" height="7" rx="1" fill="none" stroke="#2f6f9f" stroke-width="1.2" stroke-dasharray="1.5 1.5"/>
-<text x="35.5" y="-60" font-size="7" font-weight="600" text-anchor="middle" fill="#2f6f9f">P4 เดี่ยว สูง 80</text>
-<text x="35.5" y="-53" font-size="6.5" font-weight="400" text-anchor="middle" fill="#3b3a36">ซ่อนหลังตู้เย็น</text>
-<rect x="62.5" y="-111" width="7" height="11" rx="1" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.2"/>
-<line x1="62.5" y1="-100" x2="85" y2="-100" stroke="#2f6f9f" stroke-width="0.5" stroke-dasharray="1.5 1.5"/>
-<line x1="64" y1="-111" x2="56" y2="-138" stroke="#2f6f9f" stroke-width="0.6"/>
-<text x="6" y="-157" font-size="8" font-weight="600" text-anchor="start" fill="#2f6f9f">P5 ปลั๊กคู่</text><text x="6" y="-147" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ขอบล่าง 100</text><text x="6" y="-137" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ไมโครเวฟ กาต้มน้ำ</text>
+<rect x="62.5" y="-121" width="7" height="11" rx="1" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.2"/>
+<circle cx="66" cy="-113" r="1.4" fill="none" stroke="#2f6f9f" stroke-width="0.6"/>
+<circle cx="66" cy="-118" r="1.4" fill="none" stroke="#2f6f9f" stroke-width="0.6"/>
+<line x1="64" y1="-121" x2="56" y2="-138" stroke="#2f6f9f" stroke-width="0.6"/>
+<text x="6" y="-163" font-size="8" font-weight="600" text-anchor="start" fill="#2f6f9f">P5 ปลั๊กคู่ แนวตั้ง</text><text x="6" y="-153" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ขอบล่าง 110</text><text x="6" y="-143" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">บน ไมโครเวฟ</text><text x="6" y="-133" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ล่าง ตู้เย็น</text>
 <rect x="12" y="-210" width="36" height="40" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
 <line x1="12" y1="-210" x2="48" y2="-170" stroke="#3b3a36" stroke-width="0.6"/>
 <text x="6" y="-225" font-size="8" font-weight="600" text-anchor="start" fill="#3b3a36">ตู้ไฟ ขอบล่าง 170 · บน 210</text>
@@ -56,12 +54,10 @@
 <text x="318" y="-121" font-size="8" font-weight="600" text-anchor="start" fill="#d9931f">S3 Tuya 2 ช่อง สูง 120</text><text x="318" y="-111" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">1 ไฟซ่อนห้องน้ำ</text><text x="318" y="-101" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">2 พัดลมดูดอากาศ</text>
 <line x1="-15" y1="0" x2="415" y2="0" stroke="#3b3a36" stroke-width="2"/>
 <text x="404" y="-236" font-size="8" font-weight="400" text-anchor="start" fill="#8a877f">ฝ้า 240</text>
-<line x1="-22" y1="-80" x2="-12" y2="-80" stroke="#3b3a36" stroke-width="0.8"/>
-<text x="-25" y="-77" font-size="8" font-weight="400" text-anchor="end" fill="#3b3a36">80</text>
-<line x1="-22" y1="-100" x2="-12" y2="-100" stroke="#3b3a36" stroke-width="0.8"/>
-<text x="-25" y="-97" font-size="8" font-weight="400" text-anchor="end" fill="#3b3a36">100</text>
-<line x1="-22" y1="-120" x2="-12" y2="-120" stroke="#3b3a36" stroke-width="0.8"/>
-<text x="-25" y="-117" font-size="8" font-weight="400" text-anchor="end" fill="#3b3a36">120</text>
+<line x1="-22" y1="-97" x2="-12" y2="-97" stroke="#3b3a36" stroke-width="0.8"/>
+<text x="-25" y="-94" font-size="8" font-weight="400" text-anchor="end" fill="#3b3a36">97</text>
+<line x1="-22" y1="-110" x2="-12" y2="-110" stroke="#3b3a36" stroke-width="0.8"/>
+<text x="-25" y="-107" font-size="8" font-weight="400" text-anchor="end" fill="#3b3a36">110</text>
 <line x1="-22" y1="-170" x2="-12" y2="-170" stroke="#3b3a36" stroke-width="0.8"/>
 <text x="-25" y="-167" font-size="8" font-weight="400" text-anchor="end" fill="#3b3a36">170</text>
 <line x1="-22" y1="-200" x2="-12" y2="-200" stroke="#3b3a36" stroke-width="0.8"/>
@@ -71,7 +67,7 @@
 <line x1="-17" y1="0" x2="-17" y2="-240" stroke="#3b3a36" stroke-width="0.6"/>
 <g><line x1="0" y1="28" x2="68" y2="28" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="33" x2="5" y2="23" stroke="#3b3a36" stroke-width="1.3"/><line x1="63" y1="33" x2="73" y2="23" stroke="#3b3a36" stroke-width="1.3"/><text x="34" y="19" font-size="10" font-weight="500" text-anchor="middle" fill="#3b3a36">68</text></g><g><line x1="68" y1="28" x2="190" y2="28" stroke="#3b3a36" stroke-width="0.9"/><line x1="63" y1="33" x2="73" y2="23" stroke="#3b3a36" stroke-width="1.3"/><line x1="185" y1="33" x2="195" y2="23" stroke="#3b3a36" stroke-width="1.3"/><text x="129" y="19" font-size="10" font-weight="500" text-anchor="middle" fill="#3b3a36">122</text></g><g><line x1="200" y1="28" x2="290" y2="28" stroke="#3b3a36" stroke-width="0.9"/><line x1="195" y1="33" x2="205" y2="23" stroke="#3b3a36" stroke-width="1.3"/><line x1="285" y1="33" x2="295" y2="23" stroke="#3b3a36" stroke-width="1.3"/><text x="245" y="19" font-size="10" font-weight="500" text-anchor="middle" fill="#3b3a36">วงกบ 90</text></g><g><line x1="290" y1="28" x2="400" y2="28" stroke="#3b3a36" stroke-width="0.9"/><line x1="285" y1="33" x2="295" y2="23" stroke="#3b3a36" stroke-width="1.3"/><line x1="395" y1="33" x2="405" y2="23" stroke="#3b3a36" stroke-width="1.3"/><text x="345" y="19" font-size="10" font-weight="500" text-anchor="middle" fill="#3b3a36">110</text></g>
 <text x="-55" y="70" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">· ผนังนี้ไม่มีไฟซ่อน (ไฟซ่อนในห้องอยู่แค่ผนังยาวสองด้าน) · ไฟซ่อนห้องน้ำอยู่หลังผนังห้องน้ำ ชิดผนังทิศใต้</text>
-<text x="-55" y="84" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">· ไม่มีปลั๊กบนเคาน์เตอร์ · P4 ตู้เย็นซ่อนหลังตู้ (ตั้งตู้ห่างผนัง ~8) · P5 ปลั๊กคู่ใช้งาน เสมอขอบล่างหน้าต่าง · ลิ้นชักย้ายไปช่องซ้าย ซิงก์ช่องขวาโล่ง ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ</text>
+<text x="-55" y="84" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">· ไม่มีปลั๊กบนเคาน์เตอร์ · P5 ปลั๊กคู่จุดเดียวของครัว: ช่องล่างตู้เย็นเสียบค้าง ช่องบนไมโครเวฟ/กาต้มน้ำ · ลิ้นชักย้ายไปช่องซ้าย ซิงก์ช่องขวาโล่ง ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ</text>
 <text x="-55" y="98" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">· หน้าต่างครัวขอบล่าง 100 พ้นเคาน์เตอร์ 85 ได้ 15 ซม. · ที่คว่ำจานสูงเกิน 15 จะบังขอบล่างหน้าต่างนิดหน่อย</text>
 <text x="-55" y="124" font-size="10" font-weight="400" text-anchor="start" fill="#3b3a36">รูปด้านภายใน ผนังครัว · 22 พ.ย. 2026</text>
 </svg>

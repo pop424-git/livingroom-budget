@@ -71,8 +71,8 @@ parts.push(label(240, 262, ["โคมกล่องไม้ ใต้แป",
 parts.push(label(720, 262, ["โคมกล่องไม้ ใต้แป", "LED batten 120 ซม. 2700K"], { anchor: "middle", fill: lamp }));
 
 // S4: the deck lights' second switch, outside, behind S1/S2 (plan y ≈ 650).
-parts.push(rect(645, 113, 10, 14, `rx="1.5" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"`));
-parts.push(rect(643, 111, 14, 18, `rx="2" fill="none" stroke="${lamp}" stroke-width="0.8"`));
+parts.push(rect(644, 116.4, 12, 7.2, `rx="1" fill="#fff" stroke="${lamp}" stroke-width="1.6"`), rect(648.8, 118, 2.4, 4, `rx="0.4" fill="${lampFill}" stroke="${lamp}" stroke-width="0.7"`));
+parts.push(rect(641, 114, 18, 12, `rx="2" fill="none" stroke="${lamp}" stroke-width="0.8"`));
 parts.push(label(664, 152, ["S4 สวิตช์ 2 ทางธรรมดา", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S2 ในห้องพอดี"], { fill: lamp }));
 
 // P10 straight under S4, above a shoe cabinet so it can be used from its top.

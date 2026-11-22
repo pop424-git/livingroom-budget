@@ -118,11 +118,8 @@ function powerLayer(parts) {
   // P2: a double low on the wall right under the main switches.
   parts.push(outlet(8, 680), tag(20, 694, "P2 ใต้สวิตช์"));
 
-  // P4: a single for the fridge, hidden behind it. P5: a double in the gap
-  // between the fridge and the counter, at the window sill, for the
-  // microwave on the fridge and anything used on the counter.
-  parts.push(outlet(35, 7), tag(30, 80, "P4", { anchor: "end" }));
-  parts.push(`<line x1="35" y1="13" x2="26" y2="68" stroke="${pw}" stroke-width="0.7"/>`);
+  // P5: the kitchen's one double, upright in the gap between the fridge and
+  // the counter: the fridge in the lower socket, the microwave in the upper.
   parts.push(outlet(66, 7), tag(72, 80, "P5"));
   parts.push(`<line x1="66" y1="13" x2="76" y2="68" stroke="${pw}" stroke-width="0.7"/>`);
   parts.push(outlet(392, 373), tag(378, 350, "P6", { anchor: "end" })); // dining table end
@@ -170,8 +167,7 @@ function powerSchedule(parts) {
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว");
   row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 40 · ปลั๊กคู่");
-  row(duo, "P4", "ปลั๊กเดี่ยวตู้เย็น ซ่อนกลางหลังตู้เย็น · สูง 80 · ตั้งตู้เย็นห่างผนัง ~8");
-  row(duo, "P5", "ปลั๊กคู่ ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 100 เสมอขอบล่างหน้าต่าง · ไมโครเวฟ กาต้มน้ำ");
+  row(duo, "P5", "ปลั๊กคู่แนวตั้ง ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 110 · ช่องล่างตู้เย็นเสียบค้าง · ช่องบนไมโครเวฟ กาต้มน้ำ");
   row(duo, "P6", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
   row((cx, cy) => outlet(cx, cy, "ac"), "AC", "แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ");
   row(duo, "P8", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
@@ -182,7 +178,7 @@ function powerSchedule(parts) {
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
   row(null, "C2", "ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A");
   row(null, "C3", "ปลั๊กทั่วไป P1 P2 P6 P8 · 16A");
-  row(null, "C4", "ครัว P4 P5 · 20A");
+  row(null, "C4", "ครัว P5 · 20A");
   row(null, "C5", "แอร์ · 20A วงจรเดี่ยว ต่อตรง ปิดที่ตู้ไฟเวลาล้างแอร์");
   row(null, "C6", "ปลั๊กนอก P10 · 16A");
   row(null, "", "ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
