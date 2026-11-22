@@ -64,9 +64,9 @@ parts.push(label(373, 130, ["P6 ปลั๊กคู่", "กึ่งกล�
 parts.push(rect(580, 0, 75, 42, furn));
 parts.push(rect(580, 42, 75, 38, furn));
 parts.push(text(617, up(55), "อาร์มแชร์", { size: 11, fill: soft }));
-parts.push(rect(611, 26, 12, 8, `rx="1.5" fill="none" stroke="${pw}" stroke-width="1.4" stroke-dasharray="2 2"`));
-parts.push(label(617, 120, ["P8 ปลั๊กคู่", "หลังอาร์มแชร์ · สูง 30"], { anchor: "middle" }));
-parts.push(`<line x1="617" y1="${up(36)}" x2="617" y2="${up(103)}" stroke="${pw}" stroke-width="0.8"/>`);
+parts.push(rect(611, 36, 12, 8, `rx="1.5" fill="none" stroke="${pw}" stroke-width="1.4" stroke-dasharray="2 2"`));
+parts.push(label(617, 120, ["P8 ปลั๊กคู่", "หลังอาร์มแชร์ · สูง 40"], { anchor: "middle" }));
+parts.push(`<line x1="617" y1="${up(46)}" x2="617" y2="${up(103)}" stroke="${pw}" stroke-width="0.8"/>`);
 
 // Sofa, back to the wall, chaise at the north end.
 parts.push(rect(660, 0, 280, 42, furn));
@@ -75,7 +75,7 @@ parts.push(text(800, up(55), "โซฟา 280", { size: 11, fill: soft }));
 parts.push(text(800, up(140), "ไม่มีปลั๊กหลังโซฟา", { size: 11, fill: soft }));
 
 // Height scale.
-for (const h of [30, 60, 70, 240]) {
+for (const h of [40, 60, 70, 240]) {
   parts.push(`<line x1="-26" y1="${up(h)}" x2="-14" y2="${up(h)}" stroke="${ink}" stroke-width="1"/>`);
   parts.push(text(-30, up(h) + 4, String(h), { size: 12, anchor: "end" }));
 }

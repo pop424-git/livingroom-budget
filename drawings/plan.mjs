@@ -118,7 +118,6 @@ function powerLayer(parts) {
   // P2: a double low on the wall right under the main switches.
   parts.push(outlet(8, 680), tag(20, 694, "P2 ใต้สวิตช์"));
 
-  parts.push(outlet(8, 240), tag(20, 244, "P3")); // east wall, in line with the south deck lamp
   // P4: a single for the fridge, hidden behind it. P5: a double in the gap
   // between the fridge and the counter, at the window sill, for the
   // microwave on the fridge and anything used on the counter.
@@ -137,6 +136,8 @@ function powerLayer(parts) {
 
   parts.push(outlet(392, 617), tag(378, 600, "P8", { anchor: "end" })); // behind the armchair, mid-way
   parts.push(outlet(-22, 690, "ip"), tag(-36, 694, "P10", { anchor: "end" })); // deck, outside face
+  // S4: the deck lights' second switch, outside on the deck behind S1/S2.
+  parts.push(switchBox(-24, 643, 10, 14), tag(-36, 654, "S4 2 ทาง", { anchor: "end", fill: lamp }));
 }
 
 /** Schedule under the power plan. */
@@ -160,6 +161,7 @@ function powerSchedule(parts) {
   row(sw, "S1", "3 ช่อง (บน) ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 โซฟา · 2 ไฟซ่อนในห้องทั้งหมด · 3 โคม L2 โต๊ะกินข้าว");
   row(sw, "S2", "2 ช่อง (ล่าง) ใต้ S1 · 1 ไฟระเบียง สั่ง 2 ทาง · 2 ปุ่มฉาก เปิด/ปิด L1 ไฟซ่อน L2 พร้อมกัน");
   row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
+  row(sw, "S4", "1 ช่อง นอกผนัง บนระเบียง หลัง S1 S2 · สูง 120 · กล่องกันน้ำมีฝา · ไฟระเบียง 2 ทางกับ S2-1 ผ่านแอป");
   row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
   row((cx, cy) => `<line x1="${cx - 12}" y1="${cy}" x2="${cx + 12}" y2="${cy}" stroke="${lamp}" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>`, "", "ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)");
   row(null, "", "ห้องน้ำ: ไฟซ่อนผนังทิศใต้ 2.0 ม. ดวงเดียวในห้อง · IP65 (S3-1) · เส้นยาว 8–9.6 ม. ป้อนไฟกลางเส้นหรือสองหัว ไฟไม่ดรอปปลายเส้น");
@@ -167,20 +169,19 @@ function powerSchedule(parts) {
   y += 8;
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว");
-  row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 30 · ปลั๊กคู่");
-  row(duo, "P3", "ผนังข้างประตู ตรงกับโคมระเบียงดวงใต้ · สูง 30");
+  row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 40 · ปลั๊กคู่");
   row(duo, "P4", "ปลั๊กเดี่ยวตู้เย็น ซ่อนกลางหลังตู้เย็น · สูง 80 · ตั้งตู้เย็นห่างผนัง ~8");
   row(duo, "P5", "ปลั๊กคู่ ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 100 เสมอขอบล่างหน้าต่าง · ไมโครเวฟ กาต้มน้ำ");
   row(duo, "P6", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
   row((cx, cy) => outlet(cx, cy, "ac"), "AC", "แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ");
-  row(duo, "P8", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 30 · โคมตั้งพื้น ชาร์จมือถือ");
+  row(duo, "P8", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
   row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
   row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ~170 · ขอบบน ~210 · พ้นไมโครเวฟบนตู้เย็น · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
   head("วงจรแนะนำ");
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
   row(null, "C2", "ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A");
-  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P3 P6 P8 · 16A");
+  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P6 P8 · 16A");
   row(null, "C4", "ครัว P4 P5 · 20A");
   row(null, "C5", "แอร์ · 20A วงจรเดี่ยว ต่อตรง ปิดที่ตู้ไฟเวลาล้างแอร์");
   row(null, "C6", "ปลั๊กนอก P10 · 16A");

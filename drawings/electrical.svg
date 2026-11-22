@@ -118,8 +118,6 @@
 <rect x="50" y="794" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="61" y="805" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P1</text>
 <circle cx="8" cy="680" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="677" x2="5.8" y2="683"/><line x1="10.2" y1="677" x2="10.2" y2="683"/></g>
 <rect x="20" y="683" width="92" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="66" y="694" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P2 ใต้สวิตช์</text>
-<circle cx="8" cy="240" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="5.8" y1="237" x2="5.8" y2="243"/><line x1="10.2" y1="237" x2="10.2" y2="243"/></g>
-<rect x="20" y="233" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="31" y="244" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P3</text>
 <circle cx="35" cy="7" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="32.8" y1="4" x2="32.8" y2="10"/><line x1="37.2" y1="4" x2="37.2" y2="10"/></g>
 <rect x="8" y="69" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="19" y="80" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P4</text>
 <line x1="35" y1="13" x2="26" y2="68" stroke="#2f6f9f" stroke-width="0.7"/>
@@ -136,6 +134,8 @@
 <rect x="356" y="589" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="600" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P8</text>
 <circle cx="-22" cy="690" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-22" cy="690" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-24.2" y1="687" x2="-24.2" y2="693"/><line x1="-19.8" y1="687" x2="-19.8" y2="693"/></g>
 <rect x="-65" y="683" width="29" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="-50.5" y="694" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P10</text>
+<rect x="-24" y="643" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<rect x="-100" y="643" width="64" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="-68" y="654" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S4 2 ทาง</text>
 <text x="-370" y="1062" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">สวิตช์ · สูง 120 ทุกตัว</text>
 <rect x="-361" y="1074" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <text x="-336" y="1086" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S1</text>
@@ -146,23 +146,23 @@
 <rect x="-361" y="1116" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <text x="-336" y="1128" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S3</text>
 <text x="-300" y="1128" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)</text>
-<circle cx="-356" cy="1144" r="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/><path d="M-361.6 1138.4 L-350.4 1149.6 M-350.4 1138.4 L-361.6 1149.6" stroke="#d9931f" stroke-width="1.3"/>
-<text x="-336" y="1149" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">L</text>
-<text x="-300" y="1149" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด</text>
-<line x1="-368" y1="1165" x2="-344" y2="1165" stroke="#d9931f" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="-300" y="1170" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)</text>
-<text x="-300" y="1191" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ห้องน้ำ: ไฟซ่อนผนังทิศใต้ 2.0 ม. ดวงเดียวในห้อง · IP65 (S3-1) · เส้นยาว 8–9.6 ม. ป้อนไฟกลางเส้นหรือสองหัว ไฟไม่ดรอปปลายเส้น</text>
-<text x="-300" y="1212" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">driver ไฟซ่อนวางบนฝ้าใกล้จุดป้อน ทำช่องเซอร์วิสเปิดเปลี่ยนได้ · ห้องน้ำวาง driver นอกห้องน้ำ</text>
-<text x="-370" y="1241" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด</text>
-<circle cx="-356" cy="1260" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1257" x2="-358.2" y2="1263"/><line x1="-353.8" y1="1257" x2="-353.8" y2="1263"/></g>
-<text x="-336" y="1265" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P1</text>
-<text x="-300" y="1265" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว</text>
+<rect x="-361" y="1137" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="-336" y="1149" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S4</text>
+<text x="-300" y="1149" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">1 ช่อง นอกผนัง บนระเบียง หลัง S1 S2 · สูง 120 · กล่องกันน้ำมีฝา · ไฟระเบียง 2 ทางกับ S2-1 ผ่านแอป</text>
+<circle cx="-356" cy="1165" r="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/><path d="M-361.6 1159.4 L-350.4 1170.6 M-350.4 1159.4 L-361.6 1170.6" stroke="#d9931f" stroke-width="1.3"/>
+<text x="-336" y="1170" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">L</text>
+<text x="-300" y="1170" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด</text>
+<line x1="-368" y1="1186" x2="-344" y2="1186" stroke="#d9931f" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="-300" y="1191" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)</text>
+<text x="-300" y="1212" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ห้องน้ำ: ไฟซ่อนผนังทิศใต้ 2.0 ม. ดวงเดียวในห้อง · IP65 (S3-1) · เส้นยาว 8–9.6 ม. ป้อนไฟกลางเส้นหรือสองหัว ไฟไม่ดรอปปลายเส้น</text>
+<text x="-300" y="1233" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">driver ไฟซ่อนวางบนฝ้าใกล้จุดป้อน ทำช่องเซอร์วิสเปิดเปลี่ยนได้ · ห้องน้ำวาง driver นอกห้องน้ำ</text>
+<text x="-370" y="1262" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด</text>
 <circle cx="-356" cy="1281" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1278" x2="-358.2" y2="1284"/><line x1="-353.8" y1="1278" x2="-353.8" y2="1284"/></g>
-<text x="-336" y="1286" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P2</text>
-<text x="-300" y="1286" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ใต้สวิตช์ S1 S2 · สูง 30 · ปลั๊กคู่</text>
+<text x="-336" y="1286" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P1</text>
+<text x="-300" y="1286" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว</text>
 <circle cx="-356" cy="1302" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1299" x2="-358.2" y2="1305"/><line x1="-353.8" y1="1299" x2="-353.8" y2="1305"/></g>
-<text x="-336" y="1307" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P3</text>
-<text x="-300" y="1307" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังข้างประตู ตรงกับโคมระเบียงดวงใต้ · สูง 30</text>
+<text x="-336" y="1307" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P2</text>
+<text x="-300" y="1307" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ใต้สวิตช์ S1 S2 · สูง 40 · ปลั๊กคู่</text>
 <circle cx="-356" cy="1323" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1320" x2="-358.2" y2="1326"/><line x1="-353.8" y1="1320" x2="-353.8" y2="1326"/></g>
 <text x="-336" y="1328" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P4</text>
 <text x="-300" y="1328" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กเดี่ยวตู้เย็น ซ่อนกลางหลังตู้เย็น · สูง 80 · ตั้งตู้เย็นห่างผนัง ~8</text>
@@ -177,7 +177,7 @@
 <text x="-300" y="1391" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ</text>
 <circle cx="-356" cy="1407" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1404" x2="-358.2" y2="1410"/><line x1="-353.8" y1="1404" x2="-353.8" y2="1410"/></g>
 <text x="-336" y="1412" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P8</text>
-<text x="-300" y="1412" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 30 · โคมตั้งพื้น ชาร์จมือถือ</text>
+<text x="-300" y="1412" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ</text>
 <circle cx="-356" cy="1428" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-356" cy="1428" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-358.2" y1="1425" x2="-358.2" y2="1431"/><line x1="-353.8" y1="1425" x2="-353.8" y2="1431"/></g>
 <text x="-336" y="1433" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">P10</text>
 <text x="-300" y="1433" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น</text>
@@ -189,7 +189,7 @@
 <text x="-336" y="1528" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C2</text>
 <text x="-300" y="1528" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A</text>
 <text x="-336" y="1549" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C3</text>
-<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทั่วไป P1 P2 P3 P6 P8 · 16A</text>
+<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทั่วไป P1 P2 P6 P8 · 16A</text>
 <text x="-336" y="1570" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C4</text>
 <text x="-300" y="1570" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว P4 P5 · 20A</text>
 <text x="-336" y="1591" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C5</text>

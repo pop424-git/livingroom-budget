@@ -27,13 +27,11 @@
 <rect x="304" y="-119.1" width="12" height="7.2" rx="0.8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.2"/><line x1="310" y1="-119.1" x2="310" y2="-111.9" stroke="#d9931f" stroke-width="0.6"/>
 <line x1="310" y1="-129" x2="306" y2="-178" stroke="#d9931f" stroke-width="0.8"/>
 <text x="302" y="-202" font-size="12.5" font-weight="600" text-anchor="end" fill="#d9931f">S1 3 ช่อง (บน)</text><text x="302" y="-187" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">S2 2 ช่อง (ล่าง)</text><text x="302" y="-172" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">กึ่งกลางชุด 120</text>
-<rect x="304" y="-34" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
-<line x1="310" y1="-36" x2="310" y2="-110" stroke="#c9c6bd" stroke-width="0.8" stroke-dasharray="3 3"/>
-<text x="298" y="-26" font-size="12.5" font-weight="600" text-anchor="end" fill="#2f6f9f">P2 ปลั๊กคู่</text><text x="298" y="-11" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">ใต้สวิตช์ · สูง 30</text>
-<rect x="714" y="-34" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
-<text x="732" y="-26" font-size="12.5" font-weight="600" text-anchor="start" fill="#2f6f9f">P3 ปลั๊กคู่ สูง 30</text><text x="732" y="-11" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">ตรงกับโคมระเบียงดวงใต้</text>
-<line x1="-26" y1="-30" x2="-14" y2="-30" stroke="#3b3a36" stroke-width="1"/>
-<text x="-30" y="-26" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">30</text>
+<rect x="304" y="-44" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
+<line x1="310" y1="-46" x2="310" y2="-110" stroke="#c9c6bd" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="298" y="-36" font-size="12.5" font-weight="600" text-anchor="end" fill="#2f6f9f">P2 ปลั๊กคู่</text><text x="298" y="-21" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">ใต้สวิตช์ · สูง 40</text>
+<line x1="-26" y1="-40" x2="-14" y2="-40" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-36" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">40</text>
 <line x1="-26" y1="-95" x2="-14" y2="-95" stroke="#3b3a36" stroke-width="1"/>
 <text x="-30" y="-91" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">95</text>
 <line x1="-26" y1="-120" x2="-14" y2="-120" stroke="#3b3a36" stroke-width="1"/>
@@ -48,8 +46,7 @@
 <g><line x1="240" y1="40" x2="310" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="235" y1="45" x2="245" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="305" y1="45" x2="315" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="275" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">70</text></g>
 <g><line x1="310" y1="40" x2="340" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="305" y1="45" x2="315" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="335" y1="45" x2="345" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="325" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">30</text></g>
 <g><line x1="340" y1="40" x2="620" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="335" y1="45" x2="345" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="615" y1="45" x2="625" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">280</text></g>
-<g><line x1="620" y1="40" x2="720" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="615" y1="45" x2="625" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="715" y1="45" x2="725" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="670" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">100</text></g>
-<g><line x1="720" y1="40" x2="960" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="715" y1="45" x2="725" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="45" x2="965" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="840" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">240</text></g>
+<g><line x1="620" y1="40" x2="960" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="615" y1="45" x2="625" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="45" x2="965" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="790" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">340</text></g>
 <text x="-60" y="124" font-size="18" font-weight="600" text-anchor="start" fill="#3b3a36">หน้าสวิตช์ขยาย · Tuya WiFi ปุ่มใหญ่ 3 ช่องวางบน 2 ช่อง</text>
 <rect x="40" y="150" width="192" height="115.2" rx="8" fill="#fff" stroke="#3b3a36" stroke-width="2"/>
 <circle cx="72" cy="170" r="2.5" fill="#c9c6bd"/>
@@ -71,11 +68,11 @@
 <text x="272" y="216" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">2 กลาง   ไฟซ่อนในห้องทั้งหมด (ผนังยาวสองด้าน)</text>
 <text x="272" y="238" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">3 ขวา    โคม L2 เหนือโต๊ะกินข้าว</text>
 <text x="272" y="297.2" font-size="15" font-weight="600" text-anchor="start" fill="#d9931f">S2 · 2 ช่อง</text>
-<text x="272" y="323.2" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">1 ซ้าย   ไฟระเบียง · สั่ง 2 ทางร่วมกับสวิตช์อีกจุด (ผ่านแอป ดูหมายเหตุ)</text>
+<text x="272" y="323.2" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">1 ซ้าย   ไฟระเบียง · 2 ทางกับ S4 ด้านนอก (Multi-Control ในแอป)</text>
 <text x="272" y="345.2" font-size="15" font-weight="400" text-anchor="start" fill="#2f6f9f">2 ขวา    ปุ่มฉาก: กด = เปิด L1 ไฟซ่อน L2 พร้อมกัน · กดอีกครั้ง = ปิดทั้งหมด</text>
 <text x="272" y="367.2" font-size="15" font-weight="400" text-anchor="start" fill="#8a877f">          ช่องนี้ไม่ต่อโหลด ใช้ทริกเกอร์ Automation ในแอป Smart Life</text>
-<text x="-60" y="450.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#b3412c">· สวิตช์รุ่นนี้ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่องสวิตช์ S1 S2 ทั้งสองกล่อง (ปกติช่างเดินแค่ L)</text>
+<text x="-60" y="450.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#b3412c">· สวิตช์รุ่นนี้ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่องสวิตช์ S1 S2 และ S4 ด้านนอก (ปกติช่างเดินแค่ L)</text>
 <text x="-60" y="472.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· กล่องฝังผนังขนาด 2×4 นิ้ว 2 กล่องซ้อนกันแนวตั้ง · ระยะกึ่งกลางกล่องห่างกัน ~9 ซม. ให้หน้ากากไม่ชนกัน · เช็กขนาดหน้ากากจริงก่อนฝังกล่อง</text>
-<text x="-60" y="494.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· P10 ปลั๊กกันน้ำบนระเบียง อยู่หลังผนังนี้ด้านนอก แนวเดียวกับ P2</text>
+<text x="-60" y="494.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ไฟระเบียง 2 ทาง สูง 120 หลัง S1 S2 · P10 ปลั๊กกันน้ำ สูง 40 แนวเดียวกับ P2</text>
 <text x="-60" y="546.4" font-size="16" font-weight="400" text-anchor="start" fill="#3b3a36">รูปด้านภายใน ผนังฝั่งประตู · 21 พ.ย. 2026</text>
 </svg>

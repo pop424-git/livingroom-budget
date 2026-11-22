@@ -90,17 +90,14 @@ parts.push(`<line x1="${sx}" y1="${up(129)}" x2="${sx - 4}" y2="${up(178)}" stro
 parts.push(label(sx - 8, 206, ["S1 3 ช่อง (บน)", "S2 2 ช่อง (ล่าง)", "กึ่งกลางชุด 120"], { anchor: "end", fill: lamp }));
 
 // P2 straight under the switches.
-parts.push(outlet(sx, 30));
-parts.push(`<line x1="${sx}" y1="${up(36)}" x2="${sx}" y2="${up(110)}" stroke="${faint}" stroke-width="0.8" stroke-dasharray="3 3"/>`);
-parts.push(label(sx - 12, 30, ["P2 ปลั๊กคู่", "ใต้สวิตช์ · สูง 30"], { anchor: "end" }));
+parts.push(outlet(sx, 40));
+parts.push(`<line x1="${sx}" y1="${up(46)}" x2="${sx}" y2="${up(110)}" stroke="${faint}" stroke-width="0.8" stroke-dasharray="3 3"/>`);
+parts.push(label(sx - 12, 40, ["P2 ปลั๊กคู่", "ใต้สวิตช์ · สูง 40"], { anchor: "end" }));
 
 
-// P3 in line with the south deck lamp: plan y 240 → x 720.
-parts.push(outlet(X(240), 30));
-parts.push(label(X(240) + 12, 30, ["P3 ปลั๊กคู่ สูง 30", "ตรงกับโคมระเบียงดวงใต้"]));
 
 // Heights, on a scale at the left.
-for (const h of [30, 95, 120, 200, 240]) {
+for (const h of [40, 95, 120, 200, 240]) {
   parts.push(`<line x1="-26" y1="${up(h)}" x2="-14" y2="${up(h)}" stroke="${ink}" stroke-width="1"/>`);
   parts.push(text(-30, up(h) + 4, String(h), { size: 12, anchor: "end" }));
 }
@@ -112,8 +109,7 @@ parts.push(dimH(60, 240, 40, "ทีวี 180"));
 parts.push(dimH(240, sx, 40, "70"));
 parts.push(dimH(sx, d0, 40, "30"));
 parts.push(dimH(d0, d1, 40, "280"));
-parts.push(dimH(d1, X(240), 40, "100"));
-parts.push(dimH(X(240), L, 40, "240"));
+parts.push(dimH(d1, L, 40, "340"));
 
 // ---- enlarged switch face ---------------------------------------------
 const S = 16; // px per cm in the detail
@@ -144,7 +140,7 @@ const rows = [
   [oy + 66, "2 กลาง   ไฟซ่อนในห้องทั้งหมด (ผนังยาวสองด้าน)", ink],
   [oy + 88, "3 ขวา    โคม L2 เหนือโต๊ะกินข้าว", ink],
   [oy + h1 + 32, "S2 · 2 ช่อง", lamp, true],
-  [oy + h1 + 58, "1 ซ้าย   ไฟระเบียง · สั่ง 2 ทางร่วมกับสวิตช์อีกจุด (ผ่านแอป ดูหมายเหตุ)", ink],
+  [oy + h1 + 58, "1 ซ้าย   ไฟระเบียง · 2 ทางกับ S4 ด้านนอก (Multi-Control ในแอป)", ink],
   [oy + h1 + 80, "2 ขวา    ปุ่มฉาก: กด = เปิด L1 ไฟซ่อน L2 พร้อมกัน · กดอีกครั้ง = ปิดทั้งหมด", pw],
   [oy + h1 + 102, "          ช่องนี้ไม่ต่อโหลด ใช้ทริกเกอร์ Automation ในแอป Smart Life", soft],
 ];
@@ -153,9 +149,9 @@ for (const [y, t, c, bold] of rows) parts.push(text(lx, y, t, { size: 15, weight
 // Notes.
 const ny = oy + 2 * h1 + 70;
 const notes = [
-  "สวิตช์รุ่นนี้ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่องสวิตช์ S1 S2 ทั้งสองกล่อง (ปกติช่างเดินแค่ L)",
+  "สวิตช์รุ่นนี้ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่องสวิตช์ S1 S2 และ S4 ด้านนอก (ปกติช่างเดินแค่ L)",
   "กล่องฝังผนังขนาด 2×4 นิ้ว 2 กล่องซ้อนกันแนวตั้ง · ระยะกึ่งกลางกล่องห่างกัน ~9 ซม. ให้หน้ากากไม่ชนกัน · เช็กขนาดหน้ากากจริงก่อนฝังกล่อง",
-  "P10 ปลั๊กกันน้ำบนระเบียง อยู่หลังผนังนี้ด้านนอก แนวเดียวกับ P2",
+  "ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ไฟระเบียง 2 ทาง สูง 120 หลัง S1 S2 · P10 ปลั๊กกันน้ำ สูง 40 แนวเดียวกับ P2",
 ];
 notes.forEach((t, i) => parts.push(text(-60, ny + i * 22, "· " + t, { size: 13.5, anchor: "start", fill: i ? ink : "#b3412c" })));
 parts.push(text(-60, ny + notes.length * 22 + 30, "รูปด้านภายใน ผนังฝั่งประตู · 21 พ.ย. 2026", { size: 16, anchor: "start" }));
