@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Gallery, type Shot } from "@/components/ReferenceShots";
 import { Icon } from "@/components/icons";
 import { labelClass } from "@/components/ui";
@@ -78,15 +79,38 @@ export function ElectricalSection() {
   );
 }
 
-/** The agreed switch and outlet layout, the shopping list, and the drawings. */
+/**
+ * The agreed layout, short first: circuits, then one line per switch and
+ * outlet, then what to tell the electrician. The shopping list and the
+ * drawings are only needed on the day, so they stay folded.
+ */
 export function Electrical() {
+  const shoppingCount = shopping.reduce((n, g) => n + g.lines.length, 0);
   return (
-    <div className="space-y-10">
-      <PointList title="สวิตช์" note="สูง 120 ทุกตัว" points={switches} tone="lamp" />
-      <PointList title="ปลั๊ก" note="ความสูงวัดจากพื้นห้อง (ซม.)" points={outlets} tone="power" />
-
+    <div className="space-y-8">
       <div>
-        <h3 className={`${labelClass} mb-3`}>รายการของที่ต้องใช้</h3>
+        <h3 className={`${labelClass} mb-3`}>ตู้ไฟ · เมน 32A · {circuits.length} วงจร</h3>
+        <dl className="divide-y divide-line-soft rounded-lg border border-line bg-surface">
+          {circuits.map(([code, text]) => (
+            <div key={code} className="flex gap-3 px-4 py-2">
+              <dt className="w-8 shrink-0 font-mono text-sm text-ink">{code}</dt>
+              <dd className="text-sm text-ink">{text}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="grid gap-8 sm:grid-cols-2">
+        <PointList title="สวิตช์" note="สูง 120 ทุกตัว" points={switches} tone="lamp" />
+        <PointList title="ปลั๊กคู่" note="สูงจากพื้น (ซม.)" points={outlets} tone="power" />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Checklist title="ต้องบอกช่าง" items={tellElectrician} />
+        <Checklist title="เช็กหน้างาน" items={checkOnSite} />
+      </div>
+
+      <Fold title="รายการของที่ต้องซื้อ" count={`${shoppingCount} รายการ`}>
         <div className="space-y-4">
           {shopping.map((group) => (
             <div key={group.title} className="rounded-lg border border-line bg-surface">
@@ -95,10 +119,10 @@ export function Electrical() {
               </p>
               <ul className="divide-y divide-line-soft">
                 {group.lines.map((line) => (
-                  <li key={line.item} className="flex items-baseline gap-3 px-4 py-2.5">
+                  <li key={line.item} className="flex items-baseline gap-3 px-4 py-2">
                     <div className="min-w-0 flex-1">
                       <p className="text-sm text-ink">{line.item}</p>
-                      {line.note && <p className="mt-0.5 text-xs text-muted">{line.note}</p>}
+                      {line.note && <p className="text-xs text-muted">{line.note}</p>}
                     </div>
                     <span className="tnum shrink-0 font-mono text-sm text-ink">{line.qty}</span>
                   </li>
@@ -110,29 +134,25 @@ export function Electrical() {
         <p className="mt-2 text-xs text-muted">
           ความยาว LED strip และจำนวนช่องตู้ไฟเป็นตัวเลขประมาณจากแบบ ให้ช่างวัดยืนยันก่อนสั่ง
         </p>
-      </div>
+      </Fold>
 
-      <div>
-        <h3 className={`${labelClass} mb-3`}>วงจร</h3>
-        <dl className="divide-y divide-line-soft rounded-lg border border-line bg-surface">
-          {circuits.map(([code, text]) => (
-            <div key={code} className="flex gap-3 px-4 py-2">
-              <dt className="w-8 shrink-0 font-mono text-sm text-ink">{code}</dt>
-              <dd className="text-sm text-ink">{text}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className="mt-2 text-xs text-muted">ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์</p>
-      </div>
-
-      <Checklist title="ต้องบอกช่าง" items={tellElectrician} />
-      <Checklist title="ยังต้องเช็กหน้างาน" items={checkOnSite} />
-
-      <div>
-        <h3 className={`${labelClass} mb-3`}>แบบ</h3>
+      <Fold title="แบบไฟฟ้า" count={`${sheets.length} แผ่น`}>
         <Gallery shots={sheets} />
-      </div>
+      </Fold>
     </div>
+  );
+}
+
+function Fold({ title, count, children }: { title: string; count: string; children: ReactNode }) {
+  return (
+    <details className="group/fold rounded-lg border border-line">
+      <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 select-none [&::-webkit-details-marker]:hidden">
+        <span className="text-sm font-medium text-ink">{title}</span>
+        <span className="text-xs text-muted">{count}</span>
+        <Icon name="chevron" className="ml-auto size-4 text-muted transition group-open/fold:rotate-90" />
+      </summary>
+      <div className="border-t border-line-soft p-4">{children}</div>
+    </details>
   );
 }
 
@@ -159,22 +179,14 @@ function PointList({
       </div>
       <ul className="divide-y divide-line-soft rounded-lg border border-line bg-surface">
         {points.map((p) => (
-          <li key={p.code} className="flex gap-3 px-4 py-3">
-            <span
-              className={`mt-0.5 h-fit shrink-0 rounded border px-1.5 py-0.5 font-mono text-xs font-medium ${badge}`}
-            >
+          <li key={p.code} className="flex items-baseline gap-3 px-3 py-2">
+            <span className={`shrink-0 rounded border px-1.5 font-mono text-xs font-medium ${badge}`}>
               {p.code}
             </span>
-            <div className="min-w-0 flex-1">
-              <p className="text-sm text-ink">
-                {p.what}
-                {p.outdoor && <span className="ml-2 text-xs text-moss">นอกบ้าน</span>}
-              </p>
-              <p className="mt-0.5 text-xs leading-5 text-muted">
-                {p.where} · {p.use}
-              </p>
-            </div>
-            <span className="tnum shrink-0 text-right font-mono text-sm text-ink">{p.height}</span>
+            <p className="min-w-0 flex-1 text-sm leading-5 text-ink">{p.short}</p>
+            {tone === "power" && (
+              <span className="tnum shrink-0 font-mono text-xs text-muted">{p.height.replace("ขอบล่าง ", "")}</span>
+            )}
           </li>
         ))}
       </ul>
@@ -185,10 +197,10 @@ function PointList({
 function Checklist({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h3 className={`${labelClass} mb-3`}>{title}</h3>
-      <ul className="space-y-1.5 rounded-lg bg-wood-soft/50 px-4 py-3">
+      <h3 className={`${labelClass} mb-2`}>{title}</h3>
+      <ul className="space-y-1 rounded-lg bg-wood-soft/50 px-4 py-3">
         {items.map((item) => (
-          <li key={item} className="flex gap-2 text-sm leading-6 text-ink">
+          <li key={item} className="flex gap-2 text-sm leading-5 text-ink">
             <span className="text-wood">·</span>
             {item}
           </li>

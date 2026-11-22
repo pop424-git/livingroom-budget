@@ -10,6 +10,8 @@ export type Point = {
   where: string;
   height: string;
   use: string;
+  /** One line for the folded summary: what it is and what it runs. */
+  short: string;
   outdoor?: boolean;
 };
 
@@ -20,6 +22,7 @@ export const switches: Point[] = [
     where: "ในห้อง ระหว่างทีวีกับบานเลื่อน ห่างขอบประตู 30",
     height: "120",
     use: "1 โคมโซฟา · 2 ไฟซ่อนในห้องทั้งหมด · 3 โคมโต๊ะกินข้าว",
+    short: "Tuya 3 ช่อง ข้างบานเลื่อน · โคมโซฟา ไฟซ่อน โคมโต๊ะ",
   },
   {
     code: "S2",
@@ -27,6 +30,7 @@ export const switches: Point[] = [
     where: "ใต้ S1",
     height: "120",
     use: "ไฟระเบียงทั้งหมด (strip ใต้เดค + โคมกล่องไม้ 2 ดวง)",
+    short: "2 ทาง ใต้ S1 · ไฟระเบียงทั้งหมด",
   },
   {
     code: "S3",
@@ -34,6 +38,7 @@ export const switches: Point[] = [
     where: "นอกห้องน้ำ ฝั่งลูกบิด",
     height: "120",
     use: "1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ",
+    short: "Tuya 2 ช่อง หน้าห้องน้ำ · ไฟซ่อน พัดลมดูดอากาศ",
   },
   {
     code: "S4",
@@ -41,28 +46,31 @@ export const switches: Point[] = [
     where: "นอกบ้าน หลัง S2 พอดี",
     height: "120",
     use: "คู่กับ S2 กดได้ทั้งสองจุด แม้เน็ตล่ม",
+    short: "2 ทาง นอกบ้าน หลัง S2 · คู่กับ S2",
     outdoor: true,
   },
 ];
 
 export const outlets: Point[] = [
-  { code: "P1", what: "ปลั๊กคู่", where: "ซ่อนหลังทีวี ใต้ขาแขวน", height: "95", use: "ทีวี" },
-  { code: "P2", what: "ปลั๊กคู่", where: "ใต้สวิตช์ S1 S2", height: "40", use: "ใช้ทั่วไป" },
+  { code: "P1", what: "ปลั๊กคู่", where: "ซ่อนหลังทีวี ใต้ขาแขวน", height: "95", use: "ทีวี", short: "หลังทีวี" },
+  { code: "P2", what: "ปลั๊กคู่", where: "ใต้สวิตช์ S1 S2", height: "40", use: "ใช้ทั่วไป", short: "ใต้สวิตช์ S1 S2" },
   {
     code: "P3",
     what: "ปลั๊กคู่ ติดแนวตั้ง",
     where: "เหนือตู้เย็นชิดขอบขวา ข้างไมโครเวฟ",
     height: "ขอบล่าง 110",
     use: "ช่องบนไมโครเวฟ · ช่องล่างตู้เย็น",
+    short: "เหนือตู้เย็น แนวตั้ง · ไมโครเวฟ + ตู้เย็น",
   },
-  { code: "P4", what: "ปลั๊กคู่", where: "กึ่งกลางปลายโต๊ะกินข้าว", height: "60", use: "หม้อสุกี้ โน้ตบุ๊ก" },
-  { code: "P5", what: "ปลั๊กคู่", where: "หลังอาร์มแชร์", height: "40", use: "โคมตั้งพื้น ชาร์จมือถือ" },
+  { code: "P4", what: "ปลั๊กคู่", where: "กึ่งกลางปลายโต๊ะกินข้าว", height: "60", use: "หม้อสุกี้ โน้ตบุ๊ก", short: "ปลายโต๊ะกินข้าว" },
+  { code: "P5", what: "ปลั๊กคู่", where: "หลังอาร์มแชร์", height: "40", use: "โคมตั้งพื้น ชาร์จมือถือ", short: "หลังอาร์มแชร์" },
   {
     code: "P6",
     what: "ปลั๊กคู่ ฝาสปริง IP44",
     where: "นอกบ้าน ใต้ S4 เหนือตู้รองเท้า",
     height: "100",
     use: "ใช้งานบนตู้รองเท้า",
+    short: "นอกบ้าน ใต้ S4 · ฝาสปริง IP44",
     outdoor: true,
   },
   {
@@ -71,6 +79,7 @@ export const outlets: Point[] = [
     where: "นอกบ้าน ซ้ายประตู ห่างขอบ 30",
     height: "40",
     use: "ไฟประดับ ปั๊มน้ำ เครื่องมือ",
+    short: "นอกบ้าน ซ้ายประตู · กล่องฝาพับ IP55",
     outdoor: true,
   },
 ];
