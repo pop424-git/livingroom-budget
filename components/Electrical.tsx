@@ -9,7 +9,8 @@ import {
   tellElectrician,
   type Point,
 } from "@/lib/electrical";
-import electricalShopping from "@/public/reference/electrical-shopping.png";
+import shopping1 from "@/public/reference/electrical-shopping-1.png";
+import shopping2 from "@/public/reference/electrical-shopping-2.png";
 import planElectrical from "@/public/reference/plan-electrical.png";
 import wallDeck from "@/public/reference/wall-deck.png";
 import wallEast from "@/public/reference/wall-east.png";
@@ -44,9 +45,14 @@ const sheets: Shot[] = [
     caption: "ผนังฝั่งโซฟา-ห้องน้ำ",
   },
   {
-    image: electricalShopping,
-    alt: "รายการของระบบไฟฟ้า ปลั๊กคู่ 7 สวิตช์ 4 โคม 4 วงจร 6 แยกกลุ่มปลั๊ก สวิตช์ บล็อก ไฟ ตู้ไฟ และสายไฟ พร้อมจำนวน",
-    caption: "รายการของ — จำนวนปลั๊ก สวิตช์ ไฟ ตู้ไฟ สาย",
+    image: shopping1,
+    alt: "รายการของระบบไฟฟ้า หน้า 1 ปลั๊กคู่ 7 สวิตช์ 4 โคม 4 วงจร 6 รายการปลั๊ก สวิตช์ และบล็อกพร้อมจำนวน",
+    caption: "รายการของ 1/2 — ปลั๊ก สวิตช์ บล็อก",
+  },
+  {
+    image: shopping2,
+    alt: "รายการของระบบไฟฟ้า หน้า 2 รายการไฟ ตู้ไฟ และสายไฟพร้อมจำนวน",
+    caption: "รายการของ 2/2 — ไฟ ตู้ไฟ สายไฟ",
   },
   {
     image: wiringDiagram,
