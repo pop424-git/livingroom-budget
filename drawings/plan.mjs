@@ -61,8 +61,14 @@ function tag(x, y, label, { anchor = "start", fill = pw } = {}) {
   return `<rect x="${left}" y="${y - 11}" width="${w}" height="15" rx="3" fill="#fff" stroke="${fill}" stroke-width="0.8"/>${text(left + w / 2, y, label, { size: 10, weight: 600, fill })}`;
 }
 
+// Symbols are drawn larger than life so they read at a glance.
+const big = (cx, cy, k, body) => `<g transform="translate(${cx} ${cy}) scale(${k}) translate(${-cx} ${-cy})">${body}</g>`;
+
 /** Outlet symbol: kind "duo" (double), "usb", "ip" (weatherproof), "ac" (dedicated). */
 function outlet(cx, cy, kind = "duo") {
+  return big(cx, cy, 1.4, outletBody(cx, cy, kind));
+}
+function outletBody(cx, cy, kind) {
   if (kind === "ac") return `<rect x="${cx - 6}" y="${cy - 6}" width="12" height="12" fill="${pw}" stroke="${pw}"/><text x="${cx}" y="${cy + 3.5}" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text>`;
   const ring = kind === "ip" ? `<circle cx="${cx}" cy="${cy}" r="9.5" fill="none" stroke="${pw}" stroke-width="1.2"/>` : "";
   const mark =
@@ -73,7 +79,7 @@ function outlet(cx, cy, kind = "duo") {
 }
 
 function switchBox(x, y, w, h) {
-  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`;
+  return big(x + w / 2, y + h / 2, 1.3, `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
 }
 
 function powerLayer(parts) {
@@ -118,11 +124,11 @@ function powerLayer(parts) {
   // P2: a double low on the wall right under the main switches.
   parts.push(outlet(8, 680), tag(20, 694, "P2 ใต้สวิตช์"));
 
-  // P5: the kitchen's one double, upright in the gap between the fridge and
+  // P3: the kitchen's one double, upright in the gap between the fridge and
   // the counter: the fridge in the lower socket, the microwave in the upper.
-  parts.push(outlet(66, 7), tag(72, 80, "P5"));
+  parts.push(outlet(66, 7), tag(72, 80, "P3"));
   parts.push(`<line x1="66" y1="13" x2="76" y2="68" stroke="${pw}" stroke-width="0.7"/>`);
-  parts.push(outlet(392, 373), tag(378, 350, "P6", { anchor: "end" })); // dining table end
+  parts.push(outlet(392, 373), tag(378, 350, "P4", { anchor: "end" })); // dining table end
 
   // Air conditioner on the north wall over the big window, centred on it,
   // blowing down the length of the room. Wired straight from its own breaker
@@ -131,8 +137,8 @@ function powerLayer(parts) {
   parts.push(text(190, 952, "แอร์", { size: 11, fill: pw }));
   parts.push(outlet(250, 948, "ac"), tag(262, 935, "แอร์ ต่อตรง C5"));
 
-  parts.push(outlet(392, 617), tag(378, 600, "P8", { anchor: "end" })); // behind the armchair, mid-way
-  parts.push(outlet(-22, 676, "ip"), tag(-36, 680, "P10", { anchor: "end" })); // deck, outside face, under S4
+  parts.push(outlet(392, 617), tag(378, 600, "P5", { anchor: "end" })); // behind the armchair, mid-way
+  parts.push(outlet(-22, 676, "ip"), tag(-36, 680, "P6", { anchor: "end" })); // deck, outside face, under S4
   // S4: the deck lights' second switch, outside on the deck behind S1/S2.
   parts.push(switchBox(-24, 643, 10, 14), tag(-36, 654, "S4 · 2 ทาง", { anchor: "end", fill: lamp }));
 }
@@ -167,20 +173,20 @@ function powerSchedule(parts) {
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว");
   row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 40 · ปลั๊กคู่");
-  row(duo, "P5", "ปลั๊กคู่แนวตั้ง ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 110 · ช่องล่างตู้เย็นเสียบค้าง · ช่องบนไมโครเวฟ กาต้มน้ำ");
-  row(duo, "P6", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
+  row(duo, "P3", "ปลั๊กคู่แนวตั้ง ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 110 · ช่องล่างตู้เย็นเสียบค้าง · ช่องบนไมโครเวฟ กาต้มน้ำ");
+  row(duo, "P4", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
+  row(duo, "P5", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
+  row((cx, cy) => outlet(cx, cy, "ip"), "P6", "นอกผนัง บนระเบียง ใต้ S4 · สูง 100 (เหนือตู้รองเท้า) · ฝาสปริงกันน้ำสาด IP44");
   row((cx, cy) => outlet(cx, cy, "ac"), "AC", "แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ");
-  row(duo, "P8", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
-  row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง ใต้ S4 · สูง 100 (เหนือตู้รองเท้า) · ฝาสปริงกันน้ำสาด IP44");
   row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ~170 · ขอบบน ~210 · พ้นไมโครเวฟบนตู้เย็น · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
   head("วงจรแนะนำ");
   row(null, "C1", "ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A");
   row(null, "C2", "ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A");
-  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P6 P8 · 16A");
-  row(null, "C4", "ครัว P5 · 20A");
+  row(null, "C3", "ปลั๊กทั่วไป P1 P2 P4 P5 · 16A");
+  row(null, "C4", "ครัว P3 · 20A");
   row(null, "C5", "แอร์ · 20A วงจรเดี่ยว ต่อตรง ปิดที่ตู้ไฟเวลาล้างแอร์");
-  row(null, "C6", "ปลั๊กนอก P10 · 16A");
+  row(null, "C6", "ปลั๊กนอก P6 · 16A");
   row(null, "", "ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
 }
 

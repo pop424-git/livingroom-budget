@@ -70,15 +70,15 @@ for (const c of [240, 720]) {
 parts.push(label(240, 262, ["โคมกล่องไม้ ใต้แป", "ห่างผนัง 100 · ท้องโคม ~2.78"], { anchor: "middle", fill: lamp }));
 parts.push(label(720, 262, ["โคมกล่องไม้ ใต้แป", "LED batten 120 ซม. 2700K"], { anchor: "middle", fill: lamp }));
 
+// Symbols are drawn larger than life so they read at a glance.
+const big = (cx, cyUp, k, body) => `<g transform="translate(${cx} ${cyUp}) scale(${k}) translate(${-cx} ${-cyUp})">${body}</g>`;
 // S4: the deck lights' second switch, outside, behind S1/S2 (plan y ≈ 650).
-parts.push(rect(644, 116.4, 12, 7.2, `rx="1" fill="#fff" stroke="${lamp}" stroke-width="1.6"`), rect(648.8, 118, 2.4, 4, `rx="0.4" fill="${lampFill}" stroke="${lamp}" stroke-width="0.7"`));
-parts.push(rect(641, 114, 18, 12, `rx="2" fill="none" stroke="${lamp}" stroke-width="0.8"`));
-parts.push(label(664, 152, ["S4 สวิตช์ 2 ทางธรรมดา", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S2 ในห้องพอดี"], { fill: lamp }));
+parts.push(big(650, up(120), 1.5, rect(644, 116.4, 12, 7.2, `rx="1" fill="#fff" stroke="${lamp}" stroke-width="1.2"`) + rect(648.8, 118, 2.4, 4, `rx="0.4" fill="${lampFill}" stroke="${lamp}" stroke-width="0.7"`) + rect(641, 114, 18, 12, `rx="2" fill="none" stroke="${lamp}" stroke-width="0.8"`)));
+parts.push(label(668, 152, ["S4 สวิตช์ 2 ทางธรรมดา", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S2 ในห้องพอดี"], { fill: lamp }));
 
-// P10 straight under S4, above a shoe cabinet so it can be used from its top.
-parts.push(rect(625, 0, 80, 90, `fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="6 4"`), text(665, up(45), "ตู้รองเท้า?", { size: 11, fill: soft }), text(665, up(32), "สูง ~90", { size: 10, fill: soft }), rect(644, 96, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
-parts.push(rect(642, 94, 16, 12, `rx="2" fill="none" stroke="${pw}" stroke-width="0.8"`));
-parts.push(label(664, 104, ["P10 ปลั๊กคู่ ใต้ S4", "สูง 100 · ฝาสปริง IP44"]));
+// P6 straight under S4, above a shoe cabinet so it can be used from its top.
+parts.push(rect(625, 0, 80, 90, `fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="6 4"`), text(665, up(45), "ตู้รองเท้า?", { size: 11, fill: soft }), text(665, up(32), "สูง ~90", { size: 10, fill: soft }), big(650, up(100), 1.5, rect(644, 96, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.1"`) + rect(642, 94, 16, 12, `rx="2" fill="none" stroke="${pw}" stroke-width="0.8"`)));
+parts.push(label(668, 104, ["P6 ปลั๊กคู่ ใต้ S4", "สูง 100 · ฝาสปริง IP44"]));
 
 // Height scale.
 for (const h of [0, 100, 120, 200, 278]) {

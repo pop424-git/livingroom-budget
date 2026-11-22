@@ -61,9 +61,12 @@ parts.push(text(150, up(146), "ทีวีแขวน", { size: 13, fill: soft
 parts.push(`<rect x="120" y="${up(130)}" width="60" height="30" fill="none" stroke="${soft}" stroke-width="1.2" stroke-dasharray="4 3"/>`);
 parts.push(text(150, up(130) + 13, "ขาแขวน", { size: 10, fill: soft }));
 
+// Symbols are drawn larger than life so they read at a glance.
+const big = (cx, cyUp, k, body) => `<g transform="translate(${cx} ${cyUp}) scale(${k}) translate(${-cx} ${-cyUp})">${body}</g>`;
+
 function outlet(cx, h, { hidden = false } = {}) {
   const y = up(h);
-  return `<rect x="${cx - 6}" y="${y - 4}" width="12" height="8" rx="1.5" fill="${hidden ? "none" : pwFill}" stroke="${pw}" stroke-width="1.4"${hidden ? ` stroke-dasharray="2 2"` : ""}/>`;
+  return big(cx, y, 1.8, `<rect x="${cx - 6}" y="${y - 4}" width="12" height="8" rx="1.5" fill="${hidden ? "none" : pwFill}" stroke="${pw}" stroke-width="1.1"${hidden ? ` stroke-dasharray="2 2"` : ""}/>`);
 }
 function label(x, h, lines, { anchor = "start", fill = pw } = {}) {
   return lines.map((t, i) => text(x, up(h) + 4 + i * 15, t, { size: 12.5, weight: i ? 400 : 600, anchor, fill: i ? ink : fill })).join("");
@@ -85,17 +88,25 @@ const plate = (cy, gangs, color) => {
   }
   return s;
 };
-parts.push(plate(124.5, 3, lamp));
-// S2: a plain plate, white, one small rocker in the middle.
-parts.push(`<rect x="${sx - 6}" y="${up(115.5) - 3.6}" width="12" height="7.2" rx="0.8" fill="#fff" stroke="${lamp}" stroke-width="1.2"/>`);
-parts.push(`<rect x="${sx - 1.2}" y="${up(115.5) - 2}" width="2.4" height="4" rx="0.4" fill="${lampFill}" stroke="${lamp}" stroke-width="0.7"/>`);
-parts.push(`<line x1="${sx}" y1="${up(129)}" x2="${sx - 4}" y2="${up(178)}" stroke="${lamp}" stroke-width="0.8"/>`);
+// S1 over S2, drawn 1.8× around the stack's centre at 120.
+parts.push(
+  big(
+    sx,
+    up(120),
+    1.8,
+    plate(124.5, 3, lamp) +
+      // S2: a plain plate, white, one small rocker in the middle.
+      `<rect x="${sx - 6}" y="${up(115.5) - 3.6}" width="12" height="7.2" rx="0.8" fill="#fff" stroke="${lamp}" stroke-width="1.2"/>` +
+      `<rect x="${sx - 1.2}" y="${up(115.5) - 2}" width="2.4" height="4" rx="0.4" fill="${lampFill}" stroke="${lamp}" stroke-width="0.7"/>`
+  )
+);
+parts.push(`<line x1="${sx}" y1="${up(137)}" x2="${sx - 4}" y2="${up(178)}" stroke="${lamp}" stroke-width="0.8"/>`);
 parts.push(label(sx - 8, 206, ["S1 Tuya 3 ช่อง (บน)", "S2 สวิตช์ 2 ทาง (ล่าง)", "กึ่งกลางชุด 120"], { anchor: "end", fill: lamp }));
 
 // P2 straight under the switches.
 parts.push(outlet(sx, 40));
 parts.push(`<line x1="${sx}" y1="${up(46)}" x2="${sx}" y2="${up(110)}" stroke="${faint}" stroke-width="0.8" stroke-dasharray="3 3"/>`);
-parts.push(label(sx - 12, 40, ["P2 ปลั๊กคู่", "ใต้สวิตช์ · สูง 40"], { anchor: "end" }));
+parts.push(label(sx - 17, 40, ["P2 ปลั๊กคู่", "ใต้สวิตช์ · สูง 40"], { anchor: "end" }));
 
 
 
@@ -167,7 +178,7 @@ const ny = oy + 2 * h1 + 70;
 const notes = [
   "S1 Tuya ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่อง S1 และ S3 หน้าห้องน้ำ (ปกติช่างเดินแค่ L) · S2 S4 ธรรมดาไม่ต้องมี N",
   "กล่องฝังผนังขนาด 2×4 นิ้ว 2 กล่องซ้อนกันแนวตั้ง · ระยะกึ่งกลางกล่องห่างกัน ~9 ซม. ให้หน้ากากไม่ชนกัน · เช็กขนาดหน้ากากจริงก่อนฝังกล่อง",
-  "ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ 2 ทางธรรมดา สูง 120 หลัง S2 · P10 ปลั๊กคู่ใต้ S4 สูง 100 ฝาสปริงกันน้ำสาด",
+  "ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ 2 ทางธรรมดา สูง 120 หลัง S2 · P6 ปลั๊กคู่ใต้ S4 สูง 100 ฝาสปริงกันน้ำสาด",
 ];
 notes.forEach((t, i) => parts.push(text(-60, ny + i * 22, "· " + t, { size: 13.5, anchor: "start", fill: i ? ink : "#b3412c" })));
 parts.push(text(-60, ny + notes.length * 22 + 30, "รูปด้านภายใน ผนังฝั่งประตู · 22 พ.ย. 2026", { size: 16, anchor: "start" }));

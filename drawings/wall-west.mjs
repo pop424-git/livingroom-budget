@@ -46,6 +46,8 @@ parts.push(text(30, up(45), "เคาน์เตอร์", { size: 10, fill: 
 parts.push(`<line x1="166" y1="${up(CEIL - 5)}" x2="${L - 4}" y2="${up(CEIL - 5)}" stroke="${lamp}" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`);
 parts.push(text(560, up(CEIL - 5) + 18, "ไฟซ่อนชิดฝ้า", { size: 12, fill: lamp }));
 
+// Symbols are drawn larger than life so they read at a glance.
+const big = (cx, cyUp, k, body) => `<g transform="translate(${cx} ${cyUp}) scale(${k}) translate(${-cx} ${-cyUp})">${body}</g>`;
 // Dining: chairs on the toilet side (back to the south), table end on the wall, bench.
 for (const [y0, y1] of [[273, 315]]) {
   parts.push(rect(y0, 0, y1 - y0, 45, furn));
@@ -56,17 +58,17 @@ parts.push(`<path d="M330 ${up(67)} V0 M416 ${up(67)} V0" stroke="${faint}" stro
 parts.push(rect(428, 0, 40, 45, furn));
 parts.push(text(373, up(30), "โต๊ะกินข้าว", { size: 11, fill: soft }));
 
-// P6 centred on the table end, just under its top so it never shows above it.
-parts.push(rect(367, 56, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
-parts.push(label(373, 130, ["P6 ปลั๊กคู่", "กึ่งกลางโต๊ะ · สูง 60 ใต้ท็อป"], { anchor: "middle" }));
+// P4 centred on the table end, just under its top so it never shows above it.
+parts.push(big(373, up(60), 1.6, rect(367, 56, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.1"`)));
+parts.push(label(373, 130, ["P4 ปลั๊กคู่", "กึ่งกลางโต๊ะ · สูง 60 ใต้ท็อป"], { anchor: "middle" }));
 
-// Armchair, back to the wall; P8 behind its middle, low.
+// Armchair, back to the wall; P5 behind its middle, low.
 parts.push(rect(580, 0, 75, 42, furn));
 parts.push(rect(580, 42, 75, 38, furn));
 parts.push(text(617, up(55), "อาร์มแชร์", { size: 11, fill: soft }));
-parts.push(rect(611, 36, 12, 8, `rx="1.5" fill="none" stroke="${pw}" stroke-width="1.4" stroke-dasharray="2 2"`));
-parts.push(label(617, 120, ["P8 ปลั๊กคู่", "หลังอาร์มแชร์ · สูง 40"], { anchor: "middle" }));
-parts.push(`<line x1="617" y1="${up(46)}" x2="617" y2="${up(103)}" stroke="${pw}" stroke-width="0.8"/>`);
+parts.push(big(617, up(40), 1.8, rect(611, 36, 12, 8, `rx="1.5" fill="none" stroke="${pw}" stroke-width="1.1" stroke-dasharray="2 2"`)));
+parts.push(label(617, 120, ["P5 ปลั๊กคู่", "หลังอาร์มแชร์ · สูง 40"], { anchor: "middle" }));
+parts.push(`<line x1="617" y1="${up(48)}" x2="617" y2="${up(103)}" stroke="${pw}" stroke-width="0.8"/>`);
 
 // Sofa, back to the wall, chaise at the north end.
 parts.push(rect(660, 0, 280, 42, furn));
@@ -87,8 +89,8 @@ parts.push(dimH(160, 373, 40, "213"));
 parts.push(dimH(373, 617, 40, "244"));
 parts.push(dimH(617, L, 40, "343"));
 
-parts.push(text(-60, 120, "· ปลั๊กผนังนี้มี 2 จุด: P6 กึ่งกลางปลายโต๊ะกินข้าว · P8 กึ่งกลางหลังอาร์มแชร์", { size: 13.5, anchor: "start" }));
-parts.push(text(-60, 144, "· P6 สูง 60 = ต่ำกว่าท็อปโต๊ะ (70) 10 ซม. มองไม่เห็นเหนือโต๊ะ แต่ล้วงมือใต้ขอบโต๊ะเสียบได้ไม่ต้องก้มมุด", { size: 13.5, anchor: "start" }));
+parts.push(text(-60, 120, "· ปลั๊กผนังนี้มี 2 จุด: P4 กึ่งกลางปลายโต๊ะกินข้าว · P5 กึ่งกลางหลังอาร์มแชร์", { size: 13.5, anchor: "start" }));
+parts.push(text(-60, 144, "· P4 สูง 60 = ต่ำกว่าท็อปโต๊ะ (70) 10 ซม. มองไม่เห็นเหนือโต๊ะ แต่ล้วงมือใต้ขอบโต๊ะเสียบได้ไม่ต้องก้มมุด", { size: 13.5, anchor: "start" }));
 parts.push(text(-60, 186, "รูปด้านภายใน ผนังฝั่งโซฟา-ห้องน้ำ · 22 พ.ย. 2026", { size: 16, anchor: "start" }));
 
 export const wallWest = svgDoc({ x: -80, y: -340, w: 1140, h: 560, body: parts.join("\n"), font: FONT });

@@ -133,18 +133,18 @@ function chain(y, code, kind, wire, items, w = 128) {
 chain(850, "C3", "RCBO 16A", "THW 2.5 mm²", [
   ["P2", "ใต้สวิตช์หลัก"],
   ["P1", "หลังทีวี"],
-  ["P8", "หลังอาร์มแชร์"],
-  ["P6", "ปลายโต๊ะกินข้าว"],
+  ["P5", "หลังอาร์มแชร์"],
+  ["P4", "ปลายโต๊ะกินข้าว"],
 ]);
 chain(925, "C4", "RCBO 20A", "THW 2.5 mm²", [
-  ["P5 ปลั๊กคู่", "ตู้เย็น + ไมโครเวฟ"],
+  ["P3 ปลั๊กคู่", "ตู้เย็น + ไมโครเวฟ"],
 ]);
 chain(1000, "C5", "MCB 20A", "THW 4 mm²", [
   ["แอร์ 18,000 BTU", "ต่อตรง ไม่มีปลั๊ก"],
 ], 170);
 // C6 hangs off the bus below the others.
 parts.push(line([[busX, 1010], [busX, 1055]], ink, 4));
-chain(1055, "C6", "RCBO 16A", "THW 2.5 mm²", [["P10", "ระเบียง ใต้ S4"]]);
+chain(1055, "C6", "RCBO 16A", "THW 2.5 mm²", [["P6", "ระเบียง ใต้ S4"]]);
 // Extend the unit to wrap C6.
 parts[parts.findIndex((p) => p.includes(`height="${cu.h}"`))] =
   `<rect x="${cu.x}" y="${cu.y}" width="${cu.w}" height="${cu.h + 30}" rx="10" fill="#f1efe9" stroke="${ink}" stroke-width="2"/>`;

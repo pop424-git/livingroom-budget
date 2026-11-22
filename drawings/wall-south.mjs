@@ -71,13 +71,14 @@ parts.push(text(35.5, up(30), "55 × 55 × 97", { size: 7, fill: soft }));
 parts.push(rect(10, 97, 40, 27, `fill="none" stroke="${soft}" stroke-width="1" stroke-dasharray="3 2"`));
 parts.push(text(30, up(112), "ไมโครเวฟ?", { size: 7, fill: soft }));
 
-// P5, the kitchen's only outlet: a double upright in the gap between the
+// Symbols are drawn larger than life so they read at a glance.
+const big = (cx, cyUp, k, body) => `<g transform="translate(${cx} ${cyUp}) scale(${k}) translate(${-cx} ${-cyUp})">${body}</g>`;
+// P3, the kitchen's only outlet: a double upright in the gap between the
 // fridge and the counter, beside the microwave. Lower socket: the fridge,
 // always in. Upper socket: the microwave or kettle, plugged in when used.
-parts.push(rect(62.5, 110, 7, 11, `rx="1" fill="${pwFill}" stroke="${pw}" stroke-width="1.2"`));
-for (const h of [113, 118]) parts.push(`<circle cx="66" cy="${up(h)}" r="1.4" fill="none" stroke="${pw}" stroke-width="0.6"/>`);
+parts.push(big(66, up(115.5), 1.6, rect(62.5, 110, 7, 11, `rx="1" fill="${pwFill}" stroke="${pw}" stroke-width="1"`) + [113, 118].map((h) => `<circle cx="66" cy="${up(h)}" r="1.4" fill="none" stroke="${pw}" stroke-width="0.6"/>`).join("")));
 parts.push(`<line x1="64" y1="${up(121)}" x2="56" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
-parts.push(label(6, 166, ["P5 ปลั๊กคู่ แนวตั้ง", "ขอบล่าง 110", "บน ไมโครเวฟ", "ล่าง ตู้เย็น"]));
+parts.push(label(6, 166, ["P3 ปลั๊กคู่ แนวตั้ง", "ขอบล่าง 110", "บน ไมโครเวฟ", "ล่าง ตู้เย็น"]));
 
 // Consumer unit over the fridge.
 parts.push(rect(12, 170, 36, 40, `fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"`));
@@ -104,9 +105,8 @@ parts.push(text(232, up(150), "ประตู uPVC 80", { size: 7.5, fill: soft
 parts.push(text(232, up(140), "บานพับซ้าย", { size: 7, fill: soft }));
 
 // S3 on the latch side.
-parts.push(rect(302, 116, 12, 7.2, `rx="0.8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.2"`));
-parts.push(`<line x1="${308}" y1="${up(116)}" x2="${308}" y2="${up(123.2)}" stroke="${lamp}" stroke-width="0.6"/>`);
-parts.push(label(318, 124, ["S3 Tuya 2 ช่อง สูง 120", "1 ไฟซ่อนห้องน้ำ", "2 พัดลมดูดอากาศ"], { fill: lamp }));
+parts.push(big(308, up(119.6), 1.8, rect(302, 116, 12, 7.2, `rx="0.8" fill="${lampFill}" stroke="${lamp}" stroke-width="1"`) + `<line x1="${308}" y1="${up(116)}" x2="${308}" y2="${up(123.2)}" stroke="${lamp}" stroke-width="0.6"/>`));
+parts.push(label(322, 124, ["S3 Tuya 2 ช่อง สูง 120", "1 ไฟซ่อนห้องน้ำ", "2 พัดลมดูดอากาศ"], { fill: lamp }));
 
 // Floor and ceiling.
 parts.push(`<line x1="-15" y1="0" x2="${W + 15}" y2="0" stroke="${ink}" stroke-width="2"/>`);
@@ -126,7 +126,7 @@ const dims = [dimH(0, 68, 28, "68"), dimH(68, 190, 28, "122"), dimH(200, 290, 28
 parts.push(dims);
 
 parts.push(text(-55, 70, "· ผนังนี้ไม่มีไฟซ่อน (ไฟซ่อนในห้องอยู่แค่ผนังยาวสองด้าน) · ไฟซ่อนห้องน้ำอยู่หลังผนังห้องน้ำ ชิดผนังทิศใต้", { size: 8, anchor: "start" }));
-parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ · P5 ปลั๊กคู่จุดเดียวของครัว: ช่องล่างตู้เย็นเสียบค้าง ช่องบนไมโครเวฟ/กาต้มน้ำ · ลิ้นชักย้ายไปช่องซ้าย ซิงก์ช่องขวาโล่ง ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
+parts.push(text(-55, 84, "· ไม่มีปลั๊กบนเคาน์เตอร์ · P3 ปลั๊กคู่จุดเดียวของครัว: ช่องล่างตู้เย็นเสียบค้าง ช่องบนไมโครเวฟ/กาต้มน้ำ · ลิ้นชักย้ายไปช่องซ้าย ซิงก์ช่องขวาโล่ง ท่อน้ำเข้า-ทิ้งเจาะผ่านแผ่นหลังตู้ฝั่งห้องน้ำ", { size: 8, anchor: "start" }));
 parts.push(text(-55, 98, "· หน้าต่างครัวขอบล่าง 100 พ้นเคาน์เตอร์ 85 ได้ 15 ซม. · ที่คว่ำจานสูงเกิน 15 จะบังขอบล่างหน้าต่างนิดหน่อย", { size: 8, anchor: "start" }));
 parts.push(text(-55, 124, "รูปด้านภายใน ผนังครัว · 22 พ.ย. 2026", { size: 10, anchor: "start" }));
 
