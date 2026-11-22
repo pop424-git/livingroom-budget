@@ -97,10 +97,16 @@
 <line x1="973" y1="-430" x2="973" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
 <line x1="1006" y1="-430" x2="1006" y2="-230" stroke="#8c8c8c" stroke-width="1.5"/>
 <text x="480" y="-340" font-size="22" font-weight="600" text-anchor="middle" fill="#2f2e2b">ผนังตรงกลางจั่ว สูง ~365 cm</text>
-<rect x="0" y="-280" width="960" height="280" fill="url(#wallwash)"/>
-<rect x="0" y="-293" width="960" height="6" rx="2" fill="#fff1cc" stroke="#d9931f" stroke-width="1.5"/>
-<rect x="0" y="-287" width="960" height="22" fill="url(#halo)"/>
-<text x="20" y="-302" font-size="16" font-weight="600" text-anchor="start" fill="#fff6e0">LED linear ใต้แป 9.6 ม. · ~2.90</text>
+<path d="M180 -278 L90 0 L390 0 L300 -278 Z" fill="url(#wallwash)"/>
+<rect x="175" y="-290" width="130" height="12" rx="2" fill="#c98b52" stroke="#7d5430" stroke-width="1.5"/>
+<rect x="182" y="-281" width="116" height="3" fill="#fff1cc"/>
+<rect x="180" y="-278" width="120" height="18" fill="url(#halo)"/>
+<path d="M660 -278 L570 0 L870 0 L780 -278 Z" fill="url(#wallwash)"/>
+<rect x="655" y="-290" width="130" height="12" rx="2" fill="#c98b52" stroke="#7d5430" stroke-width="1.5"/>
+<rect x="662" y="-281" width="116" height="3" fill="#fff1cc"/>
+<rect x="660" y="-278" width="120" height="18" fill="url(#halo)"/>
+<text x="240" y="-302" font-size="16" font-weight="600" text-anchor="middle" fill="#fff6e0">โคมกล่องไม้ใต้แป · ~2.80</text>
+<text x="720" y="-302" font-size="16" font-weight="600" text-anchor="middle" fill="#fff6e0">โคมกล่องไม้ใต้แป · ~2.80</text>
 <g><line x1="0" y1="95" x2="960" y2="95" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="100" x2="5" y2="90" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="100" x2="965" y2="90" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="86" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">ยาว 960 cm</text></g>
-<text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · LED linear ใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026</text>
+<text x="-140" y="125" font-size="15" font-weight="400" text-anchor="start" fill="#6d6a62">รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมกล่องไม้ 2 ดวงใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 23 พ.ย. 2026</text>
 </svg>

@@ -278,11 +278,13 @@ parts.push(windowIn(northWindow.x0, L, northWindow.x1 - northWindow.x0, T));
   parts.push(`<line x1="-10" y1="${mid}" x2="0" y2="${mid}" stroke="${ink}" stroke-width="1"/>`);
 }
 
-// Switches on the inside face between the door and the TV: the deck's
-// two-gang next to the room's three-gang, so every light is at one spot.
+// The deck lights' two-way pair: S2 inside under S1, between the door and
+// the TV; S4 on the outside face of the same wall, straight behind it.
 if (!power) {
-  parts.push(`<rect x="2" y="650" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
-  parts.push(text(16, 662, "สวิตช์ 2 ช่อง", { size: 11, anchor: "start", fill: lamp }));
+  parts.push(`<rect x="1" y="648" width="12" height="16" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
+  parts.push(text(18, 661, "S2 สวิตช์ 2 ทาง", { size: 12, weight: 600, anchor: "start", fill: lamp }));
+  parts.push(`<rect x="-23" y="648" width="12" height="16" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/>`);
+  parts.push(text(-28, 644, "S4 สวิตช์ 2 ทาง", { size: 12, weight: 600, anchor: "end", fill: lamp }));
 }
 
 // Toilet partitions, with the door gap at the east end of the north partition.
@@ -413,10 +415,10 @@ if (power) {
 if (!power) {
   const x = -370;
   const rows = [
-    ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · วงจร 1"],
-    ["box", "โคมกล่องไม้ 2 ดวง ห้อยใต้แป ห่างผนัง 100 · กล่องไม้ 12×12 ยาว ~130 ใส่ LED batten 120 ซม. 2700K · วงจร 2"],
+    ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · driver D1 ใต้เดค"],
+    ["box", "โคมกล่องไม้ 2 ดวง ห้อยใต้แป ห่างผนัง 100 · ห่างปลายเดคข้างละ 240 · LED batten 120 ซม. 2700K 220V"],
     ["rafter", "จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
-    ["switch", "สวิตช์ 2 ช่องระหว่างบานเลื่อนกับทีวี: 1 strip · 2 โคมกล่องไม้ · D1 กล่อง driver strip กันน้ำใต้เดค"],
+    ["switch", "สวิตช์ 2 ทาง S2 ในห้อง (ใต้ S1) + S4 นอกผนัง: เปิด/ปิด strip และโคมกล่องไม้พร้อมกัน · วงจร C2"],
   ];
   parts.push(text(x, 1062, "ไฟระเบียง", { size: 15, weight: 600, anchor: "start" }));
   rows.forEach(([kind, label], i) => {
