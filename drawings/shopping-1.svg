@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1332" width="720" height="1332" font-family="Leelawadee UI, Tahoma, sans-serif">
+<defs></defs>
+<rect x="0" y="0" width="720" height="1332" fill="#f5f2ed"/>
+<text x="28" y="58" font-size="30" font-weight="600" text-anchor="start" fill="#2b2825">รายการของ · ระบบไฟฟ้า</text>
+<text x="692" y="58" font-size="18" font-weight="400" text-anchor="end" fill="#68625c">1/2</text>
+<text x="28" y="88" font-size="16" font-weight="400" text-anchor="start" fill="#68625c">ห้องนั่งเล่น 4 × 9.6 ม. + ระเบียง</text>
+<rect x="28" y="124" width="325" height="76" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<text x="50" y="178" font-size="42" font-weight="600" text-anchor="start" fill="#2f6f9f">7</text>
+<text x="88" y="175" font-size="20" font-weight="400" text-anchor="start" fill="#2b2825">ปลั๊กคู่</text>
+<rect x="367" y="124" width="325" height="76" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<text x="389" y="178" font-size="42" font-weight="600" text-anchor="start" fill="#d9931f">4</text>
+<text x="427" y="175" font-size="20" font-weight="400" text-anchor="start" fill="#2b2825">สวิตช์</text>
+<rect x="28" y="214" width="325" height="76" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<text x="50" y="268" font-size="42" font-weight="600" text-anchor="start" fill="#d9931f">4</text>
+<text x="88" y="265" font-size="20" font-weight="400" text-anchor="start" fill="#2b2825">โคม</text>
+<rect x="367" y="214" width="325" height="76" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<text x="389" y="268" font-size="42" font-weight="600" text-anchor="start" fill="#2b2825">6</text>
+<text x="427" y="265" font-size="20" font-weight="400" text-anchor="start" fill="#2b2825">วงจร</text>
+<rect x="28" y="310" width="664" height="298" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<rect x="28" y="310" width="7" height="298" rx="3.5" fill="#2f6f9f"/>
+<text x="52" y="345" font-size="19" font-weight="600" text-anchor="start" fill="#2b2825">ปลั๊ก (มีกราวด์ทุกตัว) · รวม 7 ชุด</text>
+<line x1="44" y1="364" x2="676" y2="364" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="396" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">ปลั๊กคู่ฝังผนัง + หน้ากากธรรมดา</text>
+<text x="52" y="418" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">P1 P2 P3 P4 P5 · P3 ติดแนวตั้ง</text>
+<text x="672" y="398" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">5</text>
+<line x1="52" y1="436" x2="676" y2="436" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="468" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">ปลั๊กคู่ + ฝาสปริงกันน้ำสาด IP44</text>
+<text x="52" y="490" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">P6</text>
+<text x="672" y="470" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<line x1="52" y1="508" x2="676" y2="508" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="540" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">ปลั๊กคู่ + บล็อกกันน้ำฝาพับ IP55</text>
+<text x="52" y="562" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">แบบปิดได้ขณะเสียบ</text>
+<text x="52" y="584" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">P7</text>
+<text x="672" y="542" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<rect x="28" y="628" width="664" height="348" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<rect x="28" y="628" width="7" height="348" rx="3.5" fill="#d9931f"/>
+<text x="52" y="663" font-size="19" font-weight="600" text-anchor="start" fill="#2b2825">สวิตช์ · รวม 4 ตัว</text>
+<line x1="44" y1="682" x2="676" y2="682" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="714" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">Tuya WiFi 3 ช่อง</text>
+<text x="52" y="736" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">S1 · ซื้อแล้ว</text>
+<text x="672" y="716" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<line x1="52" y1="754" x2="676" y2="754" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="786" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">Tuya WiFi 2 ช่อง</text>
+<text x="52" y="808" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">S3 · ซื้อแล้ว</text>
+<text x="672" y="788" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<line x1="52" y1="826" x2="676" y2="826" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="858" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">สวิตช์ 2 ทางธรรมดา 1 ช่อง + หน้ากาก</text>
+<text x="52" y="880" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">S2 ในห้อง · S4 นอกบ้าน</text>
+<text x="672" y="860" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">2</text>
+<line x1="52" y1="898" x2="676" y2="898" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="930" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">ฝาครอบกันน้ำสำหรับสวิตช์</text>
+<text x="52" y="952" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">S4</text>
+<text x="672" y="932" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<rect x="28" y="996" width="664" height="276" rx="12" fill="#fcfbf8" stroke="#ddd8d0" stroke-width="1.2"/>
+<rect x="28" y="996" width="7" height="276" rx="3.5" fill="#846340"/>
+<text x="52" y="1031" font-size="19" font-weight="600" text-anchor="start" fill="#2b2825">บล็อก · กล่อง</text>
+<line x1="44" y1="1050" x2="676" y2="1050" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="1082" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">บล็อกฝังผนัง 2×4 นิ้ว</text>
+<text x="52" y="1104" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">S1–S4 · P1–P6</text>
+<text x="672" y="1084" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">10</text>
+<line x1="52" y1="1122" x2="676" y2="1122" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="1154" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">บล็อกกันน้ำฝาพับ ติดลอย</text>
+<text x="52" y="1176" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">P7</text>
+<text x="672" y="1156" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<line x1="52" y1="1194" x2="676" y2="1194" stroke="#eae6e0" stroke-width="1"/>
+<text x="52" y="1226" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">กล่องพักสายบนฝ้า เผื่อโมดูลรีเลย์</text>
+<text x="52" y="1248" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">ใกล้ S2</text>
+<text x="672" y="1228" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
+<text x="28" y="1310" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">สรุป 22 พ.ย. 2026 · ความยาวเป็นตัวเลขประมาณ ให้ช่างวัดก่อนสั่ง</text>
+</svg>

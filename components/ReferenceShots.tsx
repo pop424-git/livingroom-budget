@@ -14,7 +14,7 @@ import interiorLiving from "@/public/reference/interior-living.jpg";
 import planDimensions from "@/public/reference/plan-dimensions.png";
 import sectionDimensions from "@/public/reference/section-dimensions.jpg";
 
-type Shot = {
+export type Shot = {
   image: StaticImageData;
   alt: string;
   caption: string;
@@ -118,6 +118,11 @@ const allShots = [
 ];
 
 export function ReferenceShots() {
+  return <Gallery shots={allShots} />;
+}
+
+/** Thumbnails one per row, opening into a lightbox that pages through them. */
+export function Gallery({ shots }: { shots: Shot[] }) {
   const [openAt, setOpenAt] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -134,7 +139,7 @@ export function ReferenceShots() {
     setOpenAt((current) =>
       current === null
         ? current
-        : (current + delta + allShots.length) % allShots.length
+        : (current + delta + shots.length) % shots.length
     );
   }, []);
 
@@ -149,14 +154,14 @@ export function ReferenceShots() {
     return () => document.removeEventListener("keydown", onKey);
   }, [openAt, step]);
 
-  const current = openAt === null ? null : allShots[openAt];
+  const current = openAt === null ? null : shots[openAt];
 
   return (
     <>
       {/* One shot per row at full width, each at its own proportions, so
           nothing is cropped or shrunk to fit beside another. */}
       <div className="space-y-4 sm:space-y-5">
-        {allShots.map((shot, index) => (
+        {shots.map((shot, index) => (
           <Thumb
             key={shot.image.src}
             shot={shot}
@@ -211,7 +216,7 @@ export function ReferenceShots() {
 
               <p className="min-w-0 flex-1 text-center text-xs leading-5 text-muted">
                 <span className="tnum font-mono">
-                  {openAt! + 1}/{allShots.length}
+                  {openAt! + 1}/{shots.length}
                 </span>
                 <span className="hidden sm:inline"> · {current.caption}</span>
               </p>

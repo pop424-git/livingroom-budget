@@ -11,9 +11,15 @@
 import sharp from "sharp";
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { plan } from "./plan.mjs";
+import { plan, electrical } from "./plan.mjs";
 import { elevation } from "./elevation.mjs";
 import { section } from "./section.mjs";
+import { wiring } from "./wiring.mjs";
+import { wallEast } from "./wall-east.mjs";
+import { wallSouth } from "./wall-south.mjs";
+import { wallWest } from "./wall-west.mjs";
+import { wallDeck } from "./wall-deck.mjs";
+import { shoppingPages } from "./shopping.mjs";
 
 const here = (p) => fileURLToPath(new URL(p, import.meta.url));
 
@@ -29,5 +35,13 @@ async function render(name, svg, out, format) {
 }
 
 await render("plan", plan, "plan-dimensions.png", "png");
+await render("electrical", electrical, "plan-electrical.png", "png");
+await render("wiring", wiring, "wiring-diagram.png", "png");
+await render("wall-east", wallEast, "wall-east.png", "png");
+await render("wall-south", wallSouth, "wall-south.png", "png");
+await render("wall-west", wallWest, "wall-west.png", "png");
+await render("wall-deck", wallDeck, "wall-deck.png", "png");
+await render("shopping-1", shoppingPages[0], "electrical-shopping-1.png", "png");
+await render("shopping-2", shoppingPages[1], "electrical-shopping-2.png", "png");
 await render("elevation", elevation, "elevation-dimensions.jpg", "jpeg");
 await render("section", section, "section-dimensions.jpg", "jpeg");

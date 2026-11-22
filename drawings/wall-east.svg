@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -340 1140 1010" width="1140" height="1010" font-family="Leelawadee UI, Tahoma, sans-serif">
+<defs></defs>
+<rect x="-80" y="-340" width="1140" height="1010" fill="#fbfaf6"/>
+<text x="-60" y="-300" font-size="24" font-weight="600" text-anchor="start" fill="#3b3a36">ผนังยาวฝั่งประตู · มองจากในห้องออกไปทางระเบียง</text>
+<text x="-60" y="-274" font-size="14" font-weight="400" text-anchor="start" fill="#8a877f">ซ้าย = ทิศเหนือ (ฝั่งทีวี) · ขวา = ทิศใต้ (ฝั่งครัว) · ความสูงวัดจากพื้นในห้อง</text>
+<rect x="0" y="-240" width="960" height="240" fill="#ffffff" stroke="#3b3a36" stroke-width="1.6"/>
+<line x1="-30" y1="0" x2="990" y2="0" stroke="#3b3a36" stroke-width="2.4"/>
+<text x="968" y="-235" font-size="12" font-weight="400" text-anchor="start" fill="#8a877f">ฝ้า 240</text>
+<line x1="4" y1="-235" x2="956" y2="-235" stroke="#d9931f" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+<text x="480" y="-217" font-size="12" font-weight="400" text-anchor="middle" fill="#d9931f">ไฟซ่อนชิดฝ้า ตลอดแนวผนัง</text>
+<rect x="340" y="-200" width="280" height="200" fill="#eef3f4" stroke="#3b3a36" stroke-width="1.6"/>
+<line x1="410" y1="-200" x2="410" y2="0" stroke="#c9c6bd" stroke-width="1.2"/>
+<line x1="480" y1="-200" x2="480" y2="0" stroke="#c9c6bd" stroke-width="1.2"/>
+<line x1="550" y1="-200" x2="550" y2="0" stroke="#c9c6bd" stroke-width="1.2"/>
+<text x="480" y="-110" font-size="13" font-weight="400" text-anchor="middle" fill="#8a877f">ประตูบานเลื่อน 280 × 200</text>
+<rect x="903" y="-97" width="55" height="97" fill="none" stroke="#c9c6bd" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="930" y="-50" font-size="12" font-weight="400" text-anchor="middle" fill="#8a877f">ตู้เย็น 97</text>
+<rect x="908" y="-125" width="40" height="28" fill="none" stroke="#c9c6bd" stroke-width="1.4" stroke-dasharray="3 3"/>
+<text x="928" y="-108" font-size="10" font-weight="400" text-anchor="middle" fill="#8a877f">ไมโครเวฟ?</text>
+<rect x="77.5" y="-158" width="145" height="83" rx="2" fill="#2f2e2b" fill-opacity="0.12" stroke="#3b3a36" stroke-width="1.6"/>
+<text x="150" y="-146" font-size="13" font-weight="400" text-anchor="middle" fill="#8a877f">ทีวีแขวน</text>
+<rect x="120" y="-130" width="60" height="30" fill="none" stroke="#8a877f" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="150" y="-117" font-size="10" font-weight="400" text-anchor="middle" fill="#8a877f">ขาแขวน</text>
+<g transform="translate(150 -95) scale(1.8) translate(-150 95)"><rect x="144" y="-99" width="12" height="8" rx="1.5" fill="none" stroke="#2f6f9f" stroke-width="1.1" stroke-dasharray="2 2"/></g>
+<text x="150" y="-60" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2f6f9f">P1 ปลั๊กคู่ 1 ตัว (เส้นประ = ซ่อนหลังทีวี)</text><text x="150" y="-45" font-size="12.5" font-weight="400" text-anchor="middle" fill="#3b3a36">ใต้ขาแขวน · สูง 95</text>
+<g transform="translate(310 -120) scale(1.8) translate(-310 120)"><rect x="304" y="-128.1" width="12" height="7.2" rx="0.8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.2"/><line x1="308" y1="-128.1" x2="308" y2="-120.9" stroke="#d9931f" stroke-width="0.6"/><line x1="312" y1="-128.1" x2="312" y2="-120.9" stroke="#d9931f" stroke-width="0.6"/><rect x="304" y="-119.1" width="12" height="7.2" rx="0.8" fill="#fff" stroke="#d9931f" stroke-width="1.2"/><rect x="308.8" y="-117.5" width="2.4" height="4" rx="0.4" fill="#fff1cc" stroke="#d9931f" stroke-width="0.7"/></g>
+<line x1="310" y1="-137" x2="306" y2="-178" stroke="#d9931f" stroke-width="0.8"/>
+<text x="302" y="-202" font-size="12.5" font-weight="600" text-anchor="end" fill="#d9931f">S1 Tuya 3 ช่อง (บน)</text><text x="302" y="-187" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">S2 สวิตช์ 2 ทาง (ล่าง)</text><text x="302" y="-172" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">กึ่งกลางชุด 120</text>
+<g transform="translate(310 -40) scale(1.8) translate(-310 40)"><rect x="304" y="-44" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.1"/></g>
+<line x1="310" y1="-46" x2="310" y2="-110" stroke="#c9c6bd" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="293" y="-36" font-size="12.5" font-weight="600" text-anchor="end" fill="#2f6f9f">P2 ปลั๊กคู่</text><text x="293" y="-21" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">ใต้สวิตช์ · สูง 40</text>
+<line x1="-26" y1="-40" x2="-14" y2="-40" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-36" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">40</text>
+<line x1="-26" y1="-95" x2="-14" y2="-95" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-91" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">95</text>
+<line x1="-26" y1="-120" x2="-14" y2="-120" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-116" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">120</text>
+<line x1="-26" y1="-200" x2="-14" y2="-200" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-196" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">200</text>
+<line x1="-26" y1="-240" x2="-14" y2="-240" stroke="#3b3a36" stroke-width="1"/>
+<text x="-30" y="-236" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">240</text>
+<line x1="-20" y1="0" x2="-20" y2="-240" stroke="#3b3a36" stroke-width="0.8"/>
+<g><line x1="0" y1="40" x2="60" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="45" x2="5" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="55" y1="45" x2="65" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="30" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">60</text></g>
+<g><line x1="60" y1="40" x2="240" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="55" y1="45" x2="65" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="235" y1="45" x2="245" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="150" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">ทีวี 180</text></g>
+<g><line x1="240" y1="40" x2="310" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="235" y1="45" x2="245" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="305" y1="45" x2="315" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="275" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">70</text></g>
+<g><line x1="310" y1="40" x2="340" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="305" y1="45" x2="315" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="335" y1="45" x2="345" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="325" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">30</text></g>
+<g><line x1="340" y1="40" x2="620" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="335" y1="45" x2="345" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="615" y1="45" x2="625" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">280</text></g>
+<g><line x1="620" y1="40" x2="960" y2="40" stroke="#3b3a36" stroke-width="0.9"/><line x1="615" y1="45" x2="625" y2="35" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="45" x2="965" y2="35" stroke="#3b3a36" stroke-width="1.3"/><text x="790" y="31" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">340</text></g>
+<text x="-60" y="124" font-size="18" font-weight="600" text-anchor="start" fill="#3b3a36">หน้าสวิตช์ขยาย · Tuya WiFi 3 ช่อง (บน) · สวิตช์ 2 ทางธรรมดา (ล่าง)</text>
+<rect x="40" y="150" width="192" height="115.2" rx="8" fill="#fff" stroke="#3b3a36" stroke-width="2"/>
+<circle cx="72" cy="170" r="2.5" fill="#c9c6bd"/>
+<text x="72" y="219.6" font-size="28" font-weight="700" text-anchor="middle" fill="#d9931f">1</text>
+<line x1="104" y1="158" x2="104" y2="257.2" stroke="#c9c6bd" stroke-width="1.4"/>
+<circle cx="136" cy="170" r="2.5" fill="#c9c6bd"/>
+<text x="136" y="219.6" font-size="28" font-weight="700" text-anchor="middle" fill="#d9931f">2</text>
+<line x1="168" y1="158" x2="168" y2="257.2" stroke="#c9c6bd" stroke-width="1.4"/>
+<circle cx="200" cy="170" r="2.5" fill="#c9c6bd"/>
+<text x="200" y="219.6" font-size="28" font-weight="700" text-anchor="middle" fill="#d9931f">3</text>
+<rect x="40" y="279.2" width="192" height="115.2" rx="8" fill="#fff" stroke="#3b3a36" stroke-width="2"/>
+<rect x="116.8" y="304.8" width="38.4" height="64" rx="4" fill="#f6f4ef" stroke="#3b3a36" stroke-width="1.6"/>
+<line x1="120.8" y1="336.8" x2="151.2" y2="336.8" stroke="#c9c6bd" stroke-width="1.2"/>
+<text x="169.2" y="341.8" font-size="13" font-weight="400" text-anchor="start" fill="#8a877f">2 ทาง</text>
+<text x="272" y="168" font-size="15" font-weight="600" text-anchor="start" fill="#d9931f">S1 · 3 ช่อง</text>
+<text x="272" y="194" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">1 ซ้าย   โคม L1 โซนโซฟา</text>
+<text x="272" y="216" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">2 กลาง   ไฟซ่อนในห้องทั้งหมด (ผนังยาวสองด้าน)</text>
+<text x="272" y="238" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">3 ขวา    โคม L2 เหนือโต๊ะกินข้าว</text>
+<text x="272" y="297.2" font-size="15" font-weight="600" text-anchor="start" fill="#d9931f">S2 · สวิตช์ 2 ทางธรรมดา 1 ช่อง</text>
+<text x="272" y="323.2" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟระเบียงทั้งหมด: LED strip ใต้เดค + โคมกล่องไม้ 2 ดวง</text>
+<text x="272" y="345.2" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">คู่กับ S4 นอกบ้าน โยงสาย 2 เส้น · กดได้ทั้งสองจุดแม้เน็ตล่ม</text>
+<text x="272" y="367.2" font-size="15" font-weight="400" text-anchor="start" fill="#8a877f">ไม่ได้ต่อกับแอป · ปุ่มฉากเปิด/ปิด S1 ทั้งหมด ย้ายไปตั้งในแอปแทน</text>
+<text x="-60" y="450.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#b3412c">· S1 Tuya ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่อง S1 และ S3 หน้าห้องน้ำ (ปกติช่างเดินแค่ L) · S2 S4 ธรรมดาไม่ต้องมี N</text>
+<text x="-60" y="472.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· กล่องฝังผนังขนาด 2×4 นิ้ว 2 กล่องซ้อนกันแนวตั้ง · ระยะกึ่งกลางกล่องห่างกัน ~9 ซม. ให้หน้ากากไม่ชนกัน · เช็กขนาดหน้ากากจริงก่อนฝังกล่อง</text>
+<text x="-60" y="494.4" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ 2 ทางธรรมดา สูง 120 หลัง S2 · P6 ปลั๊กคู่ใต้ S4 สูง 100 ฝาสปริงกันน้ำสาด</text>
+<text x="-60" y="546.4" font-size="16" font-weight="400" text-anchor="start" fill="#3b3a36">รูปด้านภายใน ผนังฝั่งประตู · 22 พ.ย. 2026</text>
+</svg>

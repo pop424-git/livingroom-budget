@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1260" width="1560" height="1260" font-family="Leelawadee UI, Tahoma, sans-serif">
+<defs></defs>
+<rect x="0" y="0" width="1560" height="1260" fill="#fbfaf6"/>
+<text x="40" y="52" font-size="26" font-weight="600" text-anchor="start" fill="#3b3a36">ผังสายไฟ · ห้องนั่งเล่น</text>
+<text x="40" y="80" font-size="14" font-weight="400" text-anchor="start" fill="#6d6a62">อ่านจากซ้ายไปขวา: ตู้ไฟ → เบรกเกอร์ → สาย → สวิตช์ → โคม/ปลั๊ก · รหัส S P L ตรงกับผังปลั๊ก-สวิตช์</text>
+<rect x="40" y="130" width="330" height="970" rx="10" fill="#f1efe9" stroke="#3b3a36" stroke-width="2"/>
+<text x="106" y="158" font-size="17" font-weight="600" text-anchor="start" fill="#3b3a36">ตู้ไฟ</text>
+<text x="106" y="178" font-size="12" font-weight="400" text-anchor="start" fill="#6d6a62">ผนังทิศใต้ เหนือตู้เย็น</text>
+<polyline points="92,100 92,196" fill="none" stroke="#3b3a36" stroke-width="3.5" stroke-linejoin="round"/>
+<text x="104" y="112" font-size="12" font-weight="400" text-anchor="start" fill="#6d6a62">สายเมนจากบ้าน</text>
+<rect x="62" y="196" width="140" height="40" rx="5" fill="#fff" stroke="#3b3a36" stroke-width="1.8"/>
+<text x="132" y="222" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">เมน 32A</text>
+<polyline points="92,236 92,1010" fill="none" stroke="#3b3a36" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="92,300 200,300" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="200" y="280" width="150" height="40" rx="5" fill="#fff" stroke="#d9931f" stroke-width="2"/>
+<text x="214" y="305" font-size="15" font-weight="700" text-anchor="start" fill="#d9931f">C1</text>
+<text x="340" y="305" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">RCBO 10A</text>
+<polyline points="350,300 470,300" fill="none" stroke="#d9931f" stroke-width="3" stroke-linejoin="round"/>
+<text x="410" y="291" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 1.5 mm²</text>
+<polyline points="440,300 440,520 470,520" fill="none" stroke="#d9931f" stroke-width="3" stroke-linejoin="round"/>
+<rect x="470" y="272" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="540" y="297" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S1 · Tuya 3 ช่อง</text>
+<text x="540" y="315" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ระหว่างประตูกับทีวี</text>
+<polyline points="610,300 650,300 650,230 720,230" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="680" cy="230" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
+<text x="680" y="234.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">1</text>
+<polyline points="610,300 650,300 650,300 720,300" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="680" cy="300" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
+<text x="680" y="304.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">2</text>
+<polyline points="610,300 650,300 650,370 720,370" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="680" cy="370" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
+<text x="680" y="374.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">3</text>
+<rect x="720" y="207" width="210" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="825" y="227" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">L1 โคมเพดาน</text>
+<text x="825" y="245" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">โซนโซฟา ระหว่างโซฟากับทีวี</text>
+<rect x="720" y="277" width="190" height="46" rx="8" fill="#efede7" stroke="#6d6a62" stroke-width="1.6"/>
+<text x="815" y="297" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">Driver 24V ×2</text>
+<text x="815" y="315" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">บนฝ้า มีช่องเซอร์วิส</text>
+<polyline points="910,300 950,300" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="950" y="277" width="330" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="1115" y="297" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">ไฟซ่อน ผนังยาวสองด้าน</text>
+<text x="1115" y="315" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ฝั่งประตู 9.6 ม. + ฝั่งห้องน้ำ 8.0 ม. · ป้อนกลางเส้น</text>
+<rect x="720" y="347" width="210" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="825" y="367" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">L2 โคมเพดาน</text>
+<text x="825" y="385" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">เหนือโต๊ะกินข้าว</text>
+<rect x="470" y="492" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="540" y="517" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S3 · Tuya 2 ช่อง</text>
+<text x="540" y="535" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">นอกห้องน้ำ</text>
+<polyline points="610,520 650,520 650,485 720,485" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="680" cy="485" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
+<text x="680" y="489.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">1</text>
+<polyline points="610,520 650,520 650,555 720,555" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="680" cy="555" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
+<text x="680" y="559.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">2</text>
+<rect x="720" y="462" width="190" height="46" rx="8" fill="#efede7" stroke="#6d6a62" stroke-width="1.6"/>
+<text x="815" y="482" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">Driver 24V</text>
+<text x="815" y="500" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">นอกห้องน้ำ บนฝ้า</text>
+<polyline points="910,485 950,485" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="950" y="462" width="330" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="1115" y="482" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">ไฟซ่อนห้องน้ำ</text>
+<text x="1115" y="500" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ผนังทิศใต้ 2 ม. · IP65 · ดวงเดียวในห้องน้ำ</text>
+<rect x="720" y="532" width="210" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="825" y="552" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">พัดลมดูดอากาศ</text>
+<text x="825" y="570" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ผนังห้องน้ำ เหนือโถ</text>
+<polyline points="92,700 200,700" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="200" y="680" width="150" height="40" rx="5" fill="#fff" stroke="#d9931f" stroke-width="2"/>
+<text x="214" y="705" font-size="15" font-weight="700" text-anchor="start" fill="#d9931f">C2</text>
+<text x="340" y="705" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">RCBO 10A</text>
+<polyline points="350,700 470,700" fill="none" stroke="#d9931f" stroke-width="3" stroke-linejoin="round"/>
+<text x="410" y="691" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 1.5 mm²</text>
+<rect x="470" y="672" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="540" y="697" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S2 · 2 ทาง</text>
+<text x="540" y="715" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ธรรมดา · ในห้อง ใต้ S1</text>
+<polyline points="610,692 650,692" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="610,708 650,708" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="650" y="672" width="150" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="725" y="697" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S4 · 2 ทาง</text>
+<text x="725" y="715" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ธรรมดา · นอกบ้าน กันน้ำ</text>
+<text x="630" y="666" font-size="10.5" font-weight="400" text-anchor="middle" fill="#6d6a62">สายโยง 2 เส้น</text>
+<polyline points="800,700 840,700 840,665 880,665" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="840,700 840,735 880,735" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="880" y="642" width="170" height="46" rx="8" fill="#efede7" stroke="#6d6a62" stroke-width="1.6"/>
+<text x="965" y="662" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">D1 Driver 24V</text>
+<text x="965" y="680" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">กล่องกันน้ำใต้เดค</text>
+<polyline points="1050,665 1080,665" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="1080" y="642" width="300" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="1230" y="662" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">LED strip ใต้ขอบเดค + บันได</text>
+<text x="1230" y="680" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">IP65 / บันได IP67</text>
+<rect x="880" y="712" width="300" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="1030" y="732" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">โคมกล่องไม้ ×2 ใต้แป</text>
+<text x="1030" y="750" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">LED batten 220V ไม่ต้องมี driver</text>
+<polyline points="92,850 200,850" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="200" y="830" width="150" height="40" rx="5" fill="#fff" stroke="#2f6f9f" stroke-width="2"/>
+<text x="214" y="855" font-size="15" font-weight="700" text-anchor="start" fill="#2f6f9f">C3</text>
+<text x="340" y="855" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">RCBO 16A</text>
+<polyline points="350,850 470,850" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<text x="410" y="841" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 2.5 mm²</text>
+<rect x="470" y="827" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="534" y="847" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P2</text>
+<text x="534" y="865" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ใต้สวิตช์หลัก</text>
+<polyline points="598,850 620,850" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<rect x="620" y="827" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="684" y="847" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P1</text>
+<text x="684" y="865" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">หลังทีวี</text>
+<polyline points="748,850 770,850" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<rect x="770" y="827" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="834" y="847" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P5</text>
+<text x="834" y="865" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">หลังอาร์มแชร์</text>
+<polyline points="898,850 920,850" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<rect x="920" y="827" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="984" y="847" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P4</text>
+<text x="984" y="865" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ปลายโต๊ะกินข้าว</text>
+<polyline points="92,925 200,925" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="200" y="905" width="150" height="40" rx="5" fill="#fff" stroke="#2f6f9f" stroke-width="2"/>
+<text x="214" y="930" font-size="15" font-weight="700" text-anchor="start" fill="#2f6f9f">C4</text>
+<text x="340" y="930" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">RCBO 20A</text>
+<polyline points="350,925 470,925" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<text x="410" y="916" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 2.5 mm²</text>
+<rect x="470" y="902" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="534" y="922" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P3 ปลั๊กคู่</text>
+<text x="534" y="940" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ตู้เย็น + ไมโครเวฟ</text>
+<polyline points="92,1000 200,1000" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="200" y="980" width="150" height="40" rx="5" fill="#fff" stroke="#2f6f9f" stroke-width="2"/>
+<text x="214" y="1005" font-size="15" font-weight="700" text-anchor="start" fill="#2f6f9f">C5</text>
+<text x="340" y="1005" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">MCB 20A</text>
+<polyline points="350,1000 470,1000" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<text x="410" y="991" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 4 mm²</text>
+<rect x="470" y="977" width="170" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="555" y="997" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">แอร์ 18,000 BTU</text>
+<text x="555" y="1015" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ต่อตรง ไม่มีปลั๊ก</text>
+<polyline points="92,1010 92,1055" fill="none" stroke="#3b3a36" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="92,1055 200,1055" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="200" y="1035" width="150" height="40" rx="5" fill="#fff" stroke="#2f6f9f" stroke-width="2"/>
+<text x="214" y="1060" font-size="15" font-weight="700" text-anchor="start" fill="#2f6f9f">C6</text>
+<text x="340" y="1060" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">RCBO 16A</text>
+<polyline points="350,1055 470,1055" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<text x="410" y="1046" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 2.5 mm²</text>
+<rect x="470" y="1032" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="534" y="1052" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P6</text>
+<text x="534" y="1070" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ระเบียง ใต้ S4</text>
+<polyline points="598,1055 620,1055" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-linejoin="round"/>
+<rect x="620" y="1032" width="128" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
+<text x="684" y="1052" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">P7</text>
+<text x="684" y="1070" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ระเบียง ซ้ายประตู</text>
+<polyline points="60,1085 60,1130 470,1130" fill="none" stroke="#3f8f4f" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<text x="480" y="1135" font-size="13" font-weight="400" text-anchor="start" fill="#3f8f4f">สายดินสีเขียว เดินคู่ทุกวงจร → บาร์กราวด์ในตู้ → หลักดิน 5/8" × 2.4 ม. · ปลั๊กทุกจุดเป็นแบบมีกราวด์</text>
+<rect x="40" y="1171" width="30" height="18" rx="4" fill="#fff1cc" stroke="#d9931f" stroke-width="1.4"/>
+<text x="80" y="1185" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">สวิตช์ · สูง 120</text>
+<rect x="230" y="1171" width="30" height="18" rx="4" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
+<text x="270" y="1185" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟ</text>
+<rect x="330" y="1171" width="30" height="18" rx="4" fill="#efede7" stroke="#6d6a62" stroke-width="1.4"/>
+<text x="370" y="1185" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">driver แปลงไฟ 24V</text>
+<rect x="540" y="1171" width="30" height="18" rx="4" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
+<text x="580" y="1185" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊ก (ต่อพ่วงกันเป็นสาย ตามลำดับที่เดินรอบห้อง)</text>
+<text x="40" y="1225" font-size="13" font-weight="400" text-anchor="start" fill="#6d6a62">สายทั้งหมดเดินในท่อ ร้อยในผนังเบา/บนฝ้า · ขนาดสายและเบรกเกอร์เป็นค่าแนะนำ ให้ช่างไฟยืนยันตามระยะสายเมนจากบ้าน · 22 พ.ย. 2026</text>
+</svg>
