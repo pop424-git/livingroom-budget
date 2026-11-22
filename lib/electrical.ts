@@ -122,19 +122,19 @@ export const shopping: Group[] = [
   {
     title: "ตู้ไฟ",
     lines: [
-      { item: "ตู้ไฟ อย่างน้อย 8 ช่อง", qty: "1", note: "ผนังครัว เหนือตู้เย็น" },
+      { item: "ตู้ไฟ อย่างน้อย 6 ช่อง", qty: "1", note: "ผนังครัว เหนือตู้เย็น · เมน + 4 วงจร + เผื่อ 1" },
       { item: "เมนเบรกเกอร์ 32A", qty: "1" },
-      { item: "RCBO 30 mA", qty: "5", note: "10A ×2 (C1 C2) · 16A ×2 (C3 C6) · 20A ×1 (C4)" },
-      { item: "MCB 20A", qty: "1", note: "C5 แอร์ ต่อตรง" },
+      { item: "RCBO 30 mA", qty: "3", note: "10A (C1) · 16A (C2) · 20A (C3)" },
+      { item: "MCB 20A", qty: "1", note: "C4 แอร์ ต่อตรง" },
       { item: "หลักดิน 5/8\" × 2.4 ม.", qty: "1" },
     ],
   },
   {
     title: "สายไฟ · ให้ช่างถอดความยาวจากแบบ",
     lines: [
-      { item: "THW 1.5 mm²", qty: "—", note: "วงจรไฟ C1 C2 + สายโยง S2–S4" },
-      { item: "THW 2.5 mm²", qty: "—", note: "ปลั๊ก C3 C4 C6" },
-      { item: "THW 4 mm²", qty: "—", note: "แอร์ C5" },
+      { item: "THW 1.5 mm²", qty: "—", note: "ไฟในห้อง C1" },
+      { item: "THW 2.5 mm²", qty: "—", note: "นอกบ้าน C2 (รวมสายโยง S2–S4) · ปลั๊กในห้อง C3" },
+      { item: "THW 4 mm²", qty: "—", note: "แอร์ C4" },
       { item: "สายดินสีเขียว", qty: "—", note: "เดินคู่ทุกวงจร" },
     ],
   },
@@ -142,11 +142,9 @@ export const shopping: Group[] = [
 
 export const circuits: [string, string][] = [
   ["C1", "ไฟในห้อง + ห้องน้ำ · RCBO 10A"],
-  ["C2", "ไฟระเบียง · RCBO 10A"],
-  ["C3", "ปลั๊ก P1 P2 P4 P5 · RCBO 16A"],
-  ["C4", "ครัว P3 · RCBO 20A"],
-  ["C5", "แอร์ ต่อตรง ไม่มีปลั๊ก · MCB 20A"],
-  ["C6", "ปลั๊กนอกบ้าน P6 P7 · RCBO 16A"],
+  ["C2", "นอกบ้าน: ไฟระเบียงทั้งหมด + ปลั๊ก P6 P7 · RCBO 16A"],
+  ["C3", "ปลั๊กในห้องทั้งหมด P1–P5 รวมครัว · RCBO 20A"],
+  ["C4", "แอร์ ต่อตรง ไม่มีปลั๊ก · MCB 20A"],
 ];
 
 export const tellElectrician = [
@@ -154,7 +152,7 @@ export const tellElectrician = [
   "S2–S4 เป็นสวิตช์ 2 ทางปกติ โยงสาย 2 เส้น",
   "P3 ติดแนวตั้ง",
   "ตั้งตู้เย็นห่างผนัง ~8 ซม.",
-  "แอร์ต่อตรงจากเบรกเกอร์ C5 ไม่มีปลั๊ก",
+  "แอร์ต่อตรงจากเบรกเกอร์ C4 ไม่มีปลั๊ก",
 ];
 
 export const checkOnSite = [
