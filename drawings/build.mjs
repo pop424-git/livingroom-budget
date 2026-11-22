@@ -18,6 +18,7 @@ import { wiring } from "./wiring.mjs";
 import { wallEast } from "./wall-east.mjs";
 import { wallSouth } from "./wall-south.mjs";
 import { wallWest } from "./wall-west.mjs";
+import { wallDeck } from "./wall-deck.mjs";
 
 const here = (p) => fileURLToPath(new URL(p, import.meta.url));
 
@@ -38,5 +39,6 @@ await render("wiring", wiring, "wiring-diagram.png", "png");
 await render("wall-east", wallEast, "wall-east.png", "png");
 await render("wall-south", wallSouth, "wall-south.png", "png");
 await render("wall-west", wallWest, "wall-west.png", "png");
+await render("wall-deck", wallDeck, "wall-deck.png", "png");
 await render("elevation", elevation, "elevation-dimensions.jpg", "jpeg");
 await render("section", section, "section-dimensions.jpg", "jpeg");
