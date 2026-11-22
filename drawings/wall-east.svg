@@ -24,7 +24,8 @@
 <rect x="144" y="-99" width="12" height="8" rx="1.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-dasharray="2 2"/>
 <text x="150" y="-60" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2f6f9f">P1 ปลั๊กคู่ 1 ตัว (เส้นประ = ซ่อนหลังทีวี)</text><text x="150" y="-45" font-size="12.5" font-weight="400" text-anchor="middle" fill="#3b3a36">ใต้ขาแขวน · สูง 95</text>
 <rect x="304" y="-128.1" width="12" height="7.2" rx="0.8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.2"/><line x1="308" y1="-128.1" x2="308" y2="-120.9" stroke="#d9931f" stroke-width="0.6"/><line x1="312" y1="-128.1" x2="312" y2="-120.9" stroke="#d9931f" stroke-width="0.6"/>
-<rect x="304" y="-119.1" width="12" height="7.2" rx="0.8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.2"/>
+<rect x="304" y="-119.1" width="12" height="7.2" rx="0.8" fill="#fff" stroke="#d9931f" stroke-width="1.2"/>
+<rect x="308.8" y="-117.5" width="2.4" height="4" rx="0.4" fill="#fff1cc" stroke="#d9931f" stroke-width="0.7"/>
 <line x1="310" y1="-129" x2="306" y2="-178" stroke="#d9931f" stroke-width="0.8"/>
 <text x="302" y="-202" font-size="12.5" font-weight="600" text-anchor="end" fill="#d9931f">S1 Tuya 3 ช่อง (บน)</text><text x="302" y="-187" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">S2 สวิตช์ 2 ทาง (ล่าง)</text><text x="302" y="-172" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">กึ่งกลางชุด 120</text>
 <rect x="304" y="-44" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
@@ -58,8 +59,9 @@
 <circle cx="200" cy="170" r="2.5" fill="#c9c6bd"/>
 <text x="200" y="219.6" font-size="28" font-weight="700" text-anchor="middle" fill="#d9931f">3</text>
 <rect x="40" y="279.2" width="192" height="115.2" rx="8" fill="#fff" stroke="#3b3a36" stroke-width="2"/>
-<circle cx="136" cy="299.2" r="2.5" fill="#c9c6bd"/>
-<text x="136" y="348.8" font-size="28" font-weight="700" text-anchor="middle" fill="#d9931f">2 ทาง</text>
+<rect x="116.8" y="304.8" width="38.4" height="64" rx="4" fill="#f6f4ef" stroke="#3b3a36" stroke-width="1.6"/>
+<line x1="120.8" y1="336.8" x2="151.2" y2="336.8" stroke="#c9c6bd" stroke-width="1.2"/>
+<text x="169.2" y="341.8" font-size="13" font-weight="400" text-anchor="start" fill="#8a877f">2 ทาง</text>
 <text x="272" y="168" font-size="15" font-weight="600" text-anchor="start" fill="#d9931f">S1 · 3 ช่อง</text>
 <text x="272" y="194" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">1 ซ้าย   โคม L1 โซนโซฟา</text>
 <text x="272" y="216" font-size="15" font-weight="400" text-anchor="start" fill="#3b3a36">2 กลาง   ไฟซ่อนในห้องทั้งหมด (ผนังยาวสองด้าน)</text>

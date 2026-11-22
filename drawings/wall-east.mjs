@@ -85,7 +85,10 @@ const plate = (cy, gangs, color) => {
   }
   return s;
 };
-parts.push(plate(124.5, 3, lamp), plate(115.5, 1, lamp));
+parts.push(plate(124.5, 3, lamp));
+// S2: a plain plate, white, one small rocker in the middle.
+parts.push(`<rect x="${sx - 6}" y="${up(115.5) - 3.6}" width="12" height="7.2" rx="0.8" fill="#fff" stroke="${lamp}" stroke-width="1.2"/>`);
+parts.push(`<rect x="${sx - 1.2}" y="${up(115.5) - 2}" width="2.4" height="4" rx="0.4" fill="${lampFill}" stroke="${lamp}" stroke-width="0.7"/>`);
 parts.push(`<line x1="${sx}" y1="${up(129)}" x2="${sx - 4}" y2="${up(178)}" stroke="${lamp}" stroke-width="0.8"/>`);
 parts.push(label(sx - 8, 206, ["S1 Tuya 3 ช่อง (บน)", "S2 สวิตช์ 2 ทาง (ล่าง)", "กึ่งกลางชุด 120"], { anchor: "end", fill: lamp }));
 
@@ -131,7 +134,20 @@ function bigPlate(y, buttons) {
   return h;
 }
 const h1 = bigPlate(oy, [["1", "", "", lamp], ["2", "", "", lamp], ["3", "", "", lamp]]);
-bigPlate(oy + h1 + 14, [["2 ทาง", "", "", lamp]]);
+{
+  // S2 enlarged: plain plate with one rocker in the centre.
+  const y = oy + h1 + 14;
+  const w = 12 * S;
+  const h = 7.2 * S;
+  parts.push(`<rect x="${ox}" y="${y}" width="${w}" height="${h}" rx="8" fill="#fff" stroke="${ink}" stroke-width="2"/>`);
+  const rw = 2.4 * S;
+  const rh = 4 * S;
+  const rx = ox + w / 2 - rw / 2;
+  const ry = y + h / 2 - rh / 2;
+  parts.push(`<rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" rx="4" fill="#f6f4ef" stroke="${ink}" stroke-width="1.6"/>`);
+  parts.push(`<line x1="${rx + 4}" y1="${ry + rh / 2}" x2="${rx + rw - 4}" y2="${ry + rh / 2}" stroke="${faint}" stroke-width="1.2"/>`);
+  parts.push(text(ox + w / 2 + rw / 2 + 14, y + h / 2 + 5, "2 ทาง", { size: 13, fill: soft, anchor: "start" }));
+}
 
 const lx = ox + 12 * S + 40;
 const rows = [
