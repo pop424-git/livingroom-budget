@@ -80,8 +80,13 @@ parts.push(label(668, 152, ["S4 สวิตช์ 2 ทางธรรมดา
 parts.push(rect(625, 0, 80, 90, `fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="6 4"`), text(665, up(45), "ตู้รองเท้า?", { size: 11, fill: soft }), text(665, up(32), "สูง ~90", { size: 10, fill: soft }), big(650, up(100), 1.5, rect(644, 96, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.1"`) + rect(642, 94, 16, 12, `rx="2" fill="none" stroke="${pw}" stroke-width="0.8"`)));
 parts.push(label(668, 104, ["P6 ปลั๊กคู่ ใต้ S4", "สูง 100 · ฝาสปริง IP44"]));
 
+// P7 left of the door, low, in a weatherproof box with a hinged lid that
+// closes over the plug even while something is plugged in.
+parts.push(big(310, up(40), 1.6, rect(304, 36, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.1"`) + rect(301, 32, 18, 16, `rx="2" fill="none" stroke="${pw}" stroke-width="0.9"`) + `<line x1="301" y1="${up(48)}" x2="319" y2="${up(48)}" stroke="${pw}" stroke-width="1.6"/>`));
+parts.push(label(330, 72, ["P7 ปลั๊กคู่ ซ้ายประตู", "สูง 40 · กล่องกันน้ำฝาพับ IP55"], { anchor: "end" }));
+
 // Height scale.
-for (const h of [0, 100, 120, 200, 278]) {
+for (const h of [0, 40, 100, 120, 200, 278]) {
   parts.push(`<line x1="-96" y1="${up(h)}" x2="-84" y2="${up(h)}" stroke="${ink}" stroke-width="1"/>`);
   parts.push(text(-100, up(h) + 4, String(h), { size: 12, anchor: "end" }));
 }
@@ -89,7 +94,8 @@ parts.push(`<line x1="-90" y1="0" x2="-90" y2="${up(300)}" stroke="${ink}" strok
 
 // Positions along the wall.
 parts.push(dimH(0, 240, 90, "240"));
-parts.push(dimH(240, 340, 90, "100"));
+parts.push(dimH(240, 310, 90, "70"));
+parts.push(dimH(310, 340, 90, "30"));
 parts.push(dimH(340, 620, 90, "280"));
 parts.push(dimH(620, 650, 90, "30"));
 parts.push(dimH(650, 720, 90, "70"));

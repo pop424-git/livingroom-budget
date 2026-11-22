@@ -144,7 +144,7 @@ chain(1000, "C5", "MCB 20A", "THW 4 mm²", [
 ], 170);
 // C6 hangs off the bus below the others.
 parts.push(line([[busX, 1010], [busX, 1055]], ink, 4));
-chain(1055, "C6", "RCBO 16A", "THW 2.5 mm²", [["P6", "ระเบียง ใต้ S4"]]);
+chain(1055, "C6", "RCBO 16A", "THW 2.5 mm²", [["P6", "ระเบียง ใต้ S4"], ["P7", "ระเบียง ซ้ายประตู"]]);
 // Extend the unit to wrap C6.
 parts[parts.findIndex((p) => p.includes(`height="${cu.h}"`))] =
   `<rect x="${cu.x}" y="${cu.y}" width="${cu.w}" height="${cu.h + 30}" rx="10" fill="#f1efe9" stroke="${ink}" stroke-width="2"/>`;

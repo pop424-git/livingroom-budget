@@ -49,8 +49,12 @@
 <text x="665" y="-32" font-size="10" font-weight="400" text-anchor="middle" fill="#8a877f">สูง ~90</text>
 <g transform="translate(650 -100) scale(1.5) translate(-650 100)"><rect x="644" y="-104" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.1"/><rect x="642" y="-106" width="16" height="12" rx="2" fill="none" stroke="#2f6f9f" stroke-width="0.8"/></g>
 <text x="668" y="-100" font-size="12.5" font-weight="600" text-anchor="start" fill="#2f6f9f">P6 ปลั๊กคู่ ใต้ S4</text><text x="668" y="-85" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">สูง 100 · ฝาสปริง IP44</text>
+<g transform="translate(310 -40) scale(1.6) translate(-310 40)"><rect x="304" y="-44" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.1"/><rect x="301" y="-48" width="18" height="16" rx="2" fill="none" stroke="#2f6f9f" stroke-width="0.9"/><line x1="301" y1="-48" x2="319" y2="-48" stroke="#2f6f9f" stroke-width="1.6"/></g>
+<text x="330" y="-68" font-size="12.5" font-weight="600" text-anchor="end" fill="#2f6f9f">P7 ปลั๊กคู่ ซ้ายประตู</text><text x="330" y="-53" font-size="12.5" font-weight="400" text-anchor="end" fill="#3b3a36">สูง 40 · กล่องกันน้ำฝาพับ IP55</text>
 <line x1="-96" y1="0" x2="-84" y2="0" stroke="#3b3a36" stroke-width="1"/>
 <text x="-100" y="4" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">0</text>
+<line x1="-96" y1="-40" x2="-84" y2="-40" stroke="#3b3a36" stroke-width="1"/>
+<text x="-100" y="-36" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">40</text>
 <line x1="-96" y1="-100" x2="-84" y2="-100" stroke="#3b3a36" stroke-width="1"/>
 <text x="-100" y="-96" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">100</text>
 <line x1="-96" y1="-120" x2="-84" y2="-120" stroke="#3b3a36" stroke-width="1"/>
@@ -61,7 +65,8 @@
 <text x="-100" y="-274" font-size="12" font-weight="400" text-anchor="end" fill="#3b3a36">278</text>
 <line x1="-90" y1="0" x2="-90" y2="-300" stroke="#3b3a36" stroke-width="0.8"/>
 <g><line x1="0" y1="90" x2="240" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="-5" y1="95" x2="5" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="235" y1="95" x2="245" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="120" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">240</text></g>
-<g><line x1="240" y1="90" x2="340" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="235" y1="95" x2="245" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="335" y1="95" x2="345" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="290" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">100</text></g>
+<g><line x1="240" y1="90" x2="310" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="235" y1="95" x2="245" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="305" y1="95" x2="315" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="275" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">70</text></g>
+<g><line x1="310" y1="90" x2="340" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="305" y1="95" x2="315" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="335" y1="95" x2="345" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="325" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">30</text></g>
 <g><line x1="340" y1="90" x2="620" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="335" y1="95" x2="345" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="615" y1="95" x2="625" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="480" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">280</text></g>
 <g><line x1="620" y1="90" x2="650" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="615" y1="95" x2="625" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="645" y1="95" x2="655" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="635" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">30</text></g>
 <g><line x1="650" y1="90" x2="720" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="645" y1="95" x2="655" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="715" y1="95" x2="725" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="685" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">70</text></g>

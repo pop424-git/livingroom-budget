@@ -139,6 +139,7 @@ function powerLayer(parts) {
 
   parts.push(outlet(392, 617), tag(378, 600, "P5", { anchor: "end" })); // behind the armchair, mid-way
   parts.push(outlet(-22, 676, "ip"), tag(-36, 680, "P6", { anchor: "end" })); // deck, outside face, under S4
+  parts.push(outlet(-22, 310, "ip"), tag(-36, 314, "P7", { anchor: "end" })); // deck, outside face, left of the door
   // S4: the deck lights' second switch, outside on the deck behind S1/S2.
   parts.push(switchBox(-24, 643, 10, 14), tag(-36, 654, "S4 · 2 ทาง", { anchor: "end", fill: lamp }));
 }
@@ -177,6 +178,7 @@ function powerSchedule(parts) {
   row(duo, "P4", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
   row(duo, "P5", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
   row((cx, cy) => outlet(cx, cy, "ip"), "P6", "นอกผนัง บนระเบียง ใต้ S4 · สูง 100 (เหนือตู้รองเท้า) · ฝาสปริงกันน้ำสาด IP44");
+  row((cx, cy) => outlet(cx, cy, "ip"), "P7", "นอกผนัง บนระเบียง ซ้ายประตู (ฝั่งครัว) ห่างขอบประตู 30 · สูง 40 · กล่องกันน้ำฝาพับ IP55 ปิดได้ขณะเสียบ");
   row((cx, cy) => outlet(cx, cy, "ac"), "AC", "แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ");
   row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ~170 · ขอบบน ~210 · พ้นไมโครเวฟบนตู้เย็น · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
@@ -186,7 +188,7 @@ function powerSchedule(parts) {
   row(null, "C3", "ปลั๊กทั่วไป P1 P2 P4 P5 · 16A");
   row(null, "C4", "ครัว P3 · 20A");
   row(null, "C5", "แอร์ · 20A วงจรเดี่ยว ต่อตรง ปิดที่ตู้ไฟเวลาล้างแอร์");
-  row(null, "C6", "ปลั๊กนอก P6 · 16A");
+  row(null, "C6", "ปลั๊กนอก P6 P7 · 16A");
   row(null, "", "ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)");
 }
 
