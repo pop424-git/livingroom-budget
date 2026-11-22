@@ -15,7 +15,7 @@ const woodDark = "#c99a5b";
 const ink = "#2f2e2b";
 const lamp = "#d9931f";
 
-// LED linear under the purlin, 1.00 in front of the wall at about +2.90, the
+// Wooden-box lamps under the purlin, 1.00 in front of the wall at about +2.90.
 // length of the deck. It faces down and back, washing the deck and this wall.
 const LINEAR_H = 290;
 
@@ -103,15 +103,20 @@ for (let x = -50 + 33; x < L + 50; x += 33) {
 }
 parts.push(text(480, up(340), "ผนังตรงกลางจั่ว สูง ~365 cm", { size: 22, weight: 600, fill: ink }));
 
-// Wall wash from the linear, then the linear itself over the cut-away roof.
-parts.push(`<rect x="0" y="${up(LINEAR_H - 10)}" width="${L}" height="${LINEAR_H - 10}" fill="url(#wallwash)"/>`);
-parts.push(`<rect x="0" y="${up(LINEAR_H) - 3}" width="${L}" height="6" rx="2" fill="#fff1cc" stroke="${lamp}" stroke-width="1.5"/>`);
-parts.push(`<rect x="0" y="${up(LINEAR_H) + 3}" width="${L}" height="22" fill="url(#halo)"/>`);
-parts.push(text(20, up(LINEAR_H) - 12, "LED linear ใต้แป 9.6 ม. · ~2.90", { size: 16, weight: 600, anchor: "start", fill: "#fff6e0" }));
+// Two wooden-box lamps under the purlin at the deck's quarter points, each
+// throwing a pool of light down the wall, drawn over the cut-away roof.
+for (const c of [240, 720]) {
+  parts.push(`<path d="M${c - 60} ${up(LINEAR_H - 12)} L${c - 150} 0 L${c + 150} 0 L${c + 60} ${up(LINEAR_H - 12)} Z" fill="url(#wallwash)"/>`);
+  parts.push(`<rect x="${c - 65}" y="${up(LINEAR_H)}" width="130" height="12" rx="2" fill="#c98b52" stroke="#7d5430" stroke-width="1.5"/>`);
+  parts.push(`<rect x="${c - 58}" y="${up(LINEAR_H - 9)}" width="116" height="3" fill="#fff1cc"/>`);
+  parts.push(`<rect x="${c - 60}" y="${up(LINEAR_H - 12)}" width="120" height="18" fill="url(#halo)"/>`);
+}
+parts.push(text(240, up(LINEAR_H) - 12, "โคมกล่องไม้ใต้แป · ~2.80", { size: 16, weight: 600, fill: "#fff6e0" }));
+parts.push(text(720, up(LINEAR_H) - 12, "โคมกล่องไม้ใต้แป · ~2.80", { size: 16, weight: 600, fill: "#fff6e0" }));
 
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));
-parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · LED linear ใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมกล่องไม้ 2 ดวงใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 23 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 const defs = `
   <linearGradient id="wallwash" x1="0" y1="0" x2="0" y2="1">

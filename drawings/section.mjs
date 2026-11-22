@@ -32,7 +32,7 @@ const woodDark = "#b8743f";
 const lamp = "#d9931f";
 const lampFill = "#fff1cc";
 
-// LED linear under the purlin 100 out from the front wall, running the deck's length.
+// Wooden-box lamps hang under the purlin 100 out from the front wall.
 const LINEAR_X = -100;
 
 const slopeL = (RIDGE - WALL_H) / DECK;
@@ -119,7 +119,9 @@ parts.push(
   const ox = LINEAR_X;
   const oy = up(roofAt(LINEAR_X));
   parts.push(
-    `<g transform="rotate(${rot.toFixed(2)} ${ox} ${oy})"><rect x="${ox - 3}" y="${oy + 6}" width="6" height="6" fill="#f1f1ef" stroke="${ink}" stroke-width="1"/><rect x="${ox - 4}" y="${oy + 12}" width="8" height="3" fill="${lamp}"/></g>`
+    `<g transform="rotate(${rot.toFixed(2)} ${ox} ${oy})"><rect x="${ox - 3}" y="${oy + 6}" width="6" height="6" fill="#f1f1ef" stroke="${ink}" stroke-width="1"/></g>` +
+      // The wooden box hangs plumb under the purlin, seen end on: 12 × 12, lit underside.
+      `<line x1="${ox}" y1="${oy + 12}" x2="${ox}" y2="${oy + 16}" stroke="${soft}" stroke-width="1"/><rect x="${ox - 6}" y="${oy + 16}" width="12" height="12" rx="1" fill="#c98b52" stroke="#7d5430" stroke-width="1"/><rect x="${ox - 4.5}" y="${oy + 25}" width="9" height="2.5" fill="${lampFill}"/>`
   );
   // The profile faces square off the slope: down, and back toward the wall.
   const sx = ox + Math.sin(t) * 15;
@@ -133,7 +135,7 @@ parts.push(
   parts.push(`<path d="M${sx} ${sy} L${floorX} 0 L0 0 L0 ${wallY} Z" fill="url(#beam)"/>`);
   const [cx, cy] = ray(centre);
   parts.push(`<line x1="${sx}" y1="${sy}" x2="0" y2="${sy + cy * (-sx / cx)}" stroke="${lamp}" stroke-width="1" stroke-dasharray="3 4"/>`);
-  parts.push(text(-160, up(236), `LED linear ใต้แป ~${m(-sy)}`, { size: 12, weight: 600, anchor: "start", fill: lamp }));
+  parts.push(text(-160, up(236), "โคมกล่องไม้ใต้แป ~2.80", { size: 12, weight: 600, anchor: "start", fill: lamp }));
   parts.push(text(-160, up(221), "ส่องลงเดค + ผนังหน้า", { size: 12, anchor: "start", fill: lamp }));
 
   // Wire inside the rafter at the middle post, up to the wall, down to the switch.
@@ -141,7 +143,9 @@ parts.push(
     `<path d="M${sx} ${sy} L-6 ${up(roofAt(-6) - 8)} L6 ${up(roofAt(-6) - 8)} V${up(126)}" fill="none" stroke="${lamp}" stroke-width="1.4" stroke-dasharray="6 4"/>`
   );
   parts.push(`<rect x="2" y="${up(127)}" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
-  parts.push(text(16, up(116), "สวิตช์ 2 ช่อง", { size: 13, anchor: "start", fill: lamp }));
+  parts.push(text(16, up(116), "S2 สวิตช์ 2 ทาง", { size: 13, anchor: "start", fill: lamp }));
+  parts.push(`<rect x="-24" y="${up(127)}" width="10" height="14" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
+  parts.push(text(-28, up(116), "S4", { size: 13, anchor: "end", fill: lamp }));
   parts.push(text(16, up(98), "+1.20", { size: 13, anchor: "start", fill: lamp }));
 
   // LED strip under the outer board edge, washing the ground below the deck.
@@ -189,14 +193,14 @@ parts.push(dimH(0, W, dy, "4.00 (ตัวห้อง)"));
 parts.push(dimH(W, W + EAVE_R, dy, "1.00"));
 
 const notes = [
-  ["ไฟระเบียง 2700K CRI 90 · สวิตช์ 2 ช่องข้างบานเลื่อน: วงจร 1 LED strip ใต้ขอบเดค + จมูกขั้นบันได · วงจร 2 LED linear 9.6 ม. ใต้แป", ink],
+  ["ไฟระเบียง 2700K · สวิตช์ 2 ทาง S2 ในห้อง + S4 นอกผนัง เปิด/ปิดพร้อมกัน: LED strip ใต้ขอบเดค + จมูกขั้นบันได และโคมกล่องไม้ 2 ดวงใต้แป", ink],
   ["ก่อนมุงหลังคา: ① เจาะรูร้อยสายจากจันทันแนวเสากลางเข้าแปที่ห่างผนัง 1.00 (ทะลุรอยต่อแป-จันทัน) และจุดลงผนัง ใส่ยางกันบาด", red],
   ["ร้อยลวดนำสายทิ้งไว้  ② ทาสี zinc กันสนิมทุกจุดที่เจาะ · ปูเดค: ไม้ยื่นเลยคานขอบนอก 3–4 ซม. ซ่อน strip IP65 · บันได IP67", red],
-  ["linear: 24V 5–6 W/ม. รางอะลูมิเนียมฝาขุ่นลึก IP65 ปิดหัวท้าย · ป้อนไฟกลาง แยกซ้ายขวาข้างละ 4.80 · driver 75–100 W IP67 ใต้เดค", ink],
+  ["โคมกล่องไม้ 12×12 ยาว ~130 · LED batten 120 ซม. 220V ไม่ต้องมี driver · ห่างปลายเดคข้างละ 2.40 · ป้อนไฟกลาง เดินสายเลียบแปไปทั้งสองดวง", ink],
 ];
 notes.forEach(([line, fill], i) => parts.push(text(-310, 200 + i * 24, line, { size: 14, anchor: "start", fill })));
 
-parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · หน้าต่างบานเลื่อน 3 ช่อง 180 × 110 ขอบล่าง 90 · หลังคาประมาณจากรูปโครงจริง รอวัด · ปรับ 19 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · หน้าต่างบานเลื่อน 3 ช่อง 180 × 110 ขอบล่าง 90 · หลังคาประมาณจากรูปโครงจริง รอวัด · ปรับ 23 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 const defs = `
   <radialGradient id="beam" gradientUnits="userSpaceOnUse" cx="${LINEAR_X + 9}" cy="${up(roofAt(LINEAR_X)) + 12}" r="340">
