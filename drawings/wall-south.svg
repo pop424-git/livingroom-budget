@@ -53,7 +53,7 @@
 <text x="232" y="-140" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">บานพับซ้าย</text>
 <rect x="302" y="-123.2" width="12" height="7.2" rx="0.8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.2"/>
 <line x1="308" y1="-116" x2="308" y2="-123.2" stroke="#d9931f" stroke-width="0.6"/>
-<text x="318" y="-121" font-size="8" font-weight="600" text-anchor="start" fill="#d9931f">S3 2 ช่อง สูง 120</text><text x="318" y="-111" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">1 ไฟซ่อนห้องน้ำ</text><text x="318" y="-101" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">2 พัดลมดูดอากาศ</text>
+<text x="318" y="-121" font-size="8" font-weight="600" text-anchor="start" fill="#d9931f">S3 Tuya 2 ช่อง สูง 120</text><text x="318" y="-111" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">1 ไฟซ่อนห้องน้ำ</text><text x="318" y="-101" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">2 พัดลมดูดอากาศ</text>
 <line x1="-15" y1="0" x2="415" y2="0" stroke="#3b3a36" stroke-width="2"/>
 <text x="404" y="-236" font-size="8" font-weight="400" text-anchor="start" fill="#8a877f">ฝ้า 240</text>
 <line x1="-22" y1="-80" x2="-12" y2="-80" stroke="#3b3a36" stroke-width="0.8"/>

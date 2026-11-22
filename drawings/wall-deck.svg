@@ -44,7 +44,7 @@
 <text x="720" y="-258" font-size="12.5" font-weight="600" text-anchor="middle" fill="#d9931f">โคมกล่องไม้ ใต้แป</text><text x="720" y="-243" font-size="12.5" font-weight="400" text-anchor="middle" fill="#3b3a36">LED batten 120 ซม. 2700K</text>
 <rect x="645" y="-127" width="10" height="14" rx="1.5" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <rect x="643" y="-129" width="14" height="18" rx="2" fill="none" stroke="#d9931f" stroke-width="0.8"/>
-<text x="664" y="-124" font-size="12.5" font-weight="600" text-anchor="start" fill="#d9931f">S4 สวิตช์ไฟระเบียง 2 ทาง</text><text x="664" y="-109" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">สูง 120 · กล่องกันน้ำมีฝา</text><text x="664" y="-94" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">หลัง S1 S2 ในห้องพอดี</text>
+<text x="664" y="-124" font-size="12.5" font-weight="600" text-anchor="start" fill="#d9931f">S4 สวิตช์ 2 ทางธรรมดา</text><text x="664" y="-109" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">สูง 120 · กล่องกันน้ำมีฝา</text><text x="664" y="-94" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">หลัง S2 ในห้องพอดี</text>
 <rect x="684" y="-44" width="12" height="8" rx="1.5" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/>
 <rect x="682" y="-46" width="16" height="12" rx="2" fill="none" stroke="#2f6f9f" stroke-width="0.8"/>
 <text x="704" y="-48" font-size="12.5" font-weight="600" text-anchor="start" fill="#2f6f9f">P10 ปลั๊กกันน้ำ IP55</text><text x="704" y="-33" font-size="12.5" font-weight="400" text-anchor="start" fill="#3b3a36">สูง 40 · มีฝาปิด</text>
@@ -65,7 +65,7 @@
 <g><line x1="620" y1="90" x2="650" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="615" y1="95" x2="625" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="645" y1="95" x2="655" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="635" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">30</text></g>
 <g><line x1="650" y1="90" x2="720" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="645" y1="95" x2="655" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="715" y1="95" x2="725" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="685" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">70</text></g>
 <g><line x1="720" y1="90" x2="960" y2="90" stroke="#3b3a36" stroke-width="0.9"/><line x1="715" y1="95" x2="725" y2="85" stroke="#3b3a36" stroke-width="1.3"/><line x1="955" y1="95" x2="965" y2="85" stroke="#3b3a36" stroke-width="1.3"/><text x="840" y="81" font-size="20" font-weight="500" text-anchor="middle" fill="#3b3a36">240</text></g>
-<text x="-100" y="150" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· S4 กับ S2 ช่อง 1 ในห้อง คุมไฟระเบียงชุดเดียวกัน (strip ใต้เดค + โคมกล่องไม้ 2 ดวง) ตั้ง Multi-Control ในแอป · S4 ต้องเดินสาย L + N</text>
+<text x="-100" y="150" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· S4 กับ S2 ในห้องเป็นสวิตช์ 2 ทางธรรมดา โยงสายถึงกัน คุมไฟระเบียงชุดเดียวกัน (strip ใต้เดค + โคมกล่องไม้ 2 ดวง) · เน็ตล่มก็กดได้ทั้งสองจุด</text>
 <text x="-100" y="174" font-size="13.5" font-weight="400" text-anchor="start" fill="#3b3a36">· ระเบียงมีชายคาบังฝน แต่ยังโดนฝนสาดและความชื้น ใช้กล่อง/หน้ากากกันน้ำทั้ง S4 และ P10</text>
 <text x="-100" y="212" font-size="16" font-weight="400" text-anchor="start" fill="#3b3a36">รูปด้านนอก ผนังหน้า ด้านระเบียง · 22 พ.ย. 2026</text>
 </svg>

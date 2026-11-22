@@ -19,7 +19,7 @@
 <text x="410" y="291" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 1.5 mm²</text>
 <polyline points="440,300 440,520 470,520" fill="none" stroke="#d9931f" stroke-width="3" stroke-linejoin="round"/>
 <rect x="470" y="272" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<text x="540" y="297" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S1 · 3 ช่อง</text>
+<text x="540" y="297" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S1 · Tuya 3 ช่อง</text>
 <text x="540" y="315" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ระหว่างประตูกับทีวี</text>
 <polyline points="610,300 650,300 650,230 720,230" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
 <circle cx="680" cy="230" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
@@ -44,7 +44,7 @@
 <text x="825" y="367" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">L2 โคมเพดาน</text>
 <text x="825" y="385" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">เหนือโต๊ะกินข้าว</text>
 <rect x="470" y="492" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<text x="540" y="517" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S3 · 2 ช่อง</text>
+<text x="540" y="517" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S3 · Tuya 2 ช่อง</text>
 <text x="540" y="535" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">นอกห้องน้ำ</text>
 <polyline points="610,520 650,520 650,485 720,485" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
 <circle cx="680" cy="485" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
@@ -69,34 +69,26 @@
 <polyline points="350,700 470,700" fill="none" stroke="#d9931f" stroke-width="3" stroke-linejoin="round"/>
 <text x="410" y="691" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">THW 1.5 mm²</text>
 <rect x="470" y="672" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<text x="540" y="697" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S2 · 2 ช่อง</text>
-<text x="540" y="715" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ใต้ S1 ในห้อง</text>
-<polyline points="440,700 440,618 470,618" fill="none" stroke="#d9931f" stroke-width="3" stroke-linejoin="round"/>
-<rect x="470" y="590" width="140" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<text x="540" y="615" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S4 · 1 ช่อง</text>
-<text x="540" y="633" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">นอกผนัง บนระเบียง</text>
-<polyline points="610,618 671,648" fill="none" stroke="#2f6f9f" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="5 4"/>
-<text x="614" y="608" font-size="11" font-weight="400" text-anchor="start" fill="#2f6f9f">2 ทางผ่านแอป</text>
-<polyline points="610,700 650,700 650,650 720,650" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
-<polyline points="650,700 650,755 720,755" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="680" cy="650" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
-<text x="680" y="654.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">1</text>
-<rect x="720" y="627" width="190" height="46" rx="8" fill="#efede7" stroke="#6d6a62" stroke-width="1.6"/>
-<text x="815" y="647" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">D1 Driver 24V</text>
-<text x="815" y="665" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">กล่องกันน้ำใต้เดค</text>
-<polyline points="910,650 950,650" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
-<rect x="950" y="627" width="330" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
-<text x="1115" y="647" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">LED strip ใต้ขอบเดค + บันได</text>
-<text x="1115" y="665" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">IP65 / บันได IP67</text>
-<polyline points="700,650 700,700 720,700" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
-<rect x="720" y="677" width="300" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
-<text x="870" y="697" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">โคมกล่องไม้ ×2 ใต้แป</text>
-<text x="870" y="715" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">LED batten 220V ไม่ต้องมี driver</text>
-<circle cx="680" cy="755" r="9" fill="#fff" stroke="#d9931f" stroke-width="1.4"/>
-<text x="680" y="759.5" font-size="12" font-weight="700" text-anchor="middle" fill="#d9931f">2</text>
-<rect x="720" y="732" width="380" height="46" rx="8" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.6"/>
-<text x="910" y="752" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">ปุ่มฉาก · ไม่ต่อโหลด</text>
-<text x="910" y="770" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">Automation: เปิด/ปิด S1 ทั้ง 3 ช่องพร้อมกัน</text>
+<text x="540" y="697" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S2 · 2 ทาง</text>
+<text x="540" y="715" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ธรรมดา · ในห้อง ใต้ S1</text>
+<polyline points="610,692 650,692" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="610,708 650,708" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="650" y="672" width="150" height="56" rx="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
+<text x="725" y="697" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">S4 · 2 ทาง</text>
+<text x="725" y="715" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">ธรรมดา · นอกบ้าน กันน้ำ</text>
+<text x="630" y="666" font-size="10.5" font-weight="400" text-anchor="middle" fill="#6d6a62">สายโยง 2 เส้น</text>
+<polyline points="800,700 840,700 840,665 880,665" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="840,700 840,735 880,735" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="880" y="642" width="170" height="46" rx="8" fill="#efede7" stroke="#6d6a62" stroke-width="1.6"/>
+<text x="965" y="662" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">D1 Driver 24V</text>
+<text x="965" y="680" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">กล่องกันน้ำใต้เดค</text>
+<polyline points="1050,665 1080,665" fill="none" stroke="#d9931f" stroke-width="2" stroke-linejoin="round"/>
+<rect x="1080" y="642" width="300" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="1230" y="662" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">LED strip ใต้ขอบเดค + บันได</text>
+<text x="1230" y="680" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">IP65 / บันได IP67</text>
+<rect x="880" y="712" width="300" height="46" rx="8" fill="#fff" stroke="#d9931f" stroke-width="1.6"/>
+<text x="1030" y="732" font-size="14" font-weight="600" text-anchor="middle" fill="#3b3a36">โคมกล่องไม้ ×2 ใต้แป</text>
+<text x="1030" y="750" font-size="11.5" font-weight="400" text-anchor="middle" fill="#6d6a62">LED batten 220V ไม่ต้องมี driver</text>
 <polyline points="92,850 200,850" fill="none" stroke="#3b3a36" stroke-width="2.4" stroke-linejoin="round"/>
 <rect x="200" y="830" width="150" height="40" rx="5" fill="#fff" stroke="#2f6f9f" stroke-width="2"/>
 <text x="214" y="855" font-size="15" font-weight="700" text-anchor="start" fill="#2f6f9f">C3</text>

@@ -109,7 +109,7 @@ parts.push(text(232, up(140), "บานพับซ้าย", { size: 7, fill:
 // S3 on the latch side.
 parts.push(rect(302, 116, 12, 7.2, `rx="0.8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.2"`));
 parts.push(`<line x1="${308}" y1="${up(116)}" x2="${308}" y2="${up(123.2)}" stroke="${lamp}" stroke-width="0.6"/>`);
-parts.push(label(318, 124, ["S3 2 ช่อง สูง 120", "1 ไฟซ่อนห้องน้ำ", "2 พัดลมดูดอากาศ"], { fill: lamp }));
+parts.push(label(318, 124, ["S3 Tuya 2 ช่อง สูง 120", "1 ไฟซ่อนห้องน้ำ", "2 พัดลมดูดอากาศ"], { fill: lamp }));
 
 // Floor and ceiling.
 parts.push(`<line x1="-15" y1="0" x2="${W + 15}" y2="0" stroke="${ink}" stroke-width="2"/>`);

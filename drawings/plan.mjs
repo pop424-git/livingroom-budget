@@ -80,7 +80,7 @@ function powerLayer(parts) {
   // S1 three-gang and S2 two-gang, side by side on the east wall between the
   // door frame (620) and the TV (720), on the latch-free side of the opening.
   parts.push(switchBox(2, 630, 10, 14), switchBox(2, 648, 10, 14));
-  parts.push(tag(18, 642, "S1 · 3 ช่อง", { fill: lamp }), tag(18, 662, "S2 · 2 ช่อง", { fill: lamp }));
+  parts.push(tag(18, 642, "S1 · Tuya 3 ช่อง", { fill: lamp }), tag(18, 662, "S2 · 2 ทาง", { fill: lamp }));
 
   // Hidden strip (S1 gang 3) along the two long walls only, up at the ceiling:
   // the east wall over the door, and the west wall from the toilet partition
@@ -137,7 +137,7 @@ function powerLayer(parts) {
   parts.push(outlet(392, 617), tag(378, 600, "P8", { anchor: "end" })); // behind the armchair, mid-way
   parts.push(outlet(-22, 690, "ip"), tag(-36, 694, "P10", { anchor: "end" })); // deck, outside face
   // S4: the deck lights' second switch, outside on the deck behind S1/S2.
-  parts.push(switchBox(-24, 643, 10, 14), tag(-36, 654, "S4 2 ทาง", { anchor: "end", fill: lamp }));
+  parts.push(switchBox(-24, 643, 10, 14), tag(-36, 654, "S4 · 2 ทาง", { anchor: "end", fill: lamp }));
 }
 
 /** Schedule under the power plan. */
@@ -159,9 +159,9 @@ function powerSchedule(parts) {
 
   head("สวิตช์ · สูง 120 ทุกตัว");
   row(sw, "S1", "3 ช่อง (บน) ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 โซฟา · 2 ไฟซ่อนในห้องทั้งหมด · 3 โคม L2 โต๊ะกินข้าว");
-  row(sw, "S2", "2 ช่อง (ล่าง) ใต้ S1 · 1 ไฟระเบียง สั่ง 2 ทาง · 2 ปุ่มฉาก เปิด/ปิด L1 ไฟซ่อน L2 พร้อมกัน");
-  row(sw, "S3", "2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)");
-  row(sw, "S4", "1 ช่อง นอกผนัง บนระเบียง หลัง S1 S2 · สูง 120 · กล่องกันน้ำมีฝา · ไฟระเบียง 2 ทางกับ S2-1 ผ่านแอป");
+  row(sw, "S2", "สวิตช์ 2 ทางธรรมดา 1 ช่อง ใต้ S1 · ไฟระเบียงทั้งหมด (strip + โคมกล่องไม้) · คู่กับ S4 ด้านนอก");
+  row(sw, "S3", "Tuya 2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (ตั้งนับถอยหลังปิดเองในแอป)");
+  row(sw, "S4", "สวิตช์ 2 ทางธรรมดา นอกผนังบนระเบียง หลัง S2 · สูง 120 · กล่องกันน้ำมีฝา · สายโยง 2 เส้นกับ S2");
   row((cx, cy) => `<circle cx="${cx}" cy="${cy}" r="8" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"/><path d="M${cx - 5.6} ${cy - 5.6} L${cx + 5.6} ${cy + 5.6} M${cx + 5.6} ${cy - 5.6} L${cx - 5.6} ${cy + 5.6}" stroke="${lamp}" stroke-width="1.3"/>`, "L", "โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด");
   row((cx, cy) => `<line x1="${cx - 12}" y1="${cy}" x2="${cx + 12}" y2="${cy}" stroke="${lamp}" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>`, "", "ไฟซ่อน LED strip 24V 2700K ในรางซ่อนชิดฝ้า · ผนังฝั่งประตู 9.6 ม. + ผนังฝั่งห้องน้ำ 8.0 ม. (S1-3)");
   row(null, "", "ห้องน้ำ: ไฟซ่อนผนังทิศใต้ 2.0 ม. ดวงเดียวในห้อง · IP65 (S3-1) · เส้นยาว 8–9.6 ม. ป้อนไฟกลางเส้นหรือสองหัว ไฟไม่ดรอปปลายเส้น");

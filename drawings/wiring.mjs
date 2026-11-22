@@ -75,7 +75,7 @@ function cable(x0, x1, y, label, color) {
   breaker(y, "C1", "RCBO 10A", lamp);
   cable(350, 470, y, "THW 1.5 mm²", lamp);
   parts.push(line([[440, y], [440, y3], [470, y3]], lamp, 3));
-  sw(470, y, 140, "S1 · 3 ช่อง", "ระหว่างประตูกับทีวี");
+  sw(470, y, 140, "S1 · Tuya 3 ช่อง", "ระหว่างประตูกับทีวี");
   // gangs
   const leaves = [y - 70, y, y + 70];
   leaves.forEach((ly, i) => {
@@ -88,7 +88,7 @@ function cable(x0, x1, y, label, color) {
   load(950, y, 330, "ไฟซ่อน ผนังยาวสองด้าน", "ฝั่งประตู 9.6 ม. + ฝั่งห้องน้ำ 8.0 ม. · ป้อนกลางเส้น");
   load(720, y + 70, 210, "L2 โคมเพดาน", "เหนือโต๊ะกินข้าว");
 
-  sw(470, y3, 140, "S3 · 2 ช่อง", "นอกห้องน้ำ");
+  sw(470, y3, 140, "S3 · Tuya 2 ช่อง", "นอกห้องน้ำ");
   [[y3 - 35, 1], [y3 + 35, 2]].forEach(([ly, n]) => {
     parts.push(line([[610, y3], [650, y3], [650, ly], [720, ly]], lamp, 2));
     gang(680, ly, n);
@@ -100,28 +100,23 @@ function cable(x0, x1, y, label, color) {
 }
 
 // ---- C2 deck lights ---------------------------------------------------
+// A plain two-way pair, S2 inside and S4 outside, so either works with the
+// internet down. Not on the app.
 {
   const y = 700;
   breaker(y, "C2", "RCBO 10A", lamp);
   cable(350, 470, y, "THW 1.5 mm²", lamp);
-  sw(470, y, 140, "S2 · 2 ช่อง", "ใต้ S1 ในห้อง");
-  // S4 outside on the deck: powered from the same circuit, linked to S2-1 in the app.
-  parts.push(line([[440, y], [440, y - 82], [470, y - 82]], lamp, 3));
-  sw(470, y - 82, 140, "S4 · 1 ช่อง", "นอกผนัง บนระเบียง");
-  parts.push(line([[610, y - 82], [671, y - 52]], pw, 1.6, "5 4"));
-  parts.push(text(614, y - 92, "2 ทางผ่านแอป", { size: 11, fill: pw, anchor: "start" }));
-  // Gang 1: the deck lights, both kinds on one gang.
-  parts.push(line([[610, y], [650, y], [650, y - 50], [720, y - 50]], lamp, 2));
-  parts.push(line([[650, y], [650, y + 55], [720, y + 55]], lamp, 2));
-  gang(680, y - 50, 1);
-  drv(720, y - 50, 190, "D1 Driver 24V", "กล่องกันน้ำใต้เดค");
-  parts.push(line([[910, y - 50], [950, y - 50]], lamp, 2));
-  load(950, y - 50, 330, "LED strip ใต้ขอบเดค + บันได", "IP65 / บันได IP67");
-  parts.push(line([[700, y - 50], [700, y], [720, y]], lamp, 2));
-  load(720, y, 300, "โคมกล่องไม้ ×2 ใต้แป", "LED batten 220V ไม่ต้องมี driver");
-  // Gang 2: the scene button, no load.
-  gang(680, y + 55, 2);
-  chip(720, y + 55, 380, "ปุ่มฉาก · ไม่ต่อโหลด", "Automation: เปิด/ปิด S1 ทั้ง 3 ช่องพร้อมกัน");
+  sw(470, y, 140, "S2 · 2 ทาง", "ธรรมดา · ในห้อง ใต้ S1");
+  // Two travellers to S4 on the deck side of the same wall.
+  parts.push(line([[610, y - 8], [650, y - 8]], lamp, 2), line([[610, y + 8], [650, y + 8]], lamp, 2));
+  sw(650, y, 150, "S4 · 2 ทาง", "ธรรมดา · นอกบ้าน กันน้ำ");
+  parts.push(text(630, y - 34, "สายโยง 2 เส้น", { size: 10.5, fill: soft }));
+  parts.push(line([[800, y], [840, y], [840, y - 35], [880, y - 35]], lamp, 2));
+  parts.push(line([[840, y], [840, y + 35], [880, y + 35]], lamp, 2));
+  drv(880, y - 35, 170, "D1 Driver 24V", "กล่องกันน้ำใต้เดค");
+  parts.push(line([[1050, y - 35], [1080, y - 35]], lamp, 2));
+  load(1080, y - 35, 300, "LED strip ใต้ขอบเดค + บันได", "IP65 / บันได IP67");
+  load(880, y + 35, 300, "โคมกล่องไม้ ×2 ใต้แป", "LED batten 220V ไม่ต้องมี driver");
 }
 
 // ---- outlet circuits: a daisy chain of outlets ----------------------

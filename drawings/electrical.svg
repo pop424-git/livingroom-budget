@@ -93,8 +93,8 @@
 </g>
 <rect x="2" y="630" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <rect x="2" y="648" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<rect x="18" y="631" width="85" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="60.5" y="642" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S1 · 3 ช่อง</text>
-<rect x="18" y="651" width="85" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="60.5" y="662" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S2 · 2 ช่อง</text>
+<rect x="18" y="631" width="120" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="78" y="642" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S1 · Tuya 3 ช่อง</text>
+<rect x="18" y="651" width="78" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="57" y="662" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S2 · 2 ทาง</text>
 <line x1="16" y1="4" x2="16" y2="956" stroke="#d9931f" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>
 <line x1="384" y1="166" x2="384" y2="956" stroke="#d9931f" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>
 <line x1="204" y1="18" x2="396" y2="18" stroke="#d9931f" stroke-width="2.4" stroke-dasharray="2 4" stroke-linecap="round"/>
@@ -135,20 +135,20 @@
 <circle cx="-22" cy="690" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-22" cy="690" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-24.2" y1="687" x2="-24.2" y2="693"/><line x1="-19.8" y1="687" x2="-19.8" y2="693"/></g>
 <rect x="-65" y="683" width="29" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="-50.5" y="694" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P10</text>
 <rect x="-24" y="643" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
-<rect x="-100" y="643" width="64" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="-68" y="654" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S4 2 ทาง</text>
+<rect x="-114" y="643" width="78" height="15" rx="3" fill="#fff" stroke="#d9931f" stroke-width="0.8"/><text x="-75" y="654" font-size="10" font-weight="600" text-anchor="middle" fill="#d9931f">S4 · 2 ทาง</text>
 <text x="-370" y="1062" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">สวิตช์ · สูง 120 ทุกตัว</text>
 <rect x="-361" y="1074" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <text x="-336" y="1086" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S1</text>
 <text x="-300" y="1086" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">3 ช่อง (บน) ระหว่างบานเลื่อนกับทีวี · 1 โคม L1 โซฟา · 2 ไฟซ่อนในห้องทั้งหมด · 3 โคม L2 โต๊ะกินข้าว</text>
 <rect x="-361" y="1095" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <text x="-336" y="1107" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S2</text>
-<text x="-300" y="1107" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">2 ช่อง (ล่าง) ใต้ S1 · 1 ไฟระเบียง สั่ง 2 ทาง · 2 ปุ่มฉาก เปิด/ปิด L1 ไฟซ่อน L2 พร้อมกัน</text>
+<text x="-300" y="1107" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">สวิตช์ 2 ทางธรรมดา 1 ช่อง ใต้ S1 · ไฟระเบียงทั้งหมด (strip + โคมกล่องไม้) · คู่กับ S4 ด้านนอก</text>
 <rect x="-361" y="1116" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <text x="-336" y="1128" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S3</text>
-<text x="-300" y="1128" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (หรือสวิตช์ตั้งเวลา หน่วงดับ 5–10 นาที)</text>
+<text x="-300" y="1128" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">Tuya 2 ช่อง นอกห้องน้ำ ฝั่งมือจับ · 1 ไฟซ่อนห้องน้ำ · 2 พัดลมดูดอากาศ (ตั้งนับถอยหลังปิดเองในแอป)</text>
 <rect x="-361" y="1137" width="10" height="14" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/>
 <text x="-336" y="1149" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">S4</text>
-<text x="-300" y="1149" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">1 ช่อง นอกผนัง บนระเบียง หลัง S1 S2 · สูง 120 · กล่องกันน้ำมีฝา · ไฟระเบียง 2 ทางกับ S2-1 ผ่านแอป</text>
+<text x="-300" y="1149" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">สวิตช์ 2 ทางธรรมดา นอกผนังบนระเบียง หลัง S2 · สูง 120 · กล่องกันน้ำมีฝา · สายโยง 2 เส้นกับ S2</text>
 <circle cx="-356" cy="1165" r="8" fill="#fff1cc" stroke="#d9931f" stroke-width="1.6"/><path d="M-361.6 1159.4 L-350.4 1170.6 M-350.4 1159.4 L-361.6 1170.6" stroke="#d9931f" stroke-width="1.3"/>
 <text x="-336" y="1170" font-size="13" font-weight="600" text-anchor="start" fill="#d9931f">L</text>
 <text x="-300" y="1170" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">โคมเพดาน · L1 ระหว่างโซฟากับทีวี · L2 เหนือโต๊ะค่อนมากลางห้อง ท้องโคมสูงจากโต๊ะ 70–80 · เผื่อกล่องต่อสายบนฝ้าตรงจุด</text>

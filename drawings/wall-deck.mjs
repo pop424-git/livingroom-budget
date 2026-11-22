@@ -73,7 +73,7 @@ parts.push(label(720, 262, ["โคมกล่องไม้ ใต้แป",
 // S4: the deck lights' second switch, outside, behind S1/S2 (plan y ≈ 650).
 parts.push(rect(645, 113, 10, 14, `rx="1.5" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"`));
 parts.push(rect(643, 111, 14, 18, `rx="2" fill="none" stroke="${lamp}" stroke-width="0.8"`));
-parts.push(label(664, 128, ["S4 สวิตช์ไฟระเบียง 2 ทาง", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S1 S2 ในห้องพอดี"], { fill: lamp }));
+parts.push(label(664, 128, ["S4 สวิตช์ 2 ทางธรรมดา", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S2 ในห้องพอดี"], { fill: lamp }));
 
 // P10: weatherproof double, low.
 parts.push(rect(684, 36, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
@@ -95,7 +95,7 @@ parts.push(dimH(620, 650, 90, "30"));
 parts.push(dimH(650, 720, 90, "70"));
 parts.push(dimH(720, L, 90, "240"));
 
-parts.push(text(-100, 150, "· S4 กับ S2 ช่อง 1 ในห้อง คุมไฟระเบียงชุดเดียวกัน (strip ใต้เดค + โคมกล่องไม้ 2 ดวง) ตั้ง Multi-Control ในแอป · S4 ต้องเดินสาย L + N", { size: 13.5, anchor: "start" }));
+parts.push(text(-100, 150, "· S4 กับ S2 ในห้องเป็นสวิตช์ 2 ทางธรรมดา โยงสายถึงกัน คุมไฟระเบียงชุดเดียวกัน (strip ใต้เดค + โคมกล่องไม้ 2 ดวง) · เน็ตล่มก็กดได้ทั้งสองจุด", { size: 13.5, anchor: "start" }));
 parts.push(text(-100, 174, "· ระเบียงมีชายคาบังฝน แต่ยังโดนฝนสาดและความชื้น ใช้กล่อง/หน้ากากกันน้ำทั้ง S4 และ P10", { size: 13.5, anchor: "start" }));
 parts.push(text(-100, 212, "รูปด้านนอก ผนังหน้า ด้านระเบียง · 22 พ.ย. 2026", { size: 16, anchor: "start" }));
 

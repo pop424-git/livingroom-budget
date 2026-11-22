@@ -85,9 +85,9 @@ const plate = (cy, gangs, color) => {
   }
   return s;
 };
-parts.push(plate(124.5, 3, lamp), plate(115.5, 2, lamp));
+parts.push(plate(124.5, 3, lamp), plate(115.5, 1, lamp));
 parts.push(`<line x1="${sx}" y1="${up(129)}" x2="${sx - 4}" y2="${up(178)}" stroke="${lamp}" stroke-width="0.8"/>`);
-parts.push(label(sx - 8, 206, ["S1 3 ช่อง (บน)", "S2 2 ช่อง (ล่าง)", "กึ่งกลางชุด 120"], { anchor: "end", fill: lamp }));
+parts.push(label(sx - 8, 206, ["S1 Tuya 3 ช่อง (บน)", "S2 สวิตช์ 2 ทาง (ล่าง)", "กึ่งกลางชุด 120"], { anchor: "end", fill: lamp }));
 
 // P2 straight under the switches.
 parts.push(outlet(sx, 40));
@@ -115,7 +115,7 @@ parts.push(dimH(d1, L, 40, "340"));
 const S = 16; // px per cm in the detail
 const ox = 40;
 const oy = 150;
-parts.push(text(-60, oy - 26, "หน้าสวิตช์ขยาย · Tuya WiFi ปุ่มใหญ่ 3 ช่องวางบน 2 ช่อง", { size: 18, weight: 600, anchor: "start" }));
+parts.push(text(-60, oy - 26, "หน้าสวิตช์ขยาย · Tuya WiFi 3 ช่อง (บน) · สวิตช์ 2 ทางธรรมดา (ล่าง)", { size: 18, weight: 600, anchor: "start" }));
 function bigPlate(y, buttons) {
   const w = 12 * S;
   const h = 7.2 * S;
@@ -131,7 +131,7 @@ function bigPlate(y, buttons) {
   return h;
 }
 const h1 = bigPlate(oy, [["1", "", "", lamp], ["2", "", "", lamp], ["3", "", "", lamp]]);
-bigPlate(oy + h1 + 14, [["1", "", "", lamp], ["2", "", "", pw]]);
+bigPlate(oy + h1 + 14, [["2 ทาง", "", "", lamp]]);
 
 const lx = ox + 12 * S + 40;
 const rows = [
@@ -139,19 +139,19 @@ const rows = [
   [oy + 44, "1 ซ้าย   โคม L1 โซนโซฟา", ink],
   [oy + 66, "2 กลาง   ไฟซ่อนในห้องทั้งหมด (ผนังยาวสองด้าน)", ink],
   [oy + 88, "3 ขวา    โคม L2 เหนือโต๊ะกินข้าว", ink],
-  [oy + h1 + 32, "S2 · 2 ช่อง", lamp, true],
-  [oy + h1 + 58, "1 ซ้าย   ไฟระเบียง · 2 ทางกับ S4 ด้านนอก (Multi-Control ในแอป)", ink],
-  [oy + h1 + 80, "2 ขวา    ปุ่มฉาก: กด = เปิด L1 ไฟซ่อน L2 พร้อมกัน · กดอีกครั้ง = ปิดทั้งหมด", pw],
-  [oy + h1 + 102, "          ช่องนี้ไม่ต่อโหลด ใช้ทริกเกอร์ Automation ในแอป Smart Life", soft],
+  [oy + h1 + 32, "S2 · สวิตช์ 2 ทางธรรมดา 1 ช่อง", lamp, true],
+  [oy + h1 + 58, "ไฟระเบียงทั้งหมด: LED strip ใต้เดค + โคมกล่องไม้ 2 ดวง", ink],
+  [oy + h1 + 80, "คู่กับ S4 นอกบ้าน โยงสาย 2 เส้น · กดได้ทั้งสองจุดแม้เน็ตล่ม", ink],
+  [oy + h1 + 102, "ไม่ได้ต่อกับแอป · ปุ่มฉากเปิด/ปิด S1 ทั้งหมด ย้ายไปตั้งในแอปแทน", soft],
 ];
 for (const [y, t, c, bold] of rows) parts.push(text(lx, y, t, { size: 15, weight: bold ? 600 : 400, anchor: "start", fill: c }));
 
 // Notes.
 const ny = oy + 2 * h1 + 70;
 const notes = [
-  "สวิตช์รุ่นนี้ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่องสวิตช์ S1 S2 และ S4 ด้านนอก (ปกติช่างเดินแค่ L)",
+  "S1 Tuya ต้องมีสาย N (Require Neutral) · สั่งช่างเดินสาย L + N เข้ากล่อง S1 และ S3 หน้าห้องน้ำ (ปกติช่างเดินแค่ L) · S2 S4 ธรรมดาไม่ต้องมี N",
   "กล่องฝังผนังขนาด 2×4 นิ้ว 2 กล่องซ้อนกันแนวตั้ง · ระยะกึ่งกลางกล่องห่างกัน ~9 ซม. ให้หน้ากากไม่ชนกัน · เช็กขนาดหน้ากากจริงก่อนฝังกล่อง",
-  "ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ไฟระเบียง 2 ทาง สูง 120 หลัง S1 S2 · P10 ปลั๊กกันน้ำ สูง 40 แนวเดียวกับ P2",
+  "ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ 2 ทางธรรมดา สูง 120 หลัง S2 · P10 ปลั๊กกันน้ำ สูง 40 แนวเดียวกับ P2",
 ];
 notes.forEach((t, i) => parts.push(text(-60, ny + i * 22, "· " + t, { size: 13.5, anchor: "start", fill: i ? ink : "#b3412c" })));
 parts.push(text(-60, ny + notes.length * 22 + 30, "รูปด้านภายใน ผนังฝั่งประตู · 21 พ.ย. 2026", { size: 16, anchor: "start" }));
