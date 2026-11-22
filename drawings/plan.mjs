@@ -124,10 +124,10 @@ function powerLayer(parts) {
   // P2: a double low on the wall right under the main switches.
   parts.push(outlet(8, 680), tag(20, 694, "P2 ใต้สวิตช์"));
 
-  // P3: the kitchen's one double, upright in the gap between the fridge and
+  // P3: the kitchen's one double, upright over the fridge's right-hand edge and
   // the counter: the fridge in the lower socket, the microwave in the upper.
-  parts.push(outlet(66, 7), tag(72, 80, "P3"));
-  parts.push(`<line x1="66" y1="13" x2="76" y2="68" stroke="${pw}" stroke-width="0.7"/>`);
+  parts.push(outlet(57, 7), tag(66, 80, "P3"));
+  parts.push(`<line x1="57" y1="13" x2="70" y2="68" stroke="${pw}" stroke-width="0.7"/>`);
   parts.push(outlet(392, 373), tag(378, 350, "P4", { anchor: "end" })); // dining table end
 
   // Air conditioner on the north wall over the big window, centred on it,
@@ -173,7 +173,7 @@ function powerSchedule(parts) {
   head("ปลั๊ก · ปลั๊กคู่มีกราวด์ทุกจุด");
   row(duo, "P1", "หลังทีวี ซ่อนใต้ขาแขวน · สูง 95 · ปลั๊กคู่ 1 ตัว");
   row(duo, "P2", "ใต้สวิตช์ S1 S2 · สูง 40 · ปลั๊กคู่");
-  row(duo, "P3", "ปลั๊กคู่แนวตั้ง ช่องระหว่างตู้เย็นกับเคาน์เตอร์ · ขอบล่าง 110 · ช่องล่างตู้เย็นเสียบค้าง · ช่องบนไมโครเวฟ กาต้มน้ำ");
+  row(duo, "P3", "ปลั๊กคู่แนวตั้ง เหนือตู้เย็นชิดขอบขวา ข้างไมโครเวฟ · ขอบล่าง 110 · ช่องล่างตู้เย็นเสียบค้าง · ช่องบนไมโครเวฟ กาต้มน้ำ");
   row(duo, "P4", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
   row(duo, "P5", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
   row((cx, cy) => outlet(cx, cy, "ip"), "P6", "นอกผนัง บนระเบียง ใต้ S4 · สูง 100 (เหนือตู้รองเท้า) · ฝาสปริงกันน้ำสาด IP44");

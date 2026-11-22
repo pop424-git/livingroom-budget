@@ -29,8 +29,8 @@
 <text x="35.5" y="-30" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">55 × 55 × 97</text>
 <rect x="10" y="-124" width="40" height="27" fill="none" stroke="#8a877f" stroke-width="1" stroke-dasharray="3 2"/>
 <text x="30" y="-112" font-size="7" font-weight="400" text-anchor="middle" fill="#8a877f">ไมโครเวฟ?</text>
-<g transform="translate(66 -115.5) scale(1.6) translate(-66 115.5)"><rect x="62.5" y="-121" width="7" height="11" rx="1" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1"/><circle cx="66" cy="-113" r="1.4" fill="none" stroke="#2f6f9f" stroke-width="0.6"/><circle cx="66" cy="-118" r="1.4" fill="none" stroke="#2f6f9f" stroke-width="0.6"/></g>
-<line x1="64" y1="-121" x2="56" y2="-138" stroke="#2f6f9f" stroke-width="0.6"/>
+<g transform="translate(57 -115.5) scale(1.6) translate(-57 115.5)"><rect x="53.5" y="-121" width="7" height="11" rx="1" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1"/><circle cx="57" cy="-113" r="1.4" fill="none" stroke="#2f6f9f" stroke-width="0.6"/><circle cx="57" cy="-118" r="1.4" fill="none" stroke="#2f6f9f" stroke-width="0.6"/></g>
+<line x1="55" y1="-124" x2="50" y2="-138" stroke="#2f6f9f" stroke-width="0.6"/>
 <text x="6" y="-163" font-size="8" font-weight="600" text-anchor="start" fill="#2f6f9f">P3 ปลั๊กคู่ แนวตั้ง</text><text x="6" y="-153" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ขอบล่าง 110</text><text x="6" y="-143" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">บน ไมโครเวฟ</text><text x="6" y="-133" font-size="8" font-weight="400" text-anchor="start" fill="#3b3a36">ล่าง ตู้เย็น</text>
 <rect x="12" y="-210" width="36" height="40" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
 <line x1="12" y1="-210" x2="48" y2="-170" stroke="#3b3a36" stroke-width="0.6"/>

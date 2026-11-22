@@ -73,11 +73,11 @@ parts.push(text(30, up(112), "ไมโครเวฟ?", { size: 7, fill: soft 
 
 // Symbols are drawn larger than life so they read at a glance.
 const big = (cx, cyUp, k, body) => `<g transform="translate(${cx} ${cyUp}) scale(${k}) translate(${-cx} ${-cyUp})">${body}</g>`;
-// P3, the kitchen's only outlet: a double upright in the gap between the
+// P3, the kitchen's only outlet: a double upright over the fridge's right-hand edge,
 // fridge and the counter, beside the microwave. Lower socket: the fridge,
 // always in. Upper socket: the microwave or kettle, plugged in when used.
-parts.push(big(66, up(115.5), 1.6, rect(62.5, 110, 7, 11, `rx="1" fill="${pwFill}" stroke="${pw}" stroke-width="1"`) + [113, 118].map((h) => `<circle cx="66" cy="${up(h)}" r="1.4" fill="none" stroke="${pw}" stroke-width="0.6"/>`).join("")));
-parts.push(`<line x1="64" y1="${up(121)}" x2="56" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
+parts.push(big(57, up(115.5), 1.6, rect(53.5, 110, 7, 11, `rx="1" fill="${pwFill}" stroke="${pw}" stroke-width="1"`) + [113, 118].map((h) => `<circle cx="57" cy="${up(h)}" r="1.4" fill="none" stroke="${pw}" stroke-width="0.6"/>`).join("")));
+parts.push(`<line x1="55" y1="${up(124)}" x2="50" y2="${up(138)}" stroke="${pw}" stroke-width="0.6"/>`);
 parts.push(label(6, 166, ["P3 ปลั๊กคู่ แนวตั้ง", "ขอบล่าง 110", "บน ไมโครเวฟ", "ล่าง ตู้เย็น"]));
 
 // Consumer unit over the fridge.
