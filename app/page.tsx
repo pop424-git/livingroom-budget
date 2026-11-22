@@ -1,6 +1,6 @@
 import { AddCategoryForm } from "@/components/AddCategoryForm";
 import { CategoryCard } from "@/components/CategoryCard";
-import { Electrical } from "@/components/Electrical";
+import { ElectricalSection } from "@/components/Electrical";
 import { Icon } from "@/components/icons";
 import { Openings } from "@/components/Openings";
 import { ReferenceShots } from "@/components/ReferenceShots";
@@ -113,13 +113,70 @@ export default async function Page() {
           <ReferenceShots />
         </section>
 
+        <ElectricalSection />
+
+        {categories.length === 0 ? (
+          <p className="rounded-lg border border-dashed border-line py-12 text-center text-sm text-muted">
+            ยังไม่มีหมวด — รัน <code className="text-wood">npm run db:setup</code>{" "}
+            เพื่อใส่ข้อมูลตั้งต้น หรือเพิ่มหมวดเองด้านล่าง
+          </p>
+        ) : (
+          <div className="space-y-2.5">
+            {categories.map((category, index) => (
+              <CategoryCard
+                key={category.id}
+                category={category}
+                index={index}
+                share={
+                  category.is_included && grandMax > 0
+                    ? categoryTotal(category).max / grandMax
+                    : 0
+                }
+              />
+            ))}
+          </div>
+        )}
+
+        <div className="mt-2.5">
+          <AddCategoryForm />
+        </div>
+
         <section className="mt-16">
           <div className="mb-4 flex items-end justify-between gap-4 border-t border-line pt-8">
-            <h2 className="font-serif text-xl text-ink">ระบบไฟฟ้า · ปลั๊ก · สวิตช์</h2>
-            <span className={labelClass}>สรุป 22 พ.ย. 2026</span>
+            <h2 className="font-serif text-xl text-ink">ประตู · หน้าต่าง</h2>
+            <span className={labelClass}>ขนาด · สี · ราคา</span>
           </div>
-          <Electrical />
+          <Openings />
         </section>
+
+        <section className="mt-16">
+          <div className="mb-4 flex items-end justify-between gap-4 border-t border-line pt-8">
+            <h2 className="font-serif text-xl text-ink">ภาพอ้างอิง</h2>
+            <span className={labelClass}>แบบ · เรนเดอร์</span>
+          </div>
+          <ReferenceShots />
+        </section>
+
+        {/* Long and only needed when talking to the electrician, so it starts folded. */}
+        <details className="group mt-16 border-t border-line pt-8">
+          <summary className="flex cursor-pointer list-none items-end justify-between gap-4 select-none [&::-webkit-details-marker]:hidden">
+            <div>
+              <h2 className="font-serif text-xl text-ink">ระบบไฟฟ้า · ปลั๊ก · สวิตช์</h2>
+              <p className="mt-1 text-xs text-muted">
+                สวิตช์ 4 · ปลั๊กคู่ 7 · โคม 4 · 6 วงจร —{" "}
+                <span className="group-open:hidden">กดเพื่อดูรายละเอียด</span>
+                <span className="hidden group-open:inline">กดเพื่อย่อ</span>
+              </p>
+            </div>
+            <Icon
+              name="chevron"
+              className="mb-1 size-5 shrink-0 text-muted transition group-open:rotate-90"
+            />
+          </summary>
+          <div className="mt-6">
+            <Electrical />
+          </div>
+        </details>
       </div>
     </main>
   );

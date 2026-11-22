@@ -1,4 +1,5 @@
 import { Gallery, type Shot } from "@/components/ReferenceShots";
+import { Icon } from "@/components/icons";
 import { labelClass } from "@/components/ui";
 import {
   checkOnSite,
@@ -9,8 +10,6 @@ import {
   tellElectrician,
   type Point,
 } from "@/lib/electrical";
-import shopping1 from "@/public/reference/electrical-shopping-1.png";
-import shopping2 from "@/public/reference/electrical-shopping-2.png";
 import planElectrical from "@/public/reference/plan-electrical.png";
 import wallDeck from "@/public/reference/wall-deck.png";
 import wallEast from "@/public/reference/wall-east.png";
@@ -45,21 +44,39 @@ const sheets: Shot[] = [
     caption: "ผนังฝั่งโซฟา-ห้องน้ำ",
   },
   {
-    image: shopping1,
-    alt: "รายการของระบบไฟฟ้า หน้า 1 ปลั๊กคู่ 7 สวิตช์ 4 โคม 4 วงจร 6 รายการปลั๊ก สวิตช์ และบล็อกพร้อมจำนวน",
-    caption: "รายการของ 1/2 — ปลั๊ก สวิตช์ บล็อก",
-  },
-  {
-    image: shopping2,
-    alt: "รายการของระบบไฟฟ้า หน้า 2 รายการไฟ ตู้ไฟ และสายไฟพร้อมจำนวน",
-    caption: "รายการของ 2/2 — ไฟ ตู้ไฟ สายไฟ",
-  },
-  {
     image: wiringDiagram,
     alt: "ผังสายไฟแบบเส้นเดียว ตู้ไฟเมน 32A แยก 6 วงจร ไปสวิตช์ โคม และปลั๊ก",
     caption: "ผังสายไฟ — ตู้ไฟ → 6 วงจร → สวิตช์ → โคม/ปลั๊ก",
   },
 ];
+
+/**
+ * The page's last section. Long, and only needed when talking to the
+ * electrician, so it starts folded with the counts showing.
+ */
+export function ElectricalSection() {
+  return (
+    <details className="group mt-16 border-t border-line pt-8">
+      <summary className="flex cursor-pointer list-none items-end justify-between gap-4 select-none [&::-webkit-details-marker]:hidden">
+        <div>
+          <h2 className="font-serif text-xl text-ink">ระบบไฟฟ้า · ปลั๊ก · สวิตช์</h2>
+          <p className="mt-1 text-xs text-muted">
+            สวิตช์ {switches.length} · ปลั๊กคู่ {outlets.length} · {circuits.length} วงจร —{" "}
+            <span className="group-open:hidden">กดเพื่อดูรายละเอียด</span>
+            <span className="hidden group-open:inline">กดเพื่อย่อ</span>
+          </p>
+        </div>
+        <Icon
+          name="chevron"
+          className="mb-1 size-5 shrink-0 text-muted transition group-open:rotate-90"
+        />
+      </summary>
+      <div className="mt-6">
+        <Electrical />
+      </div>
+    </details>
+  );
+}
 
 /** The agreed switch and outlet layout, the shopping list, and the drawings. */
 export function Electrical() {
