@@ -5,7 +5,7 @@
  * 400 cm width, y runs north down the 960 cm length. The engawa sits east of
  * the front wall.
  */
-import { FONT, dimH, dimV, text, svgDoc } from "./lib.mjs";
+import { FONT, STAIR, dimH, dimV, text, svgDoc } from "./lib.mjs";
 
 const W = 400; // inside width
 const L = 960; // inside length
@@ -213,24 +213,39 @@ for (let x = -T - DECK + 20; x < -T; x += 20) {
 for (const y of [-T, 235, 480, 725, L + T - 12]) {
   parts.push(`<rect x="${-T - DECK}" y="${y}" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>`);
 }
-parts.push(`<rect x="${-T - DECK}" y="-55" width="${DECK}" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
-parts.push(`<rect x="${-T - DECK}" y="${L + T}" width="${DECK}" height="45" fill="#e8dcc8" stroke="#8a7a64" stroke-width="1"/>`);
-// Two treads per flight: the step down from the deck, then the step to the ground.
-parts.push(`<line x1="${-T - DECK}" y1="-32.5" x2="${-T}" y2="-32.5" stroke="#8a7a64" stroke-width="0.8"/>`);
-parts.push(`<line x1="${-T - DECK}" y1="${L + T + 22.5}" x2="${-T}" y2="${L + T + 22.5}" stroke="#8a7a64" stroke-width="0.8"/>`);
-parts.push(text(-T - DECK / 2, -39, "บันได 200", { size: 12, fill: soft }));
-parts.push(text(-T - DECK / 2, L + 46, "บันได 200", { size: 12, fill: soft }));
+// Steps: 120 wide from the wall line out, three nested treads at each end.
+// Nosings are solid lines; the recessed supports behind them dashed.
+const stairX = -T - STAIR.width;
+// dir -1 runs south from the south end of the deck, +1 north from the north end.
+const flight = (edge, dir) => {
+  const out = [];
+  for (let k = STAIR.count; k >= 1; k--) {
+    const { out: o } = STAIR.at(k);
+    const y0 = edge + dir * (o - STAIR.going);
+    const y1 = edge + dir * o;
+    out.push(`<rect x="${stairX}" y="${Math.min(y0, y1)}" width="${STAIR.width}" height="${STAIR.going}" fill="${k % 2 ? "#e8dcc8" : "#efe4d2"}" stroke="#8a7a64" stroke-width="1"/>`);
+    const back = y1 - dir * STAIR.toe;
+    out.push(`<line x1="${stairX}" y1="${back}" x2="${-T}" y2="${back}" stroke="#8a7a64" stroke-width="0.7" stroke-dasharray="3 3"/>`);
+  }
+  return out.join("");
+};
+parts.push(flight(-T, -1), flight(L + T, 1));
+parts.push(text(stairX + STAIR.width / 2, -T - STAIR.run - 8, `บันได 3 ขั้น กว้าง ${STAIR.width}`, { size: 12, fill: soft }));
+parts.push(text(stairX + STAIR.width / 2, L + T + STAIR.run + 18, `บันได 3 ขั้น กว้าง ${STAIR.width}`, { size: 12, fill: soft }));
 parts.push(`<rect x="-185" y="100" width="150" height="62" fill="#f1e8da"/>`);
 parts.push(text(-110, 125, "ระเบียง engawa", { size: 17, weight: 600 }));
 parts.push(text(-110, 150, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
 
 if (power) parts.push(`<g opacity="0.3">`);
 // Circuit 1: LED strip hidden under the outer deck edge and under the nosing of
-// every step, two treads at each end.
+// every tread, three at each end.
 const strip = (x1, y1, x2, y2) =>
   `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${lamp}" stroke-width="3" stroke-linecap="round"/>`;
 parts.push(strip(-T - DECK + 3, -T, -T - DECK + 3, L + T));
-for (const y of [-32.5, -53, L + T + 22.5, L + T + 43]) parts.push(strip(-T - DECK + 4, y, -T - 4, y));
+for (let k = 1; k <= STAIR.count; k++) {
+  const o = STAIR.at(k).out - 3; // just behind each nosing
+  for (const y of [-T - o, L + T + o]) parts.push(strip(stairX + 4, y, -T - 4, y));
+}
 
 // Circuit 2: two wooden-box linear lamps hung under the purlin, one in each
 // half of the deck, fed at the middle through the rafter over the middle post
@@ -415,7 +430,7 @@ if (power) {
 if (!power) {
   const x = -370;
   const rows = [
-    ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 4 แนว ~8 ม. · IP65 / บันได IP67 · driver D1 ใต้เดค"],
+    ["strip", "LED strip 24V 2700K ซ่อนใต้ขอบเดค 9.6 ม. + ใต้จมูกขั้นบันได 6 แนว ~7.2 ม. · IP65 / บันได IP67 · driver D1 ใต้เดค"],
     ["box", "โคมกล่องไม้ 2 ดวง ห้อยใต้แป ห่างผนัง 100 · ห่างปลายเดคข้างละ 240 · LED batten 120 ซม. 2700K 220V"],
     ["rafter", "จันทันแนวเสากลาง · ร้อยสายในจันทันเข้าแป ป้อนไฟกลางเส้น (เจาะ + ร้อยลวดนำก่อนมุงหลังคา)"],
     ["switch", "สวิตช์ 2 ทาง S2 ในห้อง (ใต้ S1) + S4 นอกผนัง: เปิด/ปิด strip และโคมกล่องไม้พร้อมกัน · วงจร C2"],

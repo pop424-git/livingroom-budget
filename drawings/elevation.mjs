@@ -5,7 +5,7 @@
  * above the finished floor, drawn upwards, so every y below goes through up().
  * Walls are cut away to show what stands behind them, as in the first sketch.
  */
-import { FONT, dimH, text, svgDoc } from "./lib.mjs";
+import { FONT, STAIR, dimH, text, svgDoc } from "./lib.mjs";
 
 const L = 960;
 const up = (h) => -h; // height above floor → SVG y
@@ -16,7 +16,7 @@ const ink = "#2f2e2b";
 const lamp = "#d9931f";
 
 // Wooden-box lamps under the purlin, 1.00 in front of the wall at about +2.90.
-// length of the deck. It faces down and back, washing the deck and this wall.
+// U-channel box, the tube tucked up inside; the light falls straight down onto the deck.
 const LINEAR_H = 290;
 
 const r = (x, y0, w, h, fill, extra = "") =>
@@ -30,15 +30,25 @@ parts.push(`<rect x="-160" y="-560" width="1280" height="700" fill="#ffffff"/>`)
 parts.push(r(-160, -60, 1280, 15, "#cfcfcf"));
 for (const y of [0, 240, 480, 720, L - 25]) parts.push(r(y, -45, 25, 25, "#cf8f55"));
 parts.push(r(-10, -20, L + 20, 20, "#c9a083"));
-parts.push(r(-70, -32, 60, 12, "#c9a083"), r(-110, -45, 60, 13, "#c9a083"));
-parts.push(r(L + 10, -32, 60, 12, "#c9a083"), r(L + 50, -45, 60, 13, "#c9a083"));
+// Three nested treads at each end, seen side on: each slab overhangs its
+// support by the toe recess, so the treads read as stacked, floating boards.
+const stairs = [];
+for (const [edge, dir] of [[-10, -1], [L + 10, 1]]) {
+  for (let k = 1; k <= STAIR.count; k++) {
+    const { drop, out } = STAIR.at(k);
+    const near = Math.max(out - STAIR.tread, 0);
+    const x = (a, b) => (dir > 0 ? edge + a : edge - b);
+    stairs.push(r(x(near, out - STAIR.toe), -45, out - STAIR.toe - near, 45 - drop - STAIR.slab, "#b8907a"));
+    stairs.push(r(x(near, out), -drop - STAIR.slab, out - near, STAIR.slab, "#c9a083"));
+    const nose = dir > 0 ? edge + out - 4 : edge - out + 1;
+    stairs.push(`<rect x="${nose}" y="${up(-drop - STAIR.slab)}" width="3" height="1.5" fill="${lamp}"/>`);
+  }
+}
+parts.push(...stairs);
 
 // LED strip under the deck edge washing the ground, and under each step nosing.
 parts.push(`<rect x="-10" y="${up(-20)}" width="${L + 20}" height="25" fill="url(#wash)"/>`);
 parts.push(`<line x1="-10" y1="${up(-20)}" x2="${L + 10}" y2="${up(-20)}" stroke="${lamp}" stroke-width="3"/>`);
-for (const [x0, x1, h] of [[-70, -10, -21], [-110, -70, -33], [L + 10, L + 70, -21], [L + 70, L + 110, -33]]) {
-  parts.push(`<line x1="${x0}" y1="${up(h)}" x2="${x1}" y2="${up(h)}" stroke="${lamp}" stroke-width="2.5"/>`);
-}
 
 // The room behind the front wall, cut away.
 parts.push(r(0, 0, L, 240, "#f4f4f3"));
