@@ -1,5 +1,6 @@
 import { AddCategoryForm } from "@/components/AddCategoryForm";
 import { CategoryCard } from "@/components/CategoryCard";
+import { Electrical } from "@/components/Electrical";
 import { Icon } from "@/components/icons";
 import { Openings } from "@/components/Openings";
 import { ReferenceShots } from "@/components/ReferenceShots";
@@ -110,6 +111,14 @@ export default async function Page() {
             <span className={labelClass}>แบบ · เรนเดอร์</span>
           </div>
           <ReferenceShots />
+        </section>
+
+        <section className="mt-16">
+          <div className="mb-4 flex items-end justify-between gap-4 border-t border-line pt-8">
+            <h2 className="font-serif text-xl text-ink">ระบบไฟฟ้า · ปลั๊ก · สวิตช์</h2>
+            <span className={labelClass}>สรุป 22 พ.ย. 2026</span>
+          </div>
+          <Electrical />
         </section>
       </div>
     </main>

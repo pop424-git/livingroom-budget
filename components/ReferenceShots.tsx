@@ -12,11 +12,9 @@ import exteriorHipRoof from "@/public/reference/exterior-hip-roof.jpg";
 import interiorEngawa from "@/public/reference/interior-engawa.jpg";
 import interiorLiving from "@/public/reference/interior-living.jpg";
 import planDimensions from "@/public/reference/plan-dimensions.png";
-import planElectrical from "@/public/reference/plan-electrical.png";
 import sectionDimensions from "@/public/reference/section-dimensions.jpg";
-import wiringDiagram from "@/public/reference/wiring-diagram.png";
 
-type Shot = {
+export type Shot = {
   image: StaticImageData;
   alt: string;
   caption: string;
@@ -35,16 +33,6 @@ const overview: Shot[] = [
     image: planDimensions,
     alt: "ผังพื้นพร้อมระยะ ห้อง 400 × 960 ซม. 38.4 ตร.ม. ห้องน้ำ 200 × 150 ซม. มุมตะวันตกเฉียงใต้ ประตูห้องน้ำผนังเหนือ อ่างล้างหน้าชนหลังซิงค์ครัว ตู้เย็น 70 เคาน์เตอร์ 120 ประตูบานเลื่อน 4 บาน 280 กลางผนังด้านระเบียง ระเบียงลึก 200 ซม. โต๊ะกินข้าว 200 × 100 วางขวางห้อง หัวโต๊ะชิดผนังตะวันตกตรงข้ามประตู เก้าอี้ 3 ตัวฝั่งห้องน้ำ ม้านั่งยาว 200 ฝั่งโซฟา อาร์มแชร์ข้างโซฟา โซฟาสามตอนมีเชส 280 ซม. ชิดผนังตะวันตกมุมเหนือ ทีวีผนังตะวันออก หน้าต่างบานเลื่อน 180 × 110 ผนังเหนือ",
     caption: "ผังพื้น — ห้อง 4 × 9.6 ม. ห้องน้ำ 3 ตร.ม. ระเบียง 2 ม.",
-  },
-  {
-    image: planElectrical,
-    alt: "ผังปลั๊กและสวิตช์ S1 สวิตช์ Tuya 3 ช่องกับ S2 สวิตช์ 2 ทางธรรมดาซ้อนกันบนผนังระหว่างประตูบานเลื่อนกับทีวี สูง 120 S3 Tuya 2 ช่องนอกห้องน้ำ S4 สวิตช์ 2 ทางนอกผนังบนระเบียง ปลั๊ก 7 จุด P1 หลังทีวี P2 ใต้สวิตช์ P3 ข้างตู้เย็น P4 ปลายโต๊ะกินข้าว P5 หลังอาร์มแชร์ P6 ระเบียงใต้ S4 P7 ระเบียงซ้ายประตู แอร์ต่อตรงไม่มีปลั๊ก ตู้ไฟผนังครัวเหนือตู้เย็น",
-    caption: "ผังปลั๊ก-สวิตช์ — S1–S4 · ปลั๊ก 7 จุด · 6 วงจร",
-  },
-  {
-    image: wiringDiagram,
-    alt: "ผังสายไฟแบบเส้นเดียว ตู้ไฟเมน 32A แยก 6 วงจร C1 ไฟในห้องและห้องน้ำผ่าน S1 Tuya 3 ช่องและ S3 Tuya 2 ช่อง C2 ไฟระเบียงผ่านสวิตช์ 2 ทาง S2 กับ S4 ไป strip ใต้เดคและโคมกล่องไม้ 2 ดวง C3 ปลั๊ก P2 P1 P5 P4 C4 ครัว P3 C5 แอร์ต่อตรง C6 ปลั๊กระเบียง P6 P7 สายดินเดินคู่ทุกวงจร",
-    caption: "ผังสายไฟ — ตู้ไฟ → 6 วงจร → สวิตช์ → โคม/ปลั๊ก",
   },
   {
     image: sectionDimensions,
@@ -130,6 +118,11 @@ const allShots = [
 ];
 
 export function ReferenceShots() {
+  return <Gallery shots={allShots} />;
+}
+
+/** Thumbnails one per row, opening into a lightbox that pages through them. */
+export function Gallery({ shots }: { shots: Shot[] }) {
   const [openAt, setOpenAt] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -146,7 +139,7 @@ export function ReferenceShots() {
     setOpenAt((current) =>
       current === null
         ? current
-        : (current + delta + allShots.length) % allShots.length
+        : (current + delta + shots.length) % shots.length
     );
   }, []);
 
@@ -161,14 +154,14 @@ export function ReferenceShots() {
     return () => document.removeEventListener("keydown", onKey);
   }, [openAt, step]);
 
-  const current = openAt === null ? null : allShots[openAt];
+  const current = openAt === null ? null : shots[openAt];
 
   return (
     <>
       {/* One shot per row at full width, each at its own proportions, so
           nothing is cropped or shrunk to fit beside another. */}
       <div className="space-y-4 sm:space-y-5">
-        {allShots.map((shot, index) => (
+        {shots.map((shot, index) => (
           <Thumb
             key={shot.image.src}
             shot={shot}
@@ -223,7 +216,7 @@ export function ReferenceShots() {
 
               <p className="min-w-0 flex-1 text-center text-xs leading-5 text-muted">
                 <span className="tnum font-mono">
-                  {openAt! + 1}/{allShots.length}
+                  {openAt! + 1}/{shots.length}
                 </span>
                 <span className="hidden sm:inline"> · {current.caption}</span>
               </p>
