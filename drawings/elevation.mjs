@@ -16,7 +16,7 @@ const ink = "#2f2e2b";
 const lamp = "#d9931f";
 
 // Wooden-box lamps under the purlin, 1.00 in front of the wall at about +2.90.
-// length of the deck. It faces down and back, washing the deck and this wall.
+// U-channel box, the tube tucked up inside; the light falls straight down onto the deck.
 const LINEAR_H = 290;
 
 const r = (x, y0, w, h, fill, extra = "") =>

@@ -122,23 +122,29 @@ parts.push(
   const oy = up(roofAt(LINEAR_X));
   parts.push(
     `<g transform="rotate(${rot.toFixed(2)} ${ox} ${oy})"><rect x="${ox - 3}" y="${oy + 6}" width="6" height="6" fill="#f1f1ef" stroke="${ink}" stroke-width="1"/></g>` +
-      // The wooden box hangs plumb under the purlin, seen end on: 12 × 12, lit underside.
-      `<line x1="${ox}" y1="${oy + 12}" x2="${ox}" y2="${oy + 16}" stroke="${soft}" stroke-width="1"/><rect x="${ox - 6}" y="${oy + 16}" width="12" height="12" rx="1" fill="#c98b52" stroke="#7d5430" stroke-width="1"/><rect x="${ox - 4.5}" y="${oy + 25}" width="9" height="2.5" fill="${lampFill}"/>`
+      // The wooden box hangs plumb under the purlin, seen end on: a U channel
+      // 12 wide and 16 deep, the LED tube tucked up inside it.
+      `<line x1="${ox}" y1="${oy + 12}" x2="${ox}" y2="${oy + 16}" stroke="${soft}" stroke-width="1"/><path d="M${ox - 6} ${oy + 16} H${ox + 6} V${oy + 32} H${ox + 4} V${oy + 18} H${ox - 4} V${oy + 32} H${ox - 6} Z" fill="#c98b52" stroke="#7d5430" stroke-width="1"/><rect x="${ox - 2.5}" y="${oy + 19}" width="5" height="3" fill="${lampFill}"/>`
   );
-  // The profile faces square off the slope: down, and back toward the wall.
-  const sx = ox + Math.sin(t) * 15;
-  const sy = oy + Math.cos(t) * 15;
-  const ray = (deg) => [Math.cos((deg * Math.PI) / 180), Math.sin((deg * Math.PI) / 180)];
-  const centre = 90 - (t * 180) / Math.PI;
-  const [gx, gy] = ray(centre + 45); // garden-side edge, to the deck floor
-  const [wx, wy] = ray(centre - 45); // wall-side edge, to the front wall
-  const floorX = sx + gx * (-sy / gy);
-  const wallY = sy + wy * (-sx / wx);
-  parts.push(`<path d="M${sx} ${sy} L${floorX} 0 L0 0 L0 ${wallY} Z" fill="url(#beam)"/>`);
-  const [cx, cy] = ray(centre);
-  parts.push(`<line x1="${sx}" y1="${sy}" x2="0" y2="${sy + cy * (-sx / cx)}" stroke="${lamp}" stroke-width="1" stroke-dasharray="3 4"/>`);
-  parts.push(text(-160, up(236), "โคมกล่องไม้ใต้แป ~2.80", { size: 12, weight: 600, anchor: "start", fill: lamp }));
-  parts.push(text(-160, up(221), "ส่องลงเดค + ผนังหน้า", { size: 12, anchor: "start", fill: lamp }));
+  // Light falls straight down. The box sides cut it off: the tube sits about
+  // 11 up inside a mouth 8 wide, so the beam opens roughly ±25° about plumb.
+  const mouthY = oy + 32;
+  const tubeY = oy + 21;
+  const cut = Math.atan(5.5 / (mouthY - tubeY)); // far edge of the tube past the opposite lip
+  const spread = (h) => h * Math.tan(cut);
+  const drop = -mouthY; // mouth height above the deck floor
+  const leftX = ox - 4 - spread(drop);
+  const rightX = ox + 4 + spread(drop);
+  // Past the wall the beam is stopped by it: it reaches the wall at this height.
+  const wallH = rightX > 0 ? drop - (0 - (ox + 4)) / Math.tan(cut) : 0;
+  parts.push(`<path d="M${ox - 4} ${mouthY} L${leftX} 0 L${Math.min(rightX, 0)} 0 ${rightX > 0 ? `L0 ${up(wallH)}` : ""} L${ox + 4} ${mouthY} Z" fill="url(#beam)"/>`);
+  parts.push(`<line x1="${ox}" y1="${mouthY}" x2="${ox}" y2="0" stroke="${lamp}" stroke-width="1" stroke-dasharray="3 4"/>`);
+  const sx = ox;
+  const sy = oy + 15;
+  const deg25 = Math.round((cut * 180) / Math.PI);
+  parts.push(`<rect x="-164" y="${up(236) - 13}" width="158" height="34" rx="3" fill="#ffffff" fill-opacity="0.85"/>`);
+  parts.push(text(-160, up(236), "โคมกล่องไม้ใต้แป ~2.70", { size: 12, weight: 600, anchor: "start", fill: lamp }));
+  parts.push(text(-160, up(221), `ส่องลงตรง · ขอบกล่องบีบแสง ±${deg25}°`, { size: 12, anchor: "start", fill: lamp }));
 
   // Wire inside the rafter at the middle post, up to the wall, down to the switch.
   parts.push(
@@ -199,7 +205,7 @@ const notes = [
   ["ไฟระเบียง 2700K · สวิตช์ 2 ทาง S2 ในห้อง + S4 นอกผนัง เปิด/ปิดพร้อมกัน: LED strip ใต้ขอบเดค + ใต้จมูกบันได 3 ขั้น และโคมกล่องไม้ 2 ดวงใต้แป", ink],
   ["ก่อนมุงหลังคา: ① เจาะรูร้อยสายจากจันทันแนวเสากลางเข้าแปที่ห่างผนัง 1.00 (ทะลุรอยต่อแป-จันทัน) และจุดลงผนัง ใส่ยางกันบาด", red],
   ["ร้อยลวดนำสายทิ้งไว้  ② ทาสี zinc กันสนิมทุกจุดที่เจาะ · ปูเดค: ไม้ยื่นเลยคานขอบนอก 3–4 ซม. ซ่อน strip IP65 · บันได IP67", red],
-  ["โคมกล่องไม้ 12×12 ยาว ~130 · LED batten 120 ซม. 220V ไม่ต้องมี driver · ห่างปลายเดคข้างละ 2.40 · ป้อนไฟกลาง เดินสายเลียบแปไปทั้งสองดวง", ink],
+  ["โคมกล่องไม้ราง U 12×16 ยาว ~130 ส่องลงตรง · LED batten 120 ซม. 220V ไม่ต้องมี driver · ห่างปลายเดคข้างละ 2.40 · ป้อนไฟกลาง เดินสายเลียบแปไปทั้งสองดวง", ink],
 ];
 notes.forEach(([line, fill], i) => parts.push(text(-310, 200 + i * 24, line, { size: 14, anchor: "start", fill })));
 
@@ -253,7 +259,7 @@ parts.push(text(-310, 158, "รูปตัด · มองไปทางทิ
 }
 
 const defs = `
-  <radialGradient id="beam" gradientUnits="userSpaceOnUse" cx="${LINEAR_X + 9}" cy="${up(roofAt(LINEAR_X)) + 12}" r="340">
+  <radialGradient id="beam" gradientUnits="userSpaceOnUse" cx="${LINEAR_X}" cy="${up(roofAt(LINEAR_X)) + 32}" r="300">
     <stop offset="0" stop-color="#ffd77a" stop-opacity="0.6"/>
     <stop offset="1" stop-color="#ffd77a" stop-opacity="0.06"/>
   </radialGradient>
