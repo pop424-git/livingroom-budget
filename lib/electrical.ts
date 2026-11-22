@@ -114,7 +114,7 @@ export const shopping: Group[] = [
       { item: "LED strip IP65 · ไฟซ่อนห้องน้ำ", qty: "2 ม.", note: "ผนังทิศใต้" },
       { item: "Driver 24V ห้องน้ำ", qty: "1", note: "วางนอกห้องน้ำ" },
       { item: "พัดลมดูดอากาศ 10 นิ้ว", qty: "1" },
-      { item: "LED strip ระเบียง IP65 ใต้ขอบเดค + IP67 ใต้บันได", qty: "~9.6 + ~8 ม." },
+      { item: "LED strip ระเบียง IP65 ใต้ขอบเดค + IP67 ใต้บันได", qty: "~9.6 + ~7.2 ม.", note: "บันได 3 ขั้น × 2 ฝั่ง × 1.20" },
       { item: "D1 Driver 24V ในกล่องกันน้ำใต้เดค", qty: "1" },
       { item: "โคมกล่องไม้ + LED batten 120 ซม. 2700K", qty: "2", note: "ระเบียง ใต้แป" },
     ],

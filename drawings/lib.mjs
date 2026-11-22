@@ -43,3 +43,25 @@ ${body}
 </svg>
 `;
 }
+
+/**
+ * Steps at each end of the engawa, shared by every drawing.
+ *
+ * Three treads, so four risers share the 45 drop from deck to ground. Each
+ * tread is a slab that runs 8 back under the nosing above it, over a support
+ * set back by the same 8: the treads nest into each other and leave a toe
+ * recess under every nosing, which keeps the flight short and hides the strip.
+ * Width runs 120 out from the ridge line (the front wall face).
+ */
+export const STAIR = {
+  count: 3,
+  width: 120,
+  rise: 45 / 4, // 11.25
+  going: 20, // nosing to nosing
+  toe: 8, // recess under each nosing
+  tread: 28, // going + toe
+  slab: 5, // tread board thickness
+};
+STAIR.run = STAIR.count * STAIR.going; // 60 out from the deck end
+/** Tread k (1 = top): height of its top below the deck, and its nosing distance from the deck end. */
+STAIR.at = (k) => ({ drop: k * STAIR.rise, out: k * STAIR.going });
