@@ -126,7 +126,7 @@
 <rect x="140" y="938" width="100" height="20" fill="none" stroke="#2f6f9f" stroke-width="1.3" stroke-dasharray="6 4"/>
 <text x="190" y="952" font-size="11" font-weight="400" text-anchor="middle" fill="#2f6f9f">แอร์</text>
 <g transform="translate(250 948) scale(1.4) translate(-250 -948)"><rect x="244" y="942" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="250" y="951.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text></g>
-<rect x="262" y="924" width="106" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="315" y="935" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">แอร์ ต่อตรง C5</text>
+<rect x="262" y="924" width="106" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="315" y="935" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">แอร์ ต่อตรง C4</text>
 <g transform="translate(392 617) scale(1.4) translate(-392 -617)"><circle cx="392" cy="617" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="389.8" y1="614" x2="389.8" y2="620"/><line x1="394.2" y1="614" x2="394.2" y2="620"/></g></g>
 <rect x="356" y="589" width="22" height="15" rx="3" fill="#fff" stroke="#2f6f9f" stroke-width="0.8"/><text x="367" y="600" font-size="10" font-weight="600" text-anchor="middle" fill="#2f6f9f">P5</text>
 <g transform="translate(-22 676) scale(1.4) translate(22 -676)"><circle cx="-22" cy="676" r="9.5" fill="none" stroke="#2f6f9f" stroke-width="1.2"/><circle cx="-22" cy="676" r="6" fill="#e4eff8" stroke="#2f6f9f" stroke-width="1.4"/><g stroke="#2f6f9f" stroke-width="1.3"><line x1="-24.2" y1="673" x2="-24.2" y2="679"/><line x1="-19.8" y1="673" x2="-19.8" y2="679"/></g></g>
@@ -179,22 +179,18 @@
 <text x="-300" y="1412" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">นอกผนัง บนระเบียง ซ้ายประตู (ฝั่งครัว) ห่างขอบประตู 30 · สูง 40 · กล่องกันน้ำฝาพับ IP55 ปิดได้ขณะเสียบ</text>
 <g transform="translate(-356 1428) scale(1.4) translate(356 -1428)"><rect x="-362" y="1422" width="12" height="12" fill="#2f6f9f" stroke="#2f6f9f"/><text x="-356" y="1431.5" font-size="8" font-weight="700" text-anchor="middle" fill="#fff">A</text></g>
 <text x="-336" y="1433" font-size="13" font-weight="600" text-anchor="start" fill="#2f6f9f">AC</text>
-<text x="-300" y="1433" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ</text>
+<text x="-300" y="1433" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C4 ในตู้ไฟ</text>
 <rect x="-362" y="1440" width="12" height="18" fill="#d8d5cc" stroke="#3b3a36" stroke-width="1.2"/>
 <text x="-300" y="1454" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ~170 · ขอบบน ~210 · พ้นไมโครเวฟบนตู้เย็น · หน้าตู้เปิดได้ไม่ติดอะไร</text>
 <text x="-370" y="1483" font-size="15" font-weight="600" text-anchor="start" fill="#3b3a36">วงจรแนะนำ</text>
 <text x="-336" y="1507" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C1</text>
-<text x="-300" y="1507" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟในห้อง + ห้องน้ำ + พัดลมดูด · 10A</text>
+<text x="-300" y="1507" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟในห้อง + ห้องน้ำ + พัดลมดูด · RCBO 10A · สาย 1.5</text>
 <text x="-336" y="1528" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C2</text>
-<text x="-300" y="1528" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ไฟระเบียง D1 + โคมกล่องไม้ 2 ดวง · 10A</text>
+<text x="-300" y="1528" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">นอกบ้าน: ไฟระเบียงทั้งหมด + ปลั๊ก P6 P7 · RCBO 16A · สาย 2.5</text>
 <text x="-336" y="1549" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C3</text>
-<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กทั่วไป P1 P2 P4 P5 · 16A</text>
+<text x="-300" y="1549" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กในห้องทั้งหมด P1–P5 รวมครัว · RCBO 20A · สาย 2.5</text>
 <text x="-336" y="1570" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C4</text>
-<text x="-300" y="1570" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ครัว P3 · 20A</text>
-<text x="-336" y="1591" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C5</text>
-<text x="-300" y="1591" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ · 20A วงจรเดี่ยว ต่อตรง ปิดที่ตู้ไฟเวลาล้างแอร์</text>
-<text x="-336" y="1612" font-size="13" font-weight="600" text-anchor="start" fill="#3b3a36">C6</text>
-<text x="-300" y="1612" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ปลั๊กนอก P6 P7 · 16A</text>
-<text x="-300" y="1633" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)</text>
+<text x="-300" y="1570" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">แอร์ ต่อตรง · MCB 20A · สาย 4 · ปิดที่ตู้ไฟเวลาล้างแอร์</text>
+<text x="-300" y="1591" font-size="13" font-weight="400" text-anchor="start" fill="#3b3a36">ทุกวงจรผ่าน RCBO 30 mA ยกเว้นแอร์ใช้ MCB · ห้องน้ำไม่มีปลั๊ก (ถ้าเพิ่มเครื่องทำน้ำอุ่น แยกวงจร 20A + ELCB)</text>
 <text x="-370" y="1716" font-size="17" font-weight="400" text-anchor="start" fill="#3b3a36">ผังปลั๊ก-สวิตช์ · ห้อง 400 × 960 cm · ความสูงวัดจากพื้นสำเร็จในห้อง · 22 พ.ย. 2026</text>
 </svg>

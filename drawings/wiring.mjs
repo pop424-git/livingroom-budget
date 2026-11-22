@@ -15,7 +15,7 @@ const earth = "#3f8f4f";
 
 const parts = [];
 const W = 1560;
-const H = 1260;
+const H = 1180;
 parts.push(`<rect x="0" y="0" width="${W}" height="${H}" fill="#fbfaf6"/>`);
 
 const line = (pts, color, width = 2.4, dash = "") =>
@@ -43,7 +43,7 @@ parts.push(text(40, 52, "ผังสายไฟ · ห้องนั่งเ
 parts.push(text(40, 80, "อ่านจากซ้ายไปขวา: ตู้ไฟ → เบรกเกอร์ → สาย → สวิตช์ → โคม/ปลั๊ก · รหัส S P L ตรงกับผังปลั๊ก-สวิตช์", { size: 14, fill: soft, anchor: "start" }));
 
 // Consumer unit.
-const cu = { x: 40, y: 130, w: 330, h: 940 };
+const cu = { x: 40, y: 130, w: 330, h: 880 };
 const busX = 92;
 parts.push(`<rect x="${cu.x}" y="${cu.y}" width="${cu.w}" height="${cu.h}" rx="10" fill="#f1efe9" stroke="${ink}" stroke-width="2"/>`);
 parts.push(text(busX + 14, cu.y + 28, "ตู้ไฟ", { size: 17, weight: 600, anchor: "start" }));
@@ -53,7 +53,7 @@ parts.push(line([[busX, 100], [busX, 196]], ink, 3.5));
 parts.push(text(busX + 12, 112, "สายเมนจากบ้าน", { size: 12, fill: soft, anchor: "start" }));
 parts.push(`<rect x="${busX - 30}" y="196" width="140" height="40" rx="5" fill="#fff" stroke="${ink}" stroke-width="1.8"/>`);
 parts.push(text(busX + 40, 222, "เมน 32A", { size: 14, weight: 600 }));
-parts.push(line([[busX, 236], [busX, 1010]], ink, 4));
+parts.push(line([[busX, 236], [busX, 970]], ink, 4));
 
 const circuits = [];
 function breaker(y, code, kind, color) {
@@ -99,13 +99,20 @@ function cable(x0, x1, y, label, color) {
   load(720, y3 + 35, 210, "พัดลมดูดอากาศ", "ผนังห้องน้ำ เหนือโถ");
 }
 
-// ---- C2 deck lights ---------------------------------------------------
-// A plain two-way pair, S2 inside and S4 outside, so either works with the
-// internet down. Not on the app.
+// ---- C2 everything outdoors: deck lights and the two deck outlets ------
+// One RCBO for all that sees the weather, so a wet fitting outside never
+// takes the room down with it. Wired 2.5 throughout for the outlets.
+// The lights are a plain two-way pair, S2 inside and S4 outside, so either
+// works with the internet down.
 {
   const y = 700;
-  breaker(y, "C2", "RCBO 10A", lamp);
-  cable(350, 470, y, "THW 1.5 mm²", lamp);
+  breaker(y, "C2", "RCBO 16A", lamp);
+  cable(350, 470, y, "THW 2.5 mm²", lamp);
+  // The deck outlets off the same circuit.
+  parts.push(line([[440, y], [440, 790], [470, 790]], pw, 3));
+  chip(470, 790, 140, "P6", "ระเบียง ใต้ S4");
+  parts.push(line([[610, 790], [632, 790]], pw, 3));
+  chip(632, 790, 140, "P7", "ระเบียง ซ้ายประตู");
   sw(470, y, 140, "S2 · 2 ทาง", "ธรรมดา · ในห้อง ใต้ S1");
   // Two travellers to S4 on the deck side of the same wall.
   parts.push(line([[610, y - 8], [650, y - 8]], lamp, 2), line([[610, y + 8], [650, y + 8]], lamp, 2));
@@ -130,31 +137,25 @@ function chain(y, code, kind, wire, items, w = 128) {
     x += w + 22;
   });
 }
-chain(850, "C3", "RCBO 16A", "THW 2.5 mm²", [
+// Every indoor outlet, kitchen included, on one 20A circuit: the worst
+// realistic load (fridge, kettle, hot pot, TV) is about 17A.
+chain(880, "C3", "RCBO 20A", "THW 2.5 mm²", [
   ["P2", "ใต้สวิตช์หลัก"],
   ["P1", "หลังทีวี"],
   ["P5", "หลังอาร์มแชร์"],
   ["P4", "ปลายโต๊ะกินข้าว"],
+  ["P3", "ตู้เย็น + ไมโครเวฟ"],
 ]);
-chain(925, "C4", "RCBO 20A", "THW 2.5 mm²", [
-  ["P3 ปลั๊กคู่", "ตู้เย็น + ไมโครเวฟ"],
-]);
-chain(1000, "C5", "MCB 20A", "THW 4 mm²", [
+chain(970, "C4", "MCB 20A", "THW 4 mm²", [
   ["แอร์ 18,000 BTU", "ต่อตรง ไม่มีปลั๊ก"],
 ], 170);
-// C6 hangs off the bus below the others.
-parts.push(line([[busX, 1010], [busX, 1055]], ink, 4));
-chain(1055, "C6", "RCBO 16A", "THW 2.5 mm²", [["P6", "ระเบียง ใต้ S4"], ["P7", "ระเบียง ซ้ายประตู"]]);
-// Extend the unit to wrap C6.
-parts[parts.findIndex((p) => p.includes(`height="${cu.h}"`))] =
-  `<rect x="${cu.x}" y="${cu.y}" width="${cu.w}" height="${cu.h + 30}" rx="10" fill="#f1efe9" stroke="${ink}" stroke-width="2"/>`;
 
 // Earth.
-parts.push(line([[cu.x + 20, 1085], [cu.x + 20, 1130], [470, 1130]], earth, 2.4, "8 5"));
-parts.push(text(480, 1135, "สายดินสีเขียว เดินคู่ทุกวงจร → บาร์กราวด์ในตู้ → หลักดิน 5/8\" × 2.4 ม. · ปลั๊กทุกจุดเป็นแบบมีกราวด์", { size: 13, anchor: "start", fill: earth }));
+parts.push(line([[cu.x + 20, 1010], [cu.x + 20, 1050], [470, 1050]], earth, 2.4, "8 5"));
+parts.push(text(480, 1055, "สายดินสีเขียว เดินคู่ทุกวงจร → บาร์กราวด์ในตู้ → หลักดิน 5/8\" × 2.4 ม. · ปลั๊กทุกจุดเป็นแบบมีกราวด์", { size: 13, anchor: "start", fill: earth }));
 
 // Key.
-const ky = 1185;
+const ky = 1105;
 parts.push(`<rect x="40" y="${ky - 14}" width="30" height="18" rx="4" fill="${lampFill}" stroke="${lamp}" stroke-width="1.4"/>`);
 parts.push(text(80, ky, "สวิตช์ · สูง 120", { size: 13, anchor: "start" }));
 parts.push(`<rect x="230" y="${ky - 14}" width="30" height="18" rx="4" fill="#fff" stroke="${lamp}" stroke-width="1.4"/>`);

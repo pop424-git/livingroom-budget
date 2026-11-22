@@ -47,19 +47,19 @@
 <rect x="28" y="860" width="7" height="380" rx="3.5" fill="#846340"/>
 <text x="52" y="895" font-size="19" font-weight="600" text-anchor="start" fill="#2b2825">ตู้ไฟ</text>
 <line x1="44" y1="914" x2="676" y2="914" stroke="#eae6e0" stroke-width="1"/>
-<text x="52" y="946" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">ตู้ไฟ อย่างน้อย 8 ช่อง</text>
-<text x="52" y="968" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">ผนังครัว เหนือตู้เย็น</text>
+<text x="52" y="946" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">ตู้ไฟ อย่างน้อย 6 ช่อง</text>
+<text x="52" y="968" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">ผนังครัว เหนือตู้เย็น · เมน + 4 วงจร + เผื่อ 1</text>
 <text x="672" y="948" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
 <line x1="52" y1="986" x2="676" y2="986" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1018" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">เมนเบรกเกอร์ 32A</text>
 <text x="672" y="1020" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
 <line x1="52" y1="1038" x2="676" y2="1038" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1070" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">RCBO 30 mA</text>
-<text x="52" y="1092" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">10A ×2 (C1 C2) · 16A ×2 (C3 C6) · 20A ×1 (C4)</text>
-<text x="672" y="1072" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">5</text>
+<text x="52" y="1092" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">10A (C1) · 16A (C2) · 20A (C3)</text>
+<text x="672" y="1072" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">3</text>
 <line x1="52" y1="1110" x2="676" y2="1110" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1142" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">MCB 20A</text>
-<text x="52" y="1164" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">C5 แอร์ ต่อตรง</text>
+<text x="52" y="1164" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">C4 แอร์ ต่อตรง</text>
 <text x="672" y="1144" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">1</text>
 <line x1="52" y1="1182" x2="676" y2="1182" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1214" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">หลักดิน 5/8" × 2.4 ม.</text>
@@ -69,15 +69,15 @@
 <text x="52" y="1295" font-size="19" font-weight="600" text-anchor="start" fill="#2b2825">สายไฟ · ให้ช่างถอดความยาวจากแบบ</text>
 <line x1="44" y1="1314" x2="676" y2="1314" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1346" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">THW 1.5 mm²</text>
-<text x="52" y="1368" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">วงจรไฟ C1 C2 + สายโยง S2–S4</text>
+<text x="52" y="1368" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">ไฟในห้อง C1</text>
 <text x="672" y="1348" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">—</text>
 <line x1="52" y1="1386" x2="676" y2="1386" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1418" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">THW 2.5 mm²</text>
-<text x="52" y="1440" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">ปลั๊ก C3 C4 C6</text>
+<text x="52" y="1440" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">นอกบ้าน C2 (รวมสายโยง S2–S4) · ปลั๊กในห้อง C3</text>
 <text x="672" y="1420" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">—</text>
 <line x1="52" y1="1458" x2="676" y2="1458" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1490" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">THW 4 mm²</text>
-<text x="52" y="1512" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">แอร์ C5</text>
+<text x="52" y="1512" font-size="14" font-weight="400" text-anchor="start" fill="#68625c">แอร์ C4</text>
 <text x="672" y="1492" font-size="21" font-weight="600" text-anchor="end" fill="#2b2825">—</text>
 <line x1="52" y1="1530" x2="676" y2="1530" stroke="#eae6e0" stroke-width="1"/>
 <text x="52" y="1562" font-size="17" font-weight="400" text-anchor="start" fill="#2b2825">สายดินสีเขียว</text>
