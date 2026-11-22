@@ -9,6 +9,7 @@ import {
   tellElectrician,
   type Point,
 } from "@/lib/electrical";
+import electricalShopping from "@/public/reference/electrical-shopping.png";
 import planElectrical from "@/public/reference/plan-electrical.png";
 import wallDeck from "@/public/reference/wall-deck.png";
 import wallEast from "@/public/reference/wall-east.png";
@@ -41,6 +42,11 @@ const sheets: Shot[] = [
     image: wallWest,
     alt: "รูปด้านผนังฝั่งโซฟาและห้องน้ำ P4 กึ่งกลางปลายโต๊ะกินข้าวสูง 60 P5 หลังอาร์มแชร์สูง 40 ไฟซ่อนชิดฝ้า",
     caption: "ผนังฝั่งโซฟา-ห้องน้ำ",
+  },
+  {
+    image: electricalShopping,
+    alt: "รายการของระบบไฟฟ้า ปลั๊กคู่ 7 สวิตช์ 4 โคม 4 วงจร 6 แยกกลุ่มปลั๊ก สวิตช์ บล็อก ไฟ ตู้ไฟ และสายไฟ พร้อมจำนวน",
+    caption: "รายการของ — จำนวนปลั๊ก สวิตช์ ไฟ ตู้ไฟ สาย",
   },
   {
     image: wiringDiagram,
