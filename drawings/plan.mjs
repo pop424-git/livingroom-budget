@@ -135,7 +135,7 @@ function powerLayer(parts) {
   parts.push(outlet(250, 948, "ac"), tag(262, 935, "แอร์ ต่อตรง C5"));
 
   parts.push(outlet(392, 617), tag(378, 600, "P8", { anchor: "end" })); // behind the armchair, mid-way
-  parts.push(outlet(-22, 690, "ip"), tag(-36, 694, "P10", { anchor: "end" })); // deck, outside face
+  parts.push(outlet(-22, 676, "ip"), tag(-36, 680, "P10", { anchor: "end" })); // deck, outside face, under S4
   // S4: the deck lights' second switch, outside on the deck behind S1/S2.
   parts.push(switchBox(-24, 643, 10, 14), tag(-36, 654, "S4 · 2 ทาง", { anchor: "end", fill: lamp }));
 }
@@ -175,7 +175,7 @@ function powerSchedule(parts) {
   row(duo, "P6", "ผนังกึ่งกลางปลายโต๊ะกินข้าว · สูง 60 (ใต้ท็อปโต๊ะ 70) · หม้อสุกี้ โน้ตบุ๊ก");
   row((cx, cy) => outlet(cx, cy, "ac"), "AC", "แอร์ 18,000 BTU เหนือหน้าต่างใหญ่ กึ่งกลางบาน · ไม่มีปลั๊ก ต่อสายตรงจากเบรกเกอร์ C5 ในตู้ไฟ");
   row(duo, "P8", "ผนังหลังอาร์มแชร์ กึ่งกลางเก้าอี้ · สูง 40 · โคมตั้งพื้น ชาร์จมือถือ");
-  row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง · สูง 40 · IP55 มีฝาปิด · ช่องเดียวกับ S1/S2 เดินสายสั้น");
+  row((cx, cy) => outlet(cx, cy, "ip"), "P10", "นอกผนัง บนระเบียง ใต้ S4 · สูง 100 (เหนือตู้รองเท้า) · ฝาสปริงกันน้ำสาด IP44");
   row((cx, cy) => `<rect x="${cx - 6}" y="${cy - 9}" width="12" height="18" fill="#d8d5cc" stroke="${ink}" stroke-width="1.2"/>`, "", "ตู้ไฟ ผนังทิศใต้ เหนือตู้เย็น · ขอบล่าง ~170 · ขอบบน ~210 · พ้นไมโครเวฟบนตู้เย็น · หน้าตู้เปิดได้ไม่ติดอะไร");
   y += 8;
   head("วงจรแนะนำ");

@@ -73,15 +73,15 @@ parts.push(label(720, 262, ["โคมกล่องไม้ ใต้แป",
 // S4: the deck lights' second switch, outside, behind S1/S2 (plan y ≈ 650).
 parts.push(rect(645, 113, 10, 14, `rx="1.5" fill="${lampFill}" stroke="${lamp}" stroke-width="1.6"`));
 parts.push(rect(643, 111, 14, 18, `rx="2" fill="none" stroke="${lamp}" stroke-width="0.8"`));
-parts.push(label(664, 128, ["S4 สวิตช์ 2 ทางธรรมดา", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S2 ในห้องพอดี"], { fill: lamp }));
+parts.push(label(664, 152, ["S4 สวิตช์ 2 ทางธรรมดา", "สูง 120 · กล่องกันน้ำมีฝา", "หลัง S2 ในห้องพอดี"], { fill: lamp }));
 
-// P10: weatherproof double, low.
-parts.push(rect(684, 36, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
-parts.push(rect(682, 34, 16, 12, `rx="2" fill="none" stroke="${pw}" stroke-width="0.8"`));
-parts.push(label(704, 52, ["P10 ปลั๊กกันน้ำ IP55", "สูง 40 · มีฝาปิด"]));
+// P10 straight under S4, above a shoe cabinet so it can be used from its top.
+parts.push(rect(625, 0, 80, 90, `fill="none" stroke="${faint}" stroke-width="1.4" stroke-dasharray="6 4"`), text(665, up(45), "ตู้รองเท้า?", { size: 11, fill: soft }), text(665, up(32), "สูง ~90", { size: 10, fill: soft }), rect(644, 96, 12, 8, `rx="1.5" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"`));
+parts.push(rect(642, 94, 16, 12, `rx="2" fill="none" stroke="${pw}" stroke-width="0.8"`));
+parts.push(label(664, 104, ["P10 ปลั๊กคู่ ใต้ S4", "สูง 100 · ฝาสปริง IP44"]));
 
 // Height scale.
-for (const h of [0, 40, 120, 200, 278]) {
+for (const h of [0, 100, 120, 200, 278]) {
   parts.push(`<line x1="-96" y1="${up(h)}" x2="-84" y2="${up(h)}" stroke="${ink}" stroke-width="1"/>`);
   parts.push(text(-100, up(h) + 4, String(h), { size: 12, anchor: "end" }));
 }
@@ -96,7 +96,7 @@ parts.push(dimH(650, 720, 90, "70"));
 parts.push(dimH(720, L, 90, "240"));
 
 parts.push(text(-100, 150, "· S4 กับ S2 ในห้องเป็นสวิตช์ 2 ทางธรรมดา โยงสายถึงกัน คุมไฟระเบียงชุดเดียวกัน (strip ใต้เดค + โคมกล่องไม้ 2 ดวง) · เน็ตล่มก็กดได้ทั้งสองจุด", { size: 13.5, anchor: "start" }));
-parts.push(text(-100, 174, "· ระเบียงมีชายคาบังฝน แต่ยังโดนฝนสาดและความชื้น ใช้กล่อง/หน้ากากกันน้ำทั้ง S4 และ P10", { size: 13.5, anchor: "start" }));
+parts.push(text(-100, 174, "· ระเบียงมีชายคา ผนังอยู่ลึก 2.5 ม. ฝนตรงไม่ถึง แต่ฝนสาดแรงหรือฉีดน้ำล้างเดคยังโดนได้ · ใช้ฝาสปริงปิดเอง (IP44) ราคาไม่กี่ร้อย ไม่ต้องใช้กล่องใหญ่", { size: 13.5, anchor: "start" }));
 parts.push(text(-100, 212, "รูปด้านนอก ผนังหน้า ด้านระเบียง · 22 พ.ย. 2026", { size: 16, anchor: "start" }));
 
 export const wallDeck = svgDoc({ x: -120, y: -420, w: 1200, h: 660, body: parts.join("\n"), font: FONT });
