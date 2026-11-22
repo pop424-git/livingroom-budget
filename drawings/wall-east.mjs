@@ -170,6 +170,6 @@ const notes = [
   "ด้านนอกผนังนี้ บนระเบียง: S4 สวิตช์ 2 ทางธรรมดา สูง 120 หลัง S2 · P10 ปลั๊กคู่ใต้ S4 สูง 100 ฝาสปริงกันน้ำสาด",
 ];
 notes.forEach((t, i) => parts.push(text(-60, ny + i * 22, "· " + t, { size: 13.5, anchor: "start", fill: i ? ink : "#b3412c" })));
-parts.push(text(-60, ny + notes.length * 22 + 30, "รูปด้านภายใน ผนังฝั่งประตู · 21 พ.ย. 2026", { size: 16, anchor: "start" }));
+parts.push(text(-60, ny + notes.length * 22 + 30, "รูปด้านภายใน ผนังฝั่งประตู · 22 พ.ย. 2026", { size: 16, anchor: "start" }));
 
 export const wallEast = svgDoc({ x: -80, y: -340, w: 1140, h: 1010, body: parts.join("\n"), font: FONT });

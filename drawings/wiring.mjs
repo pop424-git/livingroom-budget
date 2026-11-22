@@ -164,6 +164,6 @@ parts.push(`<rect x="330" y="${ky - 14}" width="30" height="18" rx="4" fill="#ef
 parts.push(text(370, ky, "driver แปลงไฟ 24V", { size: 13, anchor: "start" }));
 parts.push(`<rect x="540" y="${ky - 14}" width="30" height="18" rx="4" fill="${pwFill}" stroke="${pw}" stroke-width="1.4"/>`);
 parts.push(text(580, ky, "ปลั๊ก (ต่อพ่วงกันเป็นสาย ตามลำดับที่เดินรอบห้อง)", { size: 13, anchor: "start" }));
-parts.push(text(40, ky + 40, "สายทั้งหมดเดินในท่อ ร้อยในผนังเบา/บนฝ้า · ขนาดสายและเบรกเกอร์เป็นค่าแนะนำ ให้ช่างไฟยืนยันตามระยะสายเมนจากบ้าน · 21 พ.ย. 2026", { size: 13, anchor: "start", fill: soft }));
+parts.push(text(40, ky + 40, "สายทั้งหมดเดินในท่อ ร้อยในผนังเบา/บนฝ้า · ขนาดสายและเบรกเกอร์เป็นค่าแนะนำ ให้ช่างไฟยืนยันตามระยะสายเมนจากบ้าน · 22 พ.ย. 2026", { size: 13, anchor: "start", fill: soft }));
 
 export const wiring = svgDoc({ x: 0, y: 0, w: W, h: H, body: parts.join("\n"), font: FONT });
