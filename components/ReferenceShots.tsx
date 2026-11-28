@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 import elevationDimensions from "@/public/reference/elevation-dimensions.jpg";
+import engawaCenterSteps from "@/public/reference/engawa-center-steps.jpg";
 import engawaGardenPath from "@/public/reference/engawa-garden-path.jpg";
 import engawaVeranda from "@/public/reference/engawa-veranda.jpg";
 import engawaVerandaPlanted from "@/public/reference/engawa-veranda-planted.jpg";
@@ -71,6 +72,11 @@ const engawa: Shot[] = [
     image: engawaVeranda,
     alt: "ภาพเรนเดอร์มองจากสวนช่วงหัวค่ำ ระเบียงเอ็นกาวะไม้ยกพื้นพาดเต็มหน้าบ้าน เสาไม้สี่ต้นตั้งบนตอม่อคอนกรีตรับชายคาที่ยื่นคลุม ผนังฉาบสีครีม ประตูกระจกบานเลื่อนกรอบไม้ โคมไฟติดผนังสองดวง เก้าอี้กับโต๊ะเล็กบนระเบียง บันไดไม้ขั้นเดียวลงสวนกรวด และตะเกียงหิน",
     caption: "ระเบียงเอ็นกาวะ — พื้นไม้ยกพื้น เสารับชายคายื่น บันไดลงสวนหิน",
+  },
+  {
+    image: engawaCenterSteps,
+    alt: "ภาพเรนเดอร์บ้านชั้นเดียวช่วงเย็น หลังคาจั่วเมทัลชีทเทา ท้องชายคาไม้ จันทันและเสาเหล็กสีส้มอิฐ ผนังแผ่นซีเมนต์สีเทาอ่อน หน้าต่างบานเลื่อนสามช่องที่ผนังหน้าจั่ว ระเบียงยกพื้นยาวด้านข้างใต้ชายคา บันไดลอยสามขั้นแผ่นปูนไม่มีลูกตั้ง วางกลางหัวเดคเยื้องออกจากผนังหน้าจั่ว ลงหินกลมกับทางเดินแผ่นหินบนสนามหญ้า สวนกรวด หินก้อนใหญ่ ต้นไม้ดัด และรั้วไม้เตี้ย",
+    caption: "บันไดลอย 3 ขั้น กลางหัวเดค — เยื้องออกจากผนังหน้าจั่ว ไม่มีลูกตั้ง",
   },
 ];
 

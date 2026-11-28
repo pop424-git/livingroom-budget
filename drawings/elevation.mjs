@@ -30,15 +30,16 @@ parts.push(`<rect x="-160" y="-560" width="1280" height="700" fill="#ffffff"/>`)
 parts.push(r(-160, -60, 1280, 15, "#cfcfcf"));
 for (const y of [0, 240, 480, 720, L - 25]) parts.push(r(y, -45, 25, 25, "#cf8f55"));
 parts.push(r(-10, -20, L + 20, 20, "#c9a083"));
-// Three nested treads at each end, seen side on: each slab overhangs its
-// support by the toe recess, so the treads read as stacked, floating boards.
+// Three open nested treads at each end, seen side on: bare slabs on a sloping
+// steel stringer, nothing under them, so they read as floating boards.
 const stairs = [];
 for (const [edge, dir] of [[-10, -1], [L + 10, 1]]) {
+  const pts = STAIR.stringerSide.map(([o, h]) => `${edge + dir * o},${up(h - 45)}`).join(" ");
+  stairs.push(`<polygon points="${pts}" fill="#6f6a63"/>`);
   for (let k = 1; k <= STAIR.count; k++) {
     const { drop, out } = STAIR.at(k);
     const near = Math.max(out - STAIR.tread, 0);
     const x = (a, b) => (dir > 0 ? edge + a : edge - b);
-    stairs.push(r(x(near, out - STAIR.toe), -45, out - STAIR.toe - near, 45 - drop - STAIR.slab, "#b8907a"));
     stairs.push(r(x(near, out), -drop - STAIR.slab, out - near, STAIR.slab, "#c9a083"));
     const nose = dir > 0 ? edge + out - 4 : edge - out + 1;
     stairs.push(`<rect x="${nose}" y="${up(-drop - STAIR.slab)}" width="3" height="1.5" fill="${lamp}"/>`);
@@ -126,7 +127,7 @@ parts.push(text(720, up(LINEAR_H) - 12, "โคมกล่องไม้ใต
 
 // Overall length under the ground line.
 parts.push(dimH(0, L, 95, "ยาว 960 cm"));
-parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมกล่องไม้ 2 ดวงใต้แป + strip ใต้ขอบเดคและขั้นบันได · ปรับ 23 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-140, 125, "รูปด้านหน้า · มองจากระเบียง ทิศใต้อยู่ซ้าย · โคมกล่องไม้ 2 ดวงใต้แป + strip ใต้ขอบเดคและขั้นบันไดลอย · ปรับ 28 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 const defs = `
   <linearGradient id="wallwash" x1="0" y1="0" x2="0" y2="1">

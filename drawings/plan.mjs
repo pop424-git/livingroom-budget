@@ -211,9 +211,10 @@ for (let x = -T - DECK + 20; x < -T; x += 20) {
 for (const y of [-T, 235, 480, 725, L + T - 12]) {
   parts.push(`<rect x="${-T - DECK}" y="${y}" width="12" height="12" fill="#b47a45" stroke="#7d5430" stroke-width="0.8"/>`);
 }
-// Steps: 120 wide from the wall line out, three nested treads at each end.
-// Nosings are solid lines; the recessed supports behind them dashed.
-const stairX = -T - STAIR.width;
+// Steps: 120 wide, centred on the deck's depth (40 clear of the wall line),
+// three open nested treads at each end. The two stringers under them dashed.
+const stairX = -T - STAIR.inset - STAIR.width;
+const stairX1 = stairX + STAIR.width;
 // dir -1 runs south from the south end of the deck, +1 north from the north end.
 const flight = (edge, dir) => {
   const out = [];
@@ -222,14 +223,16 @@ const flight = (edge, dir) => {
     const y0 = edge + dir * (o - STAIR.going);
     const y1 = edge + dir * o;
     out.push(`<rect x="${stairX}" y="${Math.min(y0, y1)}" width="${STAIR.width}" height="${STAIR.going}" fill="${k % 2 ? "#e8dcc8" : "#efe4d2"}" stroke="#8a7a64" stroke-width="1"/>`);
-    const back = y1 - dir * STAIR.toe;
-    out.push(`<line x1="${stairX}" y1="${back}" x2="${-T}" y2="${back}" stroke="#8a7a64" stroke-width="0.7" stroke-dasharray="3 3"/>`);
+  }
+  const foot = edge + dir * STAIR.stringerSide[1][0];
+  for (const x of [stairX + STAIR.stringer.inset, stairX1 - STAIR.stringer.inset]) {
+    out.push(`<line x1="${x}" y1="${edge}" x2="${x}" y2="${foot}" stroke="#8a7a64" stroke-width="0.8" stroke-dasharray="3 3"/>`);
   }
   return out.join("");
 };
 parts.push(flight(-T, -1), flight(L + T, 1));
-parts.push(text(stairX + STAIR.width / 2, -T - STAIR.run - 8, `บันได 3 ขั้น กว้าง ${STAIR.width}`, { size: 12, fill: soft }));
-parts.push(text(stairX + STAIR.width / 2, L + T + STAIR.run + 18, `บันได 3 ขั้น กว้าง ${STAIR.width}`, { size: 12, fill: soft }));
+parts.push(text(stairX + STAIR.width / 2, -T - STAIR.run - 8, `บันไดลอย 3 ขั้น กว้าง ${STAIR.width}`, { size: 12, fill: soft }));
+parts.push(text(stairX + STAIR.width / 2, L + T + STAIR.run + 18, `บันไดลอย 3 ขั้น กว้าง ${STAIR.width}`, { size: 12, fill: soft }));
 parts.push(`<rect x="-185" y="100" width="150" height="62" fill="#f1e8da"/>`);
 parts.push(text(-110, 125, "ระเบียง engawa", { size: 17, weight: 600 }));
 parts.push(text(-110, 150, `200 × 960 · 19.2 ตร.ม.`, { size: 13, fill: soft }));
@@ -242,7 +245,7 @@ const strip = (x1, y1, x2, y2) =>
 parts.push(strip(-T - DECK + 3, -T, -T - DECK + 3, L + T));
 for (let k = 1; k <= STAIR.count; k++) {
   const o = STAIR.at(k).out - 3; // just behind each nosing
-  for (const y of [-T - o, L + T + o]) parts.push(strip(stairX + 4, y, -T - 4, y));
+  for (const y of [-T - o, L + T + o]) parts.push(strip(stairX + 4, y, stairX1 - 4, y));
 }
 
 // Circuit 2: two wooden-box linear lamps hung under the purlin, one in each

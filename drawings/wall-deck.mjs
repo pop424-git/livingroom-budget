@@ -39,17 +39,19 @@ parts.push(rect(-60, -45, L + 120, 45, `fill="#efe6d6" stroke="${soft}" stroke-w
 parts.push(`<line x1="-60" y1="0" x2="${L + 60}" y2="0" stroke="${ink}" stroke-width="2.4"/>`);
 parts.push(`<line x1="-60" y1="${up(-45)}" x2="${L + 60}" y2="${up(-45)}" stroke="${soft}" stroke-width="1.6"/>`);
 // Three nested treads, side on; only the first 60 fit in the frame.
+// Open: bare slabs on a sloping steel stringer.
 for (const [edge, dir] of [[0, -1], [L, 1]]) {
+  const pts = STAIR.stringerSide.map(([o, h]) => `${edge + dir * o},${up(h - 45)}`).join(" ");
+  parts.push(`<polygon points="${pts}" fill="#8f8a82"/>`);
   for (let k = 1; k <= STAIR.count; k++) {
     const { drop, out } = STAIR.at(k);
     const near = Math.max(out - STAIR.tread, 0);
     const x0 = dir > 0 ? edge + near : edge - out;
-    parts.push(rect(dir > 0 ? edge + near : edge - out + STAIR.toe, -45, out - STAIR.toe - near, 45 - drop - STAIR.slab, `fill="#ddd0bc" stroke="${soft}" stroke-width="0.6"`));
     parts.push(rect(x0, -drop - STAIR.slab, out - near, STAIR.slab, `fill="#e8dcc8" stroke="${soft}" stroke-width="0.8"`));
   }
 }
-parts.push(text(-30, up(-56), "บันได 3 ขั้น", { size: 10, fill: soft }));
-parts.push(text(L + 30, up(-56), "บันได 3 ขั้น", { size: 10, fill: soft }));
+parts.push(text(-30, up(-56), "บันไดลอย 3 ขั้น", { size: 10, fill: soft }));
+parts.push(text(L + 30, up(-56), "บันไดลอย 3 ขั้น", { size: 10, fill: soft }));
 
 // LED strip under the deck edge (in front of everything), washing down.
 parts.push(`<line x1="-60" y1="${up(-4)}" x2="${L + 60}" y2="${up(-4)}" stroke="${lamp}" stroke-width="3"/>`);

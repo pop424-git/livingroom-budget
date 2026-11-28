@@ -48,20 +48,42 @@ ${body}
  * Steps at each end of the engawa, shared by every drawing.
  *
  * Three treads, so four risers share the 45 drop from deck to ground. Each
- * tread is a slab that runs 8 back under the nosing above it, over a support
- * set back by the same 8: the treads nest into each other and leave a toe
- * recess under every nosing, which keeps the flight short and hides the strip.
- * Width runs 120 out from the ridge line (the front wall face).
+ * tread is a slab that runs 8 back under the nosing above it, so the treads
+ * nest and the flight stays short. The flight is open, as in the reference
+ * photo: no risers and no solid support, only the slabs on two sloping steel
+ * stringers set 20 in from each side, so you see through under every tread.
+ * The flight is 120 wide, centred on the 200 deck: 40 clear of the gable wall
+ * line (the front wall face) and 40 in from the deck's outer edge.
  */
 export const STAIR = {
   count: 3,
   width: 120,
+  inset: 40, // clear of the wall line, and of the deck's outer edge
   rise: 45 / 4, // 11.25
   going: 20, // nosing to nosing
-  toe: 8, // recess under each nosing
-  tread: 28, // going + toe
+  lap: 8, // each slab runs this far under the one above
+  tread: 28, // going + lap
   slab: 5, // tread board thickness
+  stringer: { inset: 20, w: 8, depth: 6 }, // two steel stringers under the slabs
 };
 STAIR.run = STAIR.count * STAIR.going; // 60 out from the deck end
 /** Tread k (1 = top): height of its top below the deck, and its nosing distance from the deck end. */
 STAIR.at = (k) => ({ drop: k * STAIR.rise, out: k * STAIR.going });
+/**
+ * A stringer seen side on, as [out from the deck end, height above ground]
+ * points: a sloping bar under the middle of the top and bottom slabs, from the
+ * deck's rim beam down to a footing on the ground.
+ */
+STAIR.stringerSide = (() => {
+  const mid = (k) => {
+    const { drop, out } = STAIR.at(k);
+    return [(Math.max(out - STAIR.tread, 0) + out) / 2, 45 - drop - STAIR.slab];
+  };
+  const [x1, h1] = mid(1);
+  const [x2, h2] = mid(STAIR.count);
+  const slope = (h1 - h2) / (x2 - x1);
+  const top = (x) => h1 - slope * (x - x1);
+  const foot = x1 + h1 / slope; // where the top edge meets the ground
+  const d = STAIR.stringer.depth;
+  return [[0, top(0)], [foot, 0], [foot - d / slope, 0], [0, top(0) - d]];
+})();

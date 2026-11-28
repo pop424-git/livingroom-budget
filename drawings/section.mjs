@@ -59,17 +59,20 @@ for (const x of [-DECK - 7, -7, 193, W - 15]) {
 }
 parts.push(`<rect x="${-DECK - 12}" y="0" width="${DECK + W + 20}" height="18" fill="#e6e6e3" stroke="${ink}" stroke-width="1.2"/>`);
 
-// Steps at the end of the deck, beyond the cut, seen face on: three nested
-// treads 120 wide from the ridge line out, each nosing over a dark toe recess
-// with the LED strip tucked under it.
+// Steps at the end of the deck, beyond the cut, seen face on: three open
+// treads 120 wide, centred on the deck (40 clear of the gable wall line), on
+// two steel stringers, open between the slabs, the LED strip under each nosing.
 const step = "#e9e2d6";
-const recess = "#bfb6a6";
+const stairX0 = -STAIR.inset - STAIR.width;
+const stairX1 = -STAIR.inset;
+for (const x of [stairX0 + STAIR.stringer.inset, stairX1 - STAIR.stringer.inset - STAIR.stringer.w]) {
+  const top = STAIR.at(1).drop + STAIR.slab;
+  parts.push(`<rect x="${x}" y="${top}" width="${STAIR.stringer.w}" height="${FLOOR - top}" fill="#6f6a63"/>`);
+}
 for (let k = 1; k <= STAIR.count; k++) {
   const top = STAIR.at(k).drop;
-  const next = k === STAIR.count ? FLOOR : STAIR.at(k + 1).drop;
-  parts.push(`<rect x="${-STAIR.width}" y="${top + STAIR.slab}" width="${STAIR.width}" height="${next - top - STAIR.slab}" fill="${recess}"/>`);
-  parts.push(`<rect x="${-STAIR.width}" y="${top}" width="${STAIR.width}" height="${STAIR.slab}" fill="${step}" stroke="${ink}" stroke-width="1"/>`);
-  parts.push(`<line x1="${-STAIR.width + 3}" y1="${top + STAIR.slab + 1.2}" x2="-3" y2="${top + STAIR.slab + 1.2}" stroke="${lamp}" stroke-width="2.2" stroke-linecap="round"/>`);
+  parts.push(`<rect x="${stairX0}" y="${top}" width="${STAIR.width}" height="${STAIR.slab}" fill="${step}" stroke="${ink}" stroke-width="1"/>`);
+  parts.push(`<line x1="${stairX0 + 3}" y1="${top + STAIR.slab + 1.2}" x2="${stairX1 - 3}" y2="${top + STAIR.slab + 1.2}" stroke="${lamp}" stroke-width="2.2" stroke-linecap="round"/>`);
 }
 
 // The room, cut: front wall under the ridge, west wall at 400, roof between.
@@ -196,7 +199,9 @@ parts.push(text(W + 200, up(RIDGE) - 14, `สัน ~${m(RIDGE)} จากพื
 // Widths under the ground line.
 const dy = FLOOR + 50;
 parts.push(dimH(-DECK - EAVE_L, -DECK, dy + 40, "0.50"));
-parts.push(dimH(-STAIR.width, 0, dy + 40, "1.20 บันได จากแนวจั่ว"));
+parts.push(dimH(-DECK, stairX0, dy + 40, "0.40"));
+parts.push(dimH(stairX0, stairX1, dy + 40, "1.20 บันได"));
+parts.push(dimH(stairX1, 0, dy + 40, "0.40"));
 parts.push(dimH(-DECK, 0, dy, "2.00 (เดค)"));
 parts.push(dimH(0, W, dy, "4.00 (ตัวห้อง)"));
 parts.push(dimH(W, W + EAVE_R, dy, "1.00"));
@@ -209,7 +214,7 @@ const notes = [
 ];
 notes.forEach(([line, fill], i) => parts.push(text(-310, 200 + i * 24, line, { size: 14, anchor: "start", fill })));
 
-parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · บันได 3 ขั้นซ้อน กว้าง 1.20 · หน้าต่าง 180 × 110 ขอบล่าง 90 · หลังคาประมาณจากรูปโครงจริง รอวัด · ปรับ 23 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
+parts.push(text(-310, 158, "รูปตัด · มองไปทางทิศเหนือ · บันไดลอย 3 ขั้น กว้าง 1.20 กลางเดค · หน้าต่าง 180 × 110 ขอบล่าง 90 · หลังคาประมาณจากรูปโครงจริง รอวัด · ปรับ 28 พ.ย. 2026", { size: 15, anchor: "start", fill: "#6d6a62" }));
 
 // Step detail, side view at 3:1, below the notes.
 {
@@ -224,13 +229,17 @@ parts.push(text(-310, 158, "รูปตัด · มองไปทางทิ
   g.push(`<rect x="${X(-30)}" y="${oy}" width="${(STAIR.run + 70) * k}" height="10" fill="url(#ground)"/>`);
   // Deck end, boards on top.
   g.push(`<rect x="${X(-30)}" y="${Y(FLOOR)}" width="${30 * k}" height="${18 * k}" fill="#e6e6e3" stroke="${ink}" stroke-width="1.2"/>`);
+  // Sloping steel stringer from the deck's rim beam to a footing; open under it.
+  g.push(`<polygon points="${STAIR.stringerSide.map(([o, h]) => `${X(o)},${Y(h)}`).join(" ")}" fill="#8f8a82" stroke="${ink}" stroke-width="1"/>`);
+  {
+    const [foot] = STAIR.stringerSide[1];
+    g.push(`<rect x="${X(foot - 16)}" y="${oy - 2 * k}" width="${20 * k}" height="${2 * k}" fill="#d9d9d6" stroke="${ink}" stroke-width="1"/>`);
+  }
   for (let i = 1; i <= STAIR.count; i++) {
     const { drop, out } = STAIR.at(i);
     const top = FLOOR - drop;
     const front = out;
     const back = out - STAIR.tread;
-    // Support, set back by the toe recess, down to the ground.
-    g.push(`<rect x="${X(Math.max(back, 0))}" y="${Y(top - STAIR.slab)}" width="${(front - STAIR.toe - Math.max(back, 0)) * k}" height="${(top - STAIR.slab) * k}" fill="#ddd3c2" stroke="${ink}" stroke-width="1"/>`);
     // Tread slab.
     g.push(`<rect x="${X(Math.max(back, 0))}" y="${Y(top)}" width="${(front - Math.max(back, 0)) * k}" height="${STAIR.slab * k}" fill="${step}" stroke="${ink}" stroke-width="1.2"/>`);
     // Strip under the nosing, lighting the tread below.
@@ -251,9 +260,9 @@ parts.push(text(-310, 158, "รูปตัด · มองไปทางทิ
   const note = (y, t, fill = ink) => g.push(text(200, y, t, { size: 14, anchor: "start", fill }));
   note(360, "· 3 ขั้น = ลูกตั้ง 4 ช่วง ช่วงละ 11.25 (พื้นเดค → ขั้น 1 → 2 → 3 → พื้นดิน)");
   note(384, "· ลูกนอน (จมูกถึงจมูก) 20 · แผ่นขั้นลึก 28 สอดเข้าใต้ขั้นบน 8");
-  note(408, "· ใต้จมูกทุกขั้นเว้นช่องสอดเท้า ลึก 8 สูง ~6 — ลูกตั้งถอยเข้าไปในเงา");
-  note(432, "  ขั้นเลยดูลอยซ้อนกัน ไม่ดูยาว ยื่นจากปลายเดคแค่ 60");
-  note(456, "· กว้าง 120 วัดจากแนวจั่ว (หน้าผนัง) ออกไปทางสวน ทั้งฝั่งเหนือและใต้");
+  note(408, "· บันไดโล่ง ไม่มีลูกตั้ง ไม่มีฐานทึบ — แผ่นขั้นวางบนเหล็กลาด 2 เส้น ห่างขอบข้างละ 20");
+  note(432, "  ใต้ขั้นมองทะลุได้ ขั้นดูลอยซ้อนกัน ยื่นจากปลายเดคแค่ 60 · ตีนเหล็กลงฐานปูน");
+  note(456, "· กว้าง 120 กลางความลึกเดค: ห่างแนวจั่ว 40 ห่างขอบนอก 40 ทั้งเหนือ-ใต้");
   note(480, "· แผ่นขั้นหนา ~5 ซม. · strip IP67 ซ่อนใต้จมูก ส่องลงขั้นถัดไป 3 แนว/ฝั่ง", lamp);
   parts.push(g.join(""));
 }
